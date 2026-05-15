@@ -2,16 +2,16 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "TRONVoice",
-  "description": "Documentation for TRONVoice — the invoicing platform for Dutch businesses.",
+  "description": "Documentatie en helpcentrum van TRONVoice, het facturatieplatform voor Nederlandse ondernemers.",
+  "favicon": "https://media.brand.dev/55480c38-4203-413d-8622-69e15c7b6ed1.jpg",
+  "logo": {
+    "light": "/logo/logo.png",
+    "dark": "/logo/logo.png"
+  },
   "colors": {
     "primary": "#fc2c24",
     "light": "#040404",
     "dark": "#e29d78"
-  },
-  "favicon": "https://media.brand.dev/55480c38-4203-413d-8622-69e15c7b6ed1.jpg",
-  "logo": {
-    "light": "https://media.brand.dev/a38501a7-458d-4f61-8fc0-8bd969c561f8.svg",
-    "dark": "https://media.brand.dev/a38501a7-458d-4f61-8fc0-8bd969c561f8.svg"
   },
   "icons": {
     "library": "lucide"
@@ -25,122 +25,122 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Docs",
+        "tab": "Documentatie",
         "groups": [
           {
-            "group": "Get started",
+            "group": "Aan de slag",
             "pages": [
-              "introduction",
-              "quickstart",
-              "account-setup",
-              "logging-in",
+              "introductie",
+              "snel-aan-de-slag",
+              "account-aanmaken",
+              "inloggen",
               "dashboard"
             ]
           },
           {
-            "group": "Invoicing",
+            "group": "Factureren",
             "pages": [
-              "invoices/overview",
-              "invoices/create",
-              "invoices/send",
-              "invoices/scheduling",
-              "invoices/payment-tracking",
-              "invoices/reminders",
-              "invoices/credit-notes",
-              "invoices/g-account",
-              "invoices/e-invoicing",
-              "invoices/bulk-actions",
-              "invoices/import-export"
+              "facturen/overzicht",
+              "facturen/aanmaken",
+              "facturen/versturen",
+              "facturen/inplannen",
+              "facturen/betalingen-volgen",
+              "facturen/herinneringen",
+              "facturen/creditfacturen",
+              "facturen/g-rekening",
+              "facturen/e-facturatie",
+              "facturen/bulkacties",
+              "facturen/import-export"
             ]
           },
           {
-            "group": "Quotes",
+            "group": "Offertes",
             "pages": [
-              "quotes/overview",
-              "quotes/create",
-              "quotes/templates",
-              "quotes/acceptance",
-              "quotes/convert-to-invoice"
+              "offertes/overzicht",
+              "offertes/aanmaken",
+              "offertes/sjablonen",
+              "offertes/accepteren",
+              "offertes/omzetten-naar-factuur"
             ]
           },
           {
-            "group": "Recurring invoices",
+            "group": "Abonnementen",
             "pages": [
-              "subscriptions/overview",
-              "subscriptions/create",
-              "subscriptions/managing"
+              "abonnementen/overzicht",
+              "abonnementen/aanmaken",
+              "abonnementen/beheren"
             ]
           },
           {
-            "group": "Clients & products",
+            "group": "Klanten & producten",
             "pages": [
-              "clients/overview",
-              "clients/managing",
-              "clients/import",
-              "products/overview",
-              "products/categories",
-              "products/inventory",
-              "locations"
+              "klanten/overzicht",
+              "klanten/beheren",
+              "klanten/importeren",
+              "producten/overzicht",
+              "producten/categorieen",
+              "producten/voorraad",
+              "locaties"
             ]
           },
           {
-            "group": "Payments & banking",
+            "group": "Betalingen & bankzaken",
             "pages": [
-              "payments/mollie",
-              "payments/bunq",
-              "payments/sepa-direct-debit",
-              "payments/incasso-batches",
-              "payments/bank-connections",
-              "payments/bank-import",
-              "payments/reconciliation"
+              "betalingen/mollie",
+              "betalingen/bunq",
+              "betalingen/sepa-incasso",
+              "betalingen/incassobatches",
+              "betalingen/bankkoppelingen",
+              "betalingen/bankimport",
+              "betalingen/afletteren"
             ]
           },
           {
-            "group": "Trip & hours registration",
+            "group": "Rit- & urenregistratie",
             "pages": [
-              "registration/overview",
-              "registration/vehicles",
-              "registration/trips",
-              "registration/hours"
+              "registratie/overzicht",
+              "registratie/voertuigen",
+              "registratie/ritten",
+              "registratie/uren"
             ]
           },
           {
-            "group": "Productivity",
+            "group": "Productiviteit",
             "pages": [
-              "productivity/tasks",
-              "productivity/inbox",
-              "productivity/statistics"
+              "productiviteit/taken",
+              "productiviteit/inbox",
+              "productiviteit/statistieken"
             ]
           },
           {
-            "group": "Integrations",
+            "group": "Integraties",
             "pages": [
-              "integrations/overview",
-              "integrations/exact-online",
-              "integrations/minox",
-              "integrations/sharepoint",
-              "integrations/email-domain"
+              "integraties/overzicht",
+              "integraties/exact-online",
+              "integraties/minox",
+              "integraties/sharepoint",
+              "integraties/eigen-emaildomein"
             ]
           },
           {
-            "group": "Account & settings",
+            "group": "Account & instellingen",
             "pages": [
-              "settings/administrations",
-              "settings/branding",
-              "settings/email-templates",
-              "settings/languages",
-              "settings/users-and-roles",
-              "settings/profile-security",
-              "settings/notifications",
-              "settings/credits",
-              "settings/account-billing"
+              "instellingen/administraties",
+              "instellingen/huisstijl",
+              "instellingen/emailsjablonen",
+              "instellingen/talen",
+              "instellingen/gebruikers-en-rollen",
+              "instellingen/profiel-en-beveiliging",
+              "instellingen/notificaties",
+              "instellingen/credits",
+              "instellingen/facturatie-en-abonnement"
             ]
           },
           {
-            "group": "Help & resources",
+            "group": "Hulp & naslag",
             "pages": [
-              "support",
-              "glossary"
+              "hulp",
+              "begrippenlijst"
             ]
           }
         ]
@@ -150,13 +150,13 @@
   "navbar": {
     "links": [
       {
-        "label": "Contact support",
+        "label": "Contact opnemen",
         "href": "mailto:support@tronvoice.eu"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Go to app",
+      "label": "Naar de app",
       "href": "https://app.tronvoice.eu"
     }
   }

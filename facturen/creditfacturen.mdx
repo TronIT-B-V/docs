@@ -1,0 +1,98 @@
+---
+title: "Creditfacturen: een factuur corrigeren of terugdraaien"
+description: "Lees wanneer je een creditfactuur maakt, hoe je er een aanmaakt vanuit een bestaande factuur, hoe je hem naar je klant verstuurt en wat er in Exact Online gebeurt."
+---
+
+Een creditfactuur is een document dat een eerder verstuurde factuur volledig of gedeeltelijk terugdraait. Je maakt een creditfactuur wanneer je een fout moet corrigeren, een bedrag wilt terugbetalen of een kostenpost wilt annuleren nadat de factuur al verstuurd is.
+
+## Wanneer gebruik je een creditfactuur
+
+Gebruik een creditfactuur als:
+- Je een factuur moet corrigeren die al naar een klant is verstuurd.
+- Een klant een product retourneert of een dienst annuleert na het factureren.
+- Je een fout hebt gemaakt in het bedrag, de btw of de regels op een verstuurde factuur.
+- Je een factuur wilt annuleren zonder hem te verwijderen. Verstuurde facturen kun je namelijk niet verwijderen.
+
+<Note>
+Je kunt alleen een creditfactuur maken voor facturen met de status **Verzonden**. Conceptfacturen verwijder je gewoon. Betaalde facturen kun je ook crediteren als je een terugbetaling wilt vastleggen.
+</Note>
+
+<Warning>
+Je kunt geen creditfactuur maken voor een factuur die al gecrediteerd is. Elke factuur kan maar één creditfactuur hebben.
+</Warning>
+
+## Een creditfactuur aanmaken
+
+<Steps>
+  <Step title="Open de originele factuur">
+    Ga naar **Facturen** en open de factuur die je wilt crediteren. De factuur moet de status **Verzonden** hebben (of **Betaald**).
+  </Step>
+  <Step title="Klik op Factuur crediteren">
+    Klik op de detailpagina van de factuur op **Factuur crediteren** (of op de creditknop in het actiemenu).
+
+    TRONVoice vraagt je om te bevestigen. Zodra je dat doet, wordt de creditfactuur direct aangemaakt.
+  </Step>
+  <Step title="Controleer de creditfactuur">
+    TRONVoice brengt je naar de nieuwe creditfactuur. Die bevat dezelfde regels als de originele factuur, maar met negatieve bedragen en aantallen. Het nummer van de creditfactuur volgt het formaat `C-{originele factuurnummer}`, bijvoorbeeld `C-F-2025-00042`.
+
+    De originele factuur staat nu op **Gecrediteerd** en is vergrendeld. Er worden geen herinneringen meer voor verstuurd.
+  </Step>
+  <Step title="Pas aan indien nodig">
+    De creditfactuur wordt als concept aangemaakt. Je kunt hem bewerken voordat je hem verstuurt, bijvoorbeeld om gedeeltelijk te crediteren door aantallen of bedragen op de regels aan te passen.
+  </Step>
+</Steps>
+
+## Een creditfactuur versturen
+
+Als je tevreden bent met de creditfactuur, verstuur je hem net als een gewone factuur naar de klant.
+
+<Steps>
+  <Step title="Open de creditfactuur">
+    De creditfactuur staat in je facturenoverzicht met de status **Concept** en een creditlabel. Open hem.
+  </Step>
+  <Step title="Klik op Verzenden">
+    Klik op **Verzenden**. Kies of je naar de klant, de administratie of allebei verstuurt.
+  </Step>
+  <Step title="Bevestig">
+    De creditfactuur wordt verstuurd met het e-mailsjabloon **Creditfactuur naar klant**. De e-mail legt de klant uit wat de creditfactuur betekent en verwijst naar het originele factuurnummer.
+  </Step>
+</Steps>
+
+De klant-e-mail bij creditfacturen bevat:
+- De pdf van de creditfactuur als bijlage.
+- Een duidelijke uitleg dat het bedrag verrekend wordt met toekomstige facturen of terugbetaald wordt.
+- Een verwijzing naar het originele factuurnummer.
+
+Je kunt dit e-mailsjabloon aanpassen via **Instellingen → E-mailsjablonen → Creditfactuur naar klant**.
+
+<Note>
+Het versturen van een creditfactuur kost **geen** credits. Alleen uitgaande facturen (gewone facturen) gaan af van je creditsaldo.
+</Note>
+
+## Effect op Exact Online
+
+Is je administratie gekoppeld aan Exact Online? Dan worden creditfacturen zo verwerkt:
+
+- Zodra een creditfactuur verstuurd is, wordt hij automatisch gesynchroniseerd met Exact Online als een negatieve verkoopfactuur (creditnota).
+- De synchronisatie gebruikt dezelfde Exact Online-factuurnummerreeks als gewone facturen.
+- De betaalstatus van creditfacturen wordt ook gesynchroniseerd: zodra de creditfactuur verwerkt is (gemarkeerd als betaald of afgeletterd), zie je die status terug in TRONVoice.
+
+<Note>
+Alleen verstuurde creditfacturen worden gesynchroniseerd met Exact Online. Conceptcreditfacturen worden pas doorgezet nadat ze verstuurd zijn.
+</Note>
+
+Mislukt de synchronisatie, bijvoorbeeld door een verbindingsprobleem? Dan kun je de synchronisatiestatus bekijken op de detailpagina van de creditfactuur. Je kunt handmatig opnieuw synchroniseren via de administratie-instellingen onder **Exact Online → Facturen synchroniseren**.
+
+## Veelgestelde vragen
+
+**Kan ik gedeeltelijk crediteren?**
+Ja. Nadat je het concept van de creditfactuur hebt aangemaakt, pas je de aantallen of bedragen op de regels aan voordat je hem verstuurt. Je hoeft niet het volledige factuurbedrag te crediteren.
+
+**Wat gebeurt er met de betaallink op de originele factuur?**
+Zodra een factuur gecrediteerd is, wordt de betaallink uitgeschakeld. Klanten die erop klikken, zien dat de factuur geannuleerd is.
+
+**Kan ik een creditfactuur verwijderen?**
+Ja, zolang het nog een concept is. Verstuurde creditfacturen kun je niet verwijderen. Heb je per ongeluk een creditfactuur verstuurd? Neem dan contact op met je boekhouder om de correctie in je boekhouding af te handelen.
+
+**Heeft het crediteren van een factuur invloed op mijn omzetcijfers?**
+Ja. Gecrediteerde facturen tellen niet mee in de omzettotalen in de dashboards en rapporten van TRONVoice. De creditfactuur verlaagt je gerapporteerde omzet met het gecrediteerde bedrag.

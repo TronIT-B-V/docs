@@ -1,0 +1,91 @@
+---
+title: "Betalingen accepteren met bunq.me"
+description: "Voeg een gratis bunq.me-betaallink toe aan je facturen, zodat klanten via iDEAL betalen zonder transactiekosten en het geld direct op je bunq-rekening binnenkomt."
+---
+
+Met een bunq.me-betaallink kunnen je klanten een factuur snel betalen via iDEAL, zonder transactiekosten. De link verwijst rechtstreeks naar je persoonlijke bunq.me-pagina, dus het geld komt direct op je bunq-rekening binnen. Je hoeft niets in te stellen, behalve je bunq.me-gebruikersnaam invoeren.
+
+<Note>
+  bunq.me stel je **per administratie** in op het scherm **Integraties**, onder het tabblad **Betalingen**. Heb je meerdere administraties? Dan zet je het voor elke administratie apart aan.
+</Note>
+
+## Wat is bunq.me
+
+bunq.me is een gratis betaalverzoekfunctie van de Nederlandse bank bunq. Bij elke bunq-rekening hoort een persoonlijke link in de vorm `bunq.me/jouw-naam`. Als TRONVoice een factuur aanmaakt, bouwt het een bunq.me-link op waarin het factuurtotaal en het factuurnummer al zijn ingevuld. Je klant opent de link, betaalt via iDEAL en de betaling gaat rechtstreeks naar je bunq-rekening.
+
+Omdat de betaling via je eigen bunq.me-pagina loopt, **rekent bunq geen transactiekosten** voor bunq.me-betalingen, anders dan de meeste payment service providers.
+
+## bunq.me aanzetten
+
+<Steps>
+  <Step title="Open het scherm Integraties">
+    Ga naar **Instellingen → Integraties** en kies de administratie die je wilt instellen. Open het tabblad **Betalingen**.
+  </Step>
+  <Step title="Open de bunq-kaart">
+    Klik op de kaart **bunq**. Is er voor deze administratie al een andere betaalprovider actief, dan zie je een waarschuwing. Er kan namelijk maar één betaalprovider tegelijk actief zijn (zie [bunq.me of Mollie](#bunqme-of-mollie)).
+  </Step>
+  <Step title="Voer je bunq.me-gebruikersnaam in">
+    Typ de gebruikersnaam uit je bunq.me-link in het veld **bunq.me gebruikersnaam**. Dat is het deel achter `bunq.me/`. In `bunq.me/jouwbedrijf` is de gebruikersnaam dus `jouwbedrijf`. De gebruikersnaam mag letters, cijfers, streepjes en underscores bevatten.
+  </Step>
+  <Step title="Activeren">
+    Klik op **Activeren**. bunq.me is nu de betaalprovider voor deze administratie.
+  </Step>
+</Steps>
+
+<Tip>
+  Na het activeren toont de bunq-kaart een **test betaallink** van €100,00. Open die om te controleren of je gebruikersnaam klopt en je bunq.me-pagina goed laadt.
+</Tip>
+
+## Hoe de betaallink verschijnt
+
+Zodra bunq.me aanstaat, krijgt elke **verstuurde** factuur van die administratie automatisch een bunq.me-betaallink. De link bevat:
+
+- **Je bunq.me-gebruikersnaam**, zodat de betaling naar jouw rekening gaat.
+- **Het factuurtotaal**, het volledige openstaande bedrag inclusief btw.
+- **Het factuurnummer**, dat als omschrijving van de betaling wordt gebruikt, zodat je de binnenkomende betaling kunt koppelen aan de factuur.
+
+De link is op twee plekken te vinden:
+
+- **In de factuurmail**: als je een factuur verstuurt, bevat de mail een knop om de factuur online te bekijken en te betalen.
+- **Op de openbare factuurpagina**: de klant opent de factuur in zijn browser en klikt op de bunq.me-betaalknop om direct via iDEAL te betalen.
+
+Een klant kan een factuur alleen online betalen zolang die de status **Verstuurd** heeft. Conceptfacturen, creditfacturen en facturen met een totaal van nul of een negatief totaal tonen geen betaalknop.
+
+## bunq.me of Mollie
+
+Een administratie gebruikt **of** Mollie **of** bunq.me als betaalprovider, niet allebei. Als je de ene activeert, gaat de andere automatisch uit. De twee opties werken anders:
+
+| | bunq.me | Mollie |
+| --- | --- | --- |
+| Instellen | Je bunq.me-gebruikersnaam invoeren | Een Mollie-account koppelen |
+| Transactiekosten | Geen | Volgens de tarieven van Mollie |
+| Betaalmethoden | iDEAL | iDEAL, creditcard, Bancontact en meer |
+| Factuurstatus bijwerken | Handmatig, zie hieronder | Automatisch via webhook |
+
+Het belangrijkste verschil zit in het bijhouden van de status. [Mollie](/betalingen/mollie) geeft het via een webhook door aan TRONVoice en zet de factuur binnen enkele seconden automatisch op **Betaald**. Een bunq.me-link is een gewone betaallink **zonder automatische statusupdate**. TRONVoice kan niet weten wanneer een bunq.me-betaling is afgerond.
+
+<Warning>
+  Als een klant via een bunq.me-link betaalt, blijft de factuur op **Verstuurd** staan totdat je hem aflettert. Controleer je bunq-rekening op de binnenkomende betaling en zet de factuur daarna op betaald in TRONVoice, handmatig of via het afletteren van banktransacties.
+</Warning>
+
+Omdat het factuurnummer als omschrijving van de betaling wordt meegestuurd, is een binnenkomende bunq.me-betaling makkelijk te koppelen. Heeft je administratie ook een bankkoppeling, dan kan de betaling automatisch worden gekoppeld tijdens het afletteren. Zie [Banktransacties afletteren](/betalingen/afletteren) voor hoe je facturen op betaald zet.
+
+## Je gebruikersnaam wijzigen of de koppeling verwijderen
+
+Wil je de gebruikersnaam aanpassen? Open de kaart **bunq**, pas het veld **bunq.me gebruikersnaam** aan en klik op **Opslaan**.
+
+Wil je de integratie uitzetten? Open de kaart en klik op **Koppeling verwijderen**. De gebruikersnaam wordt gewist en nieuwe facturen bevatten geen bunq.me-link meer. Al verstuurde facturen veranderen niet.
+
+## Problemen oplossen
+
+**De bunq.me-link verschijnt niet op een factuur**
+
+Controleer of de factuur de status **Verstuurd** heeft en een positief totaal, en of bunq.me voor die administratie is geactiveerd. Concept- en creditfacturen tonen nooit een betaallink.
+
+**Een klant heeft betaald, maar de factuur staat nog op Verstuurd**
+
+Dat klopt. bunq.me-links geven de betaalstatus niet terug aan TRONVoice. Controleer de betaling op je bunq-rekening en zet de factuur op betaald, zie [Banktransacties afletteren](/betalingen/afletteren).
+
+**De betaalpagina toont het verkeerde bedrag of de verkeerde naam**
+
+Het bedrag komt uit het factuurtotaal en de naam uit je opgeslagen bunq.me-gebruikersnaam. Open de kaart **bunq** en controleer of de gebruikersnaam exact overeenkomt met je bunq.me-link.

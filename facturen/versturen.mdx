@@ -1,0 +1,109 @@
+---
+title: "Een factuur naar je klant versturen"
+description: "Hoe je een TRONVoice-factuur per e-mail verstuurt, inplant voor een latere datum, in bulk verstuurt, een betaallink deelt of handmatig als verzonden markeert."
+---
+
+Zodra je een conceptfactuur klaar hebt, kun je hem naar je klant versturen. TRONVoice verstuurt de factuur als pdf-bijlage per e-mail, kent het definitieve factuurnummer toe en begint vanaf dat moment de betaaltermijn te volgen.
+
+<Note>
+Voordat je een factuur kunt versturen, moet je administratie een IBAN hebben ingesteld. Ontbreekt het IBAN, dan toont TRONVoice een foutmelding en stuurt het je naar de administratie-instellingen.
+</Note>
+
+## Direct versturen
+
+<Steps>
+  <Step title="Open de factuur">
+    Ga naar **Facturen**, zoek de conceptfactuur die je wilt versturen en open hem.
+  </Step>
+  <Step title="Klik op Versturen">
+    Klik op de knop **Versturen**. Er verschijnt een bevestigingsvenster waarin je kunt kiezen:
+    - **Verstuur naar klant**: verstuurt de factuur naar het e-mailadres van de klant.
+    - **Verstuur naar admin**: verstuurt een bcc-kopie naar het e-mailadres dat voor je administratie is ingesteld.
+
+    Beide opties staan standaard aan. Je kunt ze allebei uitzetten als dat nodig is.
+  </Step>
+  <Step title="Bevestig">
+    Klik op **Factuur versturen**. TRONVoice zet de e-mail in de wachtrij en je keert terug naar de factuurdetailpagina. De factuurstatus verandert in **Verzonden**.
+  </Step>
+</Steps>
+
+De e-mail naar je klant gebruikt het e-mailsjabloon **Factuur naar klant**. Je kunt de onderwerpregel en de tekst aanpassen via **Instellingen → E-mailsjablonen**.
+
+Er wordt **€0,65 aan credits** van je accountsaldo afgeschreven wanneer de factuur wordt verstuurd. Heb je het maandelijkse maximum van €16,25 bereikt, dan wordt de factuur gratis verstuurd.
+
+## Verzending inplannen voor een latere datum
+
+Je kunt een factuur instellen om automatisch op een datum en tijd in de toekomst te versturen. Handig voor facturatie aan het einde van de maand, of wanneer je facturen vooraf wilt klaarzetten.
+
+<Steps>
+  <Step title="Open de conceptfactuur">
+    Ga naar **Facturen** en open het concept dat je wilt inplannen.
+  </Step>
+  <Step title="Open de inplanopties">
+    Klik op **Inplannen** (of het kalenderpictogram naast de knop Versturen). Er verschijnt een datum- en tijdkiezer.
+  </Step>
+  <Step title="Stel de datum en tijd in">
+    Kies een datum (vandaag of later) en een tijd in stappen van 15 minuten. De datum en tijd moeten in de toekomst liggen.
+  </Step>
+  <Step title="Kies de ontvangers">
+    Kies of je verstuurt naar de klant, naar de admin of naar beide.
+  </Step>
+  <Step title="Bevestig">
+    Klik op **Inplannen**. De factuurdetailpagina toont de geplande verzenddatum. De factuur blijft een concept tot dat moment.
+  </Step>
+</Steps>
+
+Om een geplande verzending te annuleren, open je de factuur en klik je op **Annuleer planning**.
+
+## In bulk versturen
+
+Je kunt meerdere conceptfacturen tegelijk versturen vanuit het factuuroverzicht.
+
+<Steps>
+  <Step title="Selecteer facturen">
+    Vink in het overzicht **Facturen** de selectievakjes aan naast de conceptfacturen die je wilt versturen.
+  </Step>
+  <Step title="Open de bulkacties">
+    Klik op **Bulkacties** en kies **Geselecteerde facturen versturen**.
+  </Step>
+  <Step title="Kies de ontvangers en bevestig">
+    Kies of je verstuurt naar klanten, admins of beide. Klik op **Versturen**. TRONVoice verwerkt elke factuur achter elkaar.
+  </Step>
+</Steps>
+
+Facturen worden overgeslagen (met een waarschuwing) als:
+- De administratie geen IBAN heeft ingesteld.
+- Vandaag een uitgesloten factuurdag is voor de klant.
+- Je niet genoeg credits hebt voor het aantal facturen dat verstuurd wordt.
+
+## Een factuur opnieuw versturen
+
+Heeft een klant de e-mail niet ontvangen of kwijtgeraakt, dan kun je een verzonden factuur opnieuw versturen zonder de status of het nummer te wijzigen.
+
+Open de factuur en klik op **Opnieuw versturen**. Het verzendvenster verschijnt met dezelfde ontvangeropties. Opnieuw versturen kost geen extra credits.
+
+Je kunt ook meerdere verzonden facturen tegelijk opnieuw versturen vanuit het factuuroverzicht via **Bulkacties → Geselecteerde opnieuw versturen**.
+
+## Betaallink
+
+Heeft je administratie Mollie (iDEAL) ingesteld, dan bevat elke verzonden factuur een **betaallink** in de e-mail. Klanten kunnen op deze link klikken om direct online te betalen. De link opent een beveiligde, openbare betaalpagina met de factuurgegevens.
+
+De betaal-URL is op een token gebaseerd en uniek per factuur. Je klant heeft er geen TRONVoice-account voor nodig.
+
+Wanneer een klant via iDEAL betaalt, wordt de factuur automatisch op **Betaald** gezet en wordt er een betaalbevestiging naar de klant gestuurd.
+
+<Tip>
+Wil je de betaallink handmatig delen (bijvoorbeeld via WhatsApp), dan kun je hem kopiëren vanaf de factuurdetailpagina onder het kopje **Betaling**.
+</Tip>
+
+Is in plaats van Mollie bunq ingesteld, dan verwijst de betaallink naar een bunq.me-pagina die vooraf is ingevuld met het factuurbedrag en het factuurnummer.
+
+## Markeren als verzonden (zonder e-mail)
+
+Heb je de factuur al buiten TRONVoice om verstuurd, bijvoorbeeld per post of via een ander systeem, dan kun je hem handmatig als verzonden markeren. Hiermee wordt het definitieve factuurnummer toegekend en gaat de betaaltermijn lopen, zonder dat er een e-mail wordt verstuurd.
+
+Open de conceptfactuur en klik op **Markeer als verzonden**. De status verandert in **Verzonden** en er wordt een credit van je saldo afgeschreven.
+
+<Warning>
+Je kunt "Markeer als verzonden" niet ongedaan maken. Moet je na het markeren nog wijzigingen aanbrengen, dan gebruik je de bewerkfunctie (als die voor je administratie is ingeschakeld) of stel je een creditfactuur op.
+</Warning>

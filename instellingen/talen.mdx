@@ -1,0 +1,102 @@
+---
+title: "Talen: meertalig factureren en datumnotaties"
+description: "Maak facturen, offertes en e-mails in het Nederlands, Engels, Duits, Frans of Spaans en kies de datumnotatie die bij elke markt past."
+---
+
+TRONVoice kan je facturen, creditfacturen, offertes en uitgaande e-mails maken in vijf talen: Nederlands, Engels, Duits, Frans en Spaans. Elke klant kan documenten in zijn eigen taal ontvangen, terwijl jij in je eigen taal blijft werken.
+
+Je stelt per administratie een **standaard documenttaal** en een **datumnotatie** in, en je kunt de taal **per klant** overschrijven. Als je een document verstuurt, kiest TRONVoice automatisch de juiste taal voor die klant.
+
+## Ondersteunde talen
+
+TRONVoice ondersteunt de volgende vijf talen voor factuur- en offerte-pdf's en voor uitgaande e-mails:
+
+| Code | Taal |
+|---|---|
+| `nl` | Nederlands |
+| `en` | English |
+| `de` | Deutsch |
+| `fr` | Français |
+| `es` | Español |
+
+## De standaardtaal van de administratie instellen
+
+De standaardtaal wordt gebruikt voor elke klant die geen eigen voorkeurstaal heeft. Nieuwe administraties staan standaard op **Nederlands**.
+
+<Steps>
+  <Step title="Open de administratie-instellingen">
+    Ga naar **Instellingen → Administratie → Bewerken** voor de administratie die je wilt instellen.
+  </Step>
+  <Step title="Kies de standaardtaal">
+    Selecteer een taal onder **Standaardtaal**. Dit wordt de terugvaltaal voor alle documenten in deze administratie.
+  </Step>
+  <Step title="Opslaan">
+    Klik op **Opslaan**. De wijziging geldt voor documenten die je vanaf nu aanmaakt.
+  </Step>
+</Steps>
+
+## Een voorkeurstaal per klant instellen
+
+Je kunt een individuele klant een voorkeurstaal geven. **De taal van de klant overschrijft altijd de standaardtaal van de administratie**, zodat elke klant documenten in zijn eigen taal ontvangt zonder extra handelingen.
+
+<Steps>
+  <Step title="Open de klant">
+    Ga naar **Klanten**, open de klant die je wilt instellen en klik op **Bewerken**.
+  </Step>
+  <Step title="Kies de taal van de klant">
+    Selecteer een taal onder **Taal**. Laat het veld leeg om de klant de standaardtaal van de administratie te laten volgen.
+  </Step>
+  <Step title="Opslaan">
+    Klik op **Opslaan**. Alle volgende facturen, offertes en e-mails voor deze klant gebruiken de gekozen taal.
+  </Step>
+</Steps>
+
+<Info>
+  TRONVoice bepaalt de taal van een document in deze volgorde:
+
+  1. De voorkeurstaal van de klant, als die is ingesteld.
+  2. De standaardtaal van de administratie.
+  3. Nederlands (`nl`), als laatste terugval.
+</Info>
+
+## Hoe de taal documenten beïnvloedt
+
+De bepaalde taal wordt toegepast op het hele document, niet alleen op de lopende tekst.
+
+<CardGroup cols={2}>
+  <Card title="Factuur- en offerte-pdf's" icon="file-text">
+    Veldlabels, koppen, betalingstermijnen en btw-vermeldingen op de pdf worden weergegeven in de taal van de klant. Lange datumnotaties gebruiken vertaalde maandnamen.
+  </Card>
+  <Card title="Uitgaande e-mails" icon="mail">
+    De e-mail die bij het document hoort, gebruikt de bijbehorende vertaling van het e-mailsjabloon voor die taal.
+  </Card>
+</CardGroup>
+
+### E-mails gebruiken de bijbehorende sjabloonvertaling
+
+E-mailsjablonen worden per taal opgeslagen. Als TRONVoice een factuur, offerte, herinnering of andere melding verstuurt, laadt het het sjabloon in de bepaalde taal van de klant. Bestaat er voor die taal geen aangepast sjabloon, dan wordt het ingebouwde standaardsjabloon voor die taal gebruikt.
+
+<Tip>
+  Je hoeft alleen de e-mailsjablonen aan te passen voor de talen die je klanten daadwerkelijk gebruiken. Bekijk [E-mailsjablonen](/instellingen/emailsjablonen) voor het bewerken van het onderwerp en de tekst per taal.
+</Tip>
+
+## Datumnotaties
+
+De datumnotatie bepaalt hoe datums zoals de factuurdatum en de vervaldatum op pdf's worden afgedrukt. Je stelt die per administratie in onder **Instellingen → Administratie → Bewerken** en standaard staat die op `DD-MM-JJJJ`.
+
+| Notatie | Voorbeeld |
+|---|---|
+| `DD-MM-JJJJ` | 15-01-2026 |
+| `DD/MM/JJJJ` | 15/01/2026 |
+| `DD.MM.JJJJ` | 15.01.2026 |
+| `MM/DD/JJJJ` | 01/15/2026 |
+| `JJJJ-MM-DD` | 2026-01-15 |
+| `DD Maand JJJJ` | 15 januari 2026 |
+
+<Note>
+  De lange notatie **DD Maand JJJJ** schrijft de maandnaam voluit. De maandnaam wordt automatisch vertaald naar de taal van het document. Zo wordt `15 januari 2026` in het Nederlands `15 January 2026` in het Engels.
+</Note>
+
+<Warning>
+  De datumnotatie geldt voor de hele administratie. Je stelt die niet per klant in, dus alle klanten in dezelfde administratie delen dezelfde datumnotatie. Gebruik een taal per klant als je alleen de documenttaal wilt aanpassen.
+</Warning>

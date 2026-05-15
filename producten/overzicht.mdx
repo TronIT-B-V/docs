@@ -1,0 +1,105 @@
+---
+title: "Producten en diensten beheren"
+description: "Maak de producten en diensten aan die je factureert en breng ze op orde. Stel prijzen, btw-tarieven en categorieën in, en houd optioneel je voorraad bij met een volledig mutatielogboek."
+---
+
+Producten zijn de regels die je toevoegt aan facturen, offertes en abonnementen. Definieer je ze één keer, dan kies je ze voortaan op naam in plaats van elke keer opnieuw een omschrijving en prijs in te typen.
+
+## Een product aanmaken
+
+<Steps>
+  <Step title="Open het productenoverzicht">
+    Ga naar **Producten** in de hoofdnavigatie en klik op **Nieuw product**.
+  </Step>
+  <Step title="Vul de productgegevens in">
+    De velden op het productformulier:
+
+    | Veld | Toelichting |
+    |---|---|
+    | Naam | Verplicht. Komt op de factuur te staan. |
+    | Artikelnummer | Optionele interne referentie of leverancierscode. |
+    | Omschrijving | Standaard regelomschrijving die wordt gebruikt als je het product op een factuur zet. |
+    | Prijs (excl. btw) | De standaard verkoopprijs per eenheid. |
+    | Kostprijs | Jouw inkoopprijs. Wordt gebruikt om de marge te berekenen en staat niet op de factuur. |
+    | Eenheid | De maateenheid: uur, dag, stuk, keer, m², m³, km of kg. |
+    | Btw-tarief | Het tarief dat standaard op dit product wordt toegepast: 21%, 9% of 0%. |
+    | Categorie | Optionele productcategorie om op te filteren en te groeperen. |
+    | Voorraadbeheer | Zet dit aan om de voorraad van dit product bij te houden. |
+    | Actief | Inactieve producten verschijnen niet meer in de regelkeuze van facturen. |
+  </Step>
+  <Step title="Sla het product op">
+    Klik op **Opslaan**. Het product is direct beschikbaar als je regels toevoegt aan facturen, offertes en abonnementen.
+  </Step>
+</Steps>
+
+## Productcategorieën
+
+Categorieën helpen je een grote productenlijst overzichtelijk te houden en snel te filteren bij het maken van facturen.
+
+Ga naar **Producten → Categorieën** om categorieën te beheren. Elke categorie heeft een naam, een optionele omschrijving en een actief/inactief-schakelaar. Een categorie deactiveren verbergt hem in de categoriekeuze, maar verandert niets aan bestaande producten die eraan gekoppeld zijn.
+
+<Tip>
+  Gebruik categorieën om bij elkaar horende producten te groeperen, bijvoorbeeld "Consultancy", "Softwarelicenties" of "Reiskosten". Je kunt de productenlijst op categorie filteren om sneller het juiste item te vinden.
+</Tip>
+
+## Prijs- en btw-instellingen
+
+Elk product heeft zijn eigen btw-tarief. Als je een product op een factuur zet, wordt het tarief uit het productrecord als standaard gebruikt. Je kunt het op de factuurregel nog aanpassen als dat nodig is.
+
+De btw-instellingen van de klant (btw verlegd of btw-vrijgesteld) gaan altijd voor op het standaardtarief van het product. Staat een klant op btw verlegd, dan gebruiken alle regels op zijn facturen btw verlegd, ongeacht de instelling van het product.
+
+## Voorraadbeheer
+
+Je kunt voorraadbeheer per product aanzetten. Staat het aan, dan houdt TRONVoice de actuele voorraad bij en legt elke wijziging vast als mutatie.
+
+### Voorraadbeheer aanzetten
+
+Zet op het productformulier **Voorraad bijhouden** aan. Daarna kun je instellen:
+
+- **Huidige voorraad**: het beginaantal.
+- **Minimumvoorraad**: een drempel die een waarschuwing geeft bij lage voorraad.
+- **Voorraadlocatie**: de fysieke plek waar dit product ligt.
+- **Gedrag bij voorraad nul**: kies tussen *waarschuwen* (toestaan, maar een waarschuwing tonen) of *blokkeren* (het product niet op een factuur kunnen zetten als de voorraad nul is).
+
+### Hoe de voorraad verandert
+
+De voorraad verandert automatisch in deze situaties:
+
+| Gebeurtenis | Effect op voorraad |
+|---|---|
+| Factuur verstuurd | Voorraad daalt met het aantal op de factuurregel |
+| Creditfactuur | Voorraad stijgt met het gecrediteerde aantal |
+| Factuurregel gewijzigd | Voorraad wordt aangepast aan het verschil |
+| Handmatige aanpassing | Je voert zelf een aantal in op het productrecord |
+| Beginvoorraad invoeren | Stel de beginvoorraad in als je voorraadbeheer voor het eerst aanzet |
+| Transfer | Voorraad verplaatsen tussen locaties |
+
+### Het mutatielogboek bekijken
+
+Elke voorraadwijziging wordt vastgelegd als mutatie, met een tijdstempel, het aantal voor en na de wijziging, het type wijziging en de gebruiker die de wijziging deed. Open een product en ga naar het tabblad **Voorraad** om de volledige historie te zien.
+
+<Note>
+  Voorraadbeheer is optioneel en kun je op elk moment aan- of uitzetten. Uitzetten stopt verdere registratie, maar de bestaande mutatiehistorie blijft bewaard.
+</Note>
+
+## Bulkacties
+
+Vanuit de productenlijst kun je meerdere producten selecteren en er bulkacties op toepassen:
+
+- **Activeren**: geselecteerde producten weer beschikbaar maken op facturen.
+- **Deactiveren**: geselecteerde producten verbergen in de regelkeuze van facturen zonder ze te verwijderen.
+- **Verwijderen**: geselecteerde producten definitief verwijderen. Producten die op een factuur zijn gebruikt, kun je niet verwijderen.
+
+## Producten importeren uit Excel of CSV
+
+<Steps>
+  <Step title="Open de importpagina">
+    Klik in de productenlijst op **Importeren** en download het sjabloonbestand om te zien hoe de kolommen moeten worden ingedeeld.
+  </Step>
+  <Step title="Maak je bestand klaar">
+    Vul je producten in met het sjabloon. De kolom **naam** is verplicht. Voeg optionele kolommen toe voor prijs, btw-tarief, artikelnummer, omschrijving en categorie.
+  </Step>
+  <Step title="Upload en bevestig">
+    Upload je bestand. Een voorbeeld laat zien hoe TRONVoice elk product gaat aanmaken. Bevestig om de import af te ronden.
+  </Step>
+</Steps>

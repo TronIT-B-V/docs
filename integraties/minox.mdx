@@ -1,0 +1,112 @@
+---
+title: "Minox koppelen aan TRONVoice"
+description: "Synchroniseer facturen en klanten automatisch tussen TRONVoice en het boekhoudpakket Minox via een beveiligde OAuth-koppeling, per administratie ingesteld."
+---
+
+Minox is een Nederlands online boekhoudpakket. Koppel TRONVoice aan Minox om je facturen automatisch als boekingen door te sturen, updates over de betaalstatus terug te ontvangen en je klanten te importeren. De integratie stel je per administratie in, dus je kunt meerdere Minox-omgevingen koppelen vanuit één TRONVoice-account.
+
+<Info>
+  De Minox-integratie wordt uitgerold. Op het scherm **Integraties** kan die op dit moment gemarkeerd staan als **Binnenkort**. De stappen hieronder beschrijven hoe de koppeling werkt zodra die voor jouw account is ingeschakeld.
+</Info>
+
+<Note>
+  De Minox-integratie is een instelling per administratie. Heb je meerdere administraties, stel dan de koppeling voor elke administratie apart in.
+</Note>
+
+## Minox koppelen
+
+<Steps>
+  <Step title="Open Integraties">
+    Ga naar **Instellingen → Integraties** en selecteer de administratie die je wilt koppelen. Klik op de tab **Boekhouding**.
+  </Step>
+  <Step title="Start de koppeling">
+    Klik op de kaart **Minox** en kies **Koppelen**. Je wordt doorgestuurd naar de inlogpagina van Minox.
+  </Step>
+  <Step title="Geef TRONVoice toestemming">
+    Log in met je Minox-account en geef TRONVoice toegang. Na goedkeuring kom je automatisch terug in TRONVoice.
+  </Step>
+  <Step title="Selecteer een tenant en administratie">
+    Kies na het koppelen de Minox-**tenant** en **administratie** waarmee TRONVoice facturen moet synchroniseren. Heeft je Minox-account toegang tot gekoppelde tenants, dan zijn die allemaal te selecteren.
+  </Step>
+  <Step title="Stel grootboekrekeningen en btw-codes in">
+    Koppel de grootboekrekeningen, dagboeken en btw-codes die TRONVoice moet gebruiken bij het aanmaken van boekingen. Je kunt aparte rekeningen en btw-codes instellen voor verkopen met 21%, 9%, 0%, EU en niet-EU.
+  </Step>
+  <Step title="Opslaan">
+    Klik op **Opslaan**. De synchronisatie is nu actief.
+  </Step>
+</Steps>
+
+<Tip>
+  TRONVoice haalt de beschikbare grootboekrekeningen, dagboeken en btw-codes rechtstreeks uit je geselecteerde Minox-administratie op, dus je kiest uit je eigen, echte rekeningschema.
+</Tip>
+
+## Wat er synchroniseert
+
+### Facturen naar Minox
+
+Wanneer een factuur in TRONVoice de status **Verzonden** krijgt, maakt TRONVoice automatisch een boeking aan in Minox. De boeking gebruikt dubbel boekhouden: de klantrekening wordt gedebiteerd voor het totaal inclusief btw, en je omzetgrootboekrekeningen worden per factuurregel gecrediteerd met de bijbehorende btw-code.
+
+De factuur-pdf wordt aan de boeking gehangen, en TRONVoice bewaart de Minox-referentie op de factuur, zodat beide systemen altijd naar hetzelfde record wijzen. Creditfacturen worden geboekt als tegenboekingen.
+
+### Betaalstatus terug naar TRONVoice
+
+TRONVoice controleert periodiek of facturen in Minox zijn voldaan. Zodra de openstaande post van een factuur op een saldo van nul komt, wordt de status in TRONVoice automatisch bijgewerkt naar **Betaald**.
+
+### Klanten synchroniseren
+
+Wanneer je een factuur verstuurt, zorgt TRONVoice er eerst voor dat de klant in Minox bestaat. Bestaande Minox-klanten worden gematcht op btw-nummer of KvK-nummer om dubbele records te voorkomen. Wordt er geen match gevonden, dan wordt de klant aangemaakt.
+
+## Klanten importeren uit Minox
+
+Je kunt je bestaande klantgegevens vanuit Minox in TRONVoice importeren met een begeleide wizard.
+
+<Steps>
+  <Step title="Open de importwizard">
+    Ga naar **Instellingen → Integraties → Boekhouding → Minox** en klik op **Klanten importeren**.
+  </Step>
+  <Step title="Haal klanten op">
+    TRONVoice haalt alle klanten uit je geselecteerde Minox-administratie op. Grote klantlijsten worden volledig geladen over meerdere pagina's.
+  </Step>
+  <Step title="Bekijk en selecteer">
+    Elke klant wordt getoond met een dubbelcontrole. TRONVoice markeert klanten die al bestaan op Minox-ID, btw-nummer of KvK-nummer. Nieuwe klanten met een naam zijn alvast geselecteerd.
+
+    Gebruik **Alles selecteren**, **Alleen nieuwe selecteren** of **Alles deselecteren** om je selectie aan te passen, of zet losse regels aan en uit.
+  </Step>
+  <Step title="Voer de import uit">
+    Klik om de geselecteerde klanten te importeren. Na de import zie je hoeveel klanten zijn **aangemaakt**, **gekoppeld** aan een bestaande TRONVoice-klant, **overgeslagen** en bij hoeveel er fouten waren.
+  </Step>
+</Steps>
+
+<Tip>
+  Bestaande TRONVoice-klanten met hetzelfde btw-nummer of KvK-nummer als een Minox-klant worden automatisch gekoppeld, ze worden niet opnieuw aangemaakt.
+</Tip>
+
+## Koppeling verbreken
+
+Ga naar **Instellingen → Integraties → Boekhouding → Minox** en klik op **Koppeling verbreken**. De toegangstokens en de keuze van tenant en administratie worden verwijderd en de synchronisatie stopt. Facturen die al naar Minox zijn geëxporteerd, blijven ongewijzigd.
+
+<Warning>
+  Minox en Exact Online kunnen niet tegelijk actief zijn. Verbreek de bestaande boekhoudintegratie voordat je een andere activeert.
+</Warning>
+
+## Problemen oplossen
+
+### De koppeling is verbroken of de autorisatie mislukt
+
+Toegangstokens van Minox hebben een beperkte geldigheidsduur. TRONVoice vernieuwt ze automatisch op de achtergrond. Mislukt het vernieuwen, bijvoorbeeld omdat je de toegang in Minox hebt ingetrokken, dan wordt de koppeling verwijderd. Loop de [koppelstappen](#minox-koppelen) opnieuw door om de koppeling te herstellen.
+
+### "Tenant access denied"
+
+Meldt TRONVoice dat de tenant niet is toegestaan, dan heeft je Minox-token geen toestemming voor de geselecteerde tenant. Verbreek de koppeling met Minox en koppel opnieuw, en zorg dat je toegang geeft tot alle tenants en rechten die TRONVoice opvraagt.
+
+### Een factuur is niet naar Minox geëxporteerd
+
+Controleer het volgende:
+
+- De factuur heeft de status **Verzonden**, conceptfacturen worden niet gesynchroniseerd.
+- Er is een tenant en administratie geselecteerd in de Minox-instellingen.
+- De Minox-koppeling heeft volledige schrijftoegang tot de geselecteerde administratie. Ontbreken er rechten, koppel Minox dan opnieuw.
+
+### De betaalstatus wordt niet bijgewerkt
+
+TRONVoice synchroniseert betaalstatussen automatisch. Is een factuur in Minox voldaan terwijl de status in TRONVoice niet is veranderd, wacht dan een paar uur tot de volgende synchronisatie loopt. Blijft het probleem bestaan, controleer dan of de koppeling nog actief is.

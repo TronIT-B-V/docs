@@ -1,0 +1,121 @@
+---
+title: "Klanten en producten importeren"
+description: "Breng je klanten en producten in bulk naar TRONVoice vanuit Excel of CSV. Een begeleide wizard herkent veelvoorkomende exportformaten, koppelt kolommen en markeert dubbele rijen voordat er iets wordt aangemaakt."
+---
+
+Stap je over naar TRONVoice vanuit een ander facturatieprogramma? Dan hoef je je gegevens niet opnieuw in te typen. De importwizard leest een Excel- of CSV-bestand, herkent veelvoorkomende exportformaten en laat je elke rij controleren voordat hij wordt aangemaakt.
+
+## Een import starten
+
+Ga naar **Importeren** in de hoofdnavigatie of gebruik de knop **Importeren** op de klanten- of productenlijst. De wizard doorloopt vijf stappen:
+
+<Steps>
+  <Step title="Kies wat je wilt importeren">
+    Selecteer **Klanten** of **Producten**. Elk type heeft zijn eigen set velden.
+  </Step>
+  <Step title="Upload je bestand">
+    Upload een `.xlsx`-, `.xls`- of `.csv`-bestand van maximaal 10 MB. Voor een klantimport selecteer je ook de **administratie** waar de klanten bij horen. Heeft je account maar één administratie? Dan wordt die automatisch geselecteerd.
+  </Step>
+  <Step title="Koppel kolommen (indien nodig)">
+    TRONVoice probeert het formaat automatisch te herkennen. Herkent het het bestand? Dan gaat het meteen door naar het voorbeeld. Zo niet, dan koppel je elke kolom in je bestand aan een veld in TRONVoice.
+  </Step>
+  <Step title="Controleer het voorbeeld">
+    Controleer de rijen die worden geïmporteerd. Dubbele rijen worden gemarkeerd en standaard uitgevinkt. Vink rijen aan of uit waar nodig.
+  </Step>
+  <Step title="Voer de import uit">
+    Bevestig. TRONVoice maakt de geselecteerde gegevens aan en toont een samenvatting van de resultaten.
+  </Step>
+</Steps>
+
+## Ondersteunde bestandsformaten
+
+De wizard accepteert **Excel**-bestanden (`.xlsx`, `.xls`) en **CSV**-bestanden (`.csv`). De eerste rij moet de kolomkoppen bevatten.
+
+De wizard herkent automatisch exports uit verschillende populaire programma's:
+
+<CardGroup cols={2}>
+  <Card title="WeFact" icon="file-spreadsheet">
+    Klanten en producten geëxporteerd uit WeFact.
+  </Card>
+  <Card title="Factuursturen" icon="file-spreadsheet">
+    Klanten en producten geëxporteerd uit Factuursturen.
+  </Card>
+  <Card title="Moneybird" icon="file-spreadsheet">
+    Klant- en productexports uit Moneybird.
+  </Card>
+  <Card title="Exact Online" icon="file-spreadsheet">
+    Klant- en productexports uit Exact Online.
+  </Card>
+</CardGroup>
+
+Wanneer het formaat wordt herkend, verschijnen de kolomnamen in de wizard (bijvoorbeeld *WeFact* of *Factuursturen*) en wordt de koppeling voor je geregeld. Elk ander bestand wordt behandeld als een gewoon werkblad en doorloopt de handmatige kolomkoppeling.
+
+## Kolommen koppelen
+
+Wordt het formaat niet automatisch herkend, of klik je op **Koppeling aanpassen**? Dan koppel je elke kolom in je bestand aan een veld in TRONVoice. De wizard stelt koppelingen voor op basis van de kolomnaam en herkent zowel Nederlandse als Engelse koppen (zo koppelen `bedrijfsnaam`, `company`, `naam` en `company_name` allemaal aan de bedrijfsnaam).
+
+Bij elke kolom zie je ook voorbeeldwaarden uit je bestand. Zo controleer je gemakkelijk of je het juiste veld hebt gekozen.
+
+<Tabs>
+  <Tab title="Klantvelden">
+    | Veld | Toelichting |
+    |---|---|
+    | Bedrijfsnaam | **Verplicht.** Bedrijfsnaam. |
+    | Contactpersoon | Contactpersoon. |
+    | E-mailadres(sen) | Een of meer e-mailadressen. |
+    | Telefoon | Telefoonnummer. |
+    | Mobiel | Mobiel nummer. |
+    | Adres | Straatadres. |
+    | Postcode | Postcode. |
+    | Plaats | Plaats. |
+    | Land | Land. |
+    | KvK-nummer | KvK-nummer. |
+    | Btw-nummer | Btw-nummer. |
+    | Notities/Opmerkingen | Vrij in te vullen notities. |
+  </Tab>
+  <Tab title="Productvelden">
+    | Veld | Toelichting |
+    |---|---|
+    | Productnaam | **Verplicht.** Productnaam. |
+    | Artikelnummer / Productcode | Artikel- of leverancierscode. |
+    | Omschrijving | Standaardomschrijving van de factuurregel. |
+    | Prijs (excl. btw) | Stukprijs exclusief btw. |
+    | Eenheid | Maateenheid. |
+    | Categorie | Productcategorie. |
+  </Tab>
+</Tabs>
+
+<Warning>
+  Je moet het verplichte veld koppelen, **Bedrijfsnaam** voor klanten of **Productnaam** voor producten, anders laat de wizard je niet verdergaan. Kolommen die op *Niet importeren* blijven staan, worden overgeslagen.
+</Warning>
+
+## Validatie en herkenning van dubbele rijen
+
+Voordat er iets wordt aangemaakt, controleert de wizard je bestand:
+
+- **Bestandsveiligheid**: uploads worden gescand en opgeschoond. Cellen die spreadsheetformules kunnen bevatten, worden onschadelijk gemaakt en het bestandstype wordt geverifieerd, niet alleen de extensie.
+- **Lege bestanden**: een bestand zonder datarijen wordt geweigerd met een duidelijke melding.
+- **Herkenning van dubbele rijen**: elke rij wordt gecontroleerd tegen je bestaande gegevens.
+
+Dubbele rijen worden herkend op:
+
+| Importtype | Herkend op |
+|---|---|
+| Klanten | KvK-nummer, daarna bedrijfsnaam |
+| Producten | Productnaam |
+
+Rijen die als dubbel zijn gemarkeerd, tonen de reden (bijvoorbeeld *KvK-nummer bestaat al*) en zijn **standaard uitgevinkt**. Een import opnieuw uitvoeren maakt dus geen kopieën aan. Gebruik **Alleen nieuwe selecteren** om alleen de rijen te importeren die geen duplicaat zijn, of overschrijf afzonderlijke rijen handmatig.
+
+Na de import laat een samenvatting zien hoeveel gegevens er zijn aangemaakt, overgeslagen of mislukt.
+
+<Tip>
+  Begin met een klein testbestand van een paar rijen om te controleren of je kolomkoppeling klopt en importeer daarna het volledige bestand.
+</Tip>
+
+## Importeren vanuit boekhoudkoppelingen
+
+Een import via een werkblad is niet de enige optie. Gebruik je een boekhoudprogramma? Dan kun je klanten rechtstreeks importeren via een koppeling, zonder dat je een bestand exporteert:
+
+- **Exact Online**: synchroniseer klanten rechtstreeks vanuit je administratie in Exact Online. Zie [Exact Online](/integraties/exact-online).
+
+Bij een import via een koppeling blijft de verbinding met het bronsysteem bestaan, zodat gegevens in de loop van de tijd gesynchroniseerd kunnen blijven. Dat kan een eenmalige import via een werkblad niet.

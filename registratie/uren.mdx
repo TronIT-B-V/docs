@@ -1,0 +1,98 @@
+---
+title: "Urenregistratie"
+description: "Registreer de uren van onderaannemers week voor week in TRONVoice. Leg uren vast in het wekelijkse rooster, keur ze goed en zet goedgekeurde uren automatisch om in facturen."
+---
+
+Met **Urenregistratie** leg je de uren vast die je onderaannemers hebben gewerkt, week voor week, in één wekelijks rooster. Zodra uren zijn goedgekeurd, kan TRONVoice ze automatisch omzetten in facturen.
+
+Je vindt het onder **Uren** in de navigatie.
+
+<Note>
+  Urenregistratie is alleen beschikbaar als **onderaannemers** aanstaan voor je organisatie. Verschijnt het item **Uren** niet in je navigatie, dan is deze functie niet actief voor je account. Neem contact op met je beheerder.
+</Note>
+
+## Hoe het samenhangt met onderaannemers
+
+Urenregistratie werkt met de klanten in je account die als **onderaannemers** zijn gemarkeerd. Elke onderaannemer verschijnt als rij in het wekelijkse rooster. Het uurtarief van een onderaannemer komt uit het record van die klant, dus het is voor je vooraf ingevuld en kan per week worden aangepast.
+
+Onderaannemers kunnen optioneel worden ingedeeld in **groepen**. Gebruik je groepen, dan kun je het rooster filteren om één groep tegelijk te tonen. Dat is handig als je veel onderaannemers beheert.
+
+## Het wekelijkse rooster
+
+Het rooster toont één week tegelijk, met een rij voor elke actieve onderaannemer. Per onderaannemer kun je vastleggen:
+
+| Veld | Toelichting |
+|---|---|
+| **Aantal uren** | Het aantal uren dat die week is gewerkt. |
+| **Uurtarief** | Het tarief dat in rekening wordt gebracht. Vooraf ingevuld vanuit het record van de onderaannemer. |
+| **Locatie** | De locatie of het project waar de uren betrekking op hebben. |
+| **Omschrijving** | Een omschrijving van het werk, gebruikt op de resulterende factuurregel. |
+| **Notities** | Interne notities voor je eigen referentie. |
+
+Het rooster toont een lopend totaal van uren en bedrag voor de zichtbare rijen, zodat je de weektotalen in één oogopslag ziet.
+
+### Tussen weken navigeren
+
+Gebruik de knoppen **vorige** en **volgende** om tussen weken te wisselen, of spring direct terug naar de huidige week. Elke week wordt aangeduid met het jaar en het ISO-weeknummer, en het rooster toont het datumbereik dat de week beslaat.
+
+## Uren vastleggen
+
+<Steps>
+  <Step title="Open urenregistratie">
+    Ga naar **Uren** in de navigatie. Het rooster opent op de huidige week.
+  </Step>
+  <Step title="Selecteer de week">
+    Navigeer naar de week waarvoor je uren wilt registreren.
+  </Step>
+  <Step title="Voer de uren in">
+    Vul voor elke onderaannemer die heeft gewerkt de uren in, controleer het uurtarief en voeg waar relevant een locatie en omschrijving toe.
+  </Step>
+  <Step title="Sla het rooster op">
+    Klik op **Alles opslaan**. TRONVoice bewaart elke rij waarop uren zijn ingevuld. Lege rijen worden niet opgeslagen.
+  </Step>
+</Steps>
+
+<Tip>
+  Maak je de uren leeg op een eerder opgeslagen rij en sla je opnieuw op, dan wordt die registratie verwijderd, zolang ze nog niet is gefactureerd.
+</Tip>
+
+## De urenworkflow
+
+Elke urenregistratie doorloopt drie statussen:
+
+| Status | Betekenis |
+|---|---|
+| **Concept** | De uren zijn ingevoerd en opgeslagen, maar nog niet goedgekeurd. Nog te bewerken. |
+| **Goedgekeurd** | De uren zijn bevestigd en klaar om gefactureerd te worden. |
+| **Gefactureerd** | Er is een factuur voor deze uren aangemaakt. De registratie is vergrendeld en kan niet meer worden gewijzigd. |
+
+<Steps>
+  <Step title="Registreren en opslaan">
+    Voer de uren van de week in en sla ze op. Ze beginnen als **Concept**.
+  </Step>
+  <Step title="Keur de uren goed">
+    Zijn de uren correct, gebruik dan **Alles goedkeuren** om elke conceptregistratie van de week op **Goedgekeurd** te zetten.
+  </Step>
+  <Step title="Genereer facturen">
+    Gebruik **Facturen genereren** om voor elke goedgekeurde registratie een factuur aan te maken. De registratie wordt dan **Gefactureerd**.
+  </Step>
+</Steps>
+
+## Waar goedgekeurde uren voor worden gebruikt
+
+Goedgekeurde uren vormen de basis voor **facturen van onderaannemers**. Als je facturen genereert vanuit het wekelijkse rooster, maakt TRONVoice één factuur per goedgekeurde registratie:
+
+- De factuur wordt opgesteld **van de onderaannemer aan jouw bedrijf** (de hoofdaannemer).
+- De factuurregel gebruikt de geregistreerde uren, het uurtarief en de omschrijving, met de locatie erachter waar er een is ingevuld.
+- De regel gebruikt de btw-instelling van de onderaannemer, inclusief **btw verlegd** waar dat van toepassing is.
+- De factuurreferentie legt de week en het jaar van de uren vast.
+
+Gegenereerde facturen worden automatisch verstuurd. De registratie wordt gemarkeerd als **Gefactureerd** en gekoppeld aan de bijbehorende factuur.
+
+<Note>
+  Een onderaannemer kan factuurdagen hebben die op zijn klantrecord zijn uitgesloten. Genereer je op een uitgesloten dag facturen voor een onderaannemer, dan worden die registraties overgeslagen. Probeer het opnieuw op een toegestane dag.
+</Note>
+
+<Warning>
+  Zodra een registratie **Gefactureerd** is, is ze vergrendeld. De uren, het tarief en de omschrijving kunnen niet meer worden bewerkt, zodat de registratie consistent blijft met de factuur die is opgesteld.
+</Warning>

@@ -1,0 +1,113 @@
+---
+title: "Facturen importeren en exporteren"
+description: "Importeer historische facturen uit een ander systeem in TRONVoice met een begeleide wizard, en exporteer facturen naar Excel of CSV voor je boekhouder."
+---
+
+TRONVoice helpt je om factuurgegevens in en uit het platform te verplaatsen. Je kunt historische facturen **importeren** als je vanuit een ander systeem overstapt, en je facturen **exporteren** naar Excel of CSV, zodat je boekhouder ze kan verwerken.
+
+## Historische facturen importeren
+
+Als je vanuit een andere facturatietool overstapt naar TRONVoice, kun je je oude facturen importeren als **historische gegevens**. Historische facturen houden je overzicht en statistieken compleet, zonder dat ze door de normale stroom van concept naar verzonden gaan.
+
+<Note>
+Historische facturen zijn **alleen-lezen**. Ze kosten geen credits, versturen geen e-mails en kun je na het importeren niet bewerken. Ze bestaan puur als vastlegging van facturen die je hebt uitgegeven voordat je TRONVoice ging gebruiken.
+</Note>
+
+### Voordat je begint
+
+Bereid een bestand voor in **Excel (.xlsx, .xls)** of **CSV** met één regel per factuur, of één regel per factuurregel als je export regeldetails bevat. De maximale bestandsgrootte is **10 MB**. TRONVoice kan kolommen uit elk systeem lezen. Je koppelt ze tijdens de import aan de velden van TRONVoice.
+
+De twee velden die aanwezig moeten zijn, zijn:
+- **Klantnaam**
+- **Totaal excl. btw**
+
+Andere handige kolommen zijn factuurnummer, factuurdatum, vervaldatum, btw-bedrag, totaal incl. btw, betaalstatus, betaaldatum, referentie en contactgegevens van de klant.
+
+### De importwizard
+
+Open **Facturen → Historische facturen importeren**. De wizard leidt je door zes stappen.
+
+<Steps>
+  <Step title="Uploaden">
+    Selecteer je Excel- of CSV-bestand en vul het **bronsysteem** in, de naam van de tool waar je vandaan komt. Dit wordt bij elke geïmporteerde factuur opgeslagen ter referentie.
+  </Step>
+  <Step title="Kolommen koppelen">
+    TRONVoice leest de kolomkoppen en stelt voor elke kolom een passend TRONVoice-veld voor. Controleer de voorstellen, pas de verkeerde aan en zet ongebruikte kolommen op **-- Niet importeren --**. Er worden voorbeeldwaarden getoond, zodat je elke koppeling kunt controleren.
+  </Step>
+  <Step title="Voorbeeld bekijken">
+    Bekijk een voorbeeld van de regels zoals TRONVoice ze heeft geïnterpreteerd, zodat je koppelfouten kunt opmerken voordat je verdergaat.
+  </Step>
+  <Step title="Klanten koppelen">
+    TRONVoice koppelt elke regel op naam aan een bestaande klant. Het toont hoeveel regels zijn gekoppeld en hoeveel niet. Voor niet-gekoppelde regels kies je of je ze **overslaat** of automatisch nieuwe klanten **aanmaakt**.
+  </Step>
+  <Step title="Regels selecteren">
+    Alle importeerbare regels staan standaard geselecteerd. Vink losse regels aan of uit, of gebruik **Selecteer alles** / **Deselecteer alles** om precies te kiezen welke facturen je importeert.
+  </Step>
+  <Step title="De import uitvoeren">
+    Start de import. Die draait op de achtergrond, en de wizard toont de voortgang live: hoeveel facturen verwerkt, geïmporteerd en overgeslagen zijn, plus eventuele fouten.
+  </Step>
+</Steps>
+
+<Tip>
+Heeft je bestand één regel per factuurregel? Dan herkent TRONVoice de meerregelige opzet. In dat geval moet de kolomkoppeling ook een kolom bevatten die facturen groepeert (**Bron factuur ID** of **Factuurnummer**) en een regelomschrijving, zodat regels in de juiste facturen worden gegroepeerd.
+</Tip>
+
+<Warning>
+Bij importeren worden echte factuurgegevens aangemaakt. Gebruik de stappen **Voorbeeld bekijken** en **Regels selecteren** om de gegevens eerst te controleren. Er is geen manier om een import in bulk ongedaan te maken.
+</Warning>
+
+## Facturen exporteren voor je boekhouder
+
+Je kunt je facturen exporteren naar een spreadsheet voor de boekhouding of om aan je boekhouder te geven.
+
+<Steps>
+  <Step title="Open de exportpagina">
+    Ga naar **Facturen → Exporteren**. Zorg dat eerst de juiste administratie is geselecteerd. Exporteren gebeurt per administratie.
+  </Step>
+  <Step title="Stel de periode in">
+    Kies een **startdatum** en een **einddatum**. Facturen worden geselecteerd op factuurdatum. De periode mag maximaal **3 jaar** beslaan. Voor langere historie exporteer je in meerdere keren.
+  </Step>
+  <Step title="Kies een statusfilter">
+    Kies welke facturen je meeneemt:
+
+    | Optie | Bevat |
+    |---|---|
+    | **Alle** | Verzonden, betaalde en verlopen facturen |
+    | **Alleen verzonden** | Alleen facturen met de status Verzonden |
+    | **Alleen betaald** | Alleen betaalde facturen |
+    | **Alleen verlopen** | Alleen verlopen facturen |
+  </Step>
+  <Step title="Kies het exporttype">
+    Kies wat elke regel voorstelt:
+    - **Facturen**, één regel per factuur, met de btw uitgesplitst in kolommen per tarief.
+    - **Factuurregels**, één regel per factuurregel, voor gedetailleerde analyse per regel.
+  </Step>
+  <Step title="Kies het formaat en download">
+    Kies **Excel (.xlsx)** of **CSV** en download het bestand.
+  </Step>
+</Steps>
+
+<Note>
+**Concept**facturen worden nooit in een export meegenomen. Ze hebben geen fiscale betekenis. De export omvat altijd verzonden, betaalde en verlopen facturen binnen de periode die je hebt gekozen.
+</Note>
+
+### Wat de export bevat
+
+De export **Facturen** heeft één regel per factuur met deze kolommen:
+
+| Kolom | Omschrijving |
+|---|---|
+| Factuurnummer, datums | Factuurnummer, factuurdatum, vervaldatum |
+| Klant | Klantnaam, KvK-nummer, btw-nummer, referentie |
+| Bedragen | Subtotaal excl. btw, btw per tarief (21%, 9%, 0%, overig) |
+| Btw-detail | Grondslag btw-verlegd, grondslag btw-vrijgesteld, totale btw |
+| Totaal | Totaal incl. btw, valuta |
+| Status | Status, betaaldatum, of het een creditfactuur is |
+
+De export **Factuurregels** splitst elke factuur uit naar de losse regels, zodat je boekhouder omschrijvingen, aantallen, prijzen en de btw per regel kan analyseren. Notitieregels worden niet meegenomen.
+
+## Hoe nu verder
+
+- [Een factuur aanmaken](/facturen/aanmaken)
+- [E-facturatie en pdf-export](/facturen/e-facturatie)
+- [Facturen overzicht](/facturen/overzicht)

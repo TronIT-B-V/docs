@@ -1,0 +1,80 @@
+---
+title: "Facturen in TRONVoice: een overzicht"
+description: "Begrijp hoe facturen werken in TRONVoice: de volledige levenscyclus van concept tot betaald, de beschikbare functies en de creditkosten per verzonden factuur."
+---
+
+Facturen vormen het hart van TRONVoice. Je maakt ze aan als concept, verstuurt ze naar je klanten en volgt de betaling, allemaal op één plek. Op deze pagina lees je hoe facturen werken, welke statussen ze kunnen hebben en welke functies je tot je beschikking hebt.
+
+## Levenscyclus van een factuur
+
+Elke factuur in TRONVoice volgt een duidelijke route van aanmaken tot betaling.
+
+```
+Concept → Verzonden → Betaald
+                     → Gecrediteerd
+```
+
+| Status | Wat het betekent |
+|---|---|
+| **Concept** | De factuur wordt voorbereid. Je kunt alle gegevens en factuurregels nog aanpassen. Er is nog geen factuurnummer toegekend. |
+| **Verzonden** | De factuur is naar je klant verstuurd of handmatig als verzonden gemarkeerd. Op dit moment krijgt de factuur een definitief factuurnummer. De betaaltermijn van de klant gaat vanaf hier lopen. |
+| **Betaald** | Jij of TRONVoice heeft de betaling bevestigd, automatisch via iDEAL/Mollie, afgeletterd vanuit je bankkoppeling of handmatig gemarkeerd. |
+| **Gecrediteerd** | Er is een creditfactuur opgesteld tegen deze factuur. De oorspronkelijke factuur is vergrendeld en kan niet meer betaald worden. |
+
+<Note>
+Zodra een factuur van Concept naar Verzonden gaat, krijgt hij zijn permanente factuurnummer. Conceptfacturen gebruiken een tijdelijk nummer in de vorm `CONCEPT-XXXXX`. Je stelt het nummerformaat (voorvoegsel, jaar, reeks) in bij je administratie-instellingen.
+</Note>
+
+## Belangrijkste functies
+
+<CardGroup cols={2}>
+  <Card title="PDF- en UBL-export" icon="download">
+    Download elke factuur als pdf of als UBL 2.1 XML-e-factuur, compatibel met de meeste boekhoudsoftware.
+  </Card>
+  <Card title="Btw-opties" icon="percent">
+    Pas standaard btw-tarieven toe, schakel btw-verlegd in voor zakelijke EU-klanten of markeer facturen als vrijgesteld van btw.
+  </Card>
+  <Card title="Kortingen" icon="tag">
+    Voeg een korting toe als percentage of vast bedrag op factuurniveau, of pas kortingen toe op afzonderlijke regels.
+  </Card>
+  <Card title="Bijlagen" icon="paperclip">
+    Upload pdf-bestanden als bijlage. Voeg ze eventueel samen met de factuur-pdf tot één gecombineerd document.
+  </Card>
+  <Card title="Verzending inplannen" icon="clock">
+    Stel een datum en tijd in de toekomst in om een factuur automatisch te versturen. Handig voor maandelijkse facturatierondes.
+  </Card>
+  <Card title="Online betaallink" icon="credit-card">
+    Deel een beveiligde betaallink met je klant, zodat die direct vanuit de factuurmail via iDEAL kan betalen.
+  </Card>
+  <Card title="Automatische herinneringen" icon="bell">
+    TRONVoice verstuurt automatisch betalingsherinneringen na 14, 30 en 45 dagen achterstand, met aanpasbare e-mailsjablonen.
+  </Card>
+  <Card title="Creditfacturen" icon="file-minus">
+    Maak rechtstreeks vanuit een verzonden factuur een creditfactuur om een bedrag te corrigeren of terug te draaien.
+  </Card>
+  <Card title="Bulkacties" icon="list">
+    Verstuur, markeer als betaald, download of verwijder meerdere facturen tegelijk vanuit het factuuroverzicht.
+  </Card>
+  <Card title="Synchronisatie met Exact Online" icon="refresh-cw">
+    Verzonden facturen synchroniseren automatisch met Exact Online. Ook de betaalstatus blijft in sync.
+  </Card>
+</CardGroup>
+
+## Creditkosten
+
+Elke factuur die je verstuurt kost **€0,65 aan credits**. De credits worden van je accountsaldo afgeschreven op het moment dat een factuur wordt verstuurd of handmatig als verzonden wordt gemarkeerd.
+
+<Note>
+Er geldt een maandelijks maximum van **€16,25**. Zodra je dat bedrag in een factureringsperiode bereikt, zijn alle verdere facturen gratis voor de rest van de maand.
+</Note>
+
+Heb je niet genoeg credits wanneer je een factuur wilt versturen, dan stuurt TRONVoice je eerst naar de pagina om credits bij te kopen voordat je verder kunt.
+
+Het versturen van creditfacturen kost geen credits.
+
+## Wat is de volgende stap
+
+- [Een factuur aanmaken](/facturen/aanmaken)
+- [Een factuur versturen](/facturen/versturen)
+- [Betalingsherinneringen instellen](/facturen/herinneringen)
+- [Een creditfactuur opstellen](/facturen/creditfacturen)

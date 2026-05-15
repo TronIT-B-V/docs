@@ -1,0 +1,167 @@
+---
+title: "Werken met een klant"
+description: "Haal het meeste uit een klant: het dossier, notities, gekoppelde taken, het automatisch opgehaalde logo, KvK-opzoeken, btw-validatie en instellingen per klant."
+---
+
+Een klant is meer dan een naam en een adres. Zodra je een klant opent, krijg je een eigen werkruimte voor alles wat met die relatie te maken heeft: facturen, bestanden, notities, taken en instellingen die je standaardinstellingen per administratie overschrijven.
+
+## De detailpagina van een klant
+
+Open een klant door op de naam te klikken, ergens in de lijst **Klanten**. De detailpagina brengt het volgende samen:
+
+- **Bedrijfsgegevens**: naam, KvK-nummer, btw-nummer, adres en contactgegevens.
+- **Factuurstatistieken**: totalen voor gefactureerde, betaalde en openstaande bedragen.
+- **Recente facturen**: de laatste facturen en abonnementen voor deze klant.
+- **Tabbladen** voor **Notities**, **Taken** en **Dossier**, die hieronder aan bod komen.
+
+Vanaf de detailpagina kun je de klant ook bewerken, een SEPA-machtigingsverzoek sturen of een nieuwe factuur aanmaken waarbij de klant al is geselecteerd.
+
+## KvK-opzoeken
+
+Wanneer je een klant toevoegt, gebruik je de KvK-zoekfunctie boven aan het formulier om een ingeschreven Nederlands bedrijf op naam of registratienummer te vinden. Als je een resultaat selecteert, worden de **bedrijfsnaam**, het **KvK-nummer**, het **adres**, de **postcode** en de **plaats** automatisch ingevuld.
+
+<Tip>
+  Het KvK-opzoeken werkt het best met officiële handelsnamen. Levert een zoekopdracht geen resultaten op? Vul de gegevens dan met de hand in. Elk veld blijft bewerkbaar.
+</Tip>
+
+## Btw-nummer valideren
+
+Wanneer je een **btw-nummer** invoert voor een klant in een EU-land, valideert TRONVoice dit in real time tegen de **EU-dienst VIES**. Is het nummer niet geldig of niet geregistreerd? Dan blokkeert het formulier het opslaan en toont het de reden die VIES teruggeeft.
+
+De btw-behandeling wordt ook automatisch herkend op basis van het land van de klant:
+
+- **Hetzelfde land als je administratie**: de standaard btw-tarieven gelden.
+- **Een ander EU-land**: de btw wordt op *verlegd* (btw-verlegd) gezet, zoals vereist is voor intracommunautaire leveringen.
+- **Buiten de EU**: de btw wordt op *vrijgesteld* (btw-vrijgesteld) gezet, voor exportleveringen.
+
+Je kunt dit overschrijven op het klantformulier. Wijzig je later de btw-instellingen van een klant? Dan synchroniseert TRONVoice de nieuwe instellingen automatisch met de actieve abonnementen van die klant.
+
+## Het bedrijfslogo
+
+Wanneer je een klant met een **website** of **e-mailadres** opslaat, haalt TRONVoice automatisch het bedrijfslogo van dat domein op. Het logo verschijnt op de klant en kun je gebruiken op facturen.
+
+Het logo wordt automatisch ververst wanneer de website of het e-mailadres verandert. Logo's die je handmatig hebt ingevoerd, blijven ongemoeid.
+
+<Note>
+  Het ophalen van het logo blokkeert nooit het opslaan van een klant. Lukt het niet om het logo op te halen? Dan wordt de klant alsnog opgeslagen en kun je het later opnieuw proberen door de website bij te werken.
+</Note>
+
+## Notities
+
+Het tabblad **Notities** bevat interne CRM-notities over de klant, zoals samenvattingen van gesprekken, afspraken of reminders. Notities zijn alleen zichtbaar voor je team en verschijnen nooit op facturen of e-mails.
+
+- Klik op **Nieuwe notitie** om een notitie toe te voegen (minimaal 3 tekens).
+- Bij elke notitie wordt vastgelegd wie hem heeft geschreven en wanneer.
+- Je kunt een notitie verwijderen die je zelf hebt geschreven.
+
+Het klantformulier heeft ook een apart vrij in te vullen **Notities**-veld voor algemene opmerkingen. Het tabblad Notities is de betere plek voor een doorlopend logboek met datums.
+
+## Taken
+
+Op het tabblad **Taken** maak je to-do's die rechtstreeks aan de klant zijn gekoppeld, zodat vervolgacties bij de juiste klant blijven.
+
+Bij het aanmaken van een taak kun je het volgende instellen:
+
+| Veld | Toelichting |
+|---|---|
+| Naam | Verplicht. Een korte omschrijving van de taak. |
+| Omschrijving | Optionele uitgebreidere toelichting. |
+| Deadline | Optionele einddatum. |
+| Toegewezen aan | Een of meer teamleden in je organisatie. |
+
+Taken doorlopen vijf statussen:
+
+| Status | Betekenis |
+|---|---|
+| Te doen | Nog te doen |
+| In behandeling | Wordt aan gewerkt |
+| Wacht op klant | Wacht op de klant |
+| Afgerond | Voltooid |
+| Geannuleerd | Geannuleerd |
+
+Gebruik de schakelaar **Afgerond tonen** om voltooide taken in de lijst op te nemen. Openstaande taken worden gesorteerd op status en deadline, zodat het meest urgente werk bovenaan staat.
+
+## Het dossier
+
+Het tabblad **Dossier** is een documentenopslag die aan de klant is gekoppeld. Gebruik het voor contracten, ondertekende overeenkomsten, identiteitsbewijzen of elk bestand dat je bij de klant wilt bewaren.
+
+<Steps>
+  <Step title="Open het uploadformulier">
+    Klik op het tabblad Dossier op **Bestand toevoegen** om het uploadformulier te openen.
+  </Step>
+  <Step title="Selecteer bestanden en voeg gegevens toe">
+    Kies een of meer bestanden. Voeg eventueel een **omschrijving**, **notities** en een **categorie** toe om het dossier overzichtelijk te houden.
+  </Step>
+  <Step title="Uploaden">
+    Bevestig de upload. Bestanden worden veilig opgeslagen en meteen in het dossier getoond.
+  </Step>
+</Steps>
+
+Ondersteunde bestandstypen zijn PDF, Word, Excel, afbeeldingen (JPG, PNG, GIF, WebP) en platte tekst of CSV. De maximale grootte is **10 MB per bestand**.
+
+Met dossiercategorieën filter je een groot dossier:
+
+<CardGroup cols={2}>
+  <Card title="Contract" icon="file-signature">
+    Ondertekende contracten en overeenkomsten.
+  </Card>
+  <Card title="Factuur" icon="receipt">
+    Documenten die met facturen te maken hebben.
+  </Card>
+  <Card title="Offerte" icon="file-text">
+    Documenten die met offertes te maken hebben.
+  </Card>
+  <Card title="Correspondentie" icon="mail">
+    Brieven en e-mailcorrespondentie.
+  </Card>
+  <Card title="Identiteitsbewijs" icon="id-card">
+    Identiteitsbewijzen.
+  </Card>
+  <Card title="KvK uittreksel" icon="building">
+    Uittreksels van de Kamer van Koophandel.
+  </Card>
+  <Card title="BTW documenten" icon="percent">
+    Documenten die met btw te maken hebben.
+  </Card>
+  <Card title="Overig" icon="folder">
+    Alles wat niet in een andere categorie past.
+  </Card>
+</CardGroup>
+
+Je kunt het dossier doorzoeken op bestandsnaam, filteren op categorie, de omschrijving of categorie van een bestand bewerken, een bestand downloaden of het verwijderen. Elke dossieractie wordt vastgelegd in het activiteitenlogboek van de klant.
+
+## Instellingen per klant
+
+De meeste klanten nemen hun instellingen over van de administratie, maar je kunt er een paar per klant overschrijven op het bewerkformulier:
+
+- **Voorkeurstaal documenten**: de taal die wordt gebruikt voor facturen en e-mails naar deze klant. Valt terug op de standaardtaal van de administratie en daarna op de standaardtaal van het platform.
+- **Standaard btw-percentage**: overschrijft het standaardtarief van de administratie voor de regels van deze klant.
+- **Btw-verlegd / btw-vrijgesteld**: verlegde of vrijgestelde btw, meestal automatisch ingesteld op basis van het land.
+- **G-rekening-instellingen**: gebruikt je administratie een g-rekening? Dan kun je het percentage en het IBAN voor deze klant overschrijven.
+- **Uitgesloten factuurdagen**: dagen van de week waarop deze klant niet automatisch gefactureerd mag worden.
+
+<Note>
+  Laat een overschrijving leeg om de standaardinstelling van de administratie te blijven gebruiken. Het klantformulier toont de overgenomen waarde als placeholder, zodat je altijd weet wat er geldt.
+</Note>
+
+## Een klant deactiveren, herstellen en heractiveren
+
+Hoe een klant wordt verwijderd, hangt ervan af of er geschiedenis aan vasthangt:
+
+- **Geen facturen of abonnementen**: de klant wordt definitief verwijderd.
+- **Wel facturen of abonnementen**: de klant wordt *gedeactiveerd* in plaats van verwijderd, zodat bestaande facturen geldig en toegankelijk blijven. Een gedeactiveerde klant verdwijnt naar de achtergrond van de klantenlijst.
+
+Om een klant terug te halen:
+
+- **Heractiveer** een gedeactiveerde klant vanaf de detailpagina. De klant keert dan terug in de actieve lijst.
+- **Herstel** een verwijderde klant als die alleen logisch is verwijderd. Je krijgt dan de volledige klant terug.
+
+<Warning>
+  Het deactiveren van een klant verwijdert nooit facturen, abonnementen of dossierbestanden. Alle historische gegevens blijven intact.
+</Warning>
+
+## Klanten in meerdere administraties
+
+Heeft je account meer dan één administratie? Dan hoort elke klant bij één administratie. Gebruik het overzicht **Alle klanten** om klanten uit alle administraties tegelijk te zien. Wanneer je een klant aanmaakt vanuit dat overzicht, kies je bij welke administratie hij hoort.
+
+Voor bulkimports, zie [Klanten en producten importeren](/klanten/importeren).

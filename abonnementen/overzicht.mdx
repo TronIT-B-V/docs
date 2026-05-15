@@ -1,0 +1,122 @@
+---
+title: "Terugkerende facturen met abonnementen"
+description: "Automatiseer het aanmaken van facturen voor klanten die je op een vast schema factureert. Stel een interval in, voeg factuurregels toe en laat TRONVoice op de vervaldatum facturen genereren."
+---
+
+Een abonnement is een terugkerend factuursjabloon dat aan een klant is gekoppeld. Je legt de factuurregels en een factuurinterval één keer vast, en TRONVoice maakt automatisch een nieuwe factuur zodra de vervaldatum is bereikt: wekelijks, maandelijks, per kwartaal of op elk ander schema dat je instelt.
+
+## Een abonnement aanmaken
+
+<Steps>
+  <Step title="Open abonnementen">
+    Ga naar **Abonnementen** in de hoofdnavigatie en klik op **Nieuw abonnement**.
+
+    Je kunt een abonnement ook direct vanaf een klantkaart aanmaken. De klant en administratie worden dan automatisch vooraf geselecteerd.
+  </Step>
+  <Step title="Stel de basisgegevens in">
+    | Veld | Toelichting |
+    |---|---|
+    | Naam | Interne naam voor dit abonnement, bijvoorbeeld "Maandelijkse hostingkosten". |
+    | Referentie | Optioneel referentienummer dat op de gegenereerde facturen staat. |
+    | Klant | De klant waar dit abonnement bij hoort. |
+    | Startdatum | De datum waarop het abonnement actief wordt. |
+    | Eerste factuurdatum | De datum waarop de eerste factuur wordt aangemaakt. |
+    | Einddatum | Optioneel. Laat leeg voor een abonnement zonder einddatum. |
+    | Interval | Hoe vaak er facturen worden aangemaakt (zie de intervallen hieronder). |
+    | Actief | Inactieve abonnementen maken nooit facturen aan. |
+  </Step>
+  <Step title="Kies een factuurinterval">
+    | Interval | Beschrijving |
+    |---|---|
+    | Dagelijks | Eén factuur per dag |
+    | Wekelijks | Eén factuur per week |
+    | Maandelijks | Eén factuur per maand |
+    | Per kwartaal | Eén factuur per drie maanden |
+    | Jaarlijks | Eén factuur per jaar |
+    | Per 2 jaar | Eén factuur per twee jaar |
+
+    Voor afwijkende intervallen (bijvoorbeeld elke 2 weken) zet je het interval op *Wekelijks* en vul je `2` in als intervalwaarde.
+  </Step>
+  <Step title="Voeg factuurregels toe">
+    Voeg een of meer regels toe aan het abonnement. Elke regel kan verwijzen naar een product uit je productcatalogus of als een aangepaste omschrijving met een prijs worden ingevoerd.
+
+    Regelvelden:
+    - Omschrijving
+    - Aantal en eenheid
+    - Eenheidsprijs
+    - Btw-tarief (standaard overgenomen uit de btw-instellingen van de klant)
+    - Kortingspercentage (per regel)
+
+    Je kunt ook **notitieregels** toevoegen: tekstregels die op de factuur verschijnen maar geen prijs hebben.
+  </Step>
+  <Step title="Stel de verzendopties in">
+    | Optie | Beschrijving |
+    |---|---|
+    | Automatisch verzenden | Verstuur de gegenereerde factuur automatisch per e-mail op de vervaldatum. |
+    | Verzend naar administratie | Stuur een kopie naar het e-mailadres van je eigen administratie. |
+    | Verzend naar klant | Stuur de factuur naar het e-mailadres van de klant. |
+
+    Staat automatisch verzenden uit, dan worden facturen als concept aangemaakt en verstuur je ze handmatig.
+  </Step>
+  <Step title="Sla het abonnement op">
+    Klik op **Opslaan**. Het abonnement is nu actief en maakt op de door jou ingestelde datum de eerste factuur aan.
+  </Step>
+</Steps>
+
+## Automatisch facturen genereren
+
+Wanneer de volgende factuurdatum van een abonnement vandaag of in het verleden ligt, markeert TRONVoice het als **verschuldigd**. Facturen worden op een van twee manieren gegenereerd:
+
+1. **Automatisch**: als automatisch verzenden aanstaat en je account voldoende credits heeft, maakt TRONVoice de factuur aan en stuurt die naar de klant zonder dat jij iets hoeft te doen.
+2. **Handmatig**: staat automatisch verzenden uit, dan genereer je de factuur zelf (zie hieronder).
+
+Nadat een factuur is gegenereerd, schuift de volgende factuurdatum van het abonnement automatisch op naar de volgende periode.
+
+<Note>
+  Heeft een klant bepaalde dagen uitgesloten van facturatie, dan wordt automatisch verzenden op die dagen overgeslagen. De factuur wordt dan als concept aangemaakt en je verstuurt die handmatig.
+</Note>
+
+## Een factuur handmatig genereren
+
+Wil je meteen een factuur uit één abonnement genereren, ongeacht de vervaldatum:
+
+1. Open het abonnement.
+2. Klik op **Genereer factuur nu**.
+
+De factuur wordt aangemaakt en, als automatisch verzenden aanstaat en je credits hebt, meteen naar de klant gestuurd. Zo niet, dan wordt de factuur als concept opgeslagen.
+
+## Een abonnement pauzeren en hervatten
+
+Je kunt een abonnement op elk moment pauzeren door het op **inactief** te zetten. Zolang het inactief is, worden er geen facturen aangemaakt en schuift de volgende factuurdatum niet op.
+
+Een abonnement pauzeren:
+- Open het abonnement en klik op de schakelaar **Actief**, of
+- Selecteer het abonnement in de abonnementenlijst en gebruik de bulkactie **Deactiveren**.
+
+Zet het abonnement weer op actief om het te hervatten. De volgende factuur wordt op de volgende vervaldatum aangemaakt.
+
+<Tip>
+  Hervat je een abonnement na een lange pauze, controleer dan de volgende factuurdatum. Ligt die in het verleden, dan is het abonnement meteen verschuldigd en wordt er bij de volgende verwerking een factuur aangemaakt.
+</Tip>
+
+## Bulkacties
+
+Vanuit de abonnementenlijst selecteer je een of meer abonnementen om bulkacties toe te passen:
+
+<CardGroup cols={3}>
+  <Card title="Verschuldigde facturen genereren" icon="file-text">
+    Genereer facturen voor alle abonnementen die op dit moment verschuldigd zijn. Handig aan het begin van een factuurperiode.
+  </Card>
+  <Card title="Activeren" icon="toggle-right">
+    Hervat meerdere gepauzeerde abonnementen tegelijk.
+  </Card>
+  <Card title="Deactiveren" icon="toggle-left">
+    Pauzeer meerdere actieve abonnementen tegelijk.
+  </Card>
+</CardGroup>
+
+De actie **Verschuldigde facturen genereren** verwerkt alle abonnementen met een volgende factuurdatum op of vóór vandaag. Voor elk abonnement maakt het een factuur aan en verstuurt die als automatisch verzenden aanstaat.
+
+## Gegenereerde facturen bekijken
+
+Elke factuur die uit een abonnement ontstaat, blijft eraan gekoppeld. Open een abonnement en scrol naar het onderdeel **Recente facturen** om de laatst gegenereerde facturen te zien, met directe links naar elke factuur.

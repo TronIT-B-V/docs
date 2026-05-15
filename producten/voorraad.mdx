@@ -1,0 +1,124 @@
+---
+title: "Voorraad en voorraadbeheer"
+description: "Houd de voorraad per product bij, verdeel je voorraad over locaties, pas aantallen aan, verplaats voorraad tussen locaties en bekijk een volledige mutatiehistorie."
+---
+
+Voor producten die je als fysieke goederen verkoopt, kan TRONVoice de voorraad bijhouden. Zodra voorraadbeheer voor een product aanstaat, wordt elke wijziging in het aantal vastgelegd als **voorraadmutatie**. Zo heb je altijd een volledige, controleerbare historie van hoe de voorraad op zijn huidige waarde is gekomen.
+
+## Voorraadbeheer aanzetten
+
+Voorraadbeheer stel je per product in. Zet op het productformulier **Voorraad bijhouden** aan en stel in:
+
+- **Huidige voorraad**: het beginaantal.
+- **Minimumvoorraad**: een drempel die een waarschuwing geeft bij lage voorraad.
+- **Voorraadlocatie**: de locatie waar dit product ligt.
+- **Gedrag bij voorraad nul**: kies *waarschuwen* (toestaan, maar een waarschuwing tonen) of *blokkeren* (het product niet op een factuur kunnen zetten zodra de voorraad nul is).
+
+Voorraadbeheer kun je op elk moment aan- of uitzetten. Uitzetten stopt verdere registratie, maar de bestaande mutatiehistorie blijft bewaard.
+
+## Het voorraadoverzicht
+
+Ga naar **Voorraad** om het voorraadoverzicht te openen. Het toont elk product met voorraadbeheer aan, met de huidige voorraad, de locatie en de voorraadstatus.
+
+Gebruik de besturingselementen om de lijst te verfijnen:
+
+- **Zoek** op productnaam of artikelnummer.
+- **Filter op locatie** om te zien wat waar ligt.
+- **Filter op voorraadstatus** om producten met een lage of lege voorraad naar boven te halen.
+
+Vanuit het overzicht kun je de voorraad van een product aanpassen of een transfer starten zonder de pagina te verlaten.
+
+## Voorraadlocaties
+
+Voorraadlocaties (**Voorraadlocaties**) staan voor de fysieke plekken waar je voorraad bewaart, zoals een magazijn, een winkel of een bus. Ze gelden voor je hele organisatie.
+
+Beheer ze onder **Voorraadlocaties**:
+
+<Steps>
+  <Step title="Maak een locatie aan">
+    Klik op **Nieuwe locatie**, voer een **naam** in (verplicht) en eventueel een **omschrijving**, en sla op. Locatienamen moeten uniek zijn binnen je organisatie.
+  </Step>
+  <Step title="Koppel producten">
+    Stel de **voorraadlocatie** van een product in op het productformulier. Elk product met voorraadbeheer hoort bij één locatie.
+  </Step>
+  <Step title="Deactiveer als je hem niet meer gebruikt">
+    Een locatie deactiveren verbergt hem in de keuzelijsten, maar de bestaande gegevens blijven intact.
+  </Step>
+</Steps>
+
+<Warning>
+  Een voorraadlocatie kun je alleen verwijderen als er geen producten aan gekoppeld zijn. Zitten er nog producten aan vast, dan blokkeert TRONVoice het verwijderen en laat het je zien hoeveel.
+</Warning>
+
+## Hoe de voorraad verandert
+
+Elke wijziging in de voorraad van een product wordt vastgelegd als **voorraadmutatie**. Elke mutatie bewaart het aantal, de voorraad voor en na de wijziging, het type wijziging, een optionele reden en, waar van toepassing, de betrokken gebruiker of factuur. De mutatietypes zijn:
+
+| Type | Wanneer het gebeurt | Effect |
+|---|---|---|
+| Factuur | Een product wordt gefactureerd | Voorraad daalt |
+| Creditnota | Er wordt een creditfactuur opgesteld | Voorraad stijgt |
+| Factuurwijziging | Het aantal op een factuurregel verandert | Voorraad wordt aangepast aan het verschil |
+| Beginvoorraad | De beginvoorraad wordt ingesteld als voorraadbeheer start | Stelt de beginvoorraad in |
+| Handmatige aanpassing | Je past de voorraad handmatig aan | Stijgt of daalt |
+| Correctie | Een correctieboeking | Stijgt of daalt |
+| Transfer (uit) | Voorraad verlaat een locatie bij een transfer | Voorraad daalt |
+| Transfer (in) | Voorraad komt aan op een locatie bij een transfer | Voorraad stijgt |
+
+## Voorraad handmatig aanpassen
+
+Als je een levering ontvangt, beschadigde goederen afschrijft of een telling corrigeert, pas je de voorraad rechtstreeks aan vanuit het product of het voorraadoverzicht.
+
+<Steps>
+  <Step title="Open het aanpassingsvenster">
+    Kies bij een product met voorraadbeheer om de voorraad aan te passen.
+  </Step>
+  <Step title="Kies toevoegen of verwijderen">
+    Selecteer **Toevoegen** of **Verwijderen**.
+  </Step>
+  <Step title="Voer het aantal en de reden in">
+    Voer het aantal in en een reden (minimaal 3 tekens). Je kunt een voorgedefinieerde reden kiezen of zelf een reden typen:
+
+    | Toevoegen | Verwijderen |
+    |---|---|
+    | Inkoop / levering ontvangen | Verkoop / uitgifte |
+    | Retour van klant | Beschadigd / onbruikbaar |
+    | Correctie na telling | Verlopen |
+    | | Correctie na telling |
+  </Step>
+  <Step title="Bevestig">
+    Het venster toont een voorbeeld van de voorraad na de wijziging. Bevestig om de mutatie vast te leggen.
+  </Step>
+</Steps>
+
+<Note>
+  Bij een handmatige aanpassing is een reden altijd verplicht. De reden wordt bij de mutatie opgeslagen, zodat de historie betekenisvol blijft.
+</Note>
+
+## Voorraad verplaatsen tussen locaties
+
+Om voorraad van de ene naar de andere locatie te verplaatsen, gebruik je een voorraadtransfer. Een transfer legt twee gekoppelde mutaties vast: een *Transfer (uit)* op de bron en een *Transfer (in)* op de bestemming.
+
+<Steps>
+  <Step title="Open het transfervenster">
+    Start een transfer vanuit het voorraadoverzicht of vanuit een product.
+  </Step>
+  <Step title="Kies bron, bestemming en aantal">
+    Selecteer het **bronproduct**, de **bestemmingslocatie** en het **aantal** dat je wilt verplaatsen. Voeg eventueel een notitie toe. Het venster toont een voorbeeld van de voorraad van het bronproduct na de transfer.
+  </Step>
+  <Step title="Voer de transfer uit">
+    Bevestig. De voorraad daalt op de bron en stijgt op de bestemming.
+  </Step>
+</Steps>
+
+Op de bestemming zoekt TRONVoice een bijpassend product (eerst op artikelnummer, dan op naam) en telt het aantal daarbij op. Is er geen match, dan wordt op de bestemmingslocatie een nieuw product aangemaakt met dezelfde gegevens, zodat de bestemming altijd iets heeft om de voorraad in te ontvangen.
+
+<Tip>
+  Alleen producten met voorraadbeheer, een locatie en een positieve voorraad kunnen als bron van een transfer dienen.
+</Tip>
+
+## De mutatiehistorie van een product bekijken
+
+Elke mutatie wordt permanent bewaard. Om de volledige historie van een product te bekijken, open je het product en bekijk je de **voorraadmutaties**. De historie is verdeeld over pagina's en toont per regel de datum, het type, het aantal, de voorraad voor en na de wijziging, de reden en de gekoppelde factuur of gebruiker waar van toepassing.
+
+Zo heb je een volledig controlespoor: van beginvoorraad tot elke verkoop, retour, aanpassing en transfer.

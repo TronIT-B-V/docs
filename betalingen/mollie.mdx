@@ -1,0 +1,82 @@
+---
+title: "Online betalingen accepteren met Mollie"
+description: "Stuur je klanten bij elke factuur een betaallink mee, zodat ze online kunnen betalen via iDEAL, creditcard of een andere betaalmethode van Mollie."
+---
+
+Elke factuur die je via TRONVoice verstuurt, bevat een unieke betaallink. Als een klant die link opent, komt hij op een betaalpagina in jouw huisstijl en kan hij direct betalen, zonder in te loggen. Zodra de betaling bevestigd is, werkt TRONVoice de factuurstatus automatisch bij.
+
+<Note>
+  Online betalingen via Mollie hebben een gekoppeld Mollie-account nodig. Ga naar **Instellingen → Integraties** en open het tabblad **Betalingen** om je Mollie-account te koppelen voordat je facturen verstuurt.
+</Note>
+
+## Hoe de betaallink werkt
+
+Elke factuur krijgt een unieke betaal-URL met een eigen token. Deze link wordt automatisch meegestuurd als je een factuur per e-mail verstuurt. De link hoort bij die specifieke factuur en verloopt niet zolang de factuur nog openstaat.
+
+Als een klant de link opent, ziet hij:
+
+- Je bedrijfsnaam en logo
+- Het factuurnummer, de factuurdatum en de vervaldatum
+- Het totaalbedrag dat openstaat (inclusief btw-specificatie)
+- Een knop om online te betalen
+
+Is de factuur al betaald, dan toont de pagina een bevestiging in plaats van een betaalknop.
+
+## Ondersteunde betaalmethoden
+
+De betaling loopt via Mollie, dat het volgende ondersteunt:
+
+- **iDEAL**, de belangrijkste methode voor Nederlandse klanten
+- **Creditcard**, zoals Visa en Mastercard
+- **Bancontact**, voor Belgische klanten
+- Aanvullende methoden, afhankelijk van de instellingen van je Mollie-account
+
+Welke methoden je klant te zien krijgt, hangt af van de betaalmethoden die je in je Mollie-dashboard hebt geactiveerd.
+
+## De betaalstappen
+
+<Steps>
+  <Step title="Klant opent de betaallink">
+    De klant klikt op de betaallink in de factuurmail (of je deelt de link zelf). Hij ziet de factuurgegevens en het totaalbedrag dat hij moet betalen.
+  </Step>
+  <Step title="Klant kiest een betaalmethode en betaalt">
+    De klant wordt doorgestuurd naar de afrekenpagina van Mollie. Daar kiest hij zijn betaalmethode en rondt hij de betaling af.
+  </Step>
+  <Step title="Betaalstatus wordt bevestigd">
+    Mollie geeft het automatisch door aan TRONVoice. De factuurstatus verandert binnen enkele seconden na een geslaagde betaling in **Betaald**.
+  </Step>
+  <Step title="Bevestigingsmail wordt verstuurd">
+    TRONVoice stuurt de klant een betalingsbevestiging per e-mail. Op de detailpagina van de factuur zie je het tijdstip van de betaling.
+  </Step>
+</Steps>
+
+## Wat klanten zien na het betalen
+
+Na de betaling komt de klant op een bevestigingspagina met:
+
+- Een bericht dat de betaling geslaagd is
+- Het factuurnummer en het betaalde bedrag
+- De datum en het tijdstip van de betaling
+
+Is de betaling nog in verwerking (bijvoorbeeld bij sommige overboekingsmethoden), dan ververst de pagina zich elke paar seconden tot de status bevestigd is.
+
+## Een betaallink delen of kopiëren
+
+De betaallink van een factuur staat altijd op de detailpagina van die factuur. Je kunt hem zelf kopiëren en delen, bijvoorbeeld als een klant alsnog wil betalen nadat de oorspronkelijke mail is kwijtgeraakt.
+
+<Tip>
+  Geeft een klant aan dat hij niet kan betalen? Controleer dan of je Mollie-integratie actief is en of de factuur nog de status **Verstuurd** heeft. Conceptfacturen en al betaalde facturen kunnen niet online betaald worden.
+</Tip>
+
+## Problemen oplossen
+
+**De klant ziet "Online betalen niet beschikbaar"**
+
+Dit gebeurt als de factuur niet geschikt is voor online betalen:
+- De factuur is al betaald
+- De factuur is nog een concept (nog niet verstuurd)
+- Je Mollie-account is niet gekoppeld of niet actief
+
+**De betaling is gelukt, maar de factuur staat nog op niet betaald**
+
+De melding van een betaling (de webhook) kan soms vertraagd binnenkomen. Wacht een minuut en ververs de factuur. Is de status na een paar minuten nog niet bijgewerkt? Controleer dan in het Mollie-dashboard of de betaling binnen is en zet de factuur daarna handmatig op betaald.

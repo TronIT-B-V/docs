@@ -1,0 +1,87 @@
+---
+title: "Terugkerende facturen beheren"
+description: "Abonnementen activeren of pauzeren, facturen op aanvraag genereren, alle verschuldigde facturen genereren, een abonnement bewerken en bulkacties gebruiken."
+---
+
+Nadat een abonnement is ingesteld, beheer je het vanaf de detailpagina of de abonnementenlijst. Deze pagina behandelt alles wat je doet zodra een terugkerende factuur loopt.
+
+## Activeren en pauzeren
+
+Een abonnement maakt alleen facturen aan zolang het **actief** is. Pauzeer je er een, dan stopt alle generatie. De volgende factuurdatum schuift niet op zolang het abonnement inactief is.
+
+Om de status te wijzigen open je het abonnement en gebruik je de schakelaar **Actief**, of je selecteert het in de abonnementenlijst en gebruikt de bulkactie **Activeren** of **Deactiveren**.
+
+<Tip>
+Hervat je een gepauzeerd abonnement, controleer dan de **volgende factuurdatum**. Ligt die datum al in het verleden, dan is het abonnement meteen verschuldigd en wordt er bij de volgende verwerking een factuur aangemaakt.
+</Tip>
+
+## Een factuur handmatig genereren
+
+Om meteen een factuur uit één abonnement te genereren, ongeacht de volgende factuurdatum:
+
+<Steps>
+  <Step title="Open het abonnement">
+    Ga naar **Abonnementen** en open het abonnement dat je wilt factureren. Het moet **actief** zijn en minstens één regel met een prijs hebben (notitieregels alleen zijn niet genoeg).
+  </Step>
+  <Step title="Genereer de factuur">
+    Klik op **Genereer factuur** (**Genereer factuur**). TRONVoice maakt de factuur aan, kopieert de regels met de datumvariabelen vervangen en schuift de volgende factuurdatum één interval op.
+  </Step>
+  <Step title="Verzonden of concept">
+    Staat **Auto verzenden** aan en heb je credits, dan wordt de factuur gemaild naar de ontvangers die je hebt ingesteld. Anders wordt die opgeslagen als **concept**, zodat je hem handmatig verstuurt.
+  </Step>
+</Steps>
+
+<Note>
+Stond automatisch verzenden aan maar werd de factuur toch als concept opgeslagen, dan zie je de reden. Meestal is dat te weinig credits of een dag die voor de klant is uitgesloten van facturatie.
+</Note>
+
+## Alle verschuldigde facturen genereren
+
+Om in één keer elk abonnement te verwerken dat zijn schema heeft bereikt, gebruik je **Genereer verschuldigde facturen** vanuit de abonnementenlijst.
+
+Dit zoekt alle **actieve** abonnementen waarvan de volgende factuurdatum op of vóór vandaag ligt (en waarvan de einddatum nog niet is verstreken), en genereert voor elk een factuur. Abonnementen zonder regels met een prijs worden overgeslagen en gemeld.
+
+Na afloop laat een samenvatting zien hoeveel facturen zijn gegenereerd, hoeveel zijn gemaild en hoeveel als concept zijn opgeslagen vanwege te weinig credits.
+
+<Tip>
+Voer **Genereer verschuldigde facturen** uit aan het begin van elke factuurperiode om in één actie alles bij te werken wat verschuldigd is.
+</Tip>
+
+## Bulkacties
+
+Selecteer in de abonnementenlijst een of meer abonnementen om een bulkactie toe te passen:
+
+<CardGroup cols={2}>
+  <Card title="Activeren" icon="toggle-right">
+    Hervat meerdere gepauzeerde abonnementen tegelijk.
+  </Card>
+  <Card title="Deactiveren" icon="toggle-left">
+    Pauzeer meerdere actieve abonnementen tegelijk.
+  </Card>
+  <Card title="Facturen genereren" icon="file-text">
+    Genereer een factuur voor elk geselecteerd **actief** abonnement, ongeacht de vervaldatum. Abonnementen zonder regels met een prijs worden overgeslagen.
+  </Card>
+  <Card title="Verwijderen" icon="trash-2">
+    Verwijder de geselecteerde abonnementen.
+  </Card>
+</CardGroup>
+
+<Warning>
+Een abonnement verwijderen zorgt ervoor dat het geen facturen meer aanmaakt. Facturen die er al uit zijn gegenereerd, blijven bewaard en blijven aan het abonnement gekoppeld.
+</Warning>
+
+## Een abonnement bewerken
+
+Open een abonnement en klik op **Bewerken** om elke instelling te wijzigen: naam, referentie, klant, factuurinterval, datums, factuurregels, korting en de opties voor actief en verzenden.
+
+Wijzigingen gelden alleen voor **toekomstige** facturen. Facturen die al zijn gegenereerd, blijven ongewijzigd, omdat elke factuur zijn eigen kopie van de regels en totalen bewaart vanaf het moment dat die werd aangemaakt.
+
+<Note>
+Het wijzigen van de **volgende factuurdatum** verandert wanneer het abonnement de volgende keer verschuldigd is. Zet je die op een datum in het verleden, dan is het abonnement meteen verschuldigd.
+</Note>
+
+## Gegenereerde facturen bekijken
+
+Elke factuur die uit een abonnement ontstaat, blijft eraan gekoppeld. Open een abonnement en zoek het onderdeel **Recente facturen** om de meest recente facturen te zien, elk met een directe link.
+
+Gegenereerde facturen dragen een notitie die het abonnement identificeert waar ze uit komen, zodat je een factuur altijd kunt herleiden naar de bron.

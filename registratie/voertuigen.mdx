@@ -1,0 +1,104 @@
+---
+title: "Voertuigen beheren"
+description: "Registreer de voertuigen die je gebruikt voor rittenregistratie. Zoek voertuiggegevens automatisch op bij de RDW op basis van het kenteken, en ontdek hoe voertuigen en ritten samenhangen."
+---
+
+Een **voertuig** is elke auto, bestelwagen of motor die je gebruikt voor rittenregistratie. Elke rit die je vastlegt wordt gekoppeld aan een voertuig, dus je moet er minstens één registreren voordat je ritten kunt vastleggen.
+
+Je beheert voertuigen onder **Rittenregistratie → Voertuigen**.
+
+## Een voertuig toevoegen
+
+<Steps>
+  <Step title="Open het voertuigoverzicht">
+    Ga naar **Rittenregistratie → Voertuigen** en klik op **Nieuw voertuig**.
+  </Step>
+
+  <Step title="Zoek het kenteken op">
+    Voer het **kenteken** in en gebruik de RDW-zoekopdracht. TRONVoice haalt de gegevens van het voertuig op bij de Dienst Wegverkeer en vult merk, model en voertuigtype automatisch in. Zie [RDW-kenteken zoekopdracht](#rdw-kenteken-zoekopdracht) hieronder.
+
+    Je kunt de velden ook handmatig invullen als de zoekopdracht niets oplevert.
+  </Step>
+
+  <Step title="Kies hoe het voertuig wordt gebruikt">
+    Stel in of het voertuig **zakelijk** of **privé** is. Deze keuze bepaalt hoe ritten voor het voertuig worden vastgelegd, zie [Hoe voertuigen en ritten samenhangen](#hoe-voertuigen-en-ritten-samenhangen).
+  </Step>
+
+  <Step title="Vul de overige gegevens aan">
+    Vul de kilometerstand in en alle andere velden die van toepassing zijn. Zie [Voertuigvelden](#voertuigvelden) voor de volledige lijst.
+  </Step>
+
+  <Step title="Sla het voertuig op">
+    Klik op **Opslaan**. Het voertuigrecord opent en toont de rittenhistorie en kilometerstatistieken.
+  </Step>
+</Steps>
+
+## RDW-kenteken zoekopdracht
+
+De **RDW** is de Dienst Wegverkeer, de nationale voertuigautoriteit van Nederland. Elk geregistreerd Nederlands voertuig heeft een openbaar record bij de RDW, en TRONVoice kan dat record rechtstreeks in het voertuigformulier ophalen.
+
+Als je een **kenteken** invoert en de zoekopdracht start, bevraagt TRONVoice het open voertuigregister van de RDW en vult automatisch in:
+
+| Veld | Bron |
+|---|---|
+| **Merk** | Het merk, opgemaakt met hoofdletter (bijvoorbeeld `Volkswagen`). |
+| **Model** | De handelsbenaming, opgemaakt met hoofdletter. |
+| **Voertuigtype** | Afgeleid van de RDW-voertuigcategorie naar personenauto, bestelauto, motor, bromfiets of anders. |
+
+<Note>
+  Een Nederlands kenteken bestaat uit zes alfanumerieke tekens en moet zowel letters als cijfers bevatten. Je kunt het met of zonder streepjes invoeren, TRONVoice zet het automatisch in de juiste vorm. Klopt het formaat niet, dan start de zoekopdracht niet.
+</Note>
+
+<Tip>
+  Zoekresultaten worden in de cache bewaard, dus hetzelfde kenteken nog eens opzoeken gaat direct. Heeft de RDW geen record voor het kenteken, bijvoorbeeld bij een buitenlands of ongeregistreerd voertuig, vul merk, model en type dan handmatig in.
+</Tip>
+
+## Voertuigvelden
+
+| Veld | Toelichting |
+|---|---|
+| **Kenteken** | Verplicht. Wordt in hoofdletters opgeslagen. Gebruikt om het voertuig te identificeren en als basis voor de RDW-zoekopdracht. |
+| **Merk** | Het merk van het voertuig. Ingevuld door de RDW-zoekopdracht of handmatig. |
+| **Model** | Het model van het voertuig. Ingevuld door de RDW-zoekopdracht of handmatig. |
+| **Voertuigtype** | Een van: **Personenauto**, **Bestelauto**, **Motor**, **Bromfiets** of **Anders**. |
+| **Privé voertuig** | Markeert het voertuig als privé in plaats van zakelijk. Bepaalt hoe ritten worden vastgelegd. |
+| **Huidige kilometerstand** | De huidige kilometerstand van het voertuig. Wordt automatisch bijgewerkt naarmate je zakelijke ritten vastlegt. |
+| **Datum in gebruik** | De datum waarop je het voertuig in gebruik nam. |
+| **Actief** | Of het voertuig op dit moment in gebruik is. Inactieve voertuigen verschijnen niet in het rittenformulier. |
+| **Notities** | Vrije tekst met notities voor je eigen referentie. |
+
+## Hoe voertuigen en ritten samenhangen
+
+Elke rit is gekoppeld aan precies één voertuig, en de instelling **zakelijk / privé** van het voertuig bepaalt hoe de afstand wordt vastgelegd:
+
+<CardGroup cols={2}>
+  <Card title="Zakelijk voertuig" icon="briefcase">
+    Ritten houden kilometerstanden bij. Je voert de **begin**- en **eind**stand in, en TRONVoice berekent de gereden afstand. De huidige kilometerstand van het voertuig wordt na elke rit automatisch bijgewerkt.
+  </Card>
+  <Card title="Privévoertuig" icon="user">
+    Ritten leggen de **afstand direct** vast, kilometerstanden zijn niet nodig. Dit ondersteunt de zakelijke vergoeding van €0,23 per kilometer voor privéauto's.
+  </Card>
+</CardGroup>
+
+Als je een nieuwe rit start, vult TRONVoice de laatst bekende kilometerstand van het geselecteerde zakelijke voertuig vast vooraf in, zodat de volgende rit naadloos aansluit op de vorige.
+
+Op de detailpagina van een voertuig zie je de rittenhistorie en de statistieken per jaar: totaal kilometers, zakelijke kilometers en privékilometers.
+
+<Note>
+  Een voertuig dat op het moment van een rit als **privé** is gemarkeerd, blijft privé voor het record van die rit, ook als je de instelling van het voertuig later wijzigt. Zo blijven historische ritten kloppen.
+</Note>
+
+## Voertuigen deactiveren en verwijderen
+
+Hoe een voertuig wordt verwijderd, hangt af van of er ritten aan gekoppeld zijn:
+
+- **Voertuigen met ritten** kun je niet verwijderen. In plaats daarvan wordt zo'n voertuig **gedeactiveerd**: het verdwijnt uit het rittenformulier, maar alle ritten en historie blijven bewaard.
+- **Voertuigen zonder ritten** worden direct verwijderd.
+
+<Warning>
+  Een voertuig deactiveren verwijdert nooit de ritten ervan. De kilometerhistorie blijft beschikbaar voor export en rapportage.
+</Warning>
+
+<Tip>
+  Voeg je een voertuig opnieuw toe met een kenteken dat eerder is verwijderd, dan herstelt TRONVoice het oorspronkelijke record in plaats van een dubbele aan te maken.
+</Tip>

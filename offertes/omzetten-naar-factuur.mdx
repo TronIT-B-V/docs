@@ -1,0 +1,106 @@
+---
+title: "Een offerte omzetten naar een factuur"
+description: "Zet een geaccepteerde offerte om naar een factuur en beheer de andere statusacties: markeren als verzonden, geaccepteerd of geweigerd, archiveren, dupliceren en geplande verzending."
+---
+
+Zodra een klant een offerte accepteert, zet je die om naar een factuur zonder gegevens opnieuw in te voeren. Deze pagina behandelt ook de andere statusacties die beschikbaar zijn op een offerte.
+
+## Een geaccepteerde offerte omzetten
+
+Een offerte kan alleen gefactureerd worden als de status **Geaccepteerd** (**geaccepteerd**) is.
+
+<Steps>
+  <Step title="Open de geaccepteerde offerte">
+    Ga naar **Offertes** en open een offerte met de status **Geaccepteerd**.
+  </Step>
+  <Step title="Zet om naar factuur">
+    Klik op **Omzetten naar factuur** (**Factureren**). TRONVoice kopieert elke regel naar een nieuwe factuur: omschrijvingen, aantallen, eenheidsprijzen, btw-tarieven per regel, kortingen, locatiegroepen en notitieregels.
+  </Step>
+  <Step title="Controleer en verstuur">
+    De nieuwe factuur opent als **concept**, met een conceptnummer, de datum van vandaag als factuurdatum en een vervaldatum op basis van de betaaltermijn van je administratie. Het veld **Referentie** van de factuur wordt ingevuld met `Offerte [nummer]`. Controleer de gegevens en verstuur de factuur naar de klant.
+  </Step>
+</Steps>
+
+<Note>
+Elke factuur die uit een offerte ontstaat, blijft eraan gekoppeld. De omzetting wordt vastgelegd in het tabblad **Activiteit** van de offerte.
+</Note>
+
+### Gesplitst factureren
+
+Heb je een **schema voor gesplitst factureren** op de offerte ingesteld, dan toont de geaccepteerde offerte elk deel apart. Bij het omzetten kun je:
+
+- **Een enkel deel factureren**: maakt een factuur voor één deel op basis van het percentage of een vast bedrag.
+- **De resterende delen factureren**: voegt alle nog niet gefactureerde delen samen tot één factuur met het label `Restant facturatie`.
+- **Het volledige bedrag factureren**: negeert het schema en factureert de hele offerte in één keer. Hiervoor kiezen wist het schema.
+
+Elk gefactureerd deel wordt als afgerond gemarkeerd, zodat het niet twee keer gefactureerd kan worden. Offertes met verschillende btw-tarieven krijgen een evenredige factuurregel per tarief, zodat de btw-berekening klopt.
+
+<Warning>
+Bij het omzetten wordt de voorraad gecontroleerd. Gebruikt een regel een product dat verkoop bij onvoldoende voorraad blokkeert en is er te weinig, dan wordt de factuur niet aangemaakt en legt een foutmelding uit van welk product te weinig is.
+</Warning>
+
+## Statusacties
+
+Naast omzetten ondersteunt een offerte verschillende statusacties vanaf de detailpagina.
+
+### De offerte verzenden
+
+Een **concept**-offerte verzenden mailt die naar de klant met de pdf als bijlage en een persoonlijke acceptatielink, en zet de status op **Verzonden** (**verzonden**). De klant moet een e-mailadres hebben en je account moet voldoende credits hebben.
+
+### Markeren als verzonden
+
+Gebruik **Markeer als verzonden** wanneer je de offerte zelf hebt afgeleverd, bijvoorbeeld geprint of persoonlijk overhandigd. Hiermee gaat een **concept**-offerte naar **Verzonden** zonder dat er iets gemaild wordt. De acceptatielink wordt aangemaakt en er komt een pdf zonder het `CONCEPT`-watermerk, zodat je een nette kopie kunt downloaden.
+
+### Markeren als geaccepteerd
+
+Gebruik **Markeer als geaccepteerd** wanneer een klant buiten de app akkoord heeft gegeven, bijvoorbeeld telefonisch. Dit is alleen beschikbaar bij een **Verzonden** offerte. Je kunt optioneel de **naam** en het **e-mailadres** vastleggen van de persoon die akkoord gaf. De status gaat naar **Geaccepteerd** en de offerte is klaar om te factureren.
+
+### Markeren als geweigerd
+
+Gebruik **Markeer als geweigerd** om een afwijzing vast te leggen op een **Verzonden** offerte. Een **reden** is verplicht. De status gaat naar **Geweigerd** (**geweigerd**) en de reden wordt op de offerte opgeslagen.
+
+<Tip>
+Na een afwijzing kan de offerte niet opnieuw worden geopend voor acceptatie. Gebruik **Dupliceren** om met dezelfde inhoud een nieuw voorstel te starten.
+</Tip>
+
+### Archiveren en herstellen
+
+**Archiveren** verbergt een offerte uit je standaard offerteweergave zonder die te verwijderen. Open een gearchiveerde offerte en klik op **Herstellen** om hem terug te halen.
+
+### Dupliceren
+
+**Dupliceren** maakt een volledige kopie van de offerte, inclusief alle regels, als nieuw **concept**. Gebruik dit om een geweigerd voorstel te herzien of om een nieuwe offerte te baseren op een eerdere.
+
+## Verzending van een offerte inplannen
+
+In plaats van meteen verzenden, kun je een **concept**-offerte inplannen om automatisch uit te gaan.
+
+<Steps>
+  <Step title="Open de conceptofferte">
+    Inplannen is alleen mogelijk zolang de offerte nog een **concept** is.
+  </Step>
+  <Step title="Kies een datum en tijd">
+    Kies een **geplande datum** (vandaag of later) en een **tijd** in stappen van 15 minuten. Het gecombineerde moment moet in de toekomst liggen. De klant moet een e-mailadres hebben en je account moet voldoende credits hebben.
+  </Step>
+  <Step title="Bevestig">
+    TRONVoice mailt de offerte automatisch op het geplande moment. Tot dat moment blijft de offerte een concept en kun je hem nog bewerken.
+  </Step>
+</Steps>
+
+Wil je een geplande verzending stoppen, open dan de offerte en klik op **Annuleer geplande verzending**. De offerte handmatig verzenden wist ook een ingepland moment.
+
+## Bulkacties
+
+Vanuit de offertelijst selecteer je meerdere offertes om er in één keer iets mee te doen:
+
+<CardGroup cols={3}>
+  <Card title="Verzenden" icon="send">
+    Verstuurt alle geselecteerde **concept**-offertes. Offertes zonder e-mailadres van de klant worden overgeslagen.
+  </Card>
+  <Card title="Downloaden" icon="download">
+    Downloadt de geselecteerde offertes als pdf: één bestand voor één offerte, of een zip-archief voor meerdere.
+  </Card>
+  <Card title="Verwijderen" icon="trash-2">
+    Verwijdert geselecteerde offertes. Alleen **concept**-offertes kunnen worden verwijderd.
+  </Card>
+</CardGroup>

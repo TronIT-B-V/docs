@@ -1,0 +1,129 @@
+---
+title: "Betalingen innen met SEPA-incasso"
+description: "Stel SEPA-incasso in TRONVoice in: vraag machtigingen aan bij klanten, maak incassobatches aan en int factuurbedragen automatisch via Mollie."
+---
+
+Met SEPA-incasso (automatische incasso) int je factuurbedragen rechtstreeks van de bankrekening van een klant, zonder dat de klant elke keer iets hoeft te doen. De klant machtigt je één keer, en daarna kun je factuurbedragen in batches innen.
+
+<Note>
+  SEPA-incasso vereist dat je Mollie-account gekoppeld is en dat SEPA voor je administratie is ingesteld. Neem contact op met de beheerder van je account als deze functie niet beschikbaar is.
+</Note>
+
+## Het proces in het kort
+
+1. **Machtiging aanvragen**: stuur de klant per e-mail een machtigingslink
+2. **Klant accepteert**: de klant doet een kleine verificatiebetaling om zijn IBAN te bevestigen
+3. **Batch aanmaken**: selecteer geschikte facturen en plan een incassodatum
+4. **Vooraankondiging versturen**: TRONVoice informeert klanten minstens 14 dagen voor de incasso
+5. **Batch verwerken**: TRONVoice dient de batch in bij Mollie voor de incasso
+
+---
+
+## Stap 1: een machtiging aanvragen bij een klant
+
+<Steps>
+  <Step title="Open de klantgegevens">
+    Ga naar **Klanten** en open de klant die je voor automatische incasso wilt instellen.
+  </Step>
+  <Step title="Verstuur een machtigingsaanvraag">
+    Klik op **Machtiging aanvragen**. TRONVoice maakt een machtiging aan en stuurt de klant een e-mail met een link om de incasso te machtigen.
+  </Step>
+  <Step title="Klant machtigt de incasso">
+    De klant opent de link en ziet je bedrijfsnaam, logo en een korte uitleg. Hij klikt door naar Mollie, doet een kleine eenmalige verificatiebetaling om zijn bankrekening te bevestigen, en de machtiging wordt geregistreerd.
+  </Step>
+</Steps>
+
+De machtigingslink is **48 uur** geldig. Rondt de klant het niet op tijd af, dan kun je de aanvraag opnieuw versturen vanuit de klantgegevens.
+
+<Warning>
+  Per klant mag er maar één openstaande machtigingsaanvraag tegelijk zijn. Is er al een openstaande aanvraag, annuleer die dan voordat je een nieuwe verstuurt.
+</Warning>
+
+### Machtigingsstatussen
+
+| Status | Betekenis |
+|---|---|
+| **In afwachting** | Machtigingsaanvraag verstuurd; de klant heeft de machtiging nog niet afgerond |
+| **Actief** | De machtiging is geldig; de klant kan in incassobatches worden opgenomen |
+| **Ingetrokken** | De machtiging is ingetrokken; bij deze klant kan niet worden geïncasseerd totdat er weer een actieve machtiging is |
+
+---
+
+## Stap 2: een machtiging handmatig aanmaken (optioneel)
+
+Heb je een papieren machtiging die de klant heeft ondertekend, dan kun je die handmatig registreren in plaats van een aanvraag per e-mail te versturen.
+
+<Steps>
+  <Step title="Open de klantgegevens">
+    Ga naar **Klanten** en open de betreffende klant.
+  </Step>
+  <Step title="Voeg een handmatige machtiging toe">
+    Klik op **Handmatige machtiging aanmaken** en vul in:
+    - Naam van de rekeninghouder
+    - IBAN
+    - BIC (optioneel)
+    - Datum van ondertekening
+  </Step>
+  <Step title="Sla de machtiging op">
+    De machtiging krijgt meteen de status **Actief** en de klant is klaar voor automatische incasso.
+  </Step>
+</Steps>
+
+---
+
+## Stap 3: een incassobatch aanmaken
+
+Zodra klanten een actieve machtiging hebben, kun je facturen innen door een batch aan te maken.
+
+<Steps>
+  <Step title="Ga naar Incassobatches">
+    Ga naar **Betalingen → Incassobatches**.
+  </Step>
+  <Step title="Maak een nieuwe batch aan">
+    Klik op **Nieuwe batch** en kies een incassodatum. De datum moet in de toekomst liggen, zodat er tijd is voor de verplichte vooraankondiging.
+  </Step>
+  <Step title="Bekijk de geschikte facturen">
+    TRONVoice toont alle openstaande facturen van klanten met een actieve machtiging. Voeg de facturen toe die je in deze batch wilt opnemen.
+  </Step>
+  <Step title="Verwijder regels indien nodig">
+    Je kunt losse regels uit de batch verwijderen zolang die nog **Open** is. Zodra een batch is vergrendeld, kunnen regels niet meer worden verwijderd.
+  </Step>
+</Steps>
+
+Batches worden automatisch genummerd in het formaat `BATCH-{jaar}-{volgnummer}`, bijvoorbeeld `BATCH-2025-001`.
+
+---
+
+## Verplichte vooraankondiging
+
+De SEPA-regels schrijven voor dat klanten minstens **14 dagen** voor een incasso geïnformeerd worden. TRONVoice regelt dit automatisch: er gaat een vooraankondiging per e-mail naar elke klant in de batch zodra de batch wordt ingediend.
+
+<Warning>
+  Je bent er zelf verantwoordelijk voor dat de wettelijke termijn van 14 dagen wordt gehaald voordat je de batch bij Mollie indient. Kies geen incassodatum die minder dan 14 dagen in de toekomst ligt.
+</Warning>
+
+---
+
+## Stap 4: de batch indienen en verwerken
+
+Ben je tevreden met de inhoud van de batch, dien hem dan in voor verwerking. TRONVoice stuurt de betalingen naar Mollie, dat de incasso's op de geplande datum start.
+
+Na de incasso werkt TRONVoice elke factuur bij op basis van het resultaat:
+- **Geslaagd**: de factuur wordt op betaald gezet
+- **Mislukt of teruggeboekt**: de factuur blijft openstaan; je kunt de klant erop aanspreken
+
+---
+
+## Machtigingen beheren
+
+### Een machtigingsaanvraag opnieuw versturen
+
+Heeft de klant de machtiging niet op tijd afgerond? Ga naar de klantgegevens en klik op **Aanvraag opnieuw versturen**. De e-mail wordt opnieuw verstuurd met een nieuwe machtigingslink.
+
+### Een machtiging intrekken
+
+Wil je de automatische incasso voor een klant stopzetten? Open de klantgegevens en klik op **Machtiging intrekken**. De machtigingsstatus verandert in **Ingetrokken** en de klant valt meteen buiten toekomstige batches.
+
+<Tip>
+  Volgens de SEPA-regels mogen klanten een incasso binnen 8 weken na de transactiedatum betwisten. Wijs klanten op dit recht als je hun machtiging aanvraagt.
+</Tip>

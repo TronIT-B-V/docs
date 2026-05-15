@@ -1,0 +1,112 @@
+---
+title: "Notificaties en meldingen"
+description: "Een overzicht van de automatische e-mails die TRONVoice je stuurt over credits, betalingen, voorraad, je inbox, taken en je team, plus de ene voorkeur die je zelf kunt instellen."
+---
+
+TRONVoice houdt je per e-mail op de hoogte als er iets is dat je aandacht nodig heeft: credits die opraken, een incasso die mislukt, een taak die op jouw bord belandt. Op deze pagina staan alle automatische e-mails en lees je wat ze in gang zet, zodat je weet wat je in je mailbox kunt verwachten.
+
+De meeste notificaties gaan naar de **accounteigenaar** (Eigenaar). E-mails over taken gaan naar het betrokken teamlid. Maar één notificatie kun je uitzetten, zie [Jouw notificatievoorkeur](#jouw-notificatievoorkeur) onderaan.
+
+## Account en credits
+
+<AccordionGroup>
+  <Accordion title="Credits raken op" icon="battery-low">
+    Wordt naar eigenaren gestuurd als je creditsaldo daalt tot ongeveer **20% of minder** van wat je hebt opgewaardeerd (en nog boven nul ligt). TRONVoice wacht minstens **7 dagen** tussen deze herinneringen, zodat je niet steeds opnieuw een e-mail krijgt. De e-mail toont je huidige saldo en een schatting van hoeveel facturen je nog kunt versturen.
+  </Accordion>
+  <Accordion title="Opwaardering bevestigd" icon="circle-check">
+    Wordt naar eigenaren gestuurd nadat een opwaardering van credits succesvol is verwerkt. Is de opwaardering automatisch in gang gezet door je instellingen voor automatisch opwaarderen, dan heeft de e-mail de titel **Automatische opwaardering succesvol**. Een handmatige opwaardering heeft de titel **Opwaardering succesvol**. Beide tonen het bedrag, het platformfactuurnummer en je nieuwe saldo.
+  </Accordion>
+</AccordionGroup>
+
+Zie [Credits](/instellingen/credits) voor hoe opwaarderen en automatisch opwaarderen werken.
+
+## Voorraad
+
+<AccordionGroup>
+  <Accordion title="Waarschuwing lage voorraad" icon="package">
+    Wordt naar eigenaren gestuurd als een of meer producten met voorraadbeheer raken op, of dalen tot op of onder hun minimale voorraadniveau. De controle loopt automatisch. TRONVoice wacht tussen waarschuwingen, zodat je niet elke dag een e-mail krijgt over dezelfde producten.
+  </Accordion>
+</AccordionGroup>
+
+## Betalingen en incasso
+
+Deze gaan over SEPA-incasso en terugkerende betalingen.
+
+<AccordionGroup>
+  <Accordion title="SEPA-batch ingediend" icon="send">
+    Wordt verstuurd als een incassobatch is ingediend bij de bank. De e-mail vermeldt het batchkenmerk, het aantal facturen, het totaalbedrag en de uitvoerdatum.
+  </Accordion>
+  <Accordion title="Incasso mislukt" icon="circle-x">
+    Wordt verstuurd als een automatische incasso voor een factuur mislukt. De e-mail noemt de factuur, de klant en het bedrag, geeft de reden van het mislukken en vermeldt welke actie TRONVoice heeft ondernomen.
+  </Accordion>
+  <Accordion title="Incasso teruggeboekt" icon="undo-2">
+    Wordt verstuurd als een eerder geïncasseerd bedrag wordt teruggeboekt (een storno). De factuur gaat terug naar de status **verzonden**, zodat je opnieuw een betaling met de klant kunt regelen.
+  </Accordion>
+  <Accordion title="Machtiging ingetrokken" icon="file-x">
+    Wordt verstuurd als de SEPA-machtiging van een klant is ingetrokken. De e-mail toont de klant, het gemaskeerde IBAN, het machtigingskenmerk en de reden, zodat je je incasso-instellingen kunt bijwerken.
+  </Accordion>
+  <Accordion title="Abonnementsbetaling mislukt" icon="triangle-alert">
+    Wordt verstuurd als een terugkerende abonnementsbetaling mislukt, bijvoorbeeld de maandelijkse afschrijving voor extra administraties. De e-mail toont de organisatie, het bedrag en de betaalstatus. Mollie probeert de betaling automatisch opnieuw. Blijft het mislukken, dan is actie nodig.
+  </Accordion>
+</AccordionGroup>
+
+## E-maildomein
+
+<AccordionGroup>
+  <Accordion title="Eigen domein geverifieerd" icon="globe">
+    Wordt verstuurd als een eigen e-maildomein dat je voor een administratie hebt toegevoegd de DNS-verificatie doorstaat. Daarna worden facturen en offertes verstuurd vanaf je eigen domein.
+  </Accordion>
+</AccordionGroup>
+
+## Inbox
+
+<AccordionGroup>
+  <Accordion title="Nieuwe inkomende e-mail ontvangen" icon="inbox">
+    Wordt verstuurd als er een nieuw bericht binnenkomt in de TRONVoice-inbox van een administratie. De e-mail toont de afzender, het onderwerp, een korte preview en of er bijlagen zijn. Dit is de **enige notificatie die je kunt uitzetten**, zie hieronder.
+  </Accordion>
+</AccordionGroup>
+
+## Taken
+
+Deze e-mails gaan naar het teamlid dat bij de taak betrokken is, niet alleen naar de eigenaar.
+
+<AccordionGroup>
+  <Accordion title="Taak aan jou toegewezen" icon="clipboard-check">
+    Wordt naar een teamlid gestuurd als er een taak aan hem of haar wordt toegewezen.
+  </Accordion>
+  <Accordion title="Herinnering deadline taak" icon="clock">
+    Wordt naar het toegewezen teamlid gestuurd als een taak zijn deadline nadert.
+  </Accordion>
+</AccordionGroup>
+
+## Team
+
+<AccordionGroup>
+  <Accordion title="Teamuitnodiging" icon="user-plus">
+    Wordt naar iemand gestuurd als die persoon wordt uitgenodigd om lid te worden van een organisatie, met een persoonlijke link om het account te activeren. Zie [Gebruikers en rollen](/instellingen/gebruikers-en-rollen).
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Jouw notificatievoorkeur
+
+Bijna elke notificatie hierboven wordt altijd verstuurd. Ze gaan over geld, beveiliging en bedrijfsvoering, dus je kunt ze niet uitzetten. Er is één uitzondering die je zelf bepaalt.
+
+Op je profielpagina vind je in het onderdeel **Notificaties** het volgende:
+
+| Instelling | Wat het doet |
+|---|---|
+| **Inbox e-mailnotificaties** | Bepaalt de notificatie *nieuwe inkomende e-mail ontvangen*. Staat de instelling aan, dan krijg je een e-mail telkens als er een bericht in je inbox binnenkomt. Staat hij uit, dan wordt er geen e-mail verstuurd. |
+
+Gebruik de schakelaar en klik op **Opslaan** om de wijziging toe te passen.
+
+<Tip>
+  Zet je **Inbox e-mailnotificaties** uit, dan stopt alleen de e-mail. Nieuwe inboxberichten verschijnen nog steeds in de app, met een teller voor ongelezen berichten naast **Inbox** in de zijbalk.
+</Tip>
+
+<Note>
+  Alle andere notificaties op deze pagina, over credits, opwaarderingen, lage voorraad, incasso, domeinverificatie, taken en teamuitnodigingen, worden altijd verstuurd en hebben geen uitknop.
+</Note>
+
+Om het onderdeel Notificaties te openen, zie [Profiel en beveiliging](/instellingen/profiel-en-beveiliging).

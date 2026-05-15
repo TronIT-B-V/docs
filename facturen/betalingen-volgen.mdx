@@ -1,0 +1,115 @@
+---
+title: "Factuurbetalingen volgen"
+description: "Begrijp de factuurstatussen in TRONVoice, markeer facturen als betaald, verwerk deelbetalingen, koppel betalingen aan banktransacties en deel de openbare factuurweergave."
+---
+
+TRONVoice volgt elke factuur vanaf het moment dat je hem aanmaakt tot hij volledig is betaald. Op deze pagina lees je over de levenscyclus van statussen, hoe je betalingen vastlegt, hoe deelbetalingen werken en hoe klanten een factuur bekijken via een beveiligde openbare link.
+
+## Levenscyclus van factuurstatussen
+
+Elke factuur doorloopt een duidelijke reeks statussen.
+
+```
+Concept → Verzonden → Betaald
+                     → Gecrediteerd
+```
+
+| Status | Wat het betekent |
+|---|---|
+| **Concept** | De factuur wordt voorbereid. Je kunt elk gegeven nog aanpassen. Hij heeft een tijdelijk nummer in de vorm `CONCEPT-XXXXX`. |
+| **Verzonden** | De factuur is verstuurd of als verzonden gemarkeerd. Er is een permanent factuurnummer toegekend en de betaaltermijn loopt. |
+| **Vervallen** | Een verzonden factuur waarvan de vervaldatum is verstreken zonder volledige betaling. Dit is een weergavestatus van **Verzonden**, geen apart opgeslagen status. |
+| **Deelbetaald** | Een verzonden factuur die een deel van het totaalbedrag, maar niet alles, heeft ontvangen via afgeletterde banktransacties. |
+| **Betaald** | Het volledige bedrag is ontvangen en bevestigd. |
+| **Gecrediteerd** | Er is een creditfactuur opgesteld tegen de factuur. Hij kan niet meer betaald worden. |
+
+<Note>
+**Vervallen** en **Deelbetaald** zijn geen opgeslagen statussen. Ze worden afgeleid van een **Verzonden** factuur op basis van de vervaldatum en de afgeletterde betalingen. Het factuuroverzicht toont ze als aparte labels, zodat je in één oogopslag ziet wat je aandacht nodig heeft.
+</Note>
+
+## Een factuur als betaald markeren
+
+Ontvang je een betaling buiten een automatisch kanaal om, bijvoorbeeld een bankoverschrijving die je zelf hebt opgemerkt, dan kun je de factuur als betaald markeren.
+
+<Steps>
+  <Step title="Open de factuur">
+    Ga naar **Facturen** en open de verzonden factuur waarvoor je betaling hebt ontvangen.
+  </Step>
+  <Step title="Markeer als betaald">
+    Klik op **Markeer als betaald**. Er verschijnt een venster.
+  </Step>
+  <Step title="Stel de betaalgegevens in">
+    Stel eventueel in:
+    - **Betaald op**: standaard vandaag als je dit leeg laat.
+    - **Betaalreferentie**: een vrij invulveld, bijvoorbeeld een regelnummer van het bankafschrift.
+  </Step>
+  <Step title="Bevestig">
+    Bevestig het venster. De status verandert in **Betaald**, de betaalmethode wordt vastgelegd als **Handmatig** en de wijziging wordt opgenomen in het activiteitenlogboek van de factuur.
+  </Step>
+</Steps>
+
+Heeft je administratie betaalbevestigingsmails ingeschakeld, dan verstuurt TRONVoice een bevestiging naar de klant wanneer de factuur als betaald wordt gemarkeerd.
+
+<Tip>
+Verkeerde factuur als betaald gemarkeerd? Open hem en zet de status terug naar **Verzonden**. TRONVoice wist de betaaldatum, betaalmethode en referentie, zodat de factuur weer openstaat.
+</Tip>
+
+## Hoe betalingen aan banktransacties worden gekoppeld
+
+Wanneer je een bankkoppeling instelt, koppelt TRONVoice inkomende transacties aan je verzonden facturen.
+
+- Een gekoppelde transactie legt een **afgeletterd bedrag** vast bij de factuur.
+- Een factuur kan aan **meerdere transacties** worden gekoppeld, en juist daardoor zijn deelbetalingen mogelijk.
+- Wanneer het totale afgeletterde bedrag het volledige factuurtotaal dekt, geldt de factuur als volledig betaald.
+
+De factuurdetailpagina toont elke afgeletterde banktransactie onder het kopje **Betaling**, inclusief de datum en het afgeletterde bedrag.
+
+## Deelbetalingen
+
+Een **deelbetaling** is een verzonden factuur die wel een deel van de betaling heeft ontvangen, maar nog niet volledig is gedekt.
+
+| Veld | Omschrijving |
+|---|---|
+| **Totaal betaald** | De som van alle afgeletterde bedragen van banktransacties. |
+| **Openstaand bedrag** | Het factuurtotaal min het totaal betaald. |
+| **Betaalvoortgang** | Het betaalde bedrag als percentage van het factuurtotaal. |
+
+Een deelbetaalde factuur behoudt de status **Verzonden**, maar toont een label **Deelbetaald** in het factuuroverzicht. Hij wordt pas **Betaald** wanneer het openstaande bedrag nul bereikt (met een marge van één cent).
+
+<Note>
+Deelbetalingen worden volledig aangestuurd door afgeletterde banktransacties. Een factuur handmatig als betaald markeren zet hem direct op **Betaald** voor het volledige bedrag, het legt geen deelbedrag vast.
+</Note>
+
+## Online betalingen (iDEAL / bunq)
+
+Heeft je administratie Mollie (iDEAL) of bunq ingesteld, dan kunnen verzonden facturen online worden betaald, direct vanuit de factuurmail of de openbare factuurpagina.
+
+Wanneer een klant online betaalt:
+- De factuur wordt automatisch op **Betaald** gezet.
+- De betaalmethode wordt vastgelegd als **iDEAL (Mollie)** of **bunq.me**.
+- Er wordt een betaalbevestiging naar de klant verstuurd.
+
+Online betalen is alleen beschikbaar voor verzonden facturen met een positief bedrag die niet zijn gecrediteerd.
+
+## De openbare factuurweergave
+
+Elke factuur heeft een unieke, op een token gebaseerde openbare pagina die je klant kan openen zonder TRONVoice-account.
+
+- De URL bevat een beveiligd **betaaltoken** dat uniek is voor die factuur.
+- De pagina toont de volledige factuurgegevens en laat de klant de pdf bekijken en downloaden.
+- Is online betalen beschikbaar, dan verschijnt er een betaalknop op de pagina.
+- Elk bezoek en elke pdf-download wordt vastgelegd in het activiteitenlogboek van de factuur, zodat je ziet wanneer een klant hem heeft bekeken.
+
+<Tip>
+Je kunt de openbare factuurlink kopiëren vanaf de factuurdetailpagina en handmatig delen, bijvoorbeeld via WhatsApp, als een klant zegt de e-mail nooit te hebben ontvangen.
+</Tip>
+
+<Warning>
+Iedereen met de link kan de factuur bekijken. Behandel de openbare URL als een wachtwoord en deel hem alleen met de bedoelde ontvanger.
+</Warning>
+
+## Wat is de volgende stap
+
+- [Een factuur inplannen](/facturen/inplannen)
+- [Bulkacties](/facturen/bulkacties)
+- [Betalingsherinneringen](/facturen/herinneringen)

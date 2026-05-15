@@ -1,0 +1,86 @@
+---
+title: "Een factuur inplannen voor later"
+description: "Stel een TRONVoice-factuur in om automatisch op een datum en tijd in de toekomst te versturen, bewerk een geplande verzending of annuleer hem voordat hij uitgaat."
+---
+
+TRONVoice kan een factuur automatisch op een datum en tijd in de toekomst versturen. Inplannen is handig voor facturatierondes aan het einde van de maand, of wanneer je facturen vooraf wilt klaarzetten zodat ze op een vaste dag uitgaan.
+
+## Hoe inplannen werkt
+
+Wanneer je een conceptfactuur inplant, slaat TRONVoice een **geplande verzenddatum** op bij de factuur. De factuur blijft een **concept** tot dat moment. De factuurregels kun je nog steeds aanpassen en er is nog geen factuurnummer toegekend.
+
+Op het ingeplande tijdstip doet TRONVoice automatisch het volgende:
+- De status verandert in **Verzonden** en het permanente factuurnummer wordt toegekend.
+- De factuur wordt per e-mail verstuurd naar de ontvangers die je hebt gekozen.
+- De **€0,65 aan credits** voor het versturen van de factuur wordt afgeschreven.
+
+<Note>
+Alleen **concept**facturen kunnen worden ingepland. Een factuur die al is verstuurd, kun je niet meer inplannen.
+</Note>
+
+## Een factuur inplannen
+
+<Steps>
+  <Step title="Open de conceptfactuur">
+    Ga naar **Facturen** en open het concept dat je wilt inplannen.
+  </Step>
+  <Step title="Open het inplanvenster">
+    Klik op **Inplannen**, meestal weergegeven naast de knop **Versturen**. Er verschijnt een datum- en tijdkiezer.
+  </Step>
+  <Step title="Stel de datum en tijd in">
+    Kies een **datum**, vandaag of een dag in de toekomst, en een **tijd**. Tijden kies je in stappen van 15 minuten (`:00`, `:15`, `:30`, `:45`). De gecombineerde datum en tijd moeten in de toekomst liggen.
+  </Step>
+  <Step title="Kies de ontvangers">
+    Kies wie de factuur ontvangt wanneer hij wordt verstuurd:
+    - **Verstuur naar klant**: verstuurt naar het e-mailadres van de klant.
+    - **Verstuur naar admin**: verstuurt een kopie naar het e-mailadres van je administratie.
+
+    Beide staan standaard aan.
+  </Step>
+  <Step title="Bevestig">
+    Bevestig het venster. De factuurdetailpagina toont nu de geplande verzenddatum en -tijd. De factuur blijft een concept tot hij wordt verstuurd.
+  </Step>
+</Steps>
+
+<Warning>
+Een factuur kan alleen worden ingepland als je administratie een **IBAN** heeft ingesteld. Zonder IBAN toont TRONVoice een foutmelding en stuurt het je naar de administratie-instellingen.
+</Warning>
+
+## Creditcontrole bij het inplannen
+
+TRONVoice controleert of je genoeg credits hebt op het moment dat je de factuur inplant. Is je saldo onvoldoende, dan word je naar de pagina om credits bij te kopen gestuurd voordat de planning kan worden opgeslagen.
+
+<Note>
+De credits worden pas afgeschreven wanneer de factuur daadwerkelijk wordt verstuurd, niet wanneer je hem inplant. Raakt je saldo laag voor de geplande datum, vul het dan op tijd aan zodat de geplande verzending niet wordt geblokkeerd.
+</Note>
+
+## Een geplande verzending bewerken
+
+De geplande verzenddatum wordt op de factuur zelf opgeslagen. Om hem te wijzigen, open je de factuur en plan je hem opnieuw in met de nieuwe datum, tijd of ontvangers. De nieuwe planning vervangt de vorige.
+
+Omdat een ingeplande factuur nog steeds een concept is, kun je ook de factuurregels, klant, datums en notities vrij aanpassen tot het moment dat hij wordt verstuurd.
+
+## Een geplande verzending annuleren
+
+Om te voorkomen dat een ingeplande factuur wordt verstuurd:
+
+<Steps>
+  <Step title="Open de factuur">
+    Ga naar **Facturen** en open het ingeplande concept.
+  </Step>
+  <Step title="Annuleer de planning">
+    Klik op **Annuleer planning**. De geplande verzenddatum wordt gewist.
+  </Step>
+</Steps>
+
+De factuur blijft een concept en wordt niet meer automatisch verstuurd. Je kunt hem later opnieuw inplannen, direct versturen of als concept laten staan. De annulering wordt vastgelegd in het activiteitenlogboek van de factuur.
+
+<Tip>
+Een factuur direct versturen wist ook een bestaande planning. Besluit je dus eerder te versturen dan gepland, klik dan gewoon op **Versturen**. De geplande verzending vervalt dan automatisch.
+</Tip>
+
+## Wat is de volgende stap
+
+- [Een factuur versturen](/facturen/versturen)
+- [Bulkacties](/facturen/bulkacties)
+- [Factuurbetalingen volgen](/facturen/betalingen-volgen)

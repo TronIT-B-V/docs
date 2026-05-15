@@ -1,0 +1,115 @@
+---
+title: "Banktransacties afletteren met facturen"
+description: "Koppel geïmporteerde banktransacties aan openstaande facturen in TRONVoice, automatisch of handmatig, zodat betaalde facturen op betaald worden gezet."
+---
+
+Afletteren is het koppelen van binnenkomende banktransacties aan de facturen die ermee betaald zijn. Als een transactie aan een factuur wordt gekoppeld, zet TRONVoice die factuur op betaald, zodat je nooit zelf factuurstatussen hoeft bij te werken.
+
+Transacties komen op het afletterscherm terecht via een automatische [bankkoppeling](/betalingen/bankkoppelingen) of een handmatige [MT940-import](/betalingen/bankimport). De koppellogica is hetzelfde, ongeacht hoe ze binnenkwamen.
+
+---
+
+## Het scherm Banktransacties
+
+Ga naar **Betalingen → Banktransacties** om het afletterscherm te openen. Het is verdeeld in drie tabbladen:
+
+| Tabblad | Wat het toont |
+|---|---|
+| **Te verwerken** | Niet-gekoppelde transacties die nog aandacht nodig hebben |
+| **Gedeeltelijk verwerkt** | Transacties die aan facturen zijn gekoppeld, maar waarvan nog een bedrag openstaat |
+| **Verwerkt** | Transacties die volledig zijn gekoppeld of genegeerd |
+
+De tellers bovenaan tonen hoeveel transacties er in elke staat zitten. Je kunt zoeken op omschrijving, tegenpartij, betalingskenmerk of IBAN, en filteren op transactietype.
+
+<Note>
+  Alleen **credit**-transacties (binnenkomend) kunnen aan facturen worden gekoppeld. Debet-transacties (uitgaand) staan wel in de lijst, maar worden niet aan je verkoopfacturen gekoppeld.
+</Note>
+
+---
+
+## Automatisch koppelen
+
+Als transacties worden geïmporteerd, via synchronisatie of een MT940-import, probeert TRONVoice elke binnenkomende betaling te koppelen aan een verstuurde factuur. Om te voorkomen dat een betaling aan de verkeerde klant wordt gekoppeld, koppelt het alleen op sterke signalen, in deze volgorde:
+
+1. **Een factuurnummer in de omschrijving** plus een exacte overeenkomst van het bedrag
+2. Een **betalingskenmerk** dat overeenkomt met een factuurnummer, plus een exacte overeenkomst van het bedrag
+3. Een **exacte klantnaam** die overeenkomt met de tegenpartij, plus een exacte overeenkomst van het bedrag, alleen als precies één factuur in aanmerking komt
+
+Koppelen op alleen het bedrag is bewust uitgesloten: als twee klanten een factuur voor hetzelfde bedrag hebben, laat TRONVoice de transactie aan jou over in plaats van te gokken. Als een transactie wordt gekoppeld, wordt de gekoppelde factuur meteen op betaald gezet en verhuist de transactie naar het tabblad **Verwerkt** met de status **Automatisch**.
+
+---
+
+## Handmatig koppelen
+
+Transacties die het automatisch koppelen niet kon oplossen, blijven op het tabblad **Te verwerken** staan. Koppel ze zelf:
+
+<Steps>
+  <Step title="Open de transactie">
+    Klik op **Matchen** bij een transactie op het tabblad **Te verwerken**.
+  </Step>
+  <Step title="Kies uit de voorgestelde facturen">
+    TRONVoice toont een gerangschikte lijst met waarschijnlijke facturen. Elke suggestie krijgt een score op basis van het factuurnummer in de omschrijving of het kenmerk, het IBAN van de klant dat overeenkomt met de tegenpartij, de klantnaam en hoe goed het bedrag overeenkomt. De sterkste matches staan bovenaan.
+  </Step>
+  <Step title="Bevestig de koppeling">
+    Kies de juiste factuur. Het gekoppelde bedrag staat standaard op het openstaande bedrag van de factuur; pas het aan voor een deelbetaling als dat nodig is. Bevestig om de factuur te koppelen en op betaald te zetten.
+  </Step>
+  <Step title="Koppel meer indien nodig">
+    Blijft er nog een niet-gekoppeld restbedrag over op de transactie, dan houdt TRONVoice het koppelscherm open zodat je nog een factuur kunt koppelen.
+  </Step>
+</Steps>
+
+### Eén transactie, meerdere facturen
+
+Eén overboeking betaalt vaak meerdere facturen tegelijk. Je kunt één transactie aan meerdere facturen koppelen. TRONVoice houdt het resterende bedrag bij en toont het na elke koppeling. De transactie is volledig verwerkt zodra het restbedrag op nul staat.
+
+### Eén factuur, meerdere transacties
+
+Het omgekeerde werkt ook: een factuur die in termijnen wordt betaald, kun je over meerdere transacties koppelen. Elke transactie dekt een deel van het openstaande bedrag van de factuur, en de factuur wordt pas op betaald gezet zodra het volledige bedrag gedekt is. Tot die tijd staan de transacties onder **Gedeeltelijk verwerkt**.
+
+---
+
+## Een transactie negeren
+
+Niet elke transactie hoort bij een factuur, denk aan bankkosten, interne overboekingen en terugbetalingen. Klik op **Negeren** om zo'n transactie naar het tabblad **Verwerkt** te verplaatsen zonder hem te koppelen. Genegeerde transacties staan dan niet meer in de weg in je lijst **Te verwerken**.
+
+Je kunt een genegeerde transactie op elk moment terughalen om hem later alsnog te koppelen. Open hem op het tabblad **Verwerkt** en maak het negeren ongedaan. Hij keert dan terug naar **Te verwerken** als niet-gekoppeld.
+
+---
+
+## Een koppeling ongedaan maken
+
+Is een transactie aan de verkeerde factuur gekoppeld, automatisch of handmatig, dan kun je dat ongedaan maken:
+
+- **Eén factuur loskoppelen**: als een transactie aan meerdere facturen is gekoppeld, koppel je er maar één los. Het resterende bedrag komt weer beschikbaar om te koppelen.
+- **Volledig loskoppelen**: maak alle koppelingen in één keer ongedaan en zet de transactie terug naar de niet-gekoppelde staat.
+
+Als je een factuur loskoppelt, wordt de status betaald teruggedraaid, zodat de factuur weer als openstaand wordt getoond.
+
+---
+
+## Bulkacties
+
+Op het tabblad **Te verwerken** kun je acties op meerdere transacties tegelijk uitvoeren. Selecteer transacties met de selectievakjes en kies dan:
+
+- **Bulk negeren**: zet alle geselecteerde niet-gekoppelde transacties in één stap op genegeerd
+- **Bulk verwijderen**: verwijder de geselecteerde transacties definitief
+
+<Warning>
+  Bulk verwijderen verwijdert transacties definitief en kan niet ongedaan worden gemaakt. Facturen die al door die transacties op betaald zijn gezet, behouden hun status betaald, maar de koppeling met de transactie gaat verloren.
+</Warning>
+
+---
+
+## Hoe een koppeling een factuur op betaald zet
+
+Als een transactie aan een factuur wordt gekoppeld, registreert TRONVoice een betaling op die factuur voor het gekoppelde bedrag. Zodra de geregistreerde betalingen het factuurtotaal dekken, krijgt de factuur de status **Betaald**.
+
+- Een **volledige koppeling** zet de factuur meteen op betaald.
+- Een **gedeeltelijke koppeling** registreert een deel van het bedrag; de factuur blijft openstaan tot de rest is gekoppeld.
+- **Loskoppelen** draait de geregistreerde betaling terug, zodat de factuur laat zien wat er werkelijk openstaat.
+
+Zo blijven je factuurstatussen in lijn met wat je bankrekening daadwerkelijk heeft ontvangen, zonder handmatige statuswijzigingen.
+
+<Tip>
+  Vraag klanten om het factuurnummer in de omschrijving of het kenmerk van hun betaling te zetten. Dat is het sterkste koppelsignaal en zorgt dat TRONVoice de meeste betalingen automatisch kan afletteren.
+</Tip>

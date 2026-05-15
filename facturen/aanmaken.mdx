@@ -1,0 +1,108 @@
+---
+title: "Een factuur aanmaken in TRONVoice"
+description: "Stapsgewijze handleiding om een factuur aan te maken in TRONVoice: kies een klant, voeg factuurregels toe, stel btw-opties in, pas kortingen toe en sla op."
+---
+
+Een factuur aanmaken in TRONVoice kost maar een paar stappen. Facturen beginnen als concept, dus je kunt rustig alle gegevens invullen voordat je verstuurt.
+
+## Een nieuwe factuur aanmaken
+
+<Steps>
+  <Step title="Open de factuureditor">
+    Ga naar **Facturen** in de zijbalk en klik op **Nieuwe factuur**. Heb je meer dan één administratie, kies dan de juiste uit de keuzelijst. Heb je er maar één, dan wordt die automatisch geselecteerd.
+  </Step>
+
+  <Step title="Selecteer een klant">
+    Kies de klant in de keuzelijst **Klant**. Alleen actieve klanten van de geselecteerde administratie worden getoond.
+
+    Bestaat de klant nog niet, gebruik dan de optie **+ Nieuwe klant** om er direct een aan te maken zonder het formulier te verlaten.
+
+    <Tip>
+      Wanneer je een klant selecteert, past TRONVoice automatisch de btw-instellingen van die klant toe. Is de klant bijvoorbeeld ingesteld op btw-verlegd, dan worden de btw-velden automatisch aangepast.
+    </Tip>
+
+    TRONVoice kan de factuurregels ook vast invullen op basis van je meest recente factuur voor deze klant. Je schakelt dit in of uit bij je administratie-instellingen (**Factuurregels hergebruiken**).
+  </Step>
+
+  <Step title="Stel de factuurdatum en betaaltermijn in">
+    De **Factuurdatum** staat standaard op vandaag. De **Betaaltermijn** (in dagen) bepaalt automatisch de vervaldatum. De standaard betaaltermijn komt uit je administratie-instellingen (meestal 30 dagen).
+
+    Je kunt ook een **Referentie** instellen, een vrij invulveld dat op de factuur verschijnt. Handig voor inkoopordernummers of projectcodes.
+  </Step>
+
+  <Step title="Voeg factuurregels toe">
+    Klik op **Regel toevoegen** om een product of dienst aan de factuur toe te voegen.
+
+    Voor elke regel:
+    - Selecteer een product uit je catalogus of typ zelf een omschrijving.
+    - Vul het **aantal** en de **stuksprijs** in.
+    - Stel eventueel een **eenheid** in (bijvoorbeeld uren, stuks).
+    - Groepeer de regel eventueel onder een **locatie** (handig bij projectfacturatie).
+
+    Je kunt ook **notitieregels** toevoegen, regels met alleen tekst en zonder prijs. Handig voor opmerkingen of kopjes.
+
+    Regels kun je verslepen om de volgorde te wijzigen, of omhoog en omlaag verplaatsen met de pijlknoppen.
+
+    <Tip>
+      Je kunt prijzen invoeren inclusief btw door de optie **Prijzen inclusief btw** aan te zetten. TRONVoice rekent de prijs bij het opslaan van de regel automatisch om naar het bedrag exclusief btw.
+    </Tip>
+  </Step>
+
+  <Step title="Stel de btw in">
+    Btw stel je per factuurregel in. Voor elke regel kun je kiezen uit:
+
+    | Optie | Wanneer gebruik je dit |
+    |---|---|
+    | **Standaardtarief** (21%, 9% of 0%) | Standaard voor de meeste producten en diensten die in Nederland worden verkocht. |
+    | **Btw-verlegd** | Voor diensten aan btw-geregistreerde bedrijven in andere EU-landen. De btw wordt op 0% gezet en op de factuur staat vermeld dat de btw is verlegd. |
+    | **Btw-vrijgesteld** | Voor diensten die wettelijk vrijgesteld zijn van btw, zoals bepaalde medische of onderwijsdiensten. |
+
+    <Note>
+      Wanneer je btw-verlegd of btw-vrijgesteld kiest voor een regel, wordt het btw-tarief automatisch op 0% gezet en wordt de andere optie uitgeschakeld.
+    </Note>
+
+    Is je klant ingesteld als btw-verlegd-klant of als vrijgestelde klant, dan krijgen alle nieuwe regels automatisch die instelling.
+  </Step>
+
+  <Step title="Pas een korting toe (optioneel)">
+    Om een korting toe te passen op de hele factuur, vul je een **Kortingspercentage** in de factuurkop in. Deze korting wordt toegepast op het subtotaal voordat de btw wordt berekend.
+
+    Voor kortingen op regelniveau vul je een percentage in het veld **Korting** op een afzonderlijke regel in.
+  </Step>
+
+  <Step title="Voeg bijlagen toe (optioneel)">
+    Je kunt bestanden aan de factuur toevoegen, bijvoorbeeld een urenstaat, pakbon of getekend contract. Ondersteunde formaten: pdf, Word, Excel, afbeeldingen (JPG, PNG) en platte tekstbestanden. De maximale bestandsgrootte is 10 MB per bestand.
+
+    Zet **Pdf's samenvoegen met factuur** aan om alle pdf-bijlagen samen te voegen tot één pdf-document wanneer je de factuur downloadt of verstuurt.
+  </Step>
+
+  <Step title="Sla het concept op">
+    Klik op **Factuur opslaan** om de factuur als concept aan te maken. Je kunt op elk moment terugkomen en de factuur aanpassen voordat je verstuurt.
+
+    Er wordt een tijdelijk conceptnummer (`CONCEPT-XXXXX`) toegekend. Het permanente factuurnummer wordt pas toegekend wanneer de factuur wordt verstuurd.
+  </Step>
+</Steps>
+
+## Formaat van het factuurnummer
+
+Wanneer een factuur wordt verstuurd, kent TRONVoice het volgende nummer in de reeks toe. Het formaat hangt af van je administratie-instellingen:
+
+- Je stelt een **voorvoegsel** in voor je administratie (bijvoorbeeld `F-` of `INV-`).
+- Je kunt `[jaar]` en `[maand]` als plaatsaanduidingen in het voorvoegsel opnemen. Zo levert `F-[jaar]-` bijvoorbeeld `F-2025-00001` op.
+- De reeks begint aan het begin van elk jaar opnieuw.
+
+Je stelt het voorvoegsel in via **Instellingen → Administratie → Factuurinstellingen**.
+
+## UBL- / e-factuurformaat
+
+Heeft je administratie UBL-export ingeschakeld, dan verschijnt er een **UBL**-knop op de factuurdetailpagina. Hiermee download je de factuur als UBL 2.1 XML-bestand, een gestructureerd elektronisch factuurformaat dat door de meeste Nederlandse en Europese boekhoudpakketten wordt geaccepteerd.
+
+<Note>
+UBL-export moet per administratie worden ingeschakeld. Neem contact op met je beheerder of kijk bij **Instellingen → Administratie → Factuurinstellingen**.
+</Note>
+
+## Historische facturen importeren
+
+Stap je over van een ander systeem, dan kun je bestaande facturen importeren als historische gegevens. Gebruik de optie **Bestaande factuur importeren** in de factuureditor. Je kunt het oorspronkelijke factuurnummer instellen en kiezen of je de factuur importeert als al verzonden of als al betaald.
+
+Historische facturen doorlopen niet de normale route van concept naar verzonden en verbruiken geen credits.

@@ -1,0 +1,72 @@
+---
+title: "Facturen versturen vanaf je eigen e-maildomein"
+description: "Stel een eigen e-maildomein in TRONVoice in om factuurmails vanaf je eigen adres te versturen en antwoorden van klanten rechtstreeks in je inbox te ontvangen."
+---
+
+Standaard verstuurt TRONVoice facturen vanaf een TRONVoice-e-mailadres. Met een eigen e-maildomein gebruik je in plaats daarvan je eigen zakelijke adres, bijvoorbeeld `facturen@jouwbedrijf.nl`. Zo herkennen klanten je e-mails beter en verbetert de afleverbaarheid.
+
+Antwoorden van klanten op factuurmails komen automatisch binnen in de TRONVoice-inbox, zodat je alle factuurcorrespondentie op één plek beheert.
+
+## Waarom een eigen domein
+
+- **Professionele uitstraling**, klanten zien je eigen domeinnaam in het afzendervak.
+- **Betere afleverbaarheid**, e-mails vanaf je eigen geverifieerde domein belanden minder snel in spam.
+- **Centrale inbox**, antwoorden van klanten komen rechtstreeks binnen in TRONVoice.
+
+<Note>
+  De instelling voor het e-maildomein is per administratie. Heb je meerdere administraties, dan kun je voor elke administratie een ander afzenderadres instellen. Heeft je organisatie al een domein geverifieerd in een andere administratie, dan kun je dat hergebruiken zonder de DNS-records opnieuw toe te voegen.
+</Note>
+
+## Je domein instellen
+
+<Steps>
+  <Step title="Open Integraties">
+    Ga naar **Instellingen → Integraties** en selecteer de betreffende administratie. Klik op de tab **Communicatie**.
+  </Step>
+  <Step title="Voeg je domein toe">
+    Klik op de kaart **E-maildomein** en voer je domeinnaam in, bijvoorbeeld `jouwbedrijf.nl` of een subdomein als `mail.jouwbedrijf.nl`. Klik op **Toevoegen**.
+  </Step>
+  <Step title="Stel de DNS-records in">
+    TRONVoice toont een set DNS-records die je aan je domeinconfiguratie moet toevoegen. Voeg deze records toe via het beheerpaneel van je domeinregistrar of hostingprovider.
+
+    De records bevatten meestal een **SPF**-record, een **DKIM**-record en een **DMARC**-record. Die zijn nodig voor de verificatie en een goede afleverbaarheid van e-mail.
+  </Step>
+  <Step title="Verifieer de DNS-records">
+    Klik op **Verifiëren** nadat je de records hebt toegevoegd. TRONVoice controleert of elk record juist is ingesteld. Je ziet de verificatiestatus voor elk afzonderlijk record.
+
+    Je kunt afzonderlijke records ook apart verifiëren door op het vinkje naast elk record te klikken.
+  </Step>
+  <Step title="Domein is actief">
+    Zodra alle records zijn geverifieerd, is je domein actief. Vanaf dat moment verstuurt TRONVoice factuurmails vanaf je eigen domeinadres.
+  </Step>
+</Steps>
+
+<Warning>
+  DNS-wijzigingen kunnen tot **48 uur** duren voordat ze wereldwijd zijn doorgevoerd. Lukt de verificatie niet meteen nadat je de records hebt toegevoegd, wacht dan een paar uur en probeer het opnieuw.
+</Warning>
+
+## De prefix van het afzenderadres aanpassen
+
+Het standaard afzenderadres is opgebouwd als `facturen@jouwdomein.nl`. Je kunt het deel vóór het apenstaartje (de prefix) aanpassen nadat je domein is geverifieerd.
+
+Ga naar de instellingen voor het e-maildomein en pas de **E-mailprefix** aan. Gebruik alleen kleine letters, cijfers, punten, koppeltekens of onderstrepingstekens.
+
+Geldige voorbeelden van een prefix: `facturen`, `noreply`, `administratie`, `info.facturen`.
+
+## Antwoorden van klanten in je inbox ontvangen
+
+Antwoordt een klant op een factuurmail, dan ontvangt TRONVoice dat bericht automatisch in de **Inbox** van je administratie. Bijlagen in het antwoord worden ook opgeslagen.
+
+Hiervoor is geen extra instelling nodig, inkomende e-mail is automatisch actief zodra je domein is geverifieerd.
+
+<Tip>
+  Je krijgt een melding in TRONVoice wanneer er een nieuw bericht in je inbox binnenkomt. Bekijk je meldingsinstellingen onder **Instellingen → Notificaties** om te bepalen hoe je op de hoogte wordt gesteld.
+</Tip>
+
+## Je domein verwijderen
+
+Ga naar **Instellingen → Integraties → Communicatie → E-maildomein** en klik op **Verwijderen**. TRONVoice schakelt het eigen domein uit en verstuurt factuurmails weer vanaf het standaard TRONVoice-adres.
+
+<Note>
+  Delen meerdere administraties in je organisatie hetzelfde domein, dan worden de DNS-records en de verificatiestatus niet uit de andere administraties verwijderd wanneer je het domein bij één administratie verwijdert.
+</Note>

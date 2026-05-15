@@ -1,0 +1,109 @@
+---
+title: "Klanten beheren in TRONVoice"
+description: "Voeg klanten toe, bewerk ze en houd ze georganiseerd. Zoek bedrijven op via het KvK-register, valideer EU-btw-nummers en bewaar alle klantgegevens op één plek."
+---
+
+Het klantengedeelte is je centrale adresboek. Elke factuur, elk abonnement en elke offerte die je aanmaakt, is gekoppeld aan een klant. Nauwkeurige en complete klantgegevens besparen je dus tijd op het hele platform.
+
+## Een klant toevoegen
+
+<Steps>
+  <Step title="Open de klantenlijst">
+    Ga naar **Klanten** in de hoofdnavigatie en klik op **Nieuwe klant**.
+  </Step>
+  <Step title="Zoek in het KvK-register (optioneel)">
+    Gebruik de KvK-zoekfunctie boven aan het formulier om een Nederlands bedrijf op naam of registratienummer te vinden. Als je een resultaat selecteert, worden de bedrijfsnaam, het KvK-nummer en het adres automatisch ingevuld.
+  </Step>
+  <Step title="Vul de klantgegevens in">
+    Vul minimaal de **Bedrijfsnaam** in. Alle andere velden zijn optioneel, maar wel aan te raden:
+
+    | Veld | Toelichting |
+    |---|---|
+    | Bedrijfsnaam | Verplicht. Wordt ook gebruikt voor particuliere klanten. |
+    | KvK-nummer | Het registratienummer bij de Kamer van Koophandel. |
+    | Btw-nummer | Wordt in real time gevalideerd via de EU-dienst VIES. |
+    | Adres | Straat, postcode, plaats, land. |
+    | Contactpersoon | De naam van je vaste contactpersoon. |
+    | E-mailadres | Wordt gebruikt om facturen te versturen. Ondersteunt meerdere adressen, gescheiden door komma's of regeleinden. |
+    | Telefoon | Optioneel telefoonnummer. |
+    | Website | Wordt gebruikt om automatisch het bedrijfslogo op te halen. |
+    | IBAN | Het bankrekeningnummer, relevant voor onderaannemers. |
+    | Interne referentie | Je eigen code of kenmerk voor deze klant (bijvoorbeeld een CRM-referentie). |
+    | Documenttaal | De taal die wordt gebruikt voor facturen en e-mails naar deze klant. |
+  </Step>
+  <Step title="Sla de klant op">
+    Klik op **Klant aanmaken**. De klant opent meteen, zodat je notities, taken of bestanden kunt toevoegen.
+  </Step>
+</Steps>
+
+## KvK-opzoeken
+
+Met de KvK-zoekfunctie vind je elk ingeschreven Nederlands bedrijf rechtstreeks vanuit het klantformulier. Typ een bedrijfsnaam of KvK-nummer en selecteer het juiste resultaat. De velden voor bedrijfsnaam, registratienummer, adres, plaats en postcode worden dan automatisch ingevuld.
+
+<Tip>
+  Het KvK-opzoeken werkt het best met officiële handelsnamen. Levert de zoekopdracht geen resultaten op? Vul de gegevens dan handmatig in.
+</Tip>
+
+## Btw-nummer valideren
+
+Wanneer je een btw-nummer invoert voor een EU-klant, controleert TRONVoice dit in real time tegen de **EU VIES-database**. Een groene aanduiding bevestigt dat het nummer geldig is en geregistreerd staat.
+
+De btw-instellingen worden ook automatisch herkend op basis van het land van de klant:
+
+- **Hetzelfde land als je administratie**: de standaard btw-tarieven gelden.
+- **Een ander EU-land**: de btw wordt automatisch op *verlegd* (btw-verlegd) gezet, zoals vereist is voor intracommunautaire leveringen.
+- **Buiten de EU**: de btw wordt automatisch op *vrijgesteld* (btw-vrijgesteld) gezet, voor exportleveringen.
+
+Je kunt deze instellingen handmatig overschrijven op het klantformulier.
+
+## Bedrijfslogo
+
+Wanneer je een klant met een website of e-mailadres opslaat, haalt TRONVoice automatisch het bedrijfslogo van de website op. Het logo verschijnt op de klant en kun je gebruiken op facturen.
+
+Het logo wordt automatisch ververst zodra de website of het e-mailadres verandert.
+
+## Klantdossier, notities en taken
+
+Elke klant heeft drie ingebouwde hulpmiddelen om lopende informatie te beheren:
+
+<CardGroup cols={3}>
+  <Card title="Dossier" icon="folder">
+    Koppel bestanden rechtstreeks aan een klant, zoals contracten, ondertekende overeenkomsten of andere documenten die je bij elkaar wilt houden.
+  </Card>
+  <Card title="Notities" icon="sticky-note">
+    Voeg interne notities toe aan een klant. Notities zijn alleen zichtbaar voor je team en verschijnen nooit op facturen of e-mails.
+  </Card>
+  <Card title="Taken" icon="list-checks">
+    Maak to-do's die aan een klant zijn gekoppeld, zodat vervolgacties bij de juiste klant blijven.
+  </Card>
+</CardGroup>
+
+## Klanten importeren uit CSV of Excel
+
+Heb je al een bestaande klantenlijst? Dan importeer je die in bulk in plaats van klanten één voor één toe te voegen.
+
+<Steps>
+  <Step title="Ga naar de importpagina">
+    Klik vanuit de klantenlijst op **Importeren** en download het voorbeeldsjabloon om het verwachte kolomformaat te zien.
+  </Step>
+  <Step title="Maak je bestand klaar">
+    Vul je gegevens in met het sjabloon. Verplichte kolom: **bedrijfsnaam**. Alle andere kolommen zijn optioneel.
+  </Step>
+  <Step title="Upload en bevestig">
+    Upload je CSV- of Excel-bestand. TRONVoice toont een voorbeeld van de rijen die het gaat importeren. Bevestig om de import af te ronden.
+  </Step>
+</Steps>
+
+<Note>
+  Dubbele klanten worden tijdens de import niet automatisch herkend. Controleer je bestand op dubbele bedrijfsnamen of KvK-nummers voordat je het uploadt.
+</Note>
+
+## Klanten in meerdere administraties
+
+Heeft je account meer dan één administratie? Dan hoort elke klant bij een specifieke administratie. Via het overzicht **Alle klanten** in de hoofdnavigatie bekijk je alle klanten uit alle administraties tegelijk.
+
+Wanneer je een klant aanmaakt vanuit het overzicht met alle klanten, kies je bij welke administratie de klant hoort.
+
+## Machtigingen beheren
+
+Je kunt een SEPA-incassomachtiging aan een klant koppelen, zodat je factuurbedragen automatisch kunt incasseren. Zie [SEPA-incasso](/betalingen/sepa-incasso) voor de instelinstructies.

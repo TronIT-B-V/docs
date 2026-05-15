@@ -1,0 +1,99 @@
+---
+title: "De Inbox: ontvang e-mail van klanten in TRONVoice"
+description: "Ontvang antwoorden en inkomende e-mail op het e-mailadres van je administratie, bekijk berichten en bijlagen en zet ze om in dossierbestanden of facturen."
+---
+
+De **Inbox** verzamelt inkomende e-mail die naar het e-mailadres van je administratie is gestuurd. Antwoordt een klant op een factuur-e-mail, of stuurt iemand iets naar je TRONVoice-adres, dan komt het bericht met de bijlagen hier binnen. Zo blijft alle correspondentie bij je facturen en klanten.
+
+## Hoe de inbox e-mail ontvangt
+
+Elke administratie heeft een eigen e-mailadres voor inkomende post. E-mail naar dat adres komt via de inbound-webhook van Lettermint bij TRONVoice binnen. Die verwerkt het bericht en bewaart het als inboxbericht, samen met eventuele bijlagen.
+
+Inkomende e-mail werkt nauw samen met de integratie voor een eigen e-maildomein: stuur je facturen vanaf je eigen domein, dan komen antwoorden van klanten rechtstreeks terug in deze inbox. Zie [Facturen versturen vanaf je eigen e-maildomein](/integraties/eigen-emaildomein) om een eigen afzenderadres in te stellen.
+
+<Note>
+  Het inboxadres is per administratie. Heb je meerdere administraties, dan heeft elke administratie een eigen adres en een eigen inbox. Wissel van administratie om de berichten van elke administratie te zien.
+</Note>
+
+<Info>
+  Komt er een nieuw bericht binnen, dan stelt TRONVoice de gebruikers in je organisatie op de hoogte die meldingen over inboxberichten hebben aangezet in hun meldingsvoorkeuren.
+</Info>
+
+## Berichten bekijken
+
+Ga naar **Inbox** in het hoofdmenu om alle berichten van de huidige administratie te zien, met de nieuwste bovenaan. Elke regel toont de afzender, het onderwerp, een korte voorvertoning van het bericht, het tijdstip van ontvangst en een markering als er bijlagen zijn.
+
+Klik op een bericht om het te openen. De volledige weergave toont:
+
+- De naam en het e-mailadres van de afzender.
+- Het onderwerp en de ontvangstdatum.
+- De berichttekst, weergegeven als HTML waar dat kan (inline afbeeldingen worden op hun plek getoond) of als platte tekst.
+- Een lijst met bijlagen.
+
+Een ongelezen bericht openen markeert het automatisch als gelezen.
+
+## Gelezen en ongelezen
+
+Berichten zijn **ongelezen** of **gelezen**. Gebruik de tabs boven in de inbox om op status te filteren. De tab met ongelezen berichten toont een teller met hoeveel berichten nog je aandacht nodig hebben.
+
+Vanuit een geopend bericht kun je:
+
+- **Markeer als gelezen**
+- **Markeer als ongelezen**, handig om een bericht te markeren waar je later op terug wilt komen.
+
+## Bijlagen
+
+Bestanden die aan een inkomende e-mail zijn gehangen, worden bij het bericht bewaard. TRONVoice maakt onderscheid tussen:
+
+- **Echte bijlagen**, bestanden die de afzender heeft meegestuurd, zoals pdf's of spreadsheets.
+- **Inline afbeeldingen**, afbeeldingen in de berichttekst zelf (bijvoorbeeld een logo in een e-mailhandtekening). Die worden in het bericht getoond en niet als aparte bijlage in de lijst gezet.
+
+Voor elke bijlage kun je:
+
+- Die **bekijken** in de browser, dit opent het bestand inline.
+- Die **downloaden** naar je computer.
+
+## Actie ondernemen op een bericht
+
+Een geopend bericht heeft snelle acties om correspondentie om te zetten in bruikbare records.
+
+<CardGroup cols={2}>
+  <Card title="Opslaan in dossier" icon="folder">
+    Kopieer een of meer bijlagen naar het dossier van een klant of een administratie. Je kiest de bestemming, een categorie (standaard: correspondentie), een optionele omschrijving en notities. De omschrijving en notities worden alvast ingevuld vanuit het onderwerp en de afzender van de e-mail, zodat je in een paar klikken kunt opslaan.
+  </Card>
+  <Card title="Een factuur aanmaken" icon="file-plus">
+    Start een nieuwe factuur vanuit het bericht. TRONVoice opent de facturatie-editor met de administratie, en eventueel de klant, alvast geselecteerd. Je kunt ervoor kiezen om de bijlagen van het bericht meteen mee te nemen op de nieuwe factuur.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Een bijlage opslaan in een dossier kopieert het bestand, het origineel blijft in de inbox staan. Zo houd je de e-mailthread intact en archiveer je het document toch op de juiste plek.
+</Tip>
+
+## Berichten verwijderen
+
+Een bericht dat je niet meer nodig hebt, verwijder je vanuit de detailweergave. Een bericht verwijderen wist ook de opgeslagen bijlagen.
+
+<Warning>
+  Een inboxbericht verwijderen is definitief. Bevat een bericht een bijlage die je wilt bewaren, sla die dan eerst op in een dossier.
+</Warning>
+
+## Bulkacties
+
+Heb je meerdere berichten tegelijk te verwerken, dan ondersteunt TRONVoice bulkbewerkingen:
+
+- **Meerdere als gelezen markeren**, verwerkt een reeks ongelezen berichten in één stap.
+- **Meerdere verwijderen**, verwijdert meerdere berichten tegelijk.
+
+Bulkacties gelden alleen voor berichten binnen je organisatie, en elk bericht wordt nog steeds tegen je toegangsrechten gecontroleerd voordat het wordt gewijzigd.
+
+## Berichten vinden
+
+Gebruik het zoekvak boven de lijst om een bericht te vinden op:
+
+- Onderwerp
+- Naam van de afzender
+- E-mailadres van de afzender
+- Berichttekst
+
+Combineer het zoeken met de tabs gelezen en ongelezen om snel te verfijnen.

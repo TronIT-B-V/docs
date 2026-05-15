@@ -1,0 +1,114 @@
+---
+title: "Integraties: overzicht"
+description: "Koppel TRONVoice aan je betaalprovider, bank, boekhoudpakket, cloudopslag en e-maildomein, allemaal per administratie ingesteld vanaf één scherm."
+---
+
+TRONVoice koppelt met de externe diensten die je al gebruikt, zodat je facturatie zonder handwerk doorstroomt naar je betalingen, boekhouding, archief en inbox. Elke koppeling beheer je vanaf één scherm **Integraties**.
+
+<Note>
+  Integraties stel je **per administratie** in. Heb je meerdere administraties, stel dan elke koppeling voor elke administratie apart in.
+</Note>
+
+## Open het scherm Integraties
+
+Ga naar **Instellingen → Integraties**. Heb je meer dan één administratie, kies dan de administratie die je wilt instellen in de keuzelijst bovenaan. Bij één administratie is die automatisch geselecteerd.
+
+Het scherm groepeert integraties in tabs:
+
+- **Betalingen**, factuurbetalingen online innen.
+- **Boekhouding**, facturen en klanten synchroniseren met je boekhoudpakket.
+- **Opslag**, factuur-pdf's archiveren in je eigen cloudopslag.
+- **Communicatie**, facturen versturen vanaf je eigen e-maildomein.
+
+Gebruik de tab **Alle** om elke integratie tegelijk te zien.
+
+## Betalingen
+
+Kies hoe klanten je facturen betalen. Een administratie gebruikt **één** betaalprovider tegelijk, de een aanzetten schakelt de ander uit.
+
+<CardGroup cols={2}>
+  <Card title="Mollie" icon="credit-card" href="/betalingen/mollie">
+    Koppel een Mollie-account om een online betaallink aan elke factuur toe te voegen. Klanten betalen met iDEAL, creditcard, Bancontact en meer, en facturen worden automatisch op betaald gezet via een webhook.
+  </Card>
+  <Card title="bunq.me" icon="link" href="/betalingen/bunq">
+    Voeg een gratis bunq.me-betaallink aan facturen toe. Klanten betalen met iDEAL zonder transactiekosten en het geld komt rechtstreeks op je bunq-rekening binnen.
+  </Card>
+</CardGroup>
+
+## Bankzaken
+
+Koppel een bankverbinding om transacties te importeren en betalingen automatisch tegen je facturen af te letteren.
+
+<CardGroup cols={2}>
+  <Card title="Bankkoppelingen" icon="building-columns" href="/betalingen/bankkoppelingen">
+    Koppel je zakelijke bankrekening via Ponto om transacties te importeren en inkomende betalingen aan facturen te koppelen.
+  </Card>
+</CardGroup>
+
+## Boekhouding
+
+Je kunt **één** boekhoudpakket per administratie koppelen.
+
+<CardGroup cols={2}>
+  <Card title="Exact Online" icon="book-open" href="/integraties/exact-online">
+    Stuur verzonden facturen als verkoopboekingen door naar Exact Online, ontvang updates over de betaalstatus en importeer je debiteuren als klanten.
+  </Card>
+  <Card title="Minox" icon="calculator" href="/integraties/minox">
+    Koppel het boekhoudpakket Minox via OAuth, synchroniseer facturen en importeer je klanten in TRONVoice.
+  </Card>
+  <Card title="SnelStart, binnenkort" icon="clock">
+    Een SnelStart-boekhoudintegratie staat op de roadmap. Die is nog niet beschikbaar.
+  </Card>
+</CardGroup>
+
+<Warning>
+  Exact Online en Minox kunnen niet tegelijk actief zijn voor dezelfde administratie. Verbreek de bestaande boekhoudintegratie voordat je een andere activeert.
+</Warning>
+
+Zodra een boekhoudintegratie actief is, worden facturen die de status **Verzonden** bereiken automatisch geëxporteerd, en stromen betaalstatussen terug in TRONVoice. Je kunt ook je bestaande klanten uit het boekhoudpakket importeren, zodat beide systemen op elkaar afgestemd blijven.
+
+## Cloudopslag
+
+Opslagintegraties geven je een geordend archief van je factuurdocumenten in je eigen cloudopslag. Elke gegenereerde factuur-pdf en bijlage wordt automatisch geüpload, je hoeft niets handmatig te downloaden of uploaden.
+
+<CardGroup cols={2}>
+  <Card title="SharePoint" icon="cloud" href="/integraties/sharepoint">
+    Sla elke factuur-pdf en bijlage automatisch op in een map in Microsoft SharePoint of OneDrive.
+  </Card>
+  <Card title="Google Drive, binnenkort" icon="clock">
+    Facturen archiveren in Google Drive staat op de roadmap. Dat is nog niet beschikbaar.
+  </Card>
+  <Card title="Dropbox, binnenkort" icon="clock">
+    Facturen archiveren in Dropbox staat op de roadmap. Dat is nog niet beschikbaar.
+  </Card>
+</CardGroup>
+
+## E-mail
+
+Standaard verstuurt TRONVoice e-mails met facturen en offertes vanaf een TRONVoice-adres. Met een eigen e-maildomein worden berichten in plaats daarvan vanaf je eigen adres verstuurd.
+
+<CardGroup cols={2}>
+  <Card title="Eigen e-maildomein" icon="mail" href="/integraties/eigen-emaildomein">
+    Verifieer je eigen domein zodat facturen en offertes worden verstuurd vanaf een adres als `facturen@jouwbedrijf.nl`, wat de afleverbaarheid en merkconsistentie verbetert.
+  </Card>
+</CardGroup>
+
+## Hoe integratiekaarten werken
+
+Elke integratie verschijnt als een kaart op de bijbehorende tab. De kaart toont de huidige status (gekoppeld, niet gekoppeld of aandacht nodig) en de acties die voor die dienst beschikbaar zijn.
+
+<Steps>
+  <Step title="Open de kaart">
+    Klik op de kaart van de dienst die je wilt instellen.
+  </Step>
+  <Step title="Koppel of configureer">
+    Afhankelijk van de integratie start je een beveiligde verbinding (OAuth, voor Exact Online, Minox en Ponto), voer je verbindingsgegevens in (voor SharePoint) of vul je een instelling in (voor bunq.me).
+  </Step>
+  <Step title="Opslaan">
+    Zodra je hebt opgeslagen, draait de integratie automatisch op de achtergrond voor die administratie.
+  </Step>
+</Steps>
+
+<Tip>
+  Stel je integraties meteen in nadat je een administratie hebt aangemaakt. Ze werken vanaf dat moment voor elke factuur die je daarna verstuurt.
+</Tip>

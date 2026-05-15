@@ -1,0 +1,93 @@
+---
+title: "Exact Online koppelen aan TRONVoice"
+description: "Synchroniseer facturen en klanten automatisch tussen TRONVoice en Exact Online via een beveiligde OAuth-koppeling, per administratie ingesteld."
+---
+
+Koppel TRONVoice aan Exact Online om facturen automatisch als verkoopboekingen door te sturen en updates over de betaalstatus terug te ontvangen. De integratie stel je per administratie in, dus je kunt meerdere Exact Online-omgevingen koppelen vanuit één TRONVoice-account.
+
+<Note>
+  De Exact Online-integratie is een instelling per administratie. Heb je meerdere administraties, stel dan de koppeling voor elke administratie apart in.
+</Note>
+
+## Exact Online koppelen
+
+<Steps>
+  <Step title="Open Integraties">
+    Ga naar **Instellingen → Integraties** en selecteer de administratie die je wilt koppelen. Klik op de tab **Boekhouding**.
+  </Step>
+  <Step title="Start de koppeling">
+    Klik op de kaart **Exact Online** en kies **Koppelen**. Je wordt doorgestuurd naar de inlogpagina van Exact Online.
+  </Step>
+  <Step title="Geef TRONVoice toestemming">
+    Log in met je Exact Online-account en geef TRONVoice toegang. Na goedkeuring kom je automatisch terug in TRONVoice.
+  </Step>
+  <Step title="Selecteer een divisie">
+    Na het koppelen opent het instellingenpaneel. Selecteer de Exact Online-divisie (administratie) waarmee TRONVoice facturen moet synchroniseren. Heeft je account maar één divisie, dan is die automatisch geselecteerd.
+  </Step>
+  <Step title="Stel grootboekrekeningen en btw-codes in">
+    Koppel de grootboekrekeningen en btw-codes die TRONVoice moet gebruiken bij het aanmaken van verkoopboekingen. TRONVoice vult veelvoorkomende standaardwaarden alvast in op basis van je Exact Online-administratie (bijvoorbeeld rekening 8000 voor omzet 21%).
+  </Step>
+  <Step title="Opslaan">
+    Klik op **Opslaan**. De synchronisatie is nu actief.
+  </Step>
+</Steps>
+
+## Wat er synchroniseert
+
+### Facturen naar Exact Online
+
+Wanneer een factuur in TRONVoice de status **Verzonden** krijgt, maakt TRONVoice automatisch een verkoopboeking aan in Exact Online. De factuur-pdf wordt aan de boeking gehangen.
+
+TRONVoice bewaart het boekingsnummer van Exact Online op de factuur, zodat beide systemen altijd naar hetzelfde record verwijzen.
+
+### Betaalstatus terug naar TRONVoice
+
+TRONVoice controleert periodiek of facturen in Exact Online als betaald zijn gemarkeerd. Zodra Exact Online een factuur als volledig betaald registreert, wordt de status in TRONVoice automatisch bijgewerkt.
+
+### Klanten importeren
+
+Je kunt je klantgegevens vanuit Exact Online in TRONVoice importeren. Tijdens het importeren worden bestaande klanten gematcht op btw-nummer of KvK-nummer om dubbele records te voorkomen.
+
+## Klanten importeren uit Exact Online
+
+<Steps>
+  <Step title="Open Integraties">
+    Ga naar **Instellingen → Integraties → Boekhouding → Exact Online**.
+  </Step>
+  <Step title="Start de import">
+    Klik op **Klanten importeren**. TRONVoice haalt alle klanten (debiteuren) uit je Exact Online-divisie op.
+  </Step>
+  <Step title="Bekijk de resultaten">
+    Na de import zie je hoeveel klanten zijn aangemaakt, overgeslagen (bestonden al) of niet verwerkt konden worden.
+  </Step>
+</Steps>
+
+<Tip>
+  Bestaande TRONVoice-klanten met hetzelfde btw-nummer of KvK-nummer als een Exact Online-relatie worden automatisch gekoppeld, ze worden niet opnieuw aangemaakt.
+</Tip>
+
+## Koppeling verbreken
+
+Ga naar **Instellingen → Integraties → Boekhouding → Exact Online** en klik op **Koppeling verbreken**. De toegangstokens worden verwijderd en de synchronisatie stopt. Facturen die al naar Exact Online zijn geëxporteerd, blijven ongewijzigd.
+
+<Warning>
+  Exact Online en Minox kunnen niet tegelijk actief zijn. Verbreek de bestaande boekhoudintegratie voordat je een andere activeert.
+</Warning>
+
+## Problemen oplossen
+
+### De koppeling is verbroken of de autorisatie mislukt
+
+Toegangstokens van Exact Online hebben een beperkte geldigheidsduur. TRONVoice vernieuwt ze automatisch op de achtergrond. Mislukt het vernieuwen, bijvoorbeeld omdat je de toegang in Exact Online hebt ingetrokken, dan wordt de koppeling verwijderd. Loop de [koppelstappen](#exact-online-koppelen) opnieuw door om de koppeling te herstellen.
+
+### Een factuur is niet naar Exact Online geëxporteerd
+
+Controleer het volgende:
+
+- De factuur heeft de status **Verzonden**, conceptfacturen worden niet gesynchroniseerd.
+- De administratie heeft een divisie geselecteerd in de Exact Online-instellingen.
+- Bestaat de klant nog niet in Exact Online, dan maakt TRONVoice die bij de eerste export automatisch aan.
+
+### De betaalstatus wordt niet bijgewerkt
+
+TRONVoice synchroniseert betaalstatussen automatisch. Staat een factuur in Exact Online op betaald terwijl de status in TRONVoice niet is veranderd, wacht dan een paar uur tot de volgende synchronisatie loopt. Blijft het probleem bestaan, controleer dan of de koppeling nog actief is.

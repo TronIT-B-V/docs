@@ -1,0 +1,100 @@
+---
+title: "Bankafschriften importeren met MT940-bestanden"
+description: "Upload handmatig MT940-bankafschriftbestanden om transacties in TRONVoice te importeren als je geen automatische Ponto-bankkoppeling gebruikt."
+---
+
+Gebruik je geen automatische [bankkoppeling](/betalingen/bankkoppelingen), dan kun je je transacties toch in TRONVoice krijgen door **MT940**-bankafschriftbestanden te importeren. MT940 is het standaardformaat voor afschriftexports dat vrijwel alle Nederlandse banken ondersteunen.
+
+Eenmaal geïmporteerd gedragen transacties zich precies zoals die van een live koppeling. TRONVoice koppelt ze automatisch aan facturen en de rest letter je handmatig af. Zie [Banktransacties afletteren](/betalingen/afletteren) voor hoe het koppelen werkt.
+
+<Tip>
+  Een automatische Ponto-koppeling houdt je transacties bij zonder handmatige stappen. Gebruik de MT940-import als je bank niet door Ponto wordt ondersteund, of als je liever geen live koppeling geeft.
+</Tip>
+
+---
+
+## Een MT940-bestand exporteren bij je bank
+
+Log in op het internetbankieren van je bank en exporteer een afschrift in **MT940**-formaat. De exacte bewoording in het menu verschilt per bank, maar je vindt het meestal onder afschriften, downloads of exports. De meeste Nederlandse banken, zoals ING, Rabobank, ABN AMRO en SNS, bieden een MT940-export.
+
+<Note>
+  TRONVoice accepteert ook MT942- en SWIFT-gestructureerde afschriftbestanden. Het formaat wordt automatisch herkend als je uploadt, je hoeft het dus niet zelf te kiezen.
+</Note>
+
+---
+
+## Het bestand importeren
+
+<Steps>
+  <Step title="Ga naar de importpagina">
+    Ga naar **Betalingen → Banktransacties** en klik op **Importeren**.
+  </Step>
+  <Step title="Kies de administratie">
+    Kies de **administratie** waar de transacties bij horen. Heb je maar één administratie, dan is die al voor je geselecteerd.
+  </Step>
+  <Step title="Upload het MT940-bestand">
+    Selecteer je MT940-bestand. De maximale bestandsgrootte is **10 MB**.
+  </Step>
+  <Step title="Start de import">
+    Klik op **Importeren**. TRONVoice leest het bestand uit, importeert de transacties en draait meteen het automatisch koppelen.
+  </Step>
+  <Step title="Bekijk het resultaat">
+    Een samenvatting laat zien hoeveel transacties zijn geïmporteerd, hoeveel er automatisch zijn gekoppeld en hoeveel er nog gekoppeld moeten worden. Eventuele leesfouten staan in hetzelfde bericht.
+  </Step>
+</Steps>
+
+Na de import kom je op het scherm **Banktransacties**, gefilterd op de administratie waarin je hebt geïmporteerd.
+
+---
+
+## Wat er wordt geïmporteerd
+
+Voor elke transactie in het bestand leest en bewaart TRONVoice:
+
+- De **transactiedatum** en de valutadatum
+- Het **bedrag** en het **type**: credit (binnenkomend) of debet (uitgaand)
+- De **tegenrekening** (IBAN) en de naam van de tegenpartij
+- De **omschrijving** en het **betalingskenmerk**, gehaald uit de gestructureerde detailvelden van het afschrift
+
+TRONVoice probeert ook een factuurnummer in de omschrijving te vinden, zodat de transactie automatisch gekoppeld kan worden.
+
+### Bescherming tegen dubbele transacties
+
+Elke import wordt gegroepeerd in een **importbatch**. Voordat TRONVoice een transactie opslaat, controleert het of er al een transactie bestaat met dezelfde datum, hetzelfde bedrag, type en bankkenmerk. Overeenkomende transacties worden overgeslagen, zodat het importeren van overlappende afschriftperiodes geen dubbele transacties oplevert.
+
+<Note>
+  Na de import draait TRONVoice het automatisch koppelen op de nieuwe credittransacties. Binnenkomende betalingen die verwijzen naar een factuurnummer, een betalingskenmerk of een exacte klantnaam worden gekoppeld en de factuur wordt op betaald gezet. Zie [Banktransacties afletteren](/betalingen/afletteren) voor de volledige koppellogica.
+</Note>
+
+---
+
+## Geïmporteerde batches beheren
+
+De importpagina toont je **recente imports** voor de gekozen administratie: de vijf meest recente importbatches, elk met het tijdstip waarop ze draaiden en het aantal transacties dat erin zat.
+
+### Een importbatch verwijderen
+
+Heb je het verkeerde bestand of de verkeerde periode geïmporteerd? Dan kun je een hele importbatch verwijderen. Hiermee verwijder je in één keer elke transactie uit die import. Facturen die door gekoppelde transacties op betaald zijn gezet, veranderen niet.
+
+<Warning>
+  Als je een importbatch verwijdert, worden alle transacties ervan definitief verwijderd. Dit kun je niet ongedaan maken. Wil je maar een paar transacties verwijderen? Verwijder ze dan los vanuit het scherm **Banktransacties**.
+</Warning>
+
+---
+
+## Problemen oplossen
+
+<AccordionGroup>
+  <Accordion title="Er zijn geen transacties in het bestand gevonden">
+    Het bestand is misschien geen geldig MT940-afschrift, of het is leeg. Exporteer het afschrift opnieuw bij je bank en controleer of je MT940 hebt gekozen (en niet PDF, CSV of CAMT).
+  </Accordion>
+  <Accordion title="Sommige transacties zijn als dubbel overgeslagen">
+    Dat klopt als de afschriftperiode overlapt met een eerdere import. Overgeslagen transacties staan al in TRONVoice, er gaat dus niets verloren.
+  </Accordion>
+  <Accordion title="Een transactie is geïmporteerd zonder tegenpartij of kenmerk">
+    Banken vullen het omschrijvingsveld verschillend in, en sommige gegevens zijn niet altijd uit te lezen. De transactie wordt nog steeds geïmporteerd met de datum en het bedrag, je kunt hem handmatig koppelen.
+  </Accordion>
+  <Accordion title="Het bestand is groter dan 10 MB">
+    Exporteer een kortere periode bij je bank en importeer de afschriften per periode. De bescherming tegen dubbele transacties zorgt dat overlap geen problemen geeft.
+  </Accordion>
+</AccordionGroup>

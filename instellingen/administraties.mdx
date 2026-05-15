@@ -1,0 +1,108 @@
+---
+title: "Administraties: beheer je bedrijfsentiteiten"
+description: "Een administratie is een aparte bedrijfsentiteit in TRONVoice. Lees hoe je meerdere administraties aanmaakt, ertussen wisselt en beheert in je account."
+---
+
+Elk TRONVoice-account kan een of meer **administraties** bevatten. Een administratie staat voor een aparte bedrijfsentiteit, bijvoorbeeld een bedrijf, een dochteronderneming of een afdeling die los van de rest klanten factureert. Elke administratie heeft zijn eigen klanten, facturen, offertes, producten, integraties en e-mailsjablonen.
+
+Je gebruikt meerdere administraties bijvoorbeeld als je meer dan één bedrijf runt, een holdingstructuur beheert of vanuit hetzelfde account onder verschillende merken factureert.
+
+<Note>
+  Je account bevat **2 administraties zonder extra kosten**. Elke extra administratie kost €3,00 per maand, maandelijks gefactureerd. Met extra administraties krijg je bovendien **10% korting op de verzendkosten van facturen** in je hele account.
+</Note>
+
+## Een administratie aanmaken
+
+<Steps>
+  <Step title="Open de administratiepagina">
+    Ga naar **Instellingen → Administraties** en klik op **Nieuwe administratie**.
+  </Step>
+  <Step title="Zoek via de KvK (optioneel)">
+    Gebruik het KvK-zoekveld om je bedrijf te vinden op naam of inschrijvingsnummer. Als je een resultaat selecteert, worden de bedrijfsnaam, het inschrijvingsnummer en het adres automatisch ingevuld. Je kunt deze stap overslaan en de velden zelf invullen.
+  </Step>
+  <Step title="Vul de bedrijfsgegevens in">
+    Vul de verplichte en optionele velden in:
+
+    | Veld | Verplicht | Toelichting |
+    |---|---|---|
+    | Bedrijfsnaam | Ja | Verschijnt op alle facturen en e-mails |
+    | KvK-nummer | Nee | 8-cijferig nummer van de Kamer van Koophandel |
+    | Btw-nummer | Nee | Nederlands formaat: `NL123456789B01`, wordt gecontroleerd via VIES als je het invult |
+    | Adres | Nee | Straat en huisnummer |
+    | Postcode | Nee | Nederlands formaat: `1234 AB` |
+    | Plaats | Nee | |
+    | Land | Nee | Standaard Nederland |
+    | IBAN | Nee | Wordt gebruikt op factuur-pdf's en in de betaalvoettekst |
+    | BIC | Nee | |
+
+  </Step>
+  <Step title="Stel de factuurnummering in">
+    Stel een **voorvoegsel** en een **startnummer** in voor je facturen.
+
+    In het voorvoegsel kun je dynamische placeholders gebruiken:
+    - `[jaar]` wordt vervangen door het huidige jaar (bijvoorbeeld `2026`)
+    - `[maand]` wordt vervangen door de huidige maand (bijvoorbeeld `05`)
+
+    **Voorbeeld:** een voorvoegsel `F[jaar]-` met startnummer `0001` levert factuurnummers op zoals `F2026-00001`.
+
+    Terwijl je typt, werkt een live voorbeeld van het volgende factuurnummer mee.
+  </Step>
+  <Step title="Stel de factuurstandaarden in">
+    Stel de standaardwaarden in die gelden voor elke nieuwe factuur in deze administratie:
+
+    - **Betalingstermijn**: het aantal dagen tot de factuur vervalt (standaard 30 dagen)
+    - **Standaard btw-tarief**: 21%, 9% of 0%
+    - **Btw verlegd**: zet dit aan als je normaal gesproken btw verlegt
+    - **Btw vrijgesteld**: zet dit aan voor vrijgestelde sectoren zoals zorg of onderwijs
+  </Step>
+  <Step title="Opslaan">
+    Klik op **Administratie aanmaken**. De administratie is meteen beschikbaar in je account.
+  </Step>
+</Steps>
+
+## Wisselen tussen administraties
+
+Heb je meerdere administraties, dan verschijnt er een wisselknop in de navigatiebalk. Klik op de naam van je huidige administratie om de wisselknop te openen en een andere te kiezen.
+
+Elke administratie staat volledig op zichzelf. Als je wisselt, verandert met welke klanten, facturen, offertes en instellingen je werkt.
+
+## Standaardinstellingen
+
+Nadat je een administratie hebt aangemaakt, kun je de volgende standaardwaarden op elk moment aanpassen onder **Instellingen → Administratie → Bewerken**:
+
+- **Factuurvoorvoegsel**: het voorvoegsel dat aan alle factuurnummers wordt toegevoegd (ondersteunt de placeholders `[jaar]` en `[maand]`)
+- **Betalingstermijn**: het standaardaantal dagen tot de betaling moet binnen zijn
+- **Factuurvoettekst**: tekst die onderaan elke factuur-pdf wordt afgedrukt. Gebruik `{betalingstermijn}` om de betalingstermijn automatisch in te voegen
+- **E-mailadressen administratie**: een of meer e-mailadressen (gescheiden door komma's of één per regel) die een kopie van factuurmeldingen ontvangen, bijvoorbeeld die van je boekhouder
+
+<Tip>
+  Gebruik je dezelfde voettekst in al je administraties? Stel dan een standaardvoettekst in op organisatieniveau. Nieuwe administraties nemen die automatisch over.
+</Tip>
+
+## Een administratie archiveren en herstellen
+
+Als je een administratie archiveert, verdwijnt die uit de actieve wisselknop en kun je er geen nieuwe facturen meer in aanmaken. Alle historische gegevens blijven wel bewaard.
+
+**Archiveren:**
+1. Ga naar de administratie die je wilt archiveren.
+2. Open **Instellingen → Administratie → Bewerken**.
+3. Vink **Administratie is actief** uit en sla op.
+
+**Herstellen:**
+1. Ga naar **Instellingen → Administraties**. Gearchiveerde administraties staan apart in de lijst.
+2. Open de gearchiveerde administratie en vink **Administratie is actief** weer aan.
+
+<Warning>
+  Het archiveren van een administratie verwijdert geen gegevens. Alle facturen, klanten en documenten blijven toegankelijk.
+</Warning>
+
+## Prijzen
+
+| Administraties | Kosten per maand |
+|---|---|
+| Eerste 2 | Gratis |
+| Elke extra | €3,00 per maand |
+
+Met een of meer betaalde administraties verlaag je bovendien de verzendkosten van facturen met **10%** in al je administraties.
+
+Heb je meer dan 20 administraties nodig? Neem dan contact op met het salesteam via [sales@tronvoice.eu](mailto:sales@tronvoice.eu).

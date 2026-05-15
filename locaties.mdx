@@ -1,0 +1,119 @@
+---
+title: "Locaties"
+description: "Maak herbruikbare locaties aan en koppel ze aan factuur-, offerte- en abonnementsregels, zodat werk gegroepeerd wordt per werklocatie of vestiging, op scherm en op de factuur-PDF."
+---
+
+**Locaties** zijn herbruikbare plekken die je één keer aanmaakt en daarna telkens opnieuw gebruikt bij je facturatie. Koppel een locatie aan losse factuurregels, offerteregels en abonnementsregels, zodat het werk per locatie wordt gegroepeerd, bijvoorbeeld per werklocatie, per vestiging of per projectadres.
+
+Locaties worden op organisatieniveau beheerd: een locatie die je aanmaakt is beschikbaar voor **elke administratie** in je organisatie.
+
+## Waar een locatie voor is
+
+Met een locatie kun je één factuur opdelen in secties. Elke regel die je toevoegt kun je voorzien van een locatie, waarna TRONVoice de regels onder die locatie groepeert. Dat gebeurt zowel terwijl je het document opbouwt als op de uiteindelijke factuur-PDF.
+
+Dit is handig als één factuur werk op meerdere plekken dekt, bijvoorbeeld:
+
+- Een aannemer die uren over meerdere werklocaties factureert.
+- Een dienstverlener die per klantvestiging factureert.
+- Elk project waarbij de kosten per adres leesbaar moeten zijn.
+
+Locaties kunnen ook gekoppeld worden aan **Taken**, zodat een vervolgactie verbonden blijft met de juiste plek.
+
+<Note>
+  Een locatie is een label om mee te groeperen. Het verandert niets aan prijzen, btw of totalen, het organiseert alleen hoe de regels worden gepresenteerd.
+</Note>
+
+## Een locatie aanmaken
+
+<Steps>
+  <Step title="Open het locatieoverzicht">
+    Ga naar **Locaties** in de navigatie en klik op **Nieuwe locatie**.
+  </Step>
+  <Step title="Vul de locatiegegevens in">
+    | Veld | Toelichting |
+    |---|---|
+    | **Naam** | Verplicht. Dit is de naam die je ziet als je een locatie kiest tijdens het opbouwen van een factuur of offerte. Moet uniek zijn binnen je organisatie. |
+    | **Adres** | Optionele straat en huisnummer. |
+    | **Postcode** | Optioneel. |
+    | **Plaats** | Optioneel. |
+    | **Notities** | Optionele interne notities over de locatie. Komen niet op de factuur te staan. |
+    | **Locatie is actief** | Standaard aan. Inactieve locaties verschijnen niet in de locatiekeuze. |
+  </Step>
+  <Step title="Opslaan">
+    Klik op **Locatie aanmaken**. De locatie is direct beschikbaar in alle administraties.
+  </Step>
+</Steps>
+
+<Tip>
+  Kies een korte, herkenbare naam, bijvoorbeeld een plaats, locatienaam of vestiging ("Den Haag", "Amsterdam Centrum", "Project Stationsplein"). Die naam verschijnt in de keuzelijst en als kop op de factuur-PDF.
+</Tip>
+
+## Bewerken en deactiveren
+
+Open een locatie vanuit de lijst **Locaties** om de gegevens te bewerken. Dezelfde velden gelden als bij het aanmaken.
+
+Om een locatie buiten gebruik te stellen zonder hem te verwijderen, haal je het vinkje **Locatie is actief** weg. Een gedeactiveerde locatie:
+
+- Verschijnt niet meer als suggestie in de locatiekeuze.
+- Blijft intact op facturen en offertes die hem al gebruiken.
+
+Activeer hem op elk moment weer door het vinkje terug te zetten.
+
+Je kunt een locatie ook verwijderen vanuit de lijst. Een locatie verwijderen haalt alleen het herbruikbare record weg. Het verandert niets aan een factuur of offerte die de locatienaam al gebruikt.
+
+## Het locatieoverzicht
+
+De lijst **Locaties** toont elke locatie in je organisatie. Je kunt:
+
+- **Zoeken** op naam, adres of plaats.
+- **Filteren** op status, actief of inactief.
+- Een kolom **gebruik** zien die laat zien hoe vaak elke locatie is gebruikt.
+
+<Note>
+  De gebruiksteller helpt je te zien welke locaties echt in gebruik zijn. De meest gebruikte actieve locaties staan bovenaan in de locatiekeuze als je een factuur opbouwt.
+</Note>
+
+## Een locatie kiezen op een factuur of offerte
+
+Als je een regel toevoegt aan een factuur, offerte of abonnement, kun je die regel onder een locatie groeperen.
+
+<Steps>
+  <Step title="Open het locatieveld op een regel">
+    Gebruik in de regeleditor het veld **locatie**. Begin te typen om suggesties te zien.
+  </Step>
+  <Step title="Kies een suggestie of typ een naam">
+    Suggesties komen uit twee bronnen, waarbij je opgeslagen locaties als eerste staan:
+
+    - **Opgeslagen locaties**: actieve locaties uit de lijst **Locaties**, gesorteerd op hoe vaak ze zijn gebruikt.
+    - **Eerder gebruikte locaties**: locatienamen die al op eerdere factuurregels zijn gebruikt, ook al zijn ze nooit als locatierecord opgeslagen.
+
+    Kies een suggestie, of typ een willekeurige naam om die direct te gebruiken.
+  </Step>
+  <Step title="Herhaal voor andere regels">
+    Wijs dezelfde locatie toe aan elke regel die erbij hoort. Regels met dezelfde locatie worden samen gegroepeerd.
+  </Step>
+</Steps>
+
+<Tip>
+  Je hoeft niet eerst een locatierecord aan te maken: een nieuwe naam op een regel typen werkt ook. Door hem als **Locatie** op te slaan komt hij volgende keer terug als betrouwbare suggestie, en kun je het adres en de notities bewaren.
+</Tip>
+
+Laat het locatieveld leeg op regels die niet bij een specifieke locatie horen. Ongegroepeerde regels worden samen getoond, los van eventuele gegroepeerde locaties.
+
+## Hoe locaties op de factuur-PDF verschijnen
+
+Op de factuur-PDF staan de regels in hun normale volgorde. Telkens als de locatie van de ene regel naar de volgende verandert, voegt TRONVoice een **locatie-kopregel** in boven de regels van die locatie.
+
+Dat betekent:
+
+- Regels met dezelfde locatie verschijnen onder een gedeelde kop.
+- Regels zonder locatie staan zonder kop.
+- Voor een nette gegroepeerde indeling houd je de regels van dezelfde locatie bij elkaar in de regelvolgorde.
+
+<Warning>
+  De groepering op de PDF volgt de regelvolgorde. Staan regels van dezelfde locatie verspreid door de factuur, dan herhaalt de locatiekop zich elke keer dat de locatie verandert. Zet de regels op volgorde zodat de regels van elke locatie bij elkaar staan.
+</Warning>
+
+## Locaties en taken
+
+Een taak in **Taken** kun je aan een locatie koppelen. Gebruik het typefilter **Locatie** in de takenlijst om alle taken te zien die aan locaties gekoppeld zijn, zodat vervolgacties bij een werklocatie gegroepeerd blijven met de plek waar ze over gaan.

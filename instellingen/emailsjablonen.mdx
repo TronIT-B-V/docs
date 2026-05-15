@@ -1,0 +1,158 @@
+---
+title: "E-mailsjablonen: pas uitgaande e-mails aan"
+description: "Pas het onderwerp en de tekst aan van elke e-mail die TRONVoice naar je klanten stuurt, met ondersteuning voor Nederlands, Engels, Duits, Frans en Spaans."
+---
+
+TRONVoice stuurt automatisch e-mails naar je klanten als je een factuur verstuurt, een offerte verzendt, een betalingsherinnering verstuurt en meer. Je kunt de tekst van elk e-mailtype aanpassen, per administratie en per taal, met een tekstverwerker die een live voorbeeld toont.
+
+E-mailsjablonen stel je apart in voor elke administratie. Ga naar **Instellingen → Huisstijl → E-mailsjablonen** voor de administratie die je wilt instellen.
+
+## Soorten sjablonen
+
+| Sjabloon | Wanneer het wordt verstuurd |
+|---|---|
+| **Factuur naar klant** | Wanneer je een factuur naar een klant stuurt |
+| **Factuur naar onderaannemer** | Wanneer je een factuur naar een onderaannemer stuurt |
+| **Creditfactuur naar klant** | Wanneer je een creditfactuur naar een klant stuurt |
+| **Creditfactuur naar onderaannemer** | Wanneer je een creditfactuur naar een onderaannemer stuurt |
+| **Betalingsherinnering** | Wanneer er een automatische of handmatige betalingsherinnering wordt verstuurd |
+| **Betaalbevestiging** | Wanneer een factuur als betaald wordt gemarkeerd |
+| **Offerte naar klant** | Wanneer je een offerte naar een klant stuurt |
+| **Verzoek SEPA-machtiging** | Wanneer je een klant uitnodigt om een incassomachtiging in te stellen |
+| **SEPA-vooraankondiging** | Verplichte aankondiging vooraf voordat je een incasso afschrijft |
+| **Machtiging bevestigd** | Wordt naar jou gestuurd als een klant een incassomachtiging bevestigt |
+
+## Een sjabloon bewerken
+
+<Steps>
+  <Step title="Open de e-mailsjablonen">
+    Ga naar **Instellingen → Huisstijl** voor de juiste administratie en klik op **E-mailsjablonen bewerken**.
+  </Step>
+  <Step title="Kies een sjabloontype">
+    Klik op het sjabloon dat je wilt bewerken in de lijst aan de linkerkant.
+  </Step>
+  <Step title="Kies een taal">
+    Gebruik de taaltabbladen bovenaan de editor om te wisselen tussen NL, EN, DE, FR en ES. Elke taal heeft een eigen onderwerpregel en tekst.
+  </Step>
+  <Step title="Bewerk het onderwerp en de tekst">
+    Pas het veld **onderwerp** en de **tekst** aan met de tekstverwerker. Gebruik variabelen (hieronder opgesomd) om dynamische inhoud in te voegen, zoals het factuurnummer of de naam van de klant.
+  </Step>
+  <Step title="Voorbeeld bekijken">
+    Het live voorbeeld rechts laat precies zien hoe de e-mail er voor je klant uitziet, met voorbeeldgegevens in plaats van de variabelen.
+  </Step>
+  <Step title="Opslaan">
+    Klik op **Opslaan**. Het aangepaste sjabloon wordt meteen gebruikt voor dat sjabloontype en die taal. Bestaat er voor een taal geen aangepast sjabloon, dan valt TRONVoice terug op het ingebouwde standaardsjabloon.
+  </Step>
+</Steps>
+
+<Tip>
+  Je hoeft alleen de talen aan te passen die je daadwerkelijk gebruikt. Heeft de taal van een klant geen aangepast sjabloon, dan wordt automatisch het standaardsjabloon voor die taal gebruikt.
+</Tip>
+
+## Ondersteuning voor meerdere talen
+
+TRONVoice ondersteunt vijf talen voor uitgaande e-mails:
+
+| Code | Taal |
+|---|---|
+| `nl` | Nederlands |
+| `en` | English |
+| `de` | Deutsch |
+| `fr` | Français |
+| `es` | Español |
+
+De taal van een specifieke e-mail wordt bepaald door de taal die op het klantprofiel is ingesteld. Is er geen taal op de klant ingesteld, dan wordt de standaardtaal van de administratie gebruikt.
+
+## Beschikbare variabelen
+
+Voeg variabelen in het onderwerp of de tekst in met de notatie `{variabele}`. TRONVoice vervangt elke variabele door echte gegevens op het moment dat de e-mail wordt verstuurd.
+
+### Algemene variabelen (beschikbaar in de meeste sjablonen)
+
+| Variabele | Omschrijving |
+|---|---|
+| `{bedrijfsnaam}` | Je bedrijfsnaam (de administratie) |
+| `{klant_bedrijfsnaam}` | De bedrijfsnaam van de klant |
+| `{klant_contactpersoon}` | De contactpersoon van de klant |
+| `{klant_email}` | Het e-mailadres van de klant |
+| `{factuurnummer}` | Factuurnummer |
+| `{factuurdatum}` | Factuurdatum |
+| `{vervaldatum}` | Vervaldatum van de betaling |
+| `{totaal}` | Totaalbedrag inclusief btw |
+| `{subtotaal}` | Subtotaal exclusief btw |
+| `{btw_totaal}` | Btw-bedrag |
+| `{omschrijving}` | Omschrijving van de factuur |
+| `{iban}` | Je IBAN-rekeningnummer |
+| `{iban_tnv}` | Naam van de rekeninghouder |
+
+### Sjabloonspecifieke variabelen
+
+<Accordion title="Betalingsherinnering">
+
+| Variabele | Omschrijving |
+|---|---|
+| `{dagen_verlopen}` | Aantal dagen dat de factuur is verlopen |
+| `{openstaand_bedrag}` | Openstaand bedrag |
+| `{herinnering_stap}` | Nummer van de herinneringsstap (1, 2, 3, enzovoort) |
+
+</Accordion>
+
+<Accordion title="Betaalbevestiging">
+
+| Variabele | Omschrijving |
+|---|---|
+| `{betaald_op}` | Datum waarop de betaling is ontvangen |
+| `{betaald_via}` | Betaalmethode (bijvoorbeeld bankoverschrijving) |
+
+</Accordion>
+
+<Accordion title="Offerte naar klant">
+
+| Variabele | Omschrijving |
+|---|---|
+| `{offertenummer}` | Offertenummer |
+| `{offertedatum}` | Offertedatum |
+| `{geldig_tot}` | Vervaldatum van de offerte |
+| `{acceptatie_url}` | Online acceptatielink voor de klant |
+
+</Accordion>
+
+<Accordion title="Creditfactuur">
+
+| Variabele | Omschrijving |
+|---|---|
+| `{originele_factuurnummer}` | Het factuurnummer dat wordt gecrediteerd |
+
+</Accordion>
+
+<Accordion title="SEPA-incasso">
+
+| Variabele | Omschrijving |
+|---|---|
+| `{incasso_datum}` | Incassodatum |
+| `{incasso_bedrag}` | Te incasseren bedrag |
+| `{incasso_iban}` | IBAN van de klant (deels afgeschermd) |
+| `{incasso_rekeninghouder}` | Naam van de rekeninghouder van de klant |
+| `{incassant_id}` | Incassant-ID |
+| `{incasso_kenmerk}` | Machtigingskenmerk |
+| `{verificatie_bedrag}` | Bedrag van de verificatiebetaling (machtigingsverzoek) |
+
+</Accordion>
+
+<Accordion title="Machtiging bevestigd (naar jou gestuurd)">
+
+| Variabele | Omschrijving |
+|---|---|
+| `{klant_iban}` | IBAN van de klant (deels afgeschermd) |
+| `{machtiging_referentie}` | Machtigingskenmerk |
+| `{machtiging_datum}` | Datum waarop de machtiging is bevestigd |
+
+</Accordion>
+
+## Live voorbeeld
+
+De sjablooneditor bevat een voorbeeldvenster dat de e-mail toont met realistische voorbeeldgegevens. Het voorbeeld werkt mee terwijl je het onderwerp of de tekst aanpast, en je kunt de taal van het voorbeeld wisselen met de taalkiezer rechtsboven in het voorbeeldvenster.
+
+<Note>
+  Het voorbeeld gebruikt voorbeeldgegevens, geen echte klant- of factuurgegevens. De definitieve e-mail die je klant ontvangt, bevat echte waarden.
+</Note>

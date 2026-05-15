@@ -1,0 +1,79 @@
+---
+title: "SharePoint koppelen aan TRONVoice"
+description: "Sla factuur-pdf's en bijlagen automatisch op in Microsoft SharePoint of OneDrive via een beveiligde Microsoft 365-koppeling, per administratie ingesteld."
+---
+
+De SharePoint-integratie slaat alle factuur-pdf's en bijlagen automatisch op in een map van jouw keuze in Microsoft SharePoint of OneDrive. Zo heb je een geordend archief in je eigen Microsoft 365-omgeving, zonder iets handmatig te downloaden of uploaden.
+
+<Note>
+  Deze integratie vereist een actief Microsoft 365-account met toegang tot SharePoint of OneDrive. De koppeling stel je per administratie in.
+</Note>
+
+## Vereisten
+
+Voordat je begint, heb je het volgende uit je Microsoft Azure-omgeving nodig:
+
+- **Tenant-ID**, de identifier van je Microsoft 365-organisatie.
+- **Client-ID**, de App registration-ID in Azure Active Directory.
+- **Client Secret**, de geheime sleutel die bij de app registration hoort.
+- **Site-ID**, de identifier van de SharePoint-site waar bestanden naartoe worden geüpload.
+
+<Tip>
+  Je vindt deze gegevens in de [Azure-portal](https://portal.azure.com) onder **Azure Active Directory → App registrations**. Zorg dat de app registration de Microsoft Graph-rechten `Sites.ReadWrite.All` heeft als application permission (dus geen delegated permission).
+</Tip>
+
+## De koppeling instellen
+
+<Steps>
+  <Step title="Open Integraties">
+    Ga naar **Instellingen → Integraties** en selecteer de betreffende administratie. Klik op de tab **Opslag**.
+  </Step>
+  <Step title="Open de SharePoint-instellingen">
+    Klik op de kaart **SharePoint** en kies **Configureren**.
+  </Step>
+  <Step title="Voer de verbindingsgegevens in">
+    Vul de volgende velden in:
+
+    | Veld | Omschrijving |
+    |---|---|
+    | Tenant-ID | Je Microsoft 365-tenant-ID |
+    | Client-ID | De client-ID van de app registration |
+    | Client Secret | De client secret van de app registration |
+    | Site-ID | De ID van de SharePoint-doelsite |
+    | Drive-ID | Optioneel, de specifieke documentbibliotheek (standaard: Documents) |
+    | Mappad | Optioneel, een submap in de bibliotheek, bijvoorbeeld `Facturen/2025` |
+  </Step>
+  <Step title="Test de verbinding">
+    Klik op **Verbinding testen**. TRONVoice controleert de opgegeven gegevens en kijkt of de site en bibliotheek bereikbaar zijn. Je krijgt een bevestiging met de naam van de gevonden site en bibliotheek.
+  </Step>
+  <Step title="Opslaan">
+    Klik op **Opslaan**. Nieuwe facturen worden nu automatisch in SharePoint opgeslagen.
+  </Step>
+</Steps>
+
+## Wat er wordt opgeslagen
+
+Elke keer dat TRONVoice een factuur-pdf genereert of een bijlage verwerkt, wordt het bestand automatisch geüpload naar de ingestelde SharePoint-map.
+
+- **Factuur-pdf's**, de gegenereerde pdf van elke verzonden factuur.
+- **Bijlagen**, bestanden die aan een factuur zijn gehangen.
+
+Bestanden worden opgeslagen met het factuurnummer als bestandsnaam, zodat ze gemakkelijk terug te vinden zijn.
+
+<Note>
+  Bestaat de opgegeven map nog niet in SharePoint, dan maakt TRONVoice die automatisch aan bij de eerste upload.
+</Note>
+
+## De mapstructuur instellen
+
+Gebruik het veld **Mappad** om bestanden in submappen te ordenen. Gebruik `/` om niveaus te scheiden:
+
+```
+Facturen/2025
+```
+
+TRONVoice maakt ontbrekende mappen automatisch aan. Je kunt het pad op elk moment aanpassen in de SharePoint-instellingen.
+
+## Koppeling verbreken
+
+Ga naar **Instellingen → Integraties → Opslag → SharePoint** en klik op **Koppeling verbreken**. De inloggegevens worden verwijderd en TRONVoice stopt met opslaan in SharePoint. Bestanden die al naar SharePoint zijn geüpload, blijven ongewijzigd.

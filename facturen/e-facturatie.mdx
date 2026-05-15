@@ -1,0 +1,99 @@
+---
+title: "E-facturatie en pdf-export"
+description: "Exporteer TRONVoice-facturen als UBL-e-facturen, download proforma-pdf's voor concepten en begrijp wanneer een Nederlands bedrijf gestructureerde e-facturatie nodig heeft."
+---
+
+TRONVoice kan een factuur in drie formaten produceren: een standaard **pdf**, een **proforma-pdf** voor concepten en een gestructureerde **UBL-e-factuur**. Deze pagina legt elk formaat uit en vertelt je wanneer je het gebruikt.
+
+## Wat is e-facturatie?
+
+Een **e-factuur** is een factuur die wordt geleverd als gestructureerde, machineleesbare data in plaats van als een document dat iemand leest. TRONVoice maakt e-facturen in **UBL 2.1**, een XML-formaat dat boekhoudsoftware automatisch kan importeren, zonder handmatige invoer of scannen.
+
+TRONVoice produceert UBL volgens het **Peppol BIS Billing 3.0**-profiel, de Europese standaard voor grensoverschrijdende elektronische facturatie. De XML bevat de btw-nummers van de afzender en de ontvanger als Peppol-endpoint-identificaties (NL btw-schema).
+
+<Info>
+**Wanneer heeft een Nederlands bedrijf UBL nodig?** Facturen aan de Nederlandse rijksoverheid moeten elektronisch worden geleverd, meestal als UBL via het Peppol-netwerk of een overheidsportaal. Veel grotere organisaties en boekhoudpakketten geven ook de voorkeur aan UBL, omdat het netjes importeert. Voor facturen aan gewone particuliere klanten is een pdf meestal voldoende.
+</Info>
+
+## Een standaard pdf downloaden
+
+Elke factuur kun je als pdf downloaden vanaf de detailpagina van de factuur of vanuit het facturenoverzicht.
+
+- De pdf laat de factuur precies zien zoals je klant hem ziet, inclusief je logo, de btw-uitsplitsing en de betaalgegevens.
+- Zodra een factuur verstuurd is, wordt de pdf opgeslagen en hergebruikt, zodat hij altijd overeenkomt met wat er verstuurd is.
+- Heeft de factuur de optie **bijlagen samenvoegen** ingeschakeld? Dan voegt de pdf-download de factuur en de pdf-bijlagen samen tot één document.
+
+## Een proforma-pdf downloaden
+
+Een **proforma-pdf** is een voorbeeldweergave van een conceptfactuur. Gebruik hem als je een klant wilt laten zien hoe een factuur eruit komt te zien voordat hij officieel verstuurd wordt.
+
+<Steps>
+  <Step title="Open een conceptfactuur">
+    Ga naar **Facturen** en open het concept dat je wilt bekijken.
+  </Step>
+  <Step title="Download de proforma">
+    Klik op **Proforma-pdf**. TRONVoice maakt een pdf die als proforma is gemarkeerd.
+  </Step>
+</Steps>
+
+<Note>
+Een proforma-pdf is alleen beschikbaar voor **concept**facturen. Zodra een factuur verstuurd is, gebruik je in plaats daarvan de standaard pdf. Een proforma is geen geldige factuur voor de btw of de boekhouding. Hij draagt het tijdelijke nummer `CONCEPT-XXXXX`.
+</Note>
+
+## Een UBL-e-factuur exporteren
+
+Als de UBL-export beschikbaar is voor je administratie, verschijnt er een knop **UBL** op de detailpagina van de factuur.
+
+<Steps>
+  <Step title="Open de factuur">
+    Ga naar **Facturen** en open de factuur die je wilt exporteren.
+  </Step>
+  <Step title="Klik op UBL">
+    Klik op **UBL**. TRONVoice maakt een UBL 2.1-XML-bestand en downloadt het.
+  </Step>
+  <Step title="Lever het bestand">
+    Stuur de XML naar je klant of importeer hem in het boekhoudpakket, via je gebruikelijke kanaal of via het Peppol-netwerk.
+  </Step>
+</Steps>
+
+Het UBL-bestand wordt vernoemd naar de factuur (bijvoorbeeld `Factuur-F-2025-00001.xml`). Zodra het bestand is gemaakt, wordt het opgeslagen en bij latere downloads hergebruikt, zodat de gestructureerde data consistent blijft met de factuur.
+
+<Tip>
+Creditfacturen worden ook als UBL geëxporteerd. TRONVoice gebruikt automatisch het UBL-documenttype **CreditNote** voor creditfacturen, zodat boekhoudsoftware ze herkent als correcties en niet als nieuwe kosten.
+</Tip>
+
+## Wat UBL bevat
+
+De gegenereerde UBL-XML bevat de volledige gestructureerde factuur:
+
+| Onderdeel | Inhoud |
+|---|---|
+| **Partijen** | Jouw bedrijf en de klant, elk met naam, adres, KvK-nummer en btw-nummer. |
+| **Factuurgegevens** | Factuurnummer, factuurdatum en vervaldatum. |
+| **Factuurregels** | Elke regel met omschrijving, aantal, stukprijs en btw-tarief. |
+| **Totalen** | Subtotaal, btw-bedragen per tarief en het factuurtotaal. |
+| **Profiel** | De profielidentificatie Peppol BIS Billing 3.0 en de op btw gebaseerde endpoint-ID's. |
+
+<Warning>
+Als je een verstuurde factuur bewerkt, wist TRONVoice de opgeslagen pdf- en UBL-bestanden, zodat ze opnieuw worden gegenereerd met de bijgewerkte gegevens bij de volgende download. Download en lever de UBL altijd opnieuw na het bewerken van een verstuurde factuur.
+</Warning>
+
+## Een formaat kiezen
+
+<CardGroup cols={3}>
+  <Card title="Standaard pdf" icon="file-text">
+    Voor verstuurde facturen aan de meeste particuliere klanten. Leesbaar voor mensen en klaar om te mailen.
+  </Card>
+  <Card title="Proforma-pdf" icon="file-clock">
+    Om een concept met een klant te bekijken voordat het officieel wordt uitgegeven.
+  </Card>
+  <Card title="UBL-e-factuur" icon="file-code">
+    Voor overheidsklanten, levering via Peppol of klanten die facturen in boekhoudsoftware importeren.
+  </Card>
+</CardGroup>
+
+## Hoe nu verder
+
+- [Een factuur aanmaken](/facturen/aanmaken)
+- [Facturen importeren en exporteren](/facturen/import-export)
+- [Factuurbetalingen volgen](/facturen/betalingen-volgen)

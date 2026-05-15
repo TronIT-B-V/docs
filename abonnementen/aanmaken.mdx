@@ -1,0 +1,109 @@
+---
+title: "Een terugkerende factuur aanmaken"
+description: "Stel een abonnement in zodat TRONVoice automatisch facturen voor een klant aanmaakt op een vast schema."
+---
+
+Een abonnement is een terugkerend factuursjabloon dat aan een klant is gekoppeld. Je legt de factuurregels en een factuurschema één keer vast, en TRONVoice maakt een nieuwe factuur aan telkens als het schema verschuldigd raakt.
+
+## Een abonnement aanmaken
+
+Ga naar **Abonnementen** in de hoofdnavigatie en klik op **Nieuw abonnement**. Je kunt er ook een starten vanaf een klantkaart, waarbij de klant en administratie alvast worden geselecteerd.
+
+<Steps>
+  <Step title="Kies de administratie en klant">
+    Kies de **administratie** waar het abonnement bij hoort, en daarna de **klant**. Alleen actieve klanten in die administratie staan in de lijst.
+
+    Als je een klant kiest, past TRONVoice automatisch de btw-situatie toe: **btw verlegd** voor klanten in de EU, **btw vrijgesteld** voor klanten buiten de EU, of anders het standaard btw-percentage van de klant.
+
+    <Tip>
+      Heeft je organisatie maar één administratie, dan wordt die voor je geselecteerd.
+    </Tip>
+  </Step>
+
+  <Step title="Stel de basisgegevens in">
+    | Veld | Toelichting |
+    |---|---|
+    | **Naam** | Interne naam voor het abonnement, bijvoorbeeld `Maandelijkse hosting`. Verplicht. |
+    | **Referentie** | Optionele referentie die op de gegenereerde facturen staat. |
+    | **Facturatie periode** | Optioneel vrij tekstlabel, zoals `December 2024`. |
+    | **Notities** | Optionele interne notities. |
+  </Step>
+
+  <Step title="Kies het factuurinterval">
+    Het interval bestaat uit twee delen: een **intervaltype** en een **intervalwaarde**. De waarde vermenigvuldigt het type. Zet de waarde op `2` met type **Week** voor een factuur elke twee weken.
+
+    | Intervaltype | Eén factuur per… |
+    |---|---|
+    | **Dag** | dag |
+    | **Week** | week |
+    | **Maand** | maand |
+    | **Kwartaal** | drie maanden |
+    | **Jaar** | jaar |
+    | **2 Jaar** | twee jaar |
+
+    De intervalwaarde kan elk heel getal van 1 tot en met 99 zijn.
+  </Step>
+
+  <Step title="Stel de datums in">
+    | Veld | Toelichting |
+    |---|---|
+    | **Startdatum** | Wanneer het abonnement begint. Standaard vandaag. |
+    | **Volgende factuurdatum** | De datum waarop de eerste factuur wordt aangemaakt. Standaard vandaag. |
+    | **Einddatum** | Optioneel. Laat leeg voor een abonnement zonder einddatum. Moet na de startdatum liggen. |
+  </Step>
+
+  <Step title="Voeg factuurregels toe">
+    Voeg een of meer regels toe die op elke gegenereerde factuur verschijnen. Elke regel kun je handmatig invoeren of vullen vanuit een product in je catalogus. Per regel stel je in:
+
+    - **Omschrijving**
+    - **Aantal** en **Eenheid**
+    - **Eenheidsprijs**
+    - **Btw**: per regel een percentage, **verlegd** of **vrijgesteld**
+    - **Korting**: een percentage korting op die regel
+    - **Locatiegroep**: om regels onder een kopregel te groeperen
+
+    Je kunt ook **notitieregels** toevoegen: tekstregels zonder prijs. Regels kun je verslepen om de volgorde te wijzigen.
+
+    <Note>
+      Regelomschrijvingen ondersteunen datumvariabelen. Bij het genereren van een factuur worden plaatshouders vervangen door de huidige periode, handig voor omschrijvingen zoals "Hosting [maand] [jaar]".
+    </Note>
+  </Step>
+
+  <Step title="Stel een algehele korting in (optioneel)">
+    Vul een **kortingspercentage** in dat wordt toegepast op het subtotaal van elke gegenereerde factuur, bovenop eventuele kortingen per regel.
+  </Step>
+
+  <Step title="Stel de verzendopties in">
+    | Optie | Beschrijving |
+    |---|---|
+    | **Actief** | Inactieve abonnementen maken nooit facturen aan. Standaard aan. |
+    | **Auto verzenden** | Mail de gegenereerde factuur automatisch. Standaard uit. |
+    | **Verzend naar admin** | Stuur een kopie naar het e-mailadres van je eigen administratie. |
+    | **Verzend naar klant** | Stuur de factuur naar het e-mailadres van de klant. |
+
+    Staat automatisch verzenden uit, dan worden gegenereerde facturen als concept opgeslagen, zodat je ze kunt controleren en handmatig versturen.
+  </Step>
+
+  <Step title="Sla het abonnement op">
+    Klik op **Opslaan**. Het abonnement opent zijn detailpagina en maakt op de ingestelde eerste factuurdatum de eerste factuur aan.
+  </Step>
+</Steps>
+
+## Hoe facturen worden gegenereerd
+
+Wanneer de **eerste factuurdatum** van een abonnement vandaag of in het verleden ligt, is het abonnement **verschuldigd**. Een factuur genereren, automatisch, handmatig of in bulk, doet het volgende:
+
+1. Maakt een factuur aan in de administratie van het abonnement voor de bijbehorende klant, kopieert alle abonnementsregels en vervangt eventuele datumvariabelen in de omschrijvingen.
+2. Zet de factuurdatum op vandaag en de vervaldatum op basis van de betaaltermijn van de administratie.
+3. Schuift de **volgende factuurdatum** van het abonnement één interval op, zodat de volgende periode automatisch klaarstaat.
+
+Of de factuur wordt verstuurd of als concept wordt opgeslagen, hangt af van **Auto verzenden**:
+
+- **Auto verzenden aan**: als je account voldoende credits heeft, krijgt de factuur een echt factuurnummer, wordt die gemaild naar de gekozen ontvangers en worden er credits afgeschreven.
+- **Auto verzenden uit**: de factuur wordt aangemaakt als **concept** met een conceptnummer, zodat je hem zelf verstuurt.
+
+<Note>
+Is vandaag een dag die voor de klant is uitgesloten van facturatie, dan wordt automatisch verzenden overgeslagen en wordt de factuur in plaats daarvan als concept aangemaakt. Hetzelfde gebeurt als je account te weinig credits heeft.
+</Note>
+
+Zie [Terugkerende facturen beheren](/abonnementen/beheren) voor het op aanvraag genereren van facturen, pauzeren en bulkacties.

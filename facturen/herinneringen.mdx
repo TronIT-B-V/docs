@@ -1,0 +1,110 @@
+---
+title: "Betalingsherinneringen voor vervallen facturen"
+description: "Hoe TRONVoice automatisch betalingsherinneringen verstuurt, hoe je handmatige herinneringen verstuurt, facturen uitsluit en de e-mailsjablonen voor herinneringen aanpast."
+---
+
+TRONVoice kan automatisch betalingsherinneringen sturen naar klanten met vervallen facturen. Het herinneringssysteem werkt in stappen en stuurt steeds stevigere herinneringen naarmate een factuur langer onbetaald blijft. Je kunt ook op elk moment handmatig herinneringen versturen, specifieke facturen uitsluiten of in bulk herinneringen sturen naar meerdere klanten tegelijk.
+
+## Hoe automatische herinneringen werken
+
+Wanneer automatische herinneringen zijn ingeschakeld voor je administratie, controleert TRONVoice dagelijks op vervallen facturen en verstuurt het herinneringen volgens een schema van drie stappen:
+
+| Stap | Trigger |
+|---|---|
+| **Stap 1** | 14 dagen na de vervaldatum van de factuur |
+| **Stap 2** | 30 dagen na de vervaldatum van de factuur |
+| **Stap 3** | 45 dagen na de vervaldatum van de factuur |
+
+Bij elke stap wordt het e-mailsjabloon **Betalingsherinnering** naar de klant gestuurd. De e-mail bevat het factuurnummer, het aantal dagen achterstand en het openstaande bedrag.
+
+Na stap 3 worden er geen verdere automatische herinneringen verstuurd, tenzij je de herinneringen reset of een handmatige herinnering stuurt.
+
+<Note>
+Automatische herinneringen worden alleen verstuurd voor facturen die:
+- De status **Verzonden** hebben (niet Betaald, Gecrediteerd of Concept)
+- Een positief totaalbedrag hebben
+- Een klant met een geldig e-mailadres hebben
+- **Niet** zijn uitgesloten van herinneringen
+</Note>
+
+Om automatische herinneringen in te schakelen of in te stellen voor je administratie, ga je naar **Instellingen → Administratie → Herinneringen**.
+
+## Een handmatige herinnering versturen
+
+Je kunt op elk moment een herinnering versturen, ongeacht of die al verschuldigd is.
+
+<Steps>
+  <Step title="Open de factuur">
+    Ga naar **Facturen** en open de verzonden factuur waarvoor je een herinnering wilt sturen.
+  </Step>
+  <Step title="Klik op Herinnering versturen">
+    Klik op **Herinnering versturen** op de factuurdetailpagina. TRONVoice bevestigt welk stapnummer deze herinnering heeft (bijvoorbeeld "1e herinnering").
+  </Step>
+  <Step title="Bevestig">
+    De herinnering wordt in de wachtrij gezet en naar het e-mailadres van de klant verstuurd. De herinnering wordt vastgelegd op het tabblad **Herinneringen** van de factuur.
+  </Step>
+</Steps>
+
+Elke verstuurde herinnering, automatisch of handmatig, wordt vastgelegd in het activiteitenlogboek van de factuur met de datum, het stapnummer en wie hem heeft verstuurd.
+
+## Herinneringen in bulk versturen
+
+Om herinneringen naar meerdere klanten met achterstand tegelijk te sturen:
+
+<Steps>
+  <Step title="Ga naar het factuuroverzicht">
+    Open **Facturen** en filter of sorteer op vervallen facturen.
+  </Step>
+  <Step title="Selecteer facturen">
+    Vink de selectievakjes aan naast de facturen waarvoor je een herinnering wilt sturen.
+  </Step>
+  <Step title="Gebruik de bulkacties">
+    Klik op **Bulkacties** en kies **Herinneringen versturen**. TRONVoice verstuurt de volgende herinneringsstap voor elke geselecteerde factuur.
+  </Step>
+</Steps>
+
+Facturen die geen herinnering kunnen ontvangen (verkeerde status, geen e-mailadres van de klant of uitgesloten van herinneringen) worden automatisch overgeslagen.
+
+## Een factuur uitsluiten van herinneringen
+
+Sommige facturen horen geen herinnering te krijgen, bijvoorbeeld wanneer er een betalingsregeling loopt of een geschil wordt opgelost. Je kunt afzonderlijke facturen uitsluiten van het automatische herinneringsschema.
+
+<Steps>
+  <Step title="Open de factuur">
+    Ga naar **Facturen** en open de betreffende factuur.
+  </Step>
+  <Step title="Schakel de uitsluiting in">
+    Zoek het kopje **Herinneringen** op de factuurdetailpagina en klik op **Uitsluiten van herinneringen** (of de schakelaar ernaast).
+  </Step>
+</Steps>
+
+De factuur ontvangt dan geen automatische herinneringen meer. Je kunt nog wel handmatig herinneringen sturen als dat nodig is. Om de factuur weer op te nemen, klik je opnieuw op dezelfde schakelaar.
+
+<Tip>
+Op het tabblad **Herinneringen** van de factuurdetailpagina zie je in één oogopslag welke facturen zijn uitgesloten van herinneringen.
+</Tip>
+
+## E-mailsjablonen voor herinneringen aanpassen
+
+De onderwerpregel en de tekst van herinneringsmails zijn volledig aanpasbaar per taal. TRONVoice ondersteunt sjablonen in het Nederlands, Engels, Duits, Frans en Spaans.
+
+Beschikbare variabelen die je in herinneringssjablonen kunt gebruiken:
+
+| Variabele | Omschrijving |
+|---|---|
+| `{factuurnummer}` | Factuurnummer |
+| `{klant_contactpersoon}` | Contactpersoon van de klant |
+| `{bedrijfsnaam}` | Je bedrijfsnaam |
+| `{dagen_verlopen}` | Aantal dagen achterstand |
+| `{totaal}` | Totaalbedrag van de factuur |
+| `{openstaand_bedrag}` | Openstaand (onbetaald) bedrag |
+| `{vervaldatum}` | Vervaldatum van de factuur |
+| `{herinnering_stap}` | Stapnummer van de herinnering (1, 2 of 3) |
+| `{iban}` | Je IBAN-bankrekeningnummer |
+| `{iban_tnv}` | Naam van de rekeninghouder |
+
+Om herinneringssjablonen te bewerken, ga je naar [**Instellingen → E-mailsjablonen**](/instellingen/emailsjablonen) en kies je **Betalingsherinnering**.
+
+<Warning>
+Wijzigingen aan e-mailsjablonen gelden voor alle toekomstige herinneringen aan alle klanten in die administratie. Test je sjabloon met de voorbeeldfunctie voordat je opslaat.
+</Warning>

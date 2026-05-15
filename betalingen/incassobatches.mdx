@@ -1,0 +1,170 @@
+---
+title: "Facturen innen in incassobatches"
+description: "Groepeer facturen van klanten met een geldige SEPA-machtiging in incassobatches, controleer en pas de regels aan, en dien de batch in bij Mollie voor automatische incasso."
+---
+
+Een **incassobatch** groepeert openstaande facturen in één SEPA-incasso. Als je een factuur verstuurt naar een klant met een geldige SEPA-machtiging, voegt TRONVoice die automatisch toe aan een open batch. Jij controleert de batch, kiest een incassodatum en dient hem in. Mollie int daarna elk bedrag op de geplande dag.
+
+<Note>
+  Voor incassobatches moet SEPA-incasso voor je administratie zijn ingesteld. Zie je het menu **Incassobatches** niet, dan is SEPA nog niet ingesteld. Zie [Betalingen innen met SEPA-incasso](/betalingen/sepa-incasso) voor hoe machtigingen en SEPA-instellingen werken.
+</Note>
+
+## Hoe batches samenhangen met SEPA-machtigingen
+
+Een batch kan alleen incasseren bij klanten die je vooraf gemachtigd hebben. Zo werkt dat:
+
+1. Een klant geeft een **SEPA-machtiging** af, eenmalig, via e-mail of een handmatige papieren machtiging.
+2. Als je een factuur verstuurt naar die klant, controleert TRONVoice de machtiging en de instelling **automatische incasso** van de klant.
+3. Als de klant in aanmerking komt, wordt de factuur als batchregel toegevoegd aan een **open** batch.
+4. Jij dient de batch in, en Mollie int elke regel met de machtiging van de klant.
+
+Facturen voor klanten zonder geldige machtiging komen nooit in een batch terecht. Die int je op de gewone manier, bijvoorbeeld met een [Mollie-betaallink](/betalingen/mollie).
+
+---
+
+## Hoe facturen in een batch komen
+
+De meeste batchregels worden automatisch aangemaakt. Als je een factuur verstuurt, voegt TRONVoice die toe aan een batch wanneer **alles** van het volgende klopt:
+
+- De klant heeft **automatische incasso** aanstaan en een geldige machtiging
+- De factuur is in euro's, heeft een positief bedrag en is geen creditfactuur
+- SEPA is ingesteld voor de administratie
+
+TRONVoice berekent een incassodatum (factuurdatum plus de vooraankondigingstermijn, afgerond op je voorkeursincassodag) en zoekt een **open** batch voor die datum, of maakt een nieuwe aan. Batches worden automatisch genummerd als `BATCH-{jaar}-{volgnummer}`, bijvoorbeeld `BATCH-2025-001`.
+
+Je kunt facturen ook handmatig aan een batch toevoegen, zie [Een factuur toevoegen](#een-factuur-handmatig-toevoegen) hieronder.
+
+---
+
+## Een batch handmatig aanmaken
+
+Meestal hoef je zelf geen batches aan te maken, maar je kunt er wel een klaarzetten voor een specifieke incassodatum.
+
+<Steps>
+  <Step title="Ga naar Incassobatches">
+    Ga naar **Betalingen → Incassobatches**.
+  </Step>
+  <Step title="Open het venster voor een nieuwe batch">
+    Klik op **Nieuwe batch**.
+  </Step>
+  <Step title="Kies een incassodatum">
+    Kies een **Incassodatum**. Die moet minstens **3 dagen** in de toekomst liggen, zodat er tijd is voor de vooraankondiging.
+  </Step>
+  <Step title="Opslaan">
+    TRONVoice maakt een lege open batch aan, of hergebruikt een bestaande open batch voor die datum, en opent hem.
+  </Step>
+</Steps>
+
+---
+
+## Een batch bekijken
+
+Open een batch in de lijst om de details te zien:
+
+- **Batchnummer** en **Status**
+- **Incassodatum**
+- **Totaalbedrag** en aantal regels
+- Een tabel met regels die het **Factuurnummer**, de **Klant**, het **Bedrag** en de regelstatus tonen
+
+### Batchstatussen
+
+| Status | Betekenis |
+|---|---|
+| **Open** | Je kunt nog regels toevoegen, verwijderen en verplaatsen, en de incassodatum wijzigen |
+| **Vergrendeld** | Batch ingediend; vooraankondigingen verstuurd; inhoud bevroren |
+| **In verwerking** | Ingediend bij Mollie; incasso's lopen |
+| **Voltooid** | Alle incasso's afgerond |
+| **Gedeeltelijk mislukt** | Sommige incasso's geslaagd, andere mislukt of teruggeboekt |
+
+### Regelstatussen
+
+| Status | Betekenis |
+|---|---|
+| **In afwachting** | In de wachtrij; nog niet naar Mollie gestuurd |
+| **Ingediend** | Naar Mollie gestuurd; wacht op resultaat |
+| **Betaald** | Geslaagd geïncasseerd; de factuur is op betaald gezet |
+| **Mislukt** | De incasso is mislukt; de factuur blijft openstaan |
+| **Teruggeboekt** | De klant heeft de incasso teruggedraaid; de factuur blijft openstaan |
+
+---
+
+## Een open batch aanpassen
+
+Zolang een batch **Open** is, kun je de inhoud vrij wijzigen. Zodra hij vergrendeld is, kun je geen van deze acties meer uitvoeren.
+
+### Een factuur handmatig toevoegen
+
+<Steps>
+  <Step title="Klik op Factuur toevoegen">
+    Klik op de detailpagina van de batch op **Factuur toevoegen**.
+  </Step>
+  <Step title="Zoek een factuur">
+    Zoek op factuurnummer of klantnaam. Alleen verstuurde facturen van klanten met automatische incasso aan, die nog niet in een batch zitten, verschijnen.
+  </Step>
+  <Step title="Voeg hem toe">
+    Selecteer de factuur. TRONVoice voegt hem toe aan deze batch en werkt de totalen bij. Heeft de klant geen geldige machtiging, dan kan de factuur niet worden toegevoegd.
+  </Step>
+</Steps>
+
+### Een regel verwijderen
+
+Klik op **Verwijderen** naast een batchregel. De factuur wordt losgekoppeld van de batch en keert terug naar zijn normale openstaande staat. Raakt de batch leeg, dan verwijdert TRONVoice hem automatisch.
+
+### Een regel naar een andere batch verplaatsen
+
+Klik op **Verplaatsen** naast een regel. Je kunt hem naar een andere open batch verplaatsen of een nieuwe batch met een eigen incassodatum aanmaken. Beide batches moeten open zijn.
+
+### De incassodatum wijzigen
+
+Klik op **Incassodatum wijzigen**. De nieuwe datum moet minstens 3 dagen in de toekomst liggen. Hiermee verplaats je de hele batch.
+
+<Warning>
+  De SEPA-regels schrijven voor dat klanten voor een incasso geïnformeerd moeten worden. Houd de incassodatum ver genoeg in de toekomst om de vooraankondigingstermijn van je administratie te halen (meestal 14 dagen). De ondergrens van 3 dagen is een technische ondergrens, niet de wettelijke termijn.
+</Warning>
+
+---
+
+## Een batch indienen
+
+Klopt de inhoud van de batch? Dan dien je hem in voor de incasso.
+
+<Steps>
+  <Step title="Klik op Batch indienen">
+    Klik op de detailpagina van de batch op **Batch indienen**. Een batch moet minstens één regel bevatten.
+  </Step>
+  <Step title="De batch wordt vergrendeld">
+    De status verandert in **Vergrendeld** en de inhoud wordt bevroren. Je kunt geen regels meer toevoegen, verwijderen of verplaatsen.
+  </Step>
+  <Step title="De vooraankondigingen worden verstuurd">
+    TRONVoice mailt elke klant in de batch een SEPA-vooraankondiging met het bedrag, de incassodatum, het gemaskeerde IBAN en het machtigingskenmerk.
+  </Step>
+  <Step title="Mollie incasseert op de geplande datum">
+    De batch gaat naar **In verwerking** en TRONVoice dient elke regel in bij Mollie, dat op de incassodatum incasseert.
+  </Step>
+</Steps>
+
+Na de incasso wordt elke regel bijgewerkt met het resultaat. Een regel met status **Betaald** zet de bijbehorende factuur op betaald. Regels met status **Mislukt** of **Teruggeboekt** laten de factuur openstaan, zodat je de klant erop kunt aanspreken.
+
+### Resultaten ophalen bij Mollie
+
+Voor een batch met status **In verwerking**, **Voltooid** of **Gedeeltelijk mislukt** klik je op **Synchroniseren** om de nieuwste betaalresultaten op te halen bij Mollie. Hiermee komen ook terugboekingen aan het licht op regels die eerder op betaald stonden.
+
+<Note>
+  Synchroniseren kan maximaal één keer per minuut per batch. TRONVoice werkt de resultaten ook automatisch bij via Mollie-webhooks, dus een handmatige synchronisatie is vooral handig als je meteen wilt verversen.
+</Note>
+
+---
+
+## De incassowidget op het dashboard
+
+Het dashboard toont een **incassowidget** die de staat van je incassoproces in één oogopslag samenvat:
+
+- **Volgende batch**: de eerstvolgende open of vergrendelde batch, met de incassodatum en het aantal regels
+- **Openstaande machtigingen**: het aantal klanten met een machtigingsaanvraag die nog niet is afgerond
+- **Recente mislukkingen**: de meest recente mislukte of teruggeboekte incasso's, met het factuurnummer en de klant
+
+Gebruik de widget om machtigingen te vinden die een herinnering kunnen gebruiken en incasso's die opvolging nodig hebben. Is SEPA niet ingesteld voor de administratie, dan toont de widget in plaats daarvan een melding om SEPA in te stellen.
+
+<Tip>
+  Teruggeboekte incasso's hebben aandacht nodig: de klant heeft de betaling teruggedraaid, dus de factuur staat weer open. Volgens de SEPA-regels mogen klanten een incasso tot 8 weken betwisten. Neem contact op met de klant om de betaling op een andere manier te regelen.
+</Tip>

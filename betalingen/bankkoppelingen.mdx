@@ -1,0 +1,139 @@
+---
+title: "Je bankrekening koppelen aan TRONVoice"
+description: "Koppel je bankrekening via Ponto om transacties automatisch te importeren en te koppelen aan openstaande facturen in TRONVoice, of importeer MT940-bestanden."
+---
+
+Als je je bankrekening koppelt, importeert TRONVoice je transacties automatisch en koppelt het binnenkomende betalingen aan openstaande facturen. In plaats van facturen handmatig op betaald te zetten, werken gekoppelde transacties de factuurstatus voor je bij.
+
+Bankkoppelingen werken via **Ponto** van Isabel Group, een gecertificeerde PSD2-aanbieder. TRONVoice krijgt alleen-lezen toegang tot je transacties. Het kan geen betalingen starten en je rekening niet wijzigen.
+
+<Note>
+  Elke bankkoppeling kost **€3,99 per maand**. Koppelingen worden los van je gewone TRONVoice-credits gefactureerd en kunnen op elk moment worden opgezegd. Je hebt een actief abonnement voor bankkoppelingen nodig voordat je je eerste rekening kunt koppelen.
+</Note>
+
+---
+
+## Ondersteunde banken
+
+Ponto ondersteunt grote Nederlandse en Belgische banken, waaronder ING, Rabobank, ABN AMRO, SNS, Triodos, KBC, BNP Paribas Fortis en andere. Als je de koppeling start, kies je je bank uit de volledige lijst met beschikbare banken.
+
+---
+
+## Een bankrekening koppelen
+
+<Steps>
+  <Step title="Ga naar Bankkoppelingen">
+    Ga naar **Betalingen → Bankkoppelingen**.
+  </Step>
+  <Step title="Activeer een abonnement voor bankkoppelingen">
+    Heb je nog geen actief abonnement, klik dan op **Smart Banking activeren** en rond het afrekenen van het abonnement af. Elke plek die je koopt, dekt één bankrekeningkoppeling.
+  </Step>
+  <Step title="Klik op Bank toevoegen">
+    Klik op de knop **Bank toevoegen**. Er opent een venster waarin je optioneel kunt kiezen:
+    - Een administratie om de transacties aan te koppelen
+    - Je bank uit de lijst met beschikbare banken (of laat dit leeg om je bank te kiezen tijdens de Ponto-autorisatie)
+  </Step>
+  <Step title="Autoriseer via Ponto">
+    Klik op **Doorgaan naar bank**. Je wordt doorgestuurd naar het beveiligde autorisatieportaal van Ponto, waar je inlogt bij je bank en alleen-lezen toegang verleent.
+  </Step>
+  <Step title="De koppeling wordt aangemaakt">
+    Na de autorisatie kom je terug in TRONVoice. De koppeling is aangemaakt en een eerste synchronisatie importeert je recente transacties automatisch.
+  </Step>
+</Steps>
+
+---
+
+## Transacties synchroniseren
+
+Zodra de koppeling is gemaakt, synchroniseert TRONVoice je transacties elke 6 uur automatisch. Je kunt ook op elk moment een handmatige synchronisatie starten vanaf de detailpagina van de bankkoppeling.
+
+De toestemming voor de Ponto-koppeling is **12 maanden** geldig. TRONVoice toont een waarschuwing als je toestemming bijna verloopt (binnen 7 dagen). Is de toestemming verlopen, dan moet je opnieuw koppelen om weer te kunnen synchroniseren.
+
+<Note>
+  De instellingen voor automatisch synchroniseren en automatisch koppelen kunnen alleen door beheerders worden gewijzigd.
+</Note>
+
+### Koppelingsstatussen
+
+| Status | Betekenis |
+|---|---|
+| **Actief** | Gekoppeld en synchroniseert normaal |
+| **In afwachting** | De koppeling wordt opgezet |
+| **Inactief / Fout** | De koppeling is verbroken; opnieuw koppelen is nodig |
+| **Verlopen** | De Ponto-toestemming is verlopen; autoriseer opnieuw om verder te gaan |
+
+Heeft een koppeling de status **Inactief** of **Fout**, klik dan op **Opnieuw koppelen** op de detailpagina van de koppeling om de autorisatie opnieuw te starten.
+
+---
+
+## Transacties koppelen aan facturen
+
+Nadat transacties zijn geïmporteerd, toont TRONVoice ze in **Betalingen → Banktransacties**. Niet-gekoppelde transacties verschijnen in de standaardweergave; gekoppelde en genegeerde transacties staan onder **Verwerkt**.
+
+### Automatisch koppelen
+
+Als automatisch koppelen aanstaat, probeert TRONVoice elke geïmporteerde transactie te koppelen aan een openstaande factuur op basis van:
+
+1. Een factuurnummer in de omschrijving of het betalingskenmerk van de transactie (hoogste prioriteit)
+2. Het IBAN van de klant dat overeenkomt met de tegenrekening
+3. Overeenkomst van de klantnaam
+4. Overeenkomst van het bedrag
+
+Als een transactie automatisch wordt gekoppeld, wordt de gekoppelde factuur op betaald gezet.
+
+### Handmatig koppelen
+
+Transacties die niet automatisch worden gekoppeld, kun je handmatig koppelen:
+
+<Steps>
+  <Step title="Open de transactie">
+    Klik op de niet-gekoppelde transactie in **Banktransacties**.
+  </Step>
+  <Step title="Kies de factuur">
+    TRONVoice toont een gerangschikte lijst met mogelijk passende facturen op basis van de omschrijving, het IBAN, de klantnaam en het bedrag. Kies de juiste factuur.
+  </Step>
+  <Step title="Bevestig de koppeling">
+    Pas eventueel het gekoppelde bedrag aan (voor deelbetalingen) en bevestig. De factuur wordt bijgewerkt.
+  </Step>
+</Steps>
+
+Eén transactie kan aan meerdere facturen worden gekoppeld, handig als één overboeking meerdere facturen dekt. Eén factuur kan ook gedeeltelijk over meerdere transacties worden gekoppeld.
+
+### Transacties negeren
+
+Hoort een transactie niet bij een factuur (bijvoorbeeld bankkosten of een interne overboeking), dan kun je hem negeren. Genegeerde transacties verhuizen naar de weergave **Verwerkt** en staan niet meer in de lijst met niet-gekoppelde transacties. Je kunt het negeren op elk moment ongedaan maken om een transactie later alsnog te koppelen.
+
+---
+
+## Bankafschriften handmatig importeren (MT940)
+
+Wil je geen live bankkoppeling gebruiken, of wordt je bank niet ondersteund door Ponto, dan kun je transacties handmatig importeren met MT940-bankafschriftbestanden.
+
+<Steps>
+  <Step title="Exporteer een MT940-bestand bij je bank">
+    Log in op het internetbankieren van je bank en exporteer een afschrift in MT940-formaat. De meeste Nederlandse banken ondersteunen dit formaat.
+  </Step>
+  <Step title="Ga naar de importpagina">
+    Ga in TRONVoice naar **Betalingen → Banktransacties** en klik op **Importeren**.
+  </Step>
+  <Step title="Kies je administratie en upload het bestand">
+    Kies de administratie waar de transacties bij horen, selecteer je MT940-bestand (maximaal 10 MB) en klik op **Importeren**.
+  </Step>
+  <Step title="Bekijk het resultaat">
+    TRONVoice toont hoeveel transacties zijn geïmporteerd en hoeveel er automatisch zijn gekoppeld. Niet-gekoppelde transacties verschijnen in de gewone transactielijst om handmatig te koppelen.
+  </Step>
+</Steps>
+
+<Tip>
+  Bij een MT940-import draait het automatisch koppelen meteen na de import. Je kunt automatische koppelingen daarna controleren en aanpassen in de transactielijst.
+</Tip>
+
+---
+
+## Een bankkoppeling verwijderen
+
+Wil je een koppeling verwijderen? Open hem via **Bankkoppelingen** en klik op **Verwijderen**. Hiermee trek je de toegang van TRONVoice bij Ponto in en worden alle geïmporteerde transacties van die koppeling definitief verwijderd. Facturen die via gekoppelde transacties op betaald zijn gezet, veranderen niet.
+
+<Warning>
+  Als je een koppeling verwijdert, worden ook alle bijbehorende transacties verwijderd. Dit kun je niet ongedaan maken.
+</Warning>

@@ -1,0 +1,93 @@
+---
+title: "Offertesjablonen in TRONVoice"
+description: "Maak herbruikbare offertesjablonen met vooraf ingevulde regels en pdf-bijlagen, en pas ze in seconden toe op nieuwe offertes."
+---
+
+Een offertesjabloon (**offerte template**) is een opgeslagen set regels, met optioneel een voorblad en een bijlage-pdf. Als je regelmatig vergelijkbare voorstellen stuurt, bouw je met een sjabloon in seconden een nieuwe offerte op in plaats van alles met de hand opnieuw in te voeren.
+
+Sjablonen horen bij één administratie en zijn gedeeld met iedereen die daarin werkt.
+
+## Een sjabloon aanmaken
+
+Sjablonen beheer je per administratie. Ga naar **Instellingen → Offertesjablonen** (de pagina **offerte-templates** van de administratie) en klik op **Nieuw sjabloon**.
+
+<Steps>
+  <Step title="Geef het sjabloon een naam">
+    Vul een **Naam** in die beschrijft waar het sjabloon voor is, zoals `Onderhoudscontract` of `Standaard websiteproject`. De naam is intern: klanten zien die nooit.
+  </Step>
+
+  <Step title="Voeg regels toe">
+    Bouw de regellijst op die op elke offerte uit dit sjabloon vooraf ingevuld moet zijn. Per regel stel je in:
+
+    - **Omschrijving**: wat je aanbiedt. Je kunt ook een product uit je catalogus kiezen om de omschrijving, eenheid en prijs automatisch in te vullen.
+    - **Aantal** en **Eenheid**: bijvoorbeeld `10` `uur`
+    - **Eenheidsprijs**
+    - **Btw**: per regel een percentage, **verlegd** of **vrijgesteld**
+    - **Korting**: een percentage korting op die regel
+    - **Locatiegroep**: om regels onder een kopregel in de pdf te groeperen
+
+    Je kunt ook **notitieregels** toevoegen: tekstregels die tussen de regels verschijnen zonder de totalen te beïnvloeden.
+
+    <Tip>
+      Regels kun je verslepen om de volgorde te wijzigen, dupliceren en op elk moment aanpassen. De volgorde die je hier instelt, is de volgorde waarin ze in een nieuwe offerte worden geladen.
+    </Tip>
+  </Step>
+
+  <Step title="Kies of je de regels toont">
+    Schakel **Verberg offerteregels** in als dit sjabloon voor een vaste-prijsvoorstel is en je de regels niet op de pdf wilt afdrukken. De regels bepalen nog steeds de totalen, ze worden alleen niet getoond.
+  </Step>
+
+  <Step title="Voeg een voorblad en bijlage toe (optioneel)">
+    Upload een **Voorblad** (pdf) om vóór de offerte af te drukken, en een **Bijlage** (pdf) om erna af te drukken. Beide moeten pdf-bestanden zijn van maximaal 10 MB. Gebruik ze voor een introductiepagina in je huisstijl, algemene voorwaarden of portfoliomateriaal.
+  </Step>
+
+  <Step title="Stel de status Actief in">
+    Laat **Actief** ingeschakeld zodat het sjabloon verschijnt in de sjabloonkiezer bij het aanmaken van een offerte. Inactieve sjablonen blijven bewaard, maar staan niet in die lijst.
+  </Step>
+
+  <Step title="Opslaan">
+    Klik op **Opslaan**. Het sjabloon is nu beschikbaar voor nieuwe offertes in deze administratie.
+  </Step>
+</Steps>
+
+## Een sjabloon gebruiken bij het aanmaken van een offerte
+
+Als je een nieuwe offerte aanmaakt, verschijnt er een keuzelijst **Sjabloon** zodra je een administratie hebt gekozen.
+
+<Steps>
+  <Step title="Kies het sjabloon">
+    Kies in de offertemaker een sjabloon uit de keuzelijst **Sjabloon**. Alleen actieve sjablonen uit de gekozen administratie staan in de lijst.
+  </Step>
+  <Step title="Regels en bestanden worden geladen">
+    TRONVoice kopieert de regels van het sjabloon naar de offerte, neemt de instelling voor het tonen of verbergen van regels over en voegt het voorblad en de bijlage-pdf toe.
+  </Step>
+  <Step title="Pas aan waar nodig">
+    De gekopieerde regels zijn nu een gewoon onderdeel van de offerte. Bewerk, voeg toe, verwijder of versleep ze vrij. Het sjabloon verandert niet door wat je hier aanpast.
+  </Step>
+</Steps>
+
+<Note>
+Een sjabloon toepassen **kopieert** de inhoud naar de offerte. Latere wijzigingen aan het sjabloon veranderen niets aan offertes die al uit dat sjabloon zijn gemaakt, en wijzigingen aan de offerte veranderen niets aan het sjabloon.
+</Note>
+
+## Sjablonen beheren
+
+Vanuit de lijst met **Offertesjablonen** kun je:
+
+<CardGroup cols={3}>
+  <Card title="Bewerken" icon="pencil">
+    Open een sjabloon om de naam, regels, pdf's of de status Actief te wijzigen.
+  </Card>
+  <Card title="Dupliceren" icon="copy">
+    Maak een kopie met de naam `… (Kopie)`. Het voorblad en de bijlage-pdf worden ook gekopieerd, handig om een variant op te bouwen.
+  </Card>
+  <Card title="Verwijderen" icon="trash-2">
+    Verwijder een sjabloon dat je niet meer nodig hebt. Bij het verwijderen worden ook de gekoppelde pdf-bestanden verwijderd.
+  </Card>
+</CardGroup>
+
+In de lijst zie je van elk sjabloon de naam en hoeveel regels het bevat.
+
+<Warning>
+Een sjabloon verwijderen is definitief en haalt het voorblad en de bijlage-pdf uit de opslag. Offertes die al uit het sjabloon zijn gemaakt, behouden hun gekopieerde inhoud en blijven ongewijzigd.
+</Warning>

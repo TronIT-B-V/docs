@@ -1,0 +1,101 @@
+---
+title: "Bulkacties voor facturen"
+description: "Selecteer meerdere facturen in TRONVoice en verstuur, herverstuur, markeer als betaald, stuur herinneringen, verwijder of download ze in één handeling."
+---
+
+Werk je met veel facturen tegelijk? Dan kun je in het facturenoverzicht meerdere facturen selecteren en in één keer dezelfde actie op allemaal toepassen. Dat scheelt tijd bij je maandelijkse facturatie, het innen van openstaande bedragen en de boekhouding.
+
+## Facturen selecteren
+
+Elke regel in het facturenoverzicht heeft een selectievakje. Vink de vakjes aan naast de facturen waarop je een actie wilt uitvoeren, of gebruik **Selecteer alles** boven aan het overzicht om alle facturen op de huidige pagina te selecteren.
+
+Zodra je een of meer facturen hebt geselecteerd, verschijnt er een **bulkactiebalk** die het aantal geselecteerde facturen en de beschikbare acties toont.
+
+<Note>
+Elke bulkactie geldt alleen voor facturen met een geschikte status. Facturen die niet in aanmerking komen, worden automatisch overgeslagen. TRONVoice meldt hoeveel er zijn overgeslagen en waarom.
+</Note>
+
+## Beschikbare bulkacties
+
+<CardGroup cols={2}>
+  <Card title="Verzenden (concept)" icon="send">
+    Verstuur geselecteerde conceptfacturen voor het eerst per e-mail.
+  </Card>
+  <Card title="Opnieuw verzenden" icon="repeat">
+    Verstuur facturen die al verstuurd zijn opnieuw, zonder hun status of nummer te wijzigen.
+  </Card>
+  <Card title="Markeer als betaald" icon="check">
+    Markeer geselecteerde verstuurde facturen in één keer als betaald.
+  </Card>
+  <Card title="Verstuur herinnering" icon="bell">
+    Verstuur de volgende betalingsherinnering voor elke geselecteerde verlopen factuur.
+  </Card>
+  <Card title="Verwijderen (concept)" icon="trash-2">
+    Verwijder geselecteerde conceptfacturen definitief.
+  </Card>
+  <Card title="Downloaden" icon="download">
+    Download geselecteerde facturen als pdf's in één zip-bestand.
+  </Card>
+</CardGroup>
+
+## Conceptfacturen in bulk versturen
+
+Gebruik **Verzenden (concept)** om conceptfacturen voor het eerst te versturen.
+
+<Steps>
+  <Step title="Selecteer conceptfacturen">
+    Vink de vakjes aan naast de concepten die je wilt versturen.
+  </Step>
+  <Step title="Open de bulkacties">
+    Kies in de bulkactiebalk voor **Verzenden (concept)**.
+  </Step>
+  <Step title="Kies ontvangers en bevestig">
+    Kies of je naar de **klanten**, de **administraties** of allebei verstuurt en bevestig. TRONVoice verwerkt elke factuur op volgorde, kent factuurnummers toe en trekt per factuur een credit af.
+  </Step>
+</Steps>
+
+Facturen worden met een waarschuwing overgeslagen als:
+- De administratie geen **IBAN** heeft ingesteld.
+- Vandaag een **uitgesloten factuurdag** is voor de klant.
+- Je onvoldoende credits hebt voor het aantal geselecteerde facturen. TRONVoice brengt je dan naar de pagina om bij te kopen.
+
+## Facturen in bulk opnieuw versturen
+
+Gebruik **Opnieuw verzenden** om een nieuwe kopie te versturen van facturen die al de status **Verzonden** of **Betaald** hebben. Kies de ontvangers en bevestig. Opnieuw versturen verandert de factuurstatus of het nummer niet en kost geen extra credits.
+
+## In bulk markeren als betaald
+
+Gebruik **Markeer als betaald** om in één keer de betaling van meerdere verstuurde facturen vast te leggen.
+
+In het venster kun je optioneel instellen:
+- Een **betaaldatum** (**Betaald op**) die op alle geselecteerde facturen wordt toegepast. Standaard is dit vandaag.
+- Een **betaalreferentie** (**Betaal referentie**) die op alle geselecteerde facturen wordt toegepast.
+
+Alleen facturen met de status **Verzonden** worden als betaald gemarkeerd. De rest wordt overgeslagen. Staan de betaalbevestigingsmails aan voor de administratie? Dan ontvangt elke klant een bevestiging.
+
+## In bulk herinneringen versturen
+
+Gebruik **Verstuur herinnering** om voor elke geselecteerde verlopen factuur de volgende herinneringsstap te versturen. TRONVoice slaat automatisch facturen over die geen herinnering kunnen ontvangen, bijvoorbeeld facturen zonder e-mailadres van de klant, met de verkeerde status of uitgesloten van herinneringen.
+
+## Conceptfacturen in bulk verwijderen
+
+Gebruik **Verwijderen (concept)** om geselecteerde conceptfacturen en hun regels definitief te verwijderen.
+
+<Warning>
+Alleen **concept**facturen kun je verwijderen. Verstuurde, betaalde of gecrediteerde facturen worden overgeslagen. Die hebben een vast factuurnummer en kunnen niet worden verwijderd. Verwijderen kun je niet ongedaan maken.
+</Warning>
+
+## In bulk downloaden
+
+Gebruik **Downloaden** om de geselecteerde facturen als pdf te exporteren.
+
+- Selecteer je **één** factuur, dan wordt die direct als pdf gedownload.
+- Selecteer je **meerdere** facturen, dan bundelt TRONVoice alle pdf's in één zip-bestand met de naam `Facturen-JJJJ-MM-DD.zip`.
+
+Heeft een factuur de optie **bijlagen samenvoegen** ingeschakeld? Dan wordt de samengevoegde pdf (factuur plus pdf-bijlagen) opgenomen in plaats van de losse factuur.
+
+## Hoe nu verder
+
+- [Een factuur versturen](/facturen/versturen)
+- [Betalingsherinneringen](/facturen/herinneringen)
+- [Facturen exporteren voor je boekhouder](/facturen/import-export)

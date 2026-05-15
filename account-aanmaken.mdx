@@ -1,0 +1,129 @@
+---
+title: "Je TRONVoice-account aanmaken"
+description: "Maak je TRONVoice-account aan met e-mail of social login, zet de verplichte 2FA aan en richt je organisatie en eerste administratie in."
+---
+
+Op deze pagina lees je hoe je een TRONVoice-account aanmaakt, het beveiligt met tweestapsverificatie en je organisatie en administratie inricht. Als je deze stappen afrondt, heb je volledige toegang tot het dashboard en kun je facturen gaan versturen.
+
+## Je account aanmaken
+
+Ga naar [tronvoice.eu](https://tronvoice.eu) en klik op **Account aanmaken**.
+
+### Aanmelden met e-mail
+
+Vul je volledige naam, je e-mailadres en een wachtwoord in. Je wachtwoord moet minstens 8 tekens lang zijn en hoofdletters, kleine letters en een cijfer bevatten.
+
+Ga akkoord met de algemene voorwaarden en klik op **Account aanmaken**.
+
+### Aanmelden met social login
+
+Gebruik je liever geen apart wachtwoord, dan meld je je aan met een bestaand account:
+
+<CardGroup cols={3}>
+  <Card title="Google" icon="google">
+    Meld je aan met je Google-account.
+  </Card>
+  <Card title="Microsoft" icon="microsoft">
+    Meld je aan met je Microsoft- of Outlook-account.
+  </Card>
+  <Card title="Apple" icon="apple">
+    Meld je aan met je Apple ID.
+  </Card>
+</CardGroup>
+
+Met social login maak je een TRONVoice-account aan dat gekoppeld is aan de provider die je kiest. Je hebt dan geen apart wachtwoord voor TRONVoice nodig.
+
+<Note>
+  Of je je nu aanmeldt met e-mail of met social login, je moet altijd eerst tweestapsverificatie instellen voordat je bij het dashboard kunt.
+</Note>
+
+---
+
+## Tweestapsverificatie aanzetten
+
+Tweestapsverificatie (2FA) is verplicht voor alle TRONVoice-accounts. Na het aanmelden kom je direct op het instelscherm voor 2FA. Deze stap kun je niet overslaan.
+
+### Wat je nodig hebt
+
+Een TOTP-authenticator-app op je smartphone:
+
+- **Google Authenticator** (iOS / Android)
+- **Microsoft Authenticator** (iOS / Android)
+- **Authy** (iOS / Android / desktop)
+
+### Het instelproces
+
+<Steps>
+  <Step title="Bevestig je wachtwoord">
+    Voer je huidige wachtwoord in om het aanzetten van 2FA goed te keuren.
+  </Step>
+  <Step title="Scan de QR-code">
+    Open je authenticator-app, tik op de optie om een nieuw account toe te voegen en scan de QR-code op het scherm.
+
+    Lukt het scannen niet, tik dan op **handmatig invoeren** in je app en voer in plaats daarvan de tekstcode in die onder de QR-code staat.
+  </Step>
+  <Step title="Voer de verificatiecode in">
+    Je authenticator-app maakt een 6-cijferige code aan die elke 30 seconden ververst. Voer de huidige code in om te bevestigen dat de koppeling werkt.
+  </Step>
+  <Step title="Sla je herstelcodes op">
+    Na de bevestiging toont TRONVoice je een set eenmalige herstelcodes.
+
+    <Warning>
+      Kopieer deze codes en bewaar ze op een veilige plek, bijvoorbeeld in een wachtwoordmanager, op papier of in een versleutelde notitie. Raak je de toegang tot je authenticator-app kwijt en heb je deze codes niet, dan kom je definitief niet meer bij je account.
+    </Warning>
+
+    Elke herstelcode kun je maar één keer gebruiken. Je kunt op elk moment een nieuwe set aanmaken via je beveiligingsinstellingen.
+  </Step>
+</Steps>
+
+---
+
+## Je organisatie inrichten
+
+Nadat 2FA aanstaat, begeleidt TRONVoice je bij het aanmaken van je organisatie. Hierin staan je bedrijfsgegevens en het vormt de overkoepelende laag boven al je administraties.
+
+### Bedrijfsgegevens
+
+| Veld | Omschrijving |
+|-------|-------------|
+| Bedrijfsnaam | De officiële naam van je bedrijf |
+| KvK-nummer | 8-cijferig nummer van de Kamer van Koophandel |
+| Btw-nummer | Btw-nummer, bijvoorbeeld `NL123456789B01` |
+| Adres | Straat en huisnummer |
+| Postcode | Nederlandse postcode, bijvoorbeeld `1234 AB` |
+| Plaats | Plaatsnaam |
+| Land | Land (standaard Nederland) |
+| IBAN | Zakelijk bankrekeningnummer, staat op elke factuur |
+| BIC | Bank Identifier Code (optioneel) |
+
+<Tip>
+  Gebruik het KvK-zoekveld bovenaan het formulier. Typ je bedrijfsnaam of KvK-nummer en selecteer je bedrijf uit de resultaten. TRONVoice vult de bedrijfsnaam, het KvK-nummer en het adres automatisch in met gegevens uit het register van de Kamer van Koophandel.
+</Tip>
+
+Bedrijfsnaam en IBAN zijn verplicht. Alle andere velden zijn optioneel, maar wel aan te raden. Ze staan namelijk op je facturen en helpen klanten te zien waar ze hun betaling naartoe moeten sturen.
+
+---
+
+## Je administraties
+
+Een **administratie** is een zelfstandige set boeken binnen je organisatie. Elke administratie heeft een eigen:
+
+- nummerreeks voor facturen en offertes
+- logo en huisstijl
+- btw-instellingen en btw-tarieven
+- klantenlijst
+- integraties (Mollie, Exact Online en zo verder)
+
+De meeste bedrijven gebruiken één administratie. Run je meerdere bedrijven, of ben je accountant en beheer je meerdere klanten, dan maak je voor elk bedrijf een aparte administratie aan.
+
+### Inbegrepen en extra administraties
+
+<Note>
+  Elk TRONVoice-account bevat **2 gratis administraties**. Meer administraties voeg je toe voor **€3,00 per administratie per maand**, geïncasseerd via SEPA-incasso. Accounts met extra administraties krijgen daarnaast **10% korting** op de kosten voor het versturen van facturen (€0,65 wordt €0,59 per factuur).
+</Note>
+
+Tijdens de registratie kies je met de schuifregelaar hoeveel administraties je wilt. Je kunt dit later aanpassen via je accountinstellingen. Voor meer dan 20 administraties neem je contact op met het salesteam van TRONVoice.
+
+### Je eerste administratie aanmaken
+
+Je eerste administratie wordt automatisch aangemaakt zodra je het formulier met bedrijfsgegevens invult. TRONVoice neemt je bedrijfsgegevens over in de administratie als startpunt. Je past de instellingen van de administratie aan, inclusief een eigen logo, factuursjabloon en betaalgegevens, via de pagina met administratie-instellingen nadat je bent ingelogd.

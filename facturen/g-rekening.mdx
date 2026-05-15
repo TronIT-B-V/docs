@@ -1,0 +1,97 @@
+---
+title: "Factureren met een G-rekening"
+description: "Splits factuurbetalingen op in een vrij bedrag en een G-rekeningbedrag. Stel de G-rekening in voor een administratie, overschrijf hem per klant en bepaal de splitsing per factuurregel."
+---
+
+Een **G-rekening** is een geblokkeerde bankrekening die in de Nederlandse bouw en uitzendbranche wordt gebruikt. Als je personeel uitleent of als onderaannemer werkt, wordt een deel van de factuur op je G-rekening betaald in plaats van op je gewone rekening. Dat geblokkeerde saldo is gereserveerd om de loonheffing en btw te garanderen. Zo voorkomt de klant dat hij hiervoor aansprakelijk wordt gesteld.
+
+TRONVoice ondersteunt dit door de betaalinstructies op de factuur in twee delen te splitsen:
+
+- Een **vrij bedrag** dat naar je gewone IBAN gaat.
+- Een **G-rekeningbedrag** dat naar je G-rekening-IBAN gaat.
+
+<Info>
+  Factureren met een G-rekening is alleen relevant als je personeel uitleent of werk uitbesteedt. Dat geldt meestal voor bouwbedrijven, uitzendbureaus en payrollbedrijven. Geldt dit niet voor jouw bedrijf? Laat de G-rekening dan uitgeschakeld.
+</Info>
+
+## G-rekening inschakelen voor een administratie
+
+De G-rekening stel je per administratie in via de administratie-instellingen.
+
+<Steps>
+  <Step title="Open de administratie-instellingen">
+    Ga naar **Instellingen → Administratie** en zoek het onderdeel **G-rekening** op.
+  </Step>
+  <Step title="Zet de G-rekening aan">
+    Schakel **G-rekening actief** in. Hierdoor toont TRONVoice gesplitste betaalinstructies op de facturen van deze administratie.
+  </Step>
+  <Step title="Vul de G-rekeninggegevens in">
+    | Veld | Toelichting |
+    |---|---|
+    | **G-rekening IBAN** | De IBAN van je geblokkeerde G-rekening. Deze staat op de factuur, zodat de klant weet waar het G-rekeninggedeelte naartoe moet. |
+    | **Storting percentage** | Het standaardaandeel van het factuurbedrag dat naar de G-rekening gaat, als heel percentage (bijvoorbeeld 25). |
+  </Step>
+  <Step title="Sla op">
+    Sla de administratie op. Nieuwe facturen voor deze administratie berekenen en tonen vanaf nu de splitsing.
+  </Step>
+</Steps>
+
+<Note>
+  Schakel je de G-rekening in maar laat je de G-rekening-IBAN leeg? Dan tonen facturen nog steeds de gesplitste bedragen, maar vermeldt de betaalinstructie dat de G-rekening-IBAN op aanvraag beschikbaar is in plaats van hem af te drukken.
+</Note>
+
+## Het percentage en de IBAN per klant overschrijven
+
+Sommige klanten spreken een ander G-rekeningpercentage af, of vragen om een andere G-rekening-IBAN. Je kunt beide overschrijven op de klantgegevens.
+
+In het bewerkformulier van de klant verschijnt het onderdeel **G-rekening** alleen als de administratie de G-rekening heeft ingeschakeld. Het toont ter referentie het standaardpercentage en de standaard-IBAN van de administratie, en laat je het volgende instellen:
+
+- **Percentage (overschrijving)**, een klantspecifiek G-rekeningpercentage.
+- **G-rekening IBAN (overschrijving)**, een klantspecifieke G-rekening-IBAN.
+
+<Tip>
+  Laat een overschrijvingsveld leeg om de standaardwaarde van de administratie te blijven gebruiken. Het klantformulier toont de overgenomen waarde als placeholder, zodat je altijd weet wat van toepassing is.
+</Tip>
+
+De geldende waarden worden in deze volgorde bepaald:
+
+1. De waarde die op de **klant** is ingesteld, als die er is.
+2. Anders de waarde die op de **administratie** is ingesteld.
+
+## Bepalen welke regels meetellen voor de G-rekening
+
+De G-rekeningsplitsing wordt per factuurregel berekend. Elke regel heeft een selectievakje **G-rek.**, dat alleen verschijnt als de administratie de G-rekening heeft ingeschakeld.
+
+- Alleen regels met het G-rekeningvakje aangevinkt tellen mee in het G-rekeningbedrag.
+- Regels waarvan het vakje uitstaat, worden volledig naar het vrije bedrag betaald.
+- Bij nieuwe regels staat het vakje standaard aangevinkt.
+
+Zo kun je bijvoorbeeld materiaalkosten buiten de G-rekeningsplitsing houden en arbeid wel meenemen.
+
+<Note>
+  Notitieregels (regels met alleen tekst, zonder prijs) tellen nooit mee in de G-rekeningberekening.
+</Note>
+
+## Hoe de splitsing wordt berekend
+
+Voor een factuur met de G-rekening ingeschakeld en een percentage boven nul doet TRONVoice het volgende:
+
+1. Het telt het subtotaal en de btw op van elke regel waarvan het G-rekeningvakje is aangevinkt.
+2. Het past een eventuele korting op factuurniveau toe op dat subtotaal.
+3. Het vermenigvuldigt het subtotaal na korting met het G-rekeningpercentage om het **G-rekeningbedrag** te krijgen.
+4. Het trekt het G-rekeningbedrag af van het factuurtotaal om het **vrije bedrag** te krijgen.
+
+Het vrije bedrag en het G-rekeningbedrag tellen altijd op tot het volledige factuurtotaal. De klant betaalt dus hetzelfde totaal, alleen verdeeld over twee rekeningen.
+
+## Hoe de splitsing op de factuur verschijnt
+
+Als de G-rekening van toepassing is, vervangt de factuur-pdf de standaard betaalregel door gesplitste betaalinstructies. Die vragen de klant om voor de vervaldatum te betalen:
+
+- het **vrije bedrag** naar je gewone IBAN, en
+- het **G-rekeningbedrag** naar je G-rekening-IBAN (of, als er geen G-rekening-IBAN is ingesteld, een melding dat de IBAN op aanvraag beschikbaar is),
+
+steeds met vermelding van het factuurnummer.
+
+<Warning>
+  De G-rekeninggegevens worden op de factuur vastgelegd op het moment dat hij wordt aangemaakt. De splitsing op een verstuurde factuur weerspiegelt dus de instellingen die op dat moment golden. Pas je de G-rekeninginstellingen van de administratie of klant later aan, dan verandert dat al verstuurde facturen niet met terugwerkende kracht.
+</Warning>
