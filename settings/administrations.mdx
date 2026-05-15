@@ -1,0 +1,108 @@
+---
+title: "Administrations: manage your business entities"
+description: "An administration is a separate business entity in TRONVoice. Learn how to create, switch between, and manage multiple administrations in your account."
+---
+
+Each TRONVoice account can contain one or more **administrations**. An administration represents a distinct business entity — for example, a company, a subsidiary, or a department that invoices clients separately. Every administration has its own clients, invoices, quotes, products, integrations, and email templates.
+
+You might use multiple administrations if you run more than one company, manage a holding structure, or invoice under different brands from the same account.
+
+<Note>
+  Your account includes **2 administrations at no extra cost**. Each additional administration costs €3 per month, billed monthly. Adding extra administrations also gives you a **10% discount on invoice sending costs** across your entire account.
+</Note>
+
+## Create an administration
+
+<Steps>
+  <Step title="Open the administrations page">
+    Go to **Settings → Administrations** and click **New administration**.
+  </Step>
+  <Step title="Search via KvK (optional)">
+    Use the KvK search field to find your company by name or registration number. Selecting a result auto-fills the company name, registration number, and address. You can skip this step and fill in the fields manually.
+  </Step>
+  <Step title="Enter company details">
+    Fill in the required and optional fields:
+
+    | Field | Required | Notes |
+    |---|---|---|
+    | Company name | Yes | Appears on all invoices and emails |
+    | KvK number | No | 8-digit Chamber of Commerce number |
+    | VAT number | No | Dutch format: `NL123456789B01` — validated via VIES if entered |
+    | Address | No | Street and house number |
+    | Postcode | No | Dutch format: `1234 AB` |
+    | City | No | |
+    | Country | No | Defaults to the Netherlands |
+    | IBAN | No | Used on invoice PDFs and payment footers |
+    | BIC | No | |
+
+  </Step>
+  <Step title="Set invoice numbering">
+    Configure a **prefix** and **starting number** for your invoices.
+
+    You can include dynamic placeholders in the prefix:
+    - `[jaar]` — replaced with the current year (e.g. `2026`)
+    - `[maand]` — replaced with the current month (e.g. `05`)
+
+    **Example:** A prefix of `F[jaar]-` with starting number `0001` produces invoice numbers like `F2026-00001`.
+
+    A live preview of the next invoice number updates as you type.
+  </Step>
+  <Step title="Configure invoice defaults">
+    Set the defaults that will apply to every new invoice in this administration:
+
+    - **Payment term** — number of days until the invoice is due (default: 30 days)
+    - **Default VAT rate** — 21%, 9%, or 0%
+    - **VAT shifted** — enable if you normally apply reverse charge VAT
+    - **VAT exempt** — enable for exempt sectors such as healthcare or education
+  </Step>
+  <Step title="Save">
+    Click **Create administration**. The administration is immediately available in your account.
+  </Step>
+</Steps>
+
+## Switch between administrations
+
+If you have multiple administrations, a switcher appears in the navigation bar. Click your current administration name to open the switcher and select a different one.
+
+Each administration is fully isolated — switching changes which clients, invoices, quotes, and settings you are working with.
+
+## Default settings
+
+After creating an administration, you can adjust the following defaults at any time under **Settings → Administration → Edit**:
+
+- **Invoice prefix** — The prefix applied to all invoice numbers (supports `[jaar]` and `[maand]` placeholders)
+- **Payment term** — Default number of days until payment is due
+- **Invoice footer** — Text printed at the bottom of every invoice PDF. Use `{betalingstermijn}` to insert the payment term automatically
+- **Admin email addresses** — One or more email addresses (comma-separated or one per line) that receive copies of invoice notifications, for example your accountant
+
+<Tip>
+  If you use the same footer text across all your administrations, set a default footer at the organisation level. New administrations will inherit it automatically.
+</Tip>
+
+## Archive and restore an administration
+
+Archiving removes an administration from the active switcher and prevents new invoices from being created in it, but preserves all historical data.
+
+**To archive:**
+1. Go to the administration you want to archive.
+2. Open **Settings → Administration → Edit**.
+3. Uncheck **Administration is active** and save.
+
+**To restore:**
+1. Go to **Settings → Administrations** — archived administrations are listed separately.
+2. Open the archived administration and check **Administration is active** again.
+
+<Warning>
+  Archiving an administration does not delete any data. All invoices, clients, and documents remain accessible.
+</Warning>
+
+## Pricing
+
+| Administrations | Monthly cost |
+|---|---|
+| First 2 | Free |
+| Each additional | €3/month |
+
+Adding one or more paid administrations also reduces invoice sending costs by **10%** across all administrations in your account.
+
+For more than 20 administrations, contact the sales team at [sales@tronvoice.eu](mailto:sales@tronvoice.eu).

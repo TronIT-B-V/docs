@@ -1,0 +1,106 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "TRONVoice",
+  "description": "Documentation for TRONVoice — the invoicing platform for Dutch businesses.",
+  "colors": {
+    "primary": "#fc2c24",
+    "light": "#040404",
+    "dark": "#e29d78"
+  },
+  "favicon": "https://media.brand.dev/55480c38-4203-413d-8622-69e15c7b6ed1.jpg",
+  "logo": {
+    "light": "https://media.brand.dev/a38501a7-458d-4f61-8fc0-8bd969c561f8.svg",
+    "dark": "https://media.brand.dev/a38501a7-458d-4f61-8fc0-8bd969c561f8.svg"
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "contextual": {
+    "options": ["copy", "view", "assistant"]
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "account-setup"
+            ]
+          },
+          {
+            "group": "Invoicing",
+            "pages": [
+              "invoices/overview",
+              "invoices/create",
+              "invoices/send",
+              "invoices/reminders",
+              "invoices/credit-notes"
+            ]
+          },
+          {
+            "group": "Quotes",
+            "pages": [
+              "quotes/overview",
+              "quotes/create",
+              "quotes/acceptance"
+            ]
+          },
+          {
+            "group": "Clients & Products",
+            "pages": [
+              "clients/overview",
+              "products/overview",
+              "subscriptions/overview"
+            ]
+          },
+          {
+            "group": "Payments & Banking",
+            "pages": [
+              "payments/mollie",
+              "payments/sepa-direct-debit",
+              "payments/bank-connections"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/exact-online",
+              "integrations/sharepoint",
+              "integrations/email-domain"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "settings/administrations",
+              "settings/email-templates",
+              "settings/branding",
+              "settings/users-and-roles"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Contact support",
+        "href": "mailto:support@tronvoice.eu"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Go to app",
+      "href": "https://app.tronvoice.eu"
+    }
+  }
+}

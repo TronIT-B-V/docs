@@ -1,0 +1,122 @@
+---
+title: "Recurring invoices with subscriptions"
+description: "Automate invoice generation for clients you bill on a fixed schedule. Set an interval, add invoice lines, and let TRONVoice generate invoices on the due date."
+---
+
+A subscription is a recurring invoice template linked to a client. You define the invoice lines and a billing interval once, and TRONVoice generates a new invoice automatically each time the due date is reached — weekly, monthly, quarterly, or on any other schedule you set.
+
+## Creating a subscription
+
+<Steps>
+  <Step title="Open subscriptions">
+    Go to **Subscriptions** in the main navigation and click **New subscription**.
+
+    You can also create a subscription directly from a client record — this pre-selects the client and administration automatically.
+  </Step>
+  <Step title="Set the basic details">
+    | Field | Notes |
+    |---|---|
+    | Name | Internal name for this subscription, e.g. "Monthly hosting fee". |
+    | Reference | Optional reference number shown on generated invoices. |
+    | Client | The client this subscription belongs to. |
+    | Start date | The date the subscription becomes active. |
+    | First invoice date | The date the first invoice will be generated. |
+    | End date | Optional. Leave empty for an open-ended subscription. |
+    | Interval | How often invoices are generated (see intervals below). |
+    | Active | Inactive subscriptions never generate invoices. |
+  </Step>
+  <Step title="Choose a billing interval">
+    | Interval | Description |
+    |---|---|
+    | Daily | One invoice per day |
+    | Weekly | One invoice per week |
+    | Monthly | One invoice per month |
+    | Quarterly | One invoice every three months |
+    | Yearly | One invoice per year |
+    | Every 2 years | One invoice every two years |
+
+    For custom intervals (e.g. every 2 weeks), set the interval to *Weekly* and enter `2` as the interval value.
+  </Step>
+  <Step title="Add invoice lines">
+    Add one or more lines to the subscription. Each line can reference a product from your product catalogue or be entered as a custom description with a price.
+
+    Line fields:
+    - Description
+    - Quantity and unit
+    - Unit price
+    - VAT rate (inherited from the client's VAT settings by default)
+    - Discount percentage (per line)
+
+    You can also add **note lines** — text-only lines that appear on the invoice but have no price.
+  </Step>
+  <Step title="Configure sending options">
+    | Option | Description |
+    |---|---|
+    | Auto-send | Automatically send the generated invoice by email on the due date. |
+    | Send to administration | Send a copy to your own administration email. |
+    | Send to client | Send the invoice to the client's email address. |
+
+    If auto-send is off, invoices are created as drafts and you send them manually.
+  </Step>
+  <Step title="Save the subscription">
+    Click **Save**. The subscription is now active and will generate its first invoice on the date you set.
+  </Step>
+</Steps>
+
+## Automatic invoice generation
+
+When a subscription's next invoice date is today or in the past, TRONVoice marks it as **due**. Invoices are generated in one of two ways:
+
+1. **Automatic** — if auto-send is enabled and your account has sufficient credits, TRONVoice generates the invoice and sends it to the client without any action from you.
+2. **Manual** — if auto-send is off, you generate the invoice yourself (see below).
+
+After an invoice is generated, the subscription's next invoice date advances automatically to the following period.
+
+<Note>
+  If a client has specific days excluded from invoicing, auto-send is skipped on those days. The invoice is created as a draft instead, and you can send it manually.
+</Note>
+
+## Generating an invoice manually
+
+To generate an invoice from a single subscription immediately — regardless of the due date:
+
+1. Open the subscription.
+2. Click **Generate invoice now**.
+
+The invoice is created and, if auto-send is enabled and you have credits, sent to the client right away. If not, the invoice is saved as a draft.
+
+## Pausing and resuming a subscription
+
+You can pause a subscription at any time by toggling it to **inactive**. While inactive, no invoices are generated, and the next invoice date does not advance.
+
+To pause a subscription:
+- Open the subscription and click the **Active** toggle, or
+- From the subscriptions list, select the subscription and use the **Deactivate** bulk action.
+
+To resume, set the subscription back to active. The next invoice will generate on the next due date.
+
+<Tip>
+  If you resume a subscription after a long pause, check the next invoice date. If it has passed, the subscription will be due immediately and an invoice will be generated on the next run.
+</Tip>
+
+## Bulk actions
+
+From the subscriptions list, select one or more subscriptions to apply bulk actions:
+
+<CardGroup cols={3}>
+  <Card title="Generate due invoices" icon="file-text">
+    Generate invoices for all subscriptions that are currently due. Useful at the start of a billing period.
+  </Card>
+  <Card title="Activate" icon="toggle-right">
+    Resume multiple paused subscriptions at once.
+  </Card>
+  <Card title="Deactivate" icon="toggle-left">
+    Pause multiple active subscriptions at once.
+  </Card>
+</CardGroup>
+
+The **Generate due invoices** action processes all subscriptions with a next invoice date on or before today. For each one, it creates an invoice and sends it if auto-send is enabled.
+
+## Viewing generated invoices
+
+Every invoice generated from a subscription is linked back to it. Open a subscription and scroll to the **Recent invoices** section to see the last invoices that were generated, with direct links to each one.

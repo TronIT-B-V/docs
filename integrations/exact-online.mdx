@@ -1,0 +1,93 @@
+---
+title: "Connect Exact Online to TRONVoice"
+description: "Sync invoices and clients automatically between TRONVoice and Exact Online via a secure OAuth connection configured per administration."
+---
+
+Connect TRONVoice to Exact Online to push invoices automatically as sales entries and receive payment status updates in return. The integration is configured per administration, so you can link multiple Exact Online environments from a single TRONVoice account.
+
+<Note>
+  The Exact Online integration is a per-administration setting. If you have multiple administrations, set up the connection separately for each one.
+</Note>
+
+## Connect Exact Online
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Settings → Integrations** and select the administration you want to connect. Click the **Accounting** tab.
+  </Step>
+  <Step title="Start the connection">
+    Click the **Exact Online** card and choose **Connect**. You are redirected to the Exact Online login page.
+  </Step>
+  <Step title="Authorize TRONVoice">
+    Log in with your Exact Online account and grant TRONVoice access. After approval, you are returned to TRONVoice automatically.
+  </Step>
+  <Step title="Select a division">
+    After connecting, the settings panel opens. Select the Exact Online division (administration) that TRONVoice should sync invoices with. If your account has only one division, it is selected automatically.
+  </Step>
+  <Step title="Configure GL accounts and VAT codes">
+    Map the general ledger accounts and VAT codes TRONVoice should use when creating sales entries. TRONVoice pre-fills common defaults based on your Exact Online administration (e.g. account 8000 for 21% revenue).
+  </Step>
+  <Step title="Save">
+    Click **Save**. Synchronization is now active.
+  </Step>
+</Steps>
+
+## What syncs
+
+### Invoices to Exact Online
+
+When an invoice in TRONVoice changes status to **Sent**, TRONVoice automatically creates a sales entry in Exact Online. The invoice PDF is attached to the entry.
+
+TRONVoice stores the Exact Online entry number on the invoice so both systems always reference the same record.
+
+### Payment status back to TRONVoice
+
+TRONVoice periodically checks whether invoices have been marked as paid in Exact Online. When Exact Online registers an invoice as fully paid, the status in TRONVoice is updated automatically.
+
+### Client import
+
+You can import your client data from Exact Online into TRONVoice. During import, existing clients are matched by VAT number or KvK number to avoid duplicates.
+
+## Import clients from Exact Online
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Settings → Integrations → Accounting → Exact Online**.
+  </Step>
+  <Step title="Start the import">
+    Click **Import clients**. TRONVoice retrieves all clients (debtors) from your Exact Online division.
+  </Step>
+  <Step title="Review the results">
+    After import, you see how many clients were created, skipped (already existed), or could not be processed.
+  </Step>
+</Steps>
+
+<Tip>
+  Existing TRONVoice clients with the same VAT number or KvK number as an Exact Online relation are automatically linked — they are not created again.
+</Tip>
+
+## Disconnect
+
+Go to **Settings → Integrations → Accounting → Exact Online** and click **Disconnect**. The access tokens are removed and synchronization stops. Invoices already exported to Exact Online are not affected.
+
+<Warning>
+  You cannot have Exact Online and Minox active at the same time. Disconnect the existing accounting integration before activating another one.
+</Warning>
+
+## Troubleshooting
+
+### The connection is broken or authorization fails
+
+Exact Online access tokens have a limited lifetime. TRONVoice renews them automatically in the background. If renewal fails — for example because you revoked access in Exact Online — the connection is removed. Work through the [connection steps](#connect-exact-online) again to re-establish it.
+
+### An invoice was not exported to Exact Online
+
+Check the following:
+
+- The invoice has status **Sent** — draft invoices are not synced.
+- The administration has a division selected in the Exact Online settings.
+- If the client does not yet exist in Exact Online, TRONVoice creates them automatically on first export.
+
+### Payment status is not updating
+
+TRONVoice syncs payment statuses automatically. If an invoice shows as paid in Exact Online but the status in TRONVoice has not changed, wait a few hours for the next sync to run. If the issue persists, check that the connection is still active.

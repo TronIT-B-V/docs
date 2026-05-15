@@ -1,0 +1,129 @@
+---
+title: "Collect payments with SEPA direct debit"
+description: "Set up SEPA Direct Debit in TRONVoice: request mandates from clients, create collection batches, and collect invoice amounts automatically via Mollie."
+---
+
+SEPA Direct Debit (automatische incasso) lets you collect invoice payments directly from a client's bank account — without the client having to take any action each time. The client authorizes you once via a mandate, and you can then collect invoice amounts in batches.
+
+<Note>
+  SEPA Direct Debit requires your Mollie account to be connected and SEPA configured for your administration. Contact your account administrator if this feature is not available.
+</Note>
+
+## Overview of the process
+
+1. **Request a mandate** — send the client an authorization link by email
+2. **Client accepts** — the client completes a small verification payment to confirm their IBAN
+3. **Create a batch** — select eligible invoices and schedule a collection date
+4. **Send pre-notification** — TRONVoice notifies clients at least 14 days before collection
+5. **Process the batch** — TRONVoice submits the batch to Mollie for collection
+
+---
+
+## Step 1: Request a mandate from a client
+
+<Steps>
+  <Step title="Open the client record">
+    Go to **Clients** and open the client you want to set up for automatic direct debit.
+  </Step>
+  <Step title="Send a mandate request">
+    Click **Send mandate request**. TRONVoice creates a mandate record and sends the client an email with a link to authorize direct debit.
+  </Step>
+  <Step title="Client authorizes the mandate">
+    The client opens the link and sees your company name, logo, and a short explanation. They click through to Mollie, complete a small one-time verification payment to confirm their bank account, and the mandate is registered.
+  </Step>
+</Steps>
+
+The mandate link is valid for **48 hours**. If the client does not complete it in time, you can resend the request from the client record.
+
+<Warning>
+  Only one pending mandate request per client is allowed at a time. If there is already an open request, cancel it before sending a new one.
+</Warning>
+
+### Mandate statuses
+
+| Status | Meaning |
+|---|---|
+| **Pending** | Mandate request sent; client has not yet completed authorization |
+| **Active** | Mandate is valid; client can be included in direct debit batches |
+| **Revoked** | Mandate was revoked; client cannot be collected until a new mandate is active |
+
+---
+
+## Step 2: Create a mandate manually (optional)
+
+If you have a paper mandate signed by the client, you can register it manually instead of sending an email request.
+
+<Steps>
+  <Step title="Open the client record">
+    Go to **Clients** and open the relevant client.
+  </Step>
+  <Step title="Add a manual mandate">
+    Click **Create manual mandate** and fill in:
+    - Account holder name
+    - IBAN
+    - BIC (optional)
+    - Signature date
+  </Step>
+  <Step title="Save the mandate">
+    The mandate is immediately set to **Active** and the client is enabled for automatic direct debit.
+  </Step>
+</Steps>
+
+---
+
+## Step 3: Create a direct debit batch
+
+Once clients have active mandates, you can collect invoices by creating a batch.
+
+<Steps>
+  <Step title="Go to Direct debit batches">
+    Navigate to **Payments → Direct debit batches**.
+  </Step>
+  <Step title="Create a new batch">
+    Click **New batch** and select a collection date. The date must be in the future to allow time for the mandatory pre-notification.
+  </Step>
+  <Step title="Review eligible invoices">
+    TRONVoice shows all outstanding invoices for clients with an active mandate. Add the invoices you want to include in this batch.
+  </Step>
+  <Step title="Remove items if needed">
+    You can remove individual items from the batch while it is still **Open**. Once a batch is locked, items cannot be removed.
+  </Step>
+</Steps>
+
+Batches are numbered automatically in the format `BATCH-{year}-{sequence}` — for example, `BATCH-2025-001`.
+
+---
+
+## Pre-notification requirement
+
+SEPA regulations require that clients be notified at least **14 days** before a direct debit collection. TRONVoice handles this automatically — a pre-notification email is sent to each client included in the batch when the batch is submitted.
+
+<Warning>
+  You are responsible for ensuring the 14-day legal notice period is met before submitting the batch to Mollie. Do not set a collection date less than 14 days in the future.
+</Warning>
+
+---
+
+## Step 4: Submit and process the batch
+
+Once you are satisfied with the batch contents, submit it for processing. TRONVoice sends the payments to Mollie, which initiates the direct debit collections on the scheduled date.
+
+After collection, TRONVoice updates each invoice based on the result:
+- **Successful** — invoice is marked as paid
+- **Failed or charged back** — invoice remains open; you can follow up with the client
+
+---
+
+## Managing mandates
+
+### Resend a mandate request
+
+If the client did not complete the authorization in time, go to the client record and click **Resend request**. This resends the email with a new authorization link.
+
+### Revoke a mandate
+
+To stop automatic direct debit for a client, open the client record and click **Revoke mandate**. The mandate status changes to **Revoked** and the client is immediately excluded from future batches.
+
+<Tip>
+  Under SEPA rules, clients have the right to dispute a direct debit collection within 8 weeks of the transaction date. Inform clients of this right when you request their mandate.
+</Tip>

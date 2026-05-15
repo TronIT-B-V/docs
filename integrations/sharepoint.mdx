@@ -1,0 +1,79 @@
+---
+title: "Connect SharePoint to TRONVoice"
+description: "Automatically save invoice PDFs and attachments to Microsoft SharePoint or OneDrive via a secure Microsoft 365 connection, configured per administration."
+---
+
+The SharePoint integration automatically stores all invoice PDFs and attachments in a folder of your choice within Microsoft SharePoint or OneDrive. This gives you an organized archive in your own Microsoft 365 environment without any manual downloading or uploading.
+
+<Note>
+  This integration requires an active Microsoft 365 account with access to SharePoint or OneDrive. The connection is configured per administration.
+</Note>
+
+## Requirements
+
+Before you begin, you need the following from your Microsoft Azure environment:
+
+- **Tenant ID** — the identifier of your Microsoft 365 organization.
+- **Client ID** — the App registration ID in Azure Active Directory.
+- **Client Secret** — the secret associated with the app registration.
+- **Site ID** — the identifier of the SharePoint site where files will be uploaded.
+
+<Tip>
+  You can find these details in the [Azure portal](https://portal.azure.com) under **Azure Active Directory → App registrations**. Make sure the app registration has the Microsoft Graph permission `Sites.ReadWrite.All` as an application permission (not a delegated permission).
+</Tip>
+
+## Set up the connection
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Settings → Integrations** and select the relevant administration. Click the **Storage** tab.
+  </Step>
+  <Step title="Open SharePoint settings">
+    Click the **SharePoint** card and choose **Configure**.
+  </Step>
+  <Step title="Enter connection details">
+    Fill in the following fields:
+
+    | Field | Description |
+    |---|---|
+    | Tenant ID | Your Microsoft 365 tenant ID |
+    | Client ID | The app registration client ID |
+    | Client Secret | The client secret from the app registration |
+    | Site ID | The ID of the target SharePoint site |
+    | Drive ID | Optional — the specific document library (default: Documents) |
+    | Folder path | Optional — subfolder within the library, e.g. `Invoices/2025` |
+  </Step>
+  <Step title="Test the connection">
+    Click **Test connection**. TRONVoice verifies the provided details and checks whether the site and library are accessible. You see a confirmation showing the name of the found site and library.
+  </Step>
+  <Step title="Save">
+    Click **Save**. New invoices are now automatically saved to SharePoint.
+  </Step>
+</Steps>
+
+## What gets stored
+
+Each time TRONVoice generates an invoice PDF or processes an attachment, the file is automatically uploaded to the configured SharePoint folder.
+
+- **Invoice PDFs** — the generated PDF of every sent invoice.
+- **Attachments** — files attached to an invoice.
+
+Files are saved using the invoice number as the filename, making them easy to locate.
+
+<Note>
+  If the specified folder does not yet exist in SharePoint, TRONVoice creates it automatically on the first upload.
+</Note>
+
+## Configure folder structure
+
+Use the **Folder path** field to organize files into subfolders. Use `/` to separate levels:
+
+```
+Invoices/2025
+```
+
+TRONVoice creates any missing folders automatically. You can update the path at any time in the SharePoint settings.
+
+## Disconnect
+
+Go to **Settings → Integrations → Storage → SharePoint** and click **Disconnect**. The connection credentials are removed and TRONVoice stops saving to SharePoint. Files already uploaded to SharePoint are not affected.

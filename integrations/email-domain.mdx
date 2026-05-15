@@ -1,0 +1,72 @@
+---
+title: "Send invoices from your own email domain"
+description: "Configure a custom email domain in TRONVoice to send invoice emails from your own address and receive client replies directly in your inbox."
+---
+
+By default, TRONVoice sends invoices from a TRONVoice email address. With a custom email domain, you can use your own business address instead — for example, `invoices@yourbusiness.com`. This makes your emails more recognizable to clients and improves deliverability.
+
+Client replies to invoice emails are automatically received in the TRONVoice inbox, so all invoice correspondence is managed in one place.
+
+## Why use a custom domain
+
+- **Professional appearance** — clients see your own domain name in the sender field.
+- **Better deliverability** — emails from your own verified domain are less likely to land in spam.
+- **Centralized inbox** — client replies arrive directly in TRONVoice.
+
+<Note>
+  The email domain setting is per administration. If you have multiple administrations, you can set a different sender address for each. If your organization has already verified a domain in another administration, you can reuse it without re-adding the DNS records.
+</Note>
+
+## Set up your domain
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Settings → Integrations** and select the relevant administration. Click the **Communication** tab.
+  </Step>
+  <Step title="Add your domain">
+    Click the **Email domain** card and enter your domain name — for example `yourbusiness.com` or a subdomain like `mail.yourbusiness.com`. Click **Add**.
+  </Step>
+  <Step title="Configure DNS records">
+    TRONVoice shows a set of DNS records you need to add to your domain configuration. Add these records through the control panel of your domain registrar or hosting provider.
+
+    The records typically include an **SPF** record, a **DKIM** record, and a **DMARC** record. These are required for verification and good email deliverability.
+  </Step>
+  <Step title="Verify DNS records">
+    Click **Verify** after adding the records. TRONVoice checks whether each record is correctly configured. You see the verification status for each individual record.
+
+    You can also verify individual records separately by clicking the checkmark next to each one.
+  </Step>
+  <Step title="Domain is active">
+    Once all records are verified, your domain is active. From that point on, TRONVoice sends invoice emails from your own domain address.
+  </Step>
+</Steps>
+
+<Warning>
+  DNS changes can take up to **48 hours** to propagate globally. If verification does not succeed immediately after adding the records, wait a few hours and try again.
+</Warning>
+
+## Customize the sender address prefix
+
+The default sender address is built as `invoices@yourdomain.com`. You can change the part before the @ sign (the prefix) after your domain is verified.
+
+Go to the email domain settings and update the **Email prefix**. Use only lowercase letters, numbers, dots, hyphens, or underscores.
+
+Valid prefix examples: `invoices`, `noreply`, `accounts`, `info.invoices`.
+
+## Receive client replies in your inbox
+
+When a client replies to an invoice email, TRONVoice receives that message automatically in the **Inbox** of your administration. Attachments in the reply are saved as well.
+
+No extra setup is needed — inbound email is automatically active once your domain is verified.
+
+<Tip>
+  You receive a notification in TRONVoice when a new message arrives in your inbox. Check your notification settings under **Settings → Notifications** to control how you are notified.
+</Tip>
+
+## Remove your domain
+
+Go to **Settings → Integrations → Communication → Email domain** and click **Remove**. TRONVoice disables the custom domain and sends invoice emails from the default TRONVoice address again.
+
+<Note>
+  If multiple administrations in your organization share the same domain, the DNS records and verification status are not removed from other administrations when you remove the domain from one.
+</Note>

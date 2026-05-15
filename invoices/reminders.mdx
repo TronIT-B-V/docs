@@ -1,0 +1,110 @@
+---
+title: "Payment reminders for overdue invoices"
+description: "How TRONVoice automatically sends payment reminders, how to send manual reminders, exclude invoices, and customize reminder email templates."
+---
+
+TRONVoice can automatically send payment reminders to clients with overdue invoices. The reminder system works in steps — sending increasingly firm reminders the longer an invoice remains unpaid. You can also send reminders manually at any time, exclude specific invoices, or send bulk reminders to multiple clients at once.
+
+## How automatic reminders work
+
+When automatic reminders are enabled for your administration, TRONVoice checks daily for overdue invoices and sends reminders according to a three-step schedule:
+
+| Step | Trigger |
+|---|---|
+| **Step 1** | 14 days after the invoice due date |
+| **Step 2** | 30 days after the invoice due date |
+| **Step 3** | 45 days after the invoice due date |
+
+Each step sends the **Payment reminder** email template to the client. The email includes the invoice number, the number of days overdue, and the outstanding amount.
+
+After step 3, no further automatic reminders are sent unless you reset or send a manual reminder.
+
+<Note>
+Automatic reminders are only sent to invoices that:
+- Have a status of **Sent** (not Paid, Credited, or Draft)
+- Have a positive total amount
+- Have a client with a valid email address
+- Are **not** excluded from reminders
+</Note>
+
+To enable or configure automatic reminders for your administration, go to **Settings → Administration → Reminders**.
+
+## Send a manual reminder
+
+You can send a reminder at any time, regardless of whether it is due yet.
+
+<Steps>
+  <Step title="Open the invoice">
+    Go to **Invoices** and open the sent invoice you want to send a reminder for.
+  </Step>
+  <Step title="Click Send reminder">
+    Click **Send reminder** on the invoice detail page. TRONVoice confirms which step number this reminder is (e.g. "1st reminder").
+  </Step>
+  <Step title="Confirm">
+    The reminder is queued and sent to the client's email address. The reminder is logged in the **Reminders** tab on the invoice.
+  </Step>
+</Steps>
+
+Each reminder sent — whether automatic or manual — is recorded in the invoice's activity log with the date, step number, and who triggered it.
+
+## Bulk send reminders
+
+To send reminders to multiple overdue clients at once:
+
+<Steps>
+  <Step title="Go to the invoice list">
+    Open **Invoices** and filter or sort by overdue invoices.
+  </Step>
+  <Step title="Select invoices">
+    Tick the checkboxes next to the invoices you want to remind.
+  </Step>
+  <Step title="Use bulk actions">
+    Click **Bulk actions** and select **Send reminders**. TRONVoice sends the next reminder step for each selected invoice.
+  </Step>
+</Steps>
+
+Invoices that cannot receive a reminder (wrong status, no client email, or excluded from reminders) are automatically skipped.
+
+## Exclude an invoice from reminders
+
+Some invoices should not receive reminders — for example, when a payment arrangement is in place or a dispute is being resolved. You can exclude individual invoices from the automatic reminder schedule.
+
+<Steps>
+  <Step title="Open the invoice">
+    Go to **Invoices** and open the relevant invoice.
+  </Step>
+  <Step title="Toggle reminder exclusion">
+    Find the **Reminders** section on the invoice detail page and click **Exclude from reminders** (or the toggle next to it).
+  </Step>
+</Steps>
+
+The invoice will no longer receive automatic reminders. You can still send manual reminders if needed. To re-include the invoice, click the same toggle again.
+
+<Tip>
+You can see at a glance which invoices are excluded from reminders in the **Reminders** tab on the invoice detail page.
+</Tip>
+
+## Customize reminder email templates
+
+The subject line and body text of reminder emails are fully customizable per language. TRONVoice supports templates in Dutch, English, German, French, and Spanish.
+
+Available variables you can use in reminder templates:
+
+| Variable | Description |
+|---|---|
+| `{factuurnummer}` | Invoice number |
+| `{klant_contactpersoon}` | Client contact person |
+| `{bedrijfsnaam}` | Your company name |
+| `{dagen_verlopen}` | Number of days overdue |
+| `{totaal}` | Invoice total amount |
+| `{openstaand_bedrag}` | Outstanding (unpaid) amount |
+| `{vervaldatum}` | Invoice due date |
+| `{herinnering_stap}` | Reminder step number (1, 2, or 3) |
+| `{iban}` | Your IBAN bank account number |
+| `{iban_tnv}` | Account holder name |
+
+To edit reminder templates, go to [**Settings → Email templates**](/settings/email-templates) and select **Payment reminder**.
+
+<Warning>
+Changes to email templates affect all future reminders across all clients in that administration. Make sure to test your template using the preview function before saving.
+</Warning>

@@ -1,0 +1,98 @@
+---
+title: "Credit notes: correct or reverse an invoice"
+description: "Learn when to issue a credit note, how to create one from an existing invoice, send it to your client, and what happens in Exact Online."
+---
+
+A credit note (creditfactuur) is a document that fully or partially reverses a previously sent invoice. You issue a credit note when you need to correct an error, refund an amount, or cancel a charge after the invoice has already been sent.
+
+## When to use a credit note
+
+Use a credit note when:
+- You need to correct an invoice that has already been sent to a client.
+- A client returns a product or cancels a service after invoicing.
+- You made an error in the amount, VAT, or line items on a sent invoice.
+- You want to cancel an invoice without deleting it (invoices cannot be deleted once sent).
+
+<Note>
+You can only issue a credit note for invoices with a status of **Sent**. Draft invoices can simply be deleted. Paid invoices can also be credited if you need to record a refund.
+</Note>
+
+<Warning>
+You cannot issue a credit note for an invoice that has already been credited. Each invoice can only have one credit note.
+</Warning>
+
+## Create a credit note
+
+<Steps>
+  <Step title="Open the original invoice">
+    Go to **Invoices** and open the invoice you want to credit. The invoice must have a status of **Sent** (or **Paid**).
+  </Step>
+  <Step title="Click Credit invoice">
+    On the invoice detail page, click **Credit invoice** (or the credit button in the action menu).
+
+    TRONVoice asks you to confirm. Once confirmed, a credit note is created instantly.
+  </Step>
+  <Step title="Review the credit note">
+    TRONVoice redirects you to the new credit note. It contains all the same line items as the original invoice, but with negative amounts and quantities. The credit note number follows the format `C-{original invoice number}` — for example, `C-F-2025-00042`.
+
+    The original invoice is now marked as **Credited** and is locked. No further reminders will be sent for it.
+  </Step>
+  <Step title="Edit if necessary">
+    The credit note is created as a draft. You can edit it before sending — for example, to issue a partial credit by adjusting line quantities or amounts.
+  </Step>
+</Steps>
+
+## Send a credit note
+
+Once you are satisfied with the credit note, send it to the client the same way as a regular invoice.
+
+<Steps>
+  <Step title="Open the credit note">
+    The credit note appears in your invoice list with the status **Draft** and a credit label. Open it.
+  </Step>
+  <Step title="Click Send">
+    Click **Send**. Choose whether to send to the client, the admin, or both.
+  </Step>
+  <Step title="Confirm">
+    The credit note is sent using the **Credit invoice to client** email template. The email explains to the client what the credit note means and references the original invoice number.
+  </Step>
+</Steps>
+
+The client email for credit notes includes:
+- The credit note PDF as an attachment.
+- A clear explanation that the amount will be offset against future invoices or refunded.
+- A reference to the original invoice number.
+
+You can customize this email template under **Settings → Email templates → Credit invoice to client**.
+
+<Note>
+Sending a credit note does **not** cost credits. Only outgoing invoices (regular invoices) deduct from your credit balance.
+</Note>
+
+## Effect on Exact Online
+
+If your administration is connected to Exact Online, credit notes are handled as follows:
+
+- When a credit note is sent, it is automatically synced to Exact Online as a negative sales invoice (creditnota).
+- The sync uses the same Exact Online invoice number sequence as regular invoices.
+- Payment status for credit notes is also synced: once the credit note is processed (marked as paid or reconciled), that status is reflected in TRONVoice.
+
+<Note>
+Only sent credit notes are synced to Exact Online. Draft credit notes are not pushed until they have been sent.
+</Note>
+
+If the sync fails — for example due to a connection issue — you can check the sync status on the credit note detail page. A manual re-sync option is available from the administration settings under **Exact Online → Sync invoices**.
+
+## Frequently asked questions
+
+**Can I issue a partial credit note?**
+Yes. After creating the credit note draft, edit the line quantities or amounts before sending. You do not have to credit the full invoice amount.
+
+**What happens to the payment link on the original invoice?**
+Once an invoice is credited, the payment link is disabled. Clients who click it will see that the invoice has been cancelled.
+
+**Can I delete a credit note?**
+Yes, as long as it is still a draft. Once sent, credit notes cannot be deleted. If you sent a credit note by mistake, contact your accountant to handle the correction in your bookkeeping.
+
+**Does crediting an invoice affect my revenue figures?**
+Yes. Credited invoices are excluded from revenue totals in TRONVoice dashboards and reports. The credit note reduces your reported revenue by the credited amount.

@@ -1,0 +1,104 @@
+{
+  "projectType": "saas",
+  "projectName": "TRONVoice",
+  "projectDescription": "TRONVoice is a Dutch SaaS invoicing platform for businesses to create and send invoices, manage quotes, track clients, collect payments via SEPA and Mollie, and sync with accounting software.",
+  "theme": "almond",
+  "primaryColor": "#fc2c24",
+  "lightColor": "#040404",
+  "darkColor": "#e29d78",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "account-setup"
+            ]
+          },
+          {
+            "group": "Invoicing",
+            "pages": [
+              "invoices/overview",
+              "invoices/create",
+              "invoices/send",
+              "invoices/reminders",
+              "invoices/credit-notes"
+            ]
+          },
+          {
+            "group": "Quotes",
+            "pages": [
+              "quotes/overview",
+              "quotes/create",
+              "quotes/acceptance"
+            ]
+          },
+          {
+            "group": "Clients & Products",
+            "pages": [
+              "clients/overview",
+              "products/overview",
+              "subscriptions/overview"
+            ]
+          },
+          {
+            "group": "Payments & Banking",
+            "pages": [
+              "payments/mollie",
+              "payments/sepa-direct-debit",
+              "payments/bank-connections"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/exact-online",
+              "integrations/sharepoint",
+              "integrations/email-domain"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "settings/administrations",
+              "settings/email-templates",
+              "settings/branding",
+              "settings/users-and-roles"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Invoice creation, sending, and PDF export",
+    "Quote/proposal management with online client acceptance",
+    "Client (CRM) management with dossiers and tasks",
+    "SEPA direct debit collection via Mollie mandates",
+    "Recurring subscription invoices",
+    "Automated payment reminders",
+    "Bank transaction import and matching (MT940 / Ponto)",
+    "Exact Online accounting sync",
+    "Multi-administration support",
+    "Customizable email templates (NL/EN/DE/FR/ES)",
+    "Mileage (ritten) registration and export",
+    "Product & inventory management",
+    "Credit-based pricing with monthly cap"
+  ],
+  "publicApiSurface": [
+    "POST /webhooks/mollie — Mollie payment webhook",
+    "POST /webhooks/ponto — Ponto bank webhook",
+    "POST /webhooks/lettermint-inbound — Inbound email webhook",
+    "GET /factuur/{token} — Public invoice view",
+    "GET /offerte/{token} — Public quote acceptance page",
+    "GET /betaal/{token} — Public payment page",
+    "GET /machtiging/{token} — Public SEPA mandate page",
+    "GET /bank-connections/callback — Ponto OAuth callback",
+    "GET /exact-online/callback — Exact Online OAuth callback",
+    "GET /minox/callback — Minox OAuth callback"
+  ]
+}

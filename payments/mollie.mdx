@@ -1,0 +1,82 @@
+---
+title: "Accept online payments with Mollie"
+description: "Send clients a payment link with every invoice so they can pay online via iDEAL, credit card, or other payment methods through Mollie."
+---
+
+Every invoice you send through TRONVoice includes a unique payment link. When a client opens that link, they land on a branded payment page and can pay instantly — no login required. Once payment is confirmed, TRONVoice updates the invoice status automatically.
+
+<Note>
+  Online payments via Mollie require a connected Mollie account. Go to **Settings → Integrations** and open the **Payments** tab to link your Mollie account before sending invoices.
+</Note>
+
+## How the payment link works
+
+Each invoice gets a unique, token-based payment URL. This link is included automatically when you send an invoice by email. The link is tied to that specific invoice and does not expire as long as the invoice is unpaid.
+
+When a client opens the link, they see:
+
+- Your company name and logo
+- The invoice number, date, and due date
+- The total amount due (including VAT breakdown)
+- A button to pay online
+
+If the invoice is already paid, the page shows a confirmation instead of a payment button.
+
+## Supported payment methods
+
+Payment is processed through Mollie, which supports:
+
+- **iDEAL** — the primary method for Dutch customers
+- **Credit card** — Visa, Mastercard, and others
+- **Bancontact** — for Belgian customers
+- Additional methods depending on your Mollie account configuration
+
+The available methods shown to your client depend on which payment methods you have activated in your Mollie dashboard.
+
+## The payment flow
+
+<Steps>
+  <Step title="Client opens the payment link">
+    The client clicks the payment link in the invoice email (or you share the link directly). They see the invoice details and the total amount to pay.
+  </Step>
+  <Step title="Client selects a payment method and pays">
+    The client is redirected to the Mollie checkout page, where they select their preferred payment method and complete the payment.
+  </Step>
+  <Step title="Payment status is confirmed">
+    Mollie notifies TRONVoice automatically. The invoice status updates to **Paid** within seconds of a successful payment.
+  </Step>
+  <Step title="Confirmation email is sent">
+    TRONVoice sends a payment confirmation email to the client. You can see the payment timestamp on the invoice detail page.
+  </Step>
+</Steps>
+
+## What clients see after paying
+
+After completing payment, the client lands on a confirmation page showing:
+
+- A success message
+- The invoice number and amount paid
+- The date and time of payment
+
+If the payment is still processing (for example, with some bank transfer methods), the page refreshes automatically every few seconds until the status is confirmed.
+
+## Share or copy a payment link
+
+The payment link for any invoice is always available on the invoice detail page. You can copy and share it manually — for example, if a client asks to pay after the original email was lost.
+
+<Tip>
+  If a client reports they cannot pay, check whether your Mollie integration is active and whether the invoice status is still **Sent**. Draft invoices and already-paid invoices cannot be paid online.
+</Tip>
+
+## Troubleshooting
+
+**The client sees "Online payment not available"**
+
+This happens when the invoice is not eligible for online payment:
+- The invoice has already been paid
+- The invoice is still a draft (not yet sent)
+- Your Mollie account is not connected or is inactive
+
+**Payment is completed but the invoice still shows as unpaid**
+
+Webhook delivery can occasionally be delayed. Wait a minute and refresh the invoice. If the status has not updated after a few minutes, check the Mollie dashboard to confirm the payment was received, then mark the invoice as paid manually.

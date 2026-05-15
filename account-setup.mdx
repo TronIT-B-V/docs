@@ -1,0 +1,129 @@
+---
+title: "Set up your TRONVoice account"
+description: "Create your TRONVoice account with email or social login, enable mandatory 2FA, and configure your organisation and first administration."
+---
+
+This page covers how to create a TRONVoice account, secure it with two-factor authentication, and configure your organisation and administration. Completing these steps gives you full access to the dashboard and lets you start sending invoices.
+
+## Create your account
+
+Go to [tronvoice.eu](https://tronvoice.eu) and click **Account aanmaken**.
+
+### Sign up with email
+
+Fill in your full name, email address, and a password. Your password must be at least 8 characters and include uppercase and lowercase letters plus a number.
+
+Accept the terms and conditions and click **Account aanmaken**.
+
+### Sign up with social login
+
+If you prefer not to use a separate password, you can sign in with an existing account:
+
+<CardGroup cols={3}>
+  <Card title="Google" icon="google">
+    Sign in with your Google account.
+  </Card>
+  <Card title="Microsoft" icon="microsoft">
+    Sign in with your Microsoft or Outlook account.
+  </Card>
+  <Card title="Apple" icon="apple">
+    Sign in with your Apple ID.
+  </Card>
+</CardGroup>
+
+Social login creates a TRONVoice account linked to the provider you choose. You won't need a separate password for TRONVoice.
+
+<Note>
+  Regardless of how you sign up — email or social login — you must still set up two-factor authentication before you can access the dashboard.
+</Note>
+
+---
+
+## Enable two-factor authentication
+
+Two-factor authentication (2FA) is mandatory for all TRONVoice accounts. After signing up, you are taken directly to the 2FA setup screen. You cannot skip this step.
+
+### What you need
+
+A TOTP authenticator app on your smartphone:
+
+- **Google Authenticator** (iOS / Android)
+- **Microsoft Authenticator** (iOS / Android)
+- **Authy** (iOS / Android / desktop)
+
+### Setup process
+
+<Steps>
+  <Step title="Confirm your password">
+    Enter your current password to authorise enabling 2FA.
+  </Step>
+  <Step title="Scan the QR code">
+    Open your authenticator app, tap the option to add a new account, and scan the QR code displayed on screen.
+
+    If you can't scan the QR code, tap **handmatig invoeren** in your app and enter the text code shown below the QR code instead.
+  </Step>
+  <Step title="Enter the verification code">
+    Your authenticator app generates a 6-digit code that refreshes every 30 seconds. Enter the current code to confirm the connection is working.
+  </Step>
+  <Step title="Save your recovery codes">
+    After confirming, TRONVoice shows you a set of one-time recovery codes.
+
+    <Warning>
+      Copy these codes and store them somewhere safe — a password manager, printed paper, or an encrypted note. If you lose access to your authenticator app and don't have these codes, you will be locked out of your account permanently.
+    </Warning>
+
+    Each recovery code can only be used once. You can generate a new set at any time from your account security settings.
+  </Step>
+</Steps>
+
+---
+
+## Set up your organisation
+
+After 2FA is enabled, TRONVoice guides you through creating your organisation. This stores your company details and serves as the top-level container for all your administrations.
+
+### Company details (bedrijfsgegevens)
+
+| Field | Description |
+|-------|-------------|
+| Bedrijfsnaam | Your company's legal name |
+| KvK-nummer | 8-digit Chamber of Commerce number |
+| BTW-nummer | VAT number, e.g. `NL123456789B01` |
+| Adres | Street address |
+| Postcode | Dutch postal code, e.g. `1234 AB` |
+| Plaats | City |
+| Land | Country (defaults to Nederland) |
+| IBAN | Business bank account number — printed on every invoice |
+| BIC | Bank identifier code (optional) |
+
+<Tip>
+  Use the KvK search at the top of the form. Type your company name or KvK number and select your company from the results. TRONVoice automatically fills in the company name, KvK number, and address from the Chamber of Commerce registry.
+</Tip>
+
+Bedrijfsnaam and IBAN are required. All other fields are optional but recommended — they appear on your invoices and help clients identify where to send payment.
+
+---
+
+## Your administrations
+
+An **administratie** is an independent set of books within your organisation. Each administration has its own:
+
+- Invoice and quote numbering series
+- Logo and branding
+- BTW settings and rates
+- Client list
+- Integrations (Mollie, Exact Online, etc.)
+
+Most businesses use a single administration. If you run multiple companies, or if you're an accountant managing several clients, you can create a separate administration for each.
+
+### Included and extra administrations
+
+<Note>
+  Every TRONVoice account includes **2 administrations for free**. You can add more at **€3.00 per administration per month**, billed via SEPA direct debit. Accounts with extra administrations also receive a **10% discount** on invoice sending costs (€0.65 → €0.59 per invoice).
+</Note>
+
+You choose how many administrations you want during registration using the slider. You can change this later from your account settings. For more than 20 administrations, contact the TRONVoice sales team.
+
+### Creating your first administration
+
+Your first administration is created automatically when you complete the company setup form. TRONVoice copies your company details into the administration as a starting point. You can customise the administration's settings — including its own logo, invoice template, and payment details — from the administration settings page after logging in.
