@@ -1,0 +1,170 @@
+---
+title: "Collect invoices in direct debit batches"
+description: "Group invoices from clients with a valid SEPA mandate into incasso batches, review and adjust the items, and submit the batch to Mollie for automatic collection."
+---
+
+An **incassobatch** (direct debit batch) groups outstanding invoices into a single SEPA collection run. When you send an invoice to a client who has a valid SEPA mandate, TRONVoice automatically adds it to an open batch. You review the batch, set a collection date, and submit it — Mollie then collects each amount on the scheduled day.
+
+<Note>
+  Incasso batches require SEPA Direct Debit to be configured for your administration. If the **Direct debit batches** menu is not visible, SEPA is not yet set up. See [Collect payments with SEPA direct debit](/payments/sepa-direct-debit) for how mandates and SEPA settings work.
+</Note>
+
+## How batches relate to SEPA mandates
+
+A batch can only collect from clients who have authorized you in advance. The relationship is:
+
+1. A client authorizes a **SEPA mandate** — once, via email or a manual paper mandate.
+2. When you send an invoice to that client, TRONVoice checks the mandate and the client's **auto direct debit** setting.
+3. If the client is eligible, the invoice is added to an **open** batch as a batch item.
+4. You submit the batch, and Mollie collects each item using the client's mandate.
+
+Invoices for clients without a valid mandate are never added to a batch — you collect those the usual way, for example with a [Mollie payment link](/payments/mollie).
+
+---
+
+## How invoices enter a batch
+
+Most batch items are created automatically. When you send an invoice, TRONVoice adds it to a batch if **all** of the following are true:
+
+- The client has **auto direct debit** enabled and a valid mandate
+- The invoice is in euros, has a positive amount, and is not a credit invoice
+- SEPA is configured for the administration
+
+TRONVoice calculates a collection date (invoice date plus the pre-notification period, snapped to your preferred collection day) and finds an **open** batch for that date — or creates a new one. Batches are numbered automatically as `BATCH-{year}-{sequence}`, for example `BATCH-2025-001`.
+
+You can also add invoices to a batch manually — see [Add an invoice](#add-an-invoice-manually) below.
+
+---
+
+## Create a batch manually
+
+You usually don't need to create batches yourself, but you can prepare one for a specific collection date.
+
+<Steps>
+  <Step title="Go to Direct debit batches">
+    Navigate to **Payments → Direct debit batches**.
+  </Step>
+  <Step title="Open the new batch dialog">
+    Click **New batch** (**Nieuwe batch**).
+  </Step>
+  <Step title="Choose a collection date">
+    Pick an **Incassodatum** (collection date). It must be at least **3 days** in the future to allow time for the pre-notification.
+  </Step>
+  <Step title="Save">
+    TRONVoice creates an empty open batch — or reuses an existing open batch for that date — and opens it.
+  </Step>
+</Steps>
+
+---
+
+## Review a batch
+
+Open a batch from the list to see its details:
+
+- **Batchnummer** (batch number) and **Status**
+- **Incassodatum** (collection date)
+- **Totaalbedrag** (total amount) and number of items
+- A table of items showing **Factuurnummer** (invoice number), **Klant** (client), **Bedrag** (amount), and item status
+
+### Batch statuses
+
+| Status | Meaning |
+|---|---|
+| **Open** | You can still add, remove, and move items, and change the collection date |
+| **Locked** | Batch submitted; pre-notifications sent; contents frozen |
+| **Processing** | Submitted to Mollie; collections in progress |
+| **Completed** | All collections finished |
+| **Partially failed** | Some collections succeeded, others failed or were charged back |
+
+### Item statuses
+
+| Status | Meaning |
+|---|---|
+| **Pending** | Queued; not yet sent to Mollie |
+| **Submitted** | Sent to Mollie; awaiting result |
+| **Paid** | Collected successfully; the invoice is marked as paid |
+| **Failed** | Collection failed; the invoice stays open |
+| **Charged back** | Client reversed the collection; the invoice stays open |
+
+---
+
+## Adjust an open batch
+
+While a batch is **Open**, you can change its contents freely. Once it is locked, none of these actions are available.
+
+### Add an invoice manually
+
+<Steps>
+  <Step title="Click Add invoice">
+    On the batch detail page, click **Factuur toevoegen** (add invoice).
+  </Step>
+  <Step title="Search for an invoice">
+    Search by invoice number or client name. Only sent invoices for clients with auto direct debit enabled — and not already in a batch — appear.
+  </Step>
+  <Step title="Add it">
+    Select the invoice. TRONVoice adds it to this batch and updates the totals. If the client has no valid mandate, the invoice cannot be added.
+  </Step>
+</Steps>
+
+### Remove an item
+
+Click **Verwijderen** (remove) next to a batch item. The invoice is detached from the batch and returns to its normal outstanding state. If the batch becomes empty, TRONVoice deletes it automatically.
+
+### Move an item to another batch
+
+Click **Verplaatsen** (move) next to an item. You can move it to another open batch or create a new batch with its own collection date. Both batches must be open.
+
+### Change the collection date
+
+Click **Incassodatum wijzigen** (change collection date). The new date must be at least 3 days in the future. This reschedules the whole batch.
+
+<Warning>
+  SEPA rules require clients to be notified before a collection. Keep the collection date far enough ahead to meet the pre-notification period configured for your administration (typically 14 days). The 3-day minimum is a technical floor, not the legal notice period.
+</Warning>
+
+---
+
+## Submit a batch
+
+When the batch contents are correct, submit it for collection.
+
+<Steps>
+  <Step title="Click Submit batch">
+    On the batch detail page, click **Batch indienen** (submit batch). A batch must contain at least one item.
+  </Step>
+  <Step title="Batch is locked">
+    The status changes to **Locked** and the contents are frozen. You can no longer add, remove, or move items.
+  </Step>
+  <Step title="Pre-notifications are sent">
+    TRONVoice emails each client in the batch a SEPA pre-notification stating the amount, collection date, masked IBAN, and mandate reference.
+  </Step>
+  <Step title="Mollie collects on the scheduled date">
+    The batch moves to **Processing** and TRONVoice submits each item to Mollie, which collects on the collection date.
+  </Step>
+</Steps>
+
+After collection, each item is updated with its result. A **Paid** item marks its invoice as paid. **Failed** and **charged back** items leave the invoice open so you can follow up.
+
+### Sync results from Mollie
+
+For a batch that is **Processing**, **Completed**, or **Partially failed**, click **Synchroniseren** (sync) to pull the latest payment results from Mollie. This also surfaces chargebacks on items that were previously paid.
+
+<Note>
+  Syncing is rate-limited to once per minute per batch. TRONVoice also updates results automatically via Mollie webhooks, so a manual sync is mainly useful when you want an immediate refresh.
+</Note>
+
+---
+
+## The incasso dashboard widget
+
+The dashboard shows an **incasso** widget that summarizes the state of your direct debit pipeline at a glance:
+
+- **Next batch** — the upcoming open or locked batch, with its collection date and item count
+- **Pending mandates** — the number of clients with a mandate request that has not yet been authorized
+- **Recent failures** — the most recent failed or charged-back collections, with the invoice number and client
+
+Use the widget to spot mandates that need a nudge and collections that need follow-up. If SEPA is not configured for the administration, the widget shows a setup prompt instead.
+
+<Tip>
+  Charged-back collections need attention: the client reversed the payment, so the invoice is open again. Under SEPA rules, clients can dispute a direct debit for up to 8 weeks. Contact the client to arrange payment another way.
+</Tip>

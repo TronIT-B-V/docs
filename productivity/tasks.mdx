@@ -1,0 +1,146 @@
+---
+title: "Tasks: organise your follow-up work"
+description: "Create tasks in TRONVoice, set due dates and statuses, link tasks to clients, invoices, or quotes, attach files, and manage organisation-wide tasks."
+---
+
+Tasks (**Taken**) are TRONVoice's built-in to-do list. Use them to track follow-up actions — chasing a payment, preparing a quote, calling a client — and keep each action connected to the record it relates to. A task can stand on its own or be linked to a client, invoice, quote, or another record.
+
+## Creating a task
+
+<Steps>
+  <Step title="Open the tasks list">
+    Go to **Tasks** (**Taken**) in the main navigation and click **New task**.
+  </Step>
+  <Step title="Enter the task details">
+    Fill in the task fields:
+
+    | Field | Notes |
+    |---|---|
+    | **Task name** (Taaknaam) | Required. A short, clear description — at least 3 characters. |
+    | **Description** (Omschrijving) | Optional longer notes about what needs to happen. |
+    | **Status** | The starting status. New tasks default to **To do** (Te doen). |
+    | **Assigned to** (Toegewezen aan) | One or more colleagues in your organisation. Leave empty for an unassigned task. |
+    | **Deadline** | Optional due date and time. |
+  </Step>
+  <Step title="Link the task to a record (optional)">
+    Choose a **Type** and search for the record you want to link. See [Linking a task to a record](#linking-a-task-to-a-record).
+  </Step>
+  <Step title="Save the task">
+    Click **Create task**. The task opens immediately so you can add attachments or notes.
+  </Step>
+</Steps>
+
+<Note>
+  When you assign a task to a colleague, they receive an email notification. You are not notified about tasks you assign to yourself.
+</Note>
+
+## Due dates
+
+A task can have an optional **deadline** — a date and time by which it should be done. On the task and in the list, deadlines are colour-coded:
+
+- **Grey** — the deadline is in the future and not yet near.
+- **Amber** — the deadline is within the next 24 hours.
+- **Red** — the deadline has passed and the task is still open (overdue).
+
+Completed and cancelled tasks no longer count as overdue.
+
+## Task status
+
+Every task has one of five statuses. The status drives whether the task counts as open or done.
+
+| Status | Dutch label | Counts as |
+|---|---|---|
+| To do | Te doen | Open |
+| In progress | In behandeling | Open |
+| Waiting on client | Wacht op klant | Open |
+| Completed | Afgerond | Done |
+| Cancelled | Geannuleerd | Closed |
+
+You can change the status at any time from the task itself or from the list. When a task moves to **Completed**, TRONVoice records the completion timestamp automatically. Marking a completed task **To do** again reopens it and clears that timestamp.
+
+<Tip>
+  Use **Waiting on client** for tasks where the next step is not yours — for example, you are waiting for a signed quote or a missing document. It keeps the task open without cluttering your active "To do" view.
+</Tip>
+
+### Completing and reopening
+
+From the tasks list or a task's detail page you can:
+
+- **Complete** a task — sets the status to **Completed**.
+- **Reopen** a completed task — sets it back to **To do**.
+
+## Linking a task to a record
+
+A task can be linked to one record so that follow-up work stays attached to the right place. The following record types can be linked:
+
+<CardGroup cols={2}>
+  <Card title="Client" icon="users">
+    Link a task to a client (**Klant**) — for example, "Call about renewal".
+  </Card>
+  <Card title="Invoice" icon="file-text">
+    Link a task to an invoice (**Factuur**) — for example, "Follow up on overdue payment".
+  </Card>
+  <Card title="Quote" icon="file-signature">
+    Link a task to a quote (**Offerte**) — for example, "Chase signature".
+  </Card>
+  <Card title="Subscription" icon="repeat">
+    Link a task to a recurring subscription (**Abonnement**).
+  </Card>
+  <Card title="Product" icon="package">
+    Link a task to a product (**Product**).
+  </Card>
+  <Card title="Location" icon="map-pin">
+    Link a task to a location (**Locatie**).
+  </Card>
+</CardGroup>
+
+To link a task, choose the **Type** on the task form and use the search box to find the record. The search shows the 15 most relevant matches and is scoped to the current administration. Tasks can also be linked to an administration itself.
+
+You can also create a task that is already linked: open the **Tasks** panel on a record (see below) and it pre-fills the link for you.
+
+## The tasks panel on records
+
+Client, invoice, quote, and other record pages include a **Tasks** panel. The panel shows all tasks linked to that record, ordered by status and then by deadline.
+
+From the panel you can:
+
+- **Add a task** — opens an inline form for a task name, description, deadline, and assignees. The new task is automatically linked to the record you are viewing.
+- **Change a task's status** — including marking it completed or reopening it.
+- **Show completed tasks** — toggle to include completed tasks in the panel; by default only open tasks are shown.
+- **Delete a task** — you can only delete tasks you created yourself.
+
+The panel header shows a count of open tasks so you can see at a glance whether a record has outstanding work.
+
+## Task attachments
+
+Each task has its own attachments section. Use it to keep relevant files — a scanned document, a screenshot, a contract — together with the task.
+
+- Upload one or more files at once.
+- Supported file types: PDF, Word, Excel, images (JPG, PNG, GIF, WebP), and plain text or CSV.
+- Maximum size: **10 MB per file**.
+- You can download or delete attachments at any time.
+
+## Personal vs organisation-wide tasks
+
+Most tasks belong to a single **administration** — they appear only when you are working in that administration. This keeps each business entity's to-do list separate.
+
+Accountant organisations can additionally create **organisation-wide tasks** (**organisatietaken**). These are not tied to any one administration and are visible across the whole organisation.
+
+- When creating a task, enable the **organisation level** option to make it organisation-wide. An organisation-wide task has no administration.
+- Organisation-wide tasks have their own page, reached via **Organisation tasks** in the navigation.
+- Linking still works at organisation level: when searching for a record to link, the search spans every administration in the organisation.
+
+<Info>
+  Organisation-wide tasks are only available to accountant organisations. If your organisation is a regular business, all tasks belong to an administration.
+</Info>
+
+## Filtering the tasks list
+
+The tasks list defaults to showing **open** tasks. You can refine it with:
+
+- **Status** — open, completed, or a specific status.
+- **Assigned to** — a specific colleague, tasks assigned to you, or unassigned tasks.
+- **Type** — only tasks linked to a particular record type.
+- **Search** — matches the task name or description.
+
+Tab counters show how many open and completed tasks match your current view.

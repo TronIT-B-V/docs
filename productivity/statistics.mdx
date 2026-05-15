@@ -1,0 +1,124 @@
+---
+title: "Statistics: insight into your revenue and performance"
+description: "Read the TRONVoice statistics dashboard — revenue, VAT, top clients, product sales, profitability, and recurring revenue — filtered by year and quarter."
+---
+
+The statistics dashboard (**Statistieken**) gives you insight into your revenue and performance. It draws on your invoice data and presents it across several tabs, each focused on a different angle of your business.
+
+Open it via **Statistics** (**Statistieken**) in the main navigation.
+
+<Note>
+  Statistics are calculated per administration. The dashboard always reflects the administration you are currently working in. Switch administrations to see the figures for another entity.
+</Note>
+
+## Date-range filtering
+
+Two controls at the top of the dashboard set the period for every figure on the page:
+
+- **Year** — step back and forward through the years. The years available start from your first invoice date and run up to the current year.
+- **Quarter** — choose **Full year** (Heel jaar) or a single quarter (Q1–Q4). Monthly charts adjust to show only the months in the selected quarter.
+
+Most figures are shown alongside the **same period one year earlier**, so you can see how the current period compares.
+
+<Info>
+  Revenue figures count invoices with a status of **Sent** or **Paid**. Draft invoices are never included. Invoice dates (factuurdatum) determine which period a figure falls into.
+</Info>
+
+## The tabs
+
+<CardGroup cols={2}>
+  <Card title="Overview" icon="layout-dashboard">
+    Income, expenses (credit notes), and net result, with a monthly chart against last year.
+  </Card>
+  <Card title="Income" icon="trending-up">
+    Revenue broken down per product, plus a monthly revenue trend.
+  </Card>
+  <Card title="Top 25 clients" icon="users">
+    Your highest-revenue clients for the selected period.
+  </Card>
+  <Card title="Product sales" icon="package">
+    Units sold and revenue per product.
+  </Card>
+  <Card title="Recurring revenue" icon="repeat">
+    The value of your active subscriptions and a yearly projection.
+  </Card>
+  <Card title="Profitability" icon="percent">
+    Margin and profit per product, based on cost prices.
+  </Card>
+  <Card title="VAT" icon="receipt">
+    VAT collected per rate, plus a reverse-charge breakdown for the ICP declaration.
+  </Card>
+</CardGroup>
+
+## Overview
+
+The overview tab summarises the financial picture for the selected period:
+
+- **Income** (Inkomsten) — total of all sent and paid invoices, excluding credit notes.
+- **Expenses** (Uitgaven) — the total value of credit notes issued in the period.
+- **Result** (Resultaat) — income minus expenses.
+
+A bar chart shows income and expenses month by month, overlaid with last year's income for comparison. When a quarter is selected, the chart shows only that quarter's months.
+
+## Income
+
+The income tab breaks revenue down **per product**, using the amount excluding VAT on each invoice line:
+
+- Each product is listed with its revenue this period and the same period last year.
+- Invoice lines that are not tied to a product are grouped under **Geen product** (No product).
+- A monthly chart shows the revenue trend for the period against the previous year.
+
+## Top 25 clients
+
+This tab ranks your clients by revenue for the selected period and shows the top 25. Each entry shows the client name, the administration, and revenue this period versus last year. Only clients with revenue in either period appear.
+
+## Product sales
+
+The product sales tab focuses on volume. For each product it shows:
+
+- **Quantity sold** (Aantal) this period and last year.
+- **Revenue** (Omzet, excluding VAT) for both periods.
+
+Products are sorted by quantity sold, so your best-movers appear first.
+
+## Recurring revenue
+
+This tab values your **active subscriptions** rather than past invoices, so it is not affected by the year and quarter filters.
+
+- Each subscription is listed with its client, billing interval, amount excluding VAT, VAT, and amount including VAT.
+- **Totals** sum the per-period value across all active subscriptions.
+- **Yearly projection** estimates total subscription revenue over a full year, by multiplying each subscription's amount by how often it bills per year.
+
+<Tip>
+  The yearly projection is a forward-looking estimate based on your current active subscriptions. It assumes nothing changes — use it as a planning indicator, not a guarantee.
+</Tip>
+
+## Profitability
+
+The profitability tab calculates margin and profit from actual sales, using the **cost price** (kostprijs) you set on each product.
+
+For each product it shows the cost price, sale price, margin per unit, quantity sold, revenue, cost, and profit, along with a margin percentage. Totals give you overall revenue, cost, profit, and average margin for the period, plus the current value of your stock.
+
+<Warning>
+  Only products with a cost price are included in the profit calculation. If a product you sold has no cost price set, it is listed separately so you know the figures are incomplete. Add cost prices to your products for an accurate margin picture.
+</Warning>
+
+## VAT
+
+The VAT tab aggregates VAT from your invoice lines for the selected period. It groups the figures into buckets:
+
+- **21%**, **9%**, and **0%** standard rates, plus an **other** bucket for any non-standard rate.
+- **Reverse charge** (Verlegd) — lines where VAT is shifted to the customer.
+- **VAT-exempt** (Vrijgesteld) — lines marked exempt.
+
+Each bucket shows the taxable base (grondslag) and the VAT amount, alongside last year's figures. A monthly chart shows the total VAT trend across the period.
+
+### ICP declaration helper
+
+For reverse-charge supplies, the VAT tab also helps with the Dutch **ICP declaration** (intracommunautaire prestaties). Reverse-charge revenue is grouped per **VAT identification number**, so multiple client records that share the same VAT number are merged into a single line.
+
+Reverse-charge revenue that does **not** belong on the ICP — Dutch domestic reverse charge, or clients without a valid EU VAT number — is listed separately, with the reason, so your totals reconcile with the reverse-charge bucket above.
+
+<Note>
+  Credit notes are included in the VAT figures: their line amounts are negative, so issuing a credit note correctly reduces the reported base and VAT.
+</Note>

@@ -28,11 +28,12 @@
         "tab": "Docs",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Get started",
             "pages": [
               "introduction",
               "quickstart",
-              "account-setup"
+              "account-setup",
+              "dashboard"
             ]
           },
           {
@@ -41,8 +42,14 @@
               "invoices/overview",
               "invoices/create",
               "invoices/send",
+              "invoices/scheduling",
+              "invoices/payment-tracking",
               "invoices/reminders",
-              "invoices/credit-notes"
+              "invoices/credit-notes",
+              "invoices/g-account",
+              "invoices/e-invoicing",
+              "invoices/bulk-actions",
+              "invoices/import-export"
             ]
           },
           {
@@ -50,40 +57,88 @@
             "pages": [
               "quotes/overview",
               "quotes/create",
-              "quotes/acceptance"
+              "quotes/templates",
+              "quotes/acceptance",
+              "quotes/convert-to-invoice"
             ]
           },
           {
-            "group": "Clients & Products",
+            "group": "Recurring invoices",
+            "pages": [
+              "subscriptions/overview",
+              "subscriptions/create",
+              "subscriptions/managing"
+            ]
+          },
+          {
+            "group": "Clients & products",
             "pages": [
               "clients/overview",
+              "clients/managing",
+              "clients/import",
               "products/overview",
-              "subscriptions/overview"
+              "products/categories",
+              "products/inventory",
+              "locations"
             ]
           },
           {
-            "group": "Payments & Banking",
+            "group": "Payments & banking",
             "pages": [
               "payments/mollie",
+              "payments/bunq",
               "payments/sepa-direct-debit",
-              "payments/bank-connections"
+              "payments/incasso-batches",
+              "payments/bank-connections",
+              "payments/bank-import",
+              "payments/reconciliation"
+            ]
+          },
+          {
+            "group": "Trip & hours registration",
+            "pages": [
+              "registration/overview",
+              "registration/vehicles",
+              "registration/trips",
+              "registration/hours"
+            ]
+          },
+          {
+            "group": "Productivity",
+            "pages": [
+              "productivity/tasks",
+              "productivity/inbox",
+              "productivity/statistics"
             ]
           },
           {
             "group": "Integrations",
             "pages": [
+              "integrations/overview",
               "integrations/exact-online",
+              "integrations/minox",
               "integrations/sharepoint",
               "integrations/email-domain"
             ]
           },
           {
-            "group": "Settings",
+            "group": "Account & settings",
             "pages": [
               "settings/administrations",
-              "settings/email-templates",
               "settings/branding",
-              "settings/users-and-roles"
+              "settings/email-templates",
+              "settings/languages",
+              "settings/users-and-roles",
+              "settings/profile-security",
+              "settings/credits",
+              "settings/account-billing"
+            ]
+          },
+          {
+            "group": "Help & resources",
+            "pages": [
+              "support",
+              "glossary"
             ]
           }
         ]

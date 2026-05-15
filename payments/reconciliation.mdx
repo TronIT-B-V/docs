@@ -1,0 +1,115 @@
+---
+title: "Reconcile bank transactions with invoices"
+description: "Match imported bank transactions to outstanding invoices in TRONVoice — automatically or manually — so that paid invoices are marked as paid."
+---
+
+Reconciliation is the process of linking incoming bank transactions to the invoices they pay. When a transaction is matched to an invoice, TRONVoice marks that invoice as paid — so you never have to update invoice statuses by hand.
+
+Transactions reach the reconciliation screen from an automatic [bank connection](/payments/bank-connections) or a manual [MT940 import](/payments/bank-import). The matching logic is the same regardless of how they arrived.
+
+---
+
+## The bank transactions screen
+
+Go to **Payments → Bank transactions** to open the reconciliation screen. It is organized into three tabs:
+
+| Tab | Dutch label | What it shows |
+|---|---|---|
+| **To process** | Te verwerken | Unmatched transactions that still need attention |
+| **Partially processed** | Gedeeltelijk verwerkt | Transactions matched to invoices but with an amount still unaccounted for |
+| **Processed** | Verwerkt | Transactions that are fully matched or ignored |
+
+Counters at the top show how many transactions are in each state. You can search by description, counterparty, payment reference, or IBAN, and filter by transaction type.
+
+<Note>
+  Only **credit** (incoming) transactions can be matched to invoices. Debit (outgoing) transactions appear in the list but are not matched against your sales invoices.
+</Note>
+
+---
+
+## Automatic matching
+
+When transactions are imported — by sync or MT940 import — TRONVoice tries to match each incoming payment to a sent invoice. To avoid linking a payment to the wrong client, it only matches on strong signals, in this order:
+
+1. **Invoice number in the description** plus an exact amount match
+2. **Payment reference** (betalingskenmerk) matching an invoice number, plus an exact amount match
+3. **Exact client name** matching the counterparty, plus an exact amount match — only when exactly one invoice qualifies
+
+Amount-only matching is deliberately excluded: if two clients have invoices for the same amount, TRONVoice leaves the transaction for you to match manually rather than guessing. When a transaction matches, the linked invoice is immediately marked as paid and the transaction moves to the **Processed** tab with status **Automatic** (**Automatisch**).
+
+---
+
+## Manual matching
+
+Transactions that auto-matching could not resolve stay in the **To process** tab. Match them yourself:
+
+<Steps>
+  <Step title="Open the transaction">
+    Click **Match** (**Matchen**) on a transaction in the **To process** tab.
+  </Step>
+  <Step title="Pick from the suggested invoices">
+    TRONVoice shows a ranked list of likely invoices. Each suggestion is scored on the invoice number appearing in the description or reference, the client's IBAN matching the counterparty, the client name, and how closely the amount matches. The strongest matches appear first.
+  </Step>
+  <Step title="Confirm the match">
+    Select the correct invoice. The matched amount defaults to the invoice's outstanding amount; adjust it for a partial payment if needed. Confirm to link the invoice and mark it as paid.
+  </Step>
+  <Step title="Match more if needed">
+    If the transaction still has an unmatched remainder, TRONVoice keeps the match screen open so you can link another invoice.
+  </Step>
+</Steps>
+
+### One transaction, multiple invoices
+
+A single bank transfer often pays several invoices at once. You can match one transaction to multiple invoices — TRONVoice tracks the remaining amount and shows it after each match. The transaction is fully processed once the remainder reaches zero.
+
+### One invoice, multiple transactions
+
+The reverse also works: an invoice paid in installments can be matched across several transactions. Each transaction covers part of the invoice's outstanding amount, and the invoice is marked as paid only once the full amount is covered. Until then, the transactions appear under **Partially processed**.
+
+---
+
+## Ignore a transaction
+
+Not every transaction relates to an invoice — bank fees, internal transfers, and refunds, for example. Click **Ignore** (**Negeren**) to move such a transaction to the **Processed** tab without matching it. Ignored transactions no longer clutter your **To process** list.
+
+You can restore an ignored transaction at any time to match it later. Open it from the **Processed** tab and un-ignore it — it returns to **To process** as unmatched.
+
+---
+
+## Unmatch a transaction
+
+If a transaction was matched to the wrong invoice — automatically or manually — you can undo it:
+
+- **Remove a single invoice** — when a transaction is matched to several invoices, detach just one. The remaining amount becomes available to match again.
+- **Unmatch completely** — remove all matches at once and return the transaction to the unmatched state.
+
+When you unmatch an invoice, its paid status is reverted so it shows as outstanding again.
+
+---
+
+## Bulk actions
+
+The **To process** tab supports actions on multiple transactions at once. Select transactions with their checkboxes, then:
+
+- **Bulk ignore** — mark all selected unmatched transactions as ignored in one step
+- **Bulk delete** — permanently delete the selected transactions
+
+<Warning>
+  Bulk delete permanently removes transactions and cannot be undone. Invoices already marked as paid by those transactions keep their paid status, but the link to the transaction is lost.
+</Warning>
+
+---
+
+## How a match marks an invoice as paid
+
+When a transaction is matched to an invoice, TRONVoice records a payment against that invoice for the matched amount. Once the recorded payments cover the invoice total, the invoice status becomes **Paid**.
+
+- A **full match** marks the invoice as paid immediately.
+- A **partial match** records part of the amount; the invoice stays open until the rest is matched.
+- **Unmatching** reverses the recorded payment, so the invoice reflects what is actually outstanding.
+
+This keeps your invoice statuses in sync with what your bank account actually received — no manual status changes required.
+
+<Tip>
+  Encourage clients to include the invoice number in their payment description or reference. It is the strongest matching signal and lets TRONVoice reconcile most payments automatically.
+</Tip>

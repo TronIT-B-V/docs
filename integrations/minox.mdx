@@ -1,0 +1,112 @@
+---
+title: "Connect Minox to TRONVoice"
+description: "Sync invoices and clients automatically between TRONVoice and the Minox accounting package via a secure OAuth connection configured per administration."
+---
+
+Minox is a Dutch online accounting package. Connect TRONVoice to Minox to push your invoices automatically as bookkeeping entries, receive payment status updates in return, and import your clients. The integration is configured per administration, so you can link multiple Minox environments from a single TRONVoice account.
+
+<Info>
+  The Minox integration is rolling out. On the **Integraties** (Integrations) screen it may currently appear marked **Binnenkort** (Coming soon). The steps below describe how the connection works once it is enabled for your account.
+</Info>
+
+<Note>
+  The Minox integration is a per-administration setting. If you have multiple administrations, set up the connection separately for each one.
+</Note>
+
+## Connect Minox
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Settings → Integrations** and select the administration you want to connect. Click the **Boekhouding** (Accounting) tab.
+  </Step>
+  <Step title="Start the connection">
+    Click the **Minox** card and choose **Connect**. You are redirected to the Minox login page.
+  </Step>
+  <Step title="Authorize TRONVoice">
+    Log in with your Minox account and grant TRONVoice access. After approval, you are returned to TRONVoice automatically.
+  </Step>
+  <Step title="Select a tenant and administration">
+    After connecting, choose the Minox **tenant** and **administration** that TRONVoice should sync invoices with. If your Minox account has access to linked tenants, they are all available for selection.
+  </Step>
+  <Step title="Configure ledger accounts and VAT codes">
+    Map the ledger accounts (grootboekrekeningen), journals (dagboeken), and VAT codes (BTW-codes) TRONVoice should use when creating entries. You can set separate accounts and VAT codes for 21%, 9%, 0%, EU, and non-EU sales.
+  </Step>
+  <Step title="Save">
+    Click **Save**. Synchronization is now active.
+  </Step>
+</Steps>
+
+<Tip>
+  TRONVoice retrieves the available ledger accounts, journals, and VAT codes directly from your selected Minox administration, so you select from your own real chart of accounts.
+</Tip>
+
+## What syncs
+
+### Invoices to Minox
+
+When an invoice in TRONVoice changes status to **Sent**, TRONVoice automatically creates a bookkeeping entry in Minox. The entry uses double-entry bookkeeping: the customer account is debited for the total including VAT, and your revenue ledger accounts are credited per invoice line with the matching VAT code.
+
+The invoice PDF is attached to the entry, and TRONVoice stores the Minox reference on the invoice so both systems always point to the same record. Credit invoices are booked as reversals.
+
+### Payment status back to TRONVoice
+
+TRONVoice periodically checks whether invoices have been settled in Minox. When the open item for an invoice reaches a zero balance, the status in TRONVoice is updated to **Paid** automatically.
+
+### Client sync
+
+When you send an invoice, TRONVoice makes sure the client exists in Minox first. Existing Minox customers are matched by VAT number or KvK number to avoid duplicates; if no match is found, the client is created.
+
+## Import clients from Minox
+
+You can import your existing customer data from Minox into TRONVoice using a guided wizard.
+
+<Steps>
+  <Step title="Open the import wizard">
+    Go to **Settings → Integrations → Boekhouding → Minox** and click **Import clients**.
+  </Step>
+  <Step title="Fetch customers">
+    TRONVoice retrieves all customers from your selected Minox administration. Large customer lists are loaded fully across multiple pages.
+  </Step>
+  <Step title="Review and select">
+    Each customer is shown with a duplicate check. TRONVoice flags customers that already exist by Minox ID, VAT number, or KvK number. New customers with a name are pre-selected.
+
+    Use **Select all**, **Select only new**, or **Deselect all** to adjust your selection, or toggle individual rows.
+  </Step>
+  <Step title="Run the import">
+    Click to import the selected customers. After the import, you see how many clients were **created**, **linked** to an existing TRONVoice client, **skipped**, and how many had errors.
+  </Step>
+</Steps>
+
+<Tip>
+  Existing TRONVoice clients with the same VAT number or KvK number as a Minox customer are automatically linked — they are not created again.
+</Tip>
+
+## Disconnect
+
+Go to **Settings → Integrations → Boekhouding → Minox** and click **Disconnect**. The access tokens, tenant, and administration selection are removed and synchronization stops. Invoices already exported to Minox are not affected.
+
+<Warning>
+  You cannot have Minox and Exact Online active at the same time. Disconnect the existing accounting integration before activating another one.
+</Warning>
+
+## Troubleshooting
+
+### The connection is broken or authorization fails
+
+Minox access tokens have a limited lifetime. TRONVoice renews them automatically in the background. If renewal fails — for example because you revoked access in Minox — the connection is removed. Work through the [connection steps](#connect-minox) again to re-establish it.
+
+### "Tenant access denied"
+
+If TRONVoice reports that the tenant is not allowed, your Minox token does not have permission for the selected tenant. Disconnect and reconnect Minox, making sure you grant access to all the tenants and permissions TRONVoice requests.
+
+### An invoice was not exported to Minox
+
+Check the following:
+
+- The invoice has status **Sent** — draft invoices are not synced.
+- A tenant and administration are selected in the Minox settings.
+- The Minox connection has full write access to the selected administration. If permissions are missing, reconnect Minox.
+
+### Payment status is not updating
+
+TRONVoice syncs payment statuses automatically. If an invoice is settled in Minox but the status in TRONVoice has not changed, wait a few hours for the next sync to run. If the issue persists, check that the connection is still active.

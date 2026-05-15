@@ -1,0 +1,93 @@
+---
+title: "Quote templates in TRONVoice"
+description: "Create reusable quote templates with predefined line items and PDF attachments, then apply them to new quotes in seconds."
+---
+
+A quote template (**offerte template**) is a saved set of line items, plus an optional cover page and appendix PDF. When you regularly send similar proposals, a template lets you build a new quote in seconds instead of re-entering everything by hand.
+
+Templates belong to a single administration and are shared across everyone who works in it.
+
+## Creating a template
+
+Templates are managed per administration. Go to **Settings → Quote templates** (the **offerte-templates** page for the administration) and click **New template**.
+
+<Steps>
+  <Step title="Name the template">
+    Enter a **Name** (**Naam**) that describes what the template is for, such as `Maintenance contract` or `Standard website project`. The name is internal — clients never see it.
+  </Step>
+
+  <Step title="Add line items">
+    Build the line list that should be pre-filled on every quote made from this template. For each line you can set:
+
+    - **Description** (**Omschrijving**) — what you're offering. You can also pick a product from your catalogue to fill the description, unit, and price automatically.
+    - **Quantity and unit** (**Aantal** / **Eenheid**) — for example, `10` `hours`
+    - **Unit price** (**Eenheidsprijs**)
+    - **VAT rate** (**BTW**) — per line: a percentage, **reversed** (**verlegd**), or **exempt** (**vrijgesteld**)
+    - **Discount** (**Korting**) — a percentage off that line
+    - **Location group** (**Locatiegroep**) — to group lines under a header in the PDF
+
+    You can also add **note lines** (**notitieregels**) — text-only lines that appear between items without affecting the totals.
+
+    <Tip>
+      Lines can be reordered by dragging, duplicated, and edited at any time. The order you set here is the order they load into a new quote.
+    </Tip>
+  </Step>
+
+  <Step title="Choose whether to show line items">
+    Enable **Hide quote lines** (**Verberg offerteregels**) if this template is for a fixed-price proposal where you don't want the itemised lines printed on the PDF. The lines still drive the totals — they just aren't shown.
+  </Step>
+
+  <Step title="Attach a cover page and appendix (optional)">
+    Upload a **Cover page PDF** (**Voorblad**) to print before the quote, and an **Appendix PDF** (**Bijlage**) to print after it. Both must be PDF files of up to 10 MB. Use these for branded intro pages, terms and conditions, or portfolio material.
+  </Step>
+
+  <Step title="Set the active status">
+    Leave **Active** (**Actief**) enabled so the template appears in the template picker when creating a quote. Inactive templates are kept but hidden from that list.
+  </Step>
+
+  <Step title="Save">
+    Click **Save**. The template is now available for new quotes in this administration.
+  </Step>
+</Steps>
+
+## Using a template when creating a quote
+
+When you create a new quote, a **Template** selector appears once an administration is chosen.
+
+<Steps>
+  <Step title="Select the template">
+    In the quote creator, pick a template from the **Template** dropdown. Only active templates from the selected administration are listed.
+  </Step>
+  <Step title="Lines and files load in">
+    TRONVoice copies the template's line items into the quote, sets the show/hide line items option from the template, and attaches the cover page and appendix PDFs.
+  </Step>
+  <Step title="Adjust as needed">
+    The copied lines are now an ordinary part of the quote. Edit, add, remove, or reorder them freely — the template is not affected by anything you change here.
+  </Step>
+</Steps>
+
+<Note>
+Applying a template **copies** its content into the quote. Later edits to the template do not change quotes that were already created from it, and edits to the quote do not change the template.
+</Note>
+
+## Managing templates
+
+From the **Quote templates** list you can:
+
+<CardGroup cols={3}>
+  <Card title="Edit" icon="pencil">
+    Open a template to change its name, lines, PDFs, or active status.
+  </Card>
+  <Card title="Duplicate" icon="copy">
+    Create a copy named `… (Kopie)`. The cover page and appendix PDFs are copied too — useful for building a variant.
+  </Card>
+  <Card title="Delete" icon="trash-2">
+    Remove a template you no longer need. Deleting also removes its attached PDF files.
+  </Card>
+</CardGroup>
+
+The list shows each template's name and how many lines it contains.
+
+<Warning>
+Deleting a template is permanent and removes its cover page and appendix PDFs from storage. Quotes already created from the template keep their copied content and are not affected.
+</Warning>

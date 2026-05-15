@@ -1,0 +1,170 @@
+---
+title: "Your TRONVoice dashboard"
+description: "Get oriented in TRONVoice: understand the dashboard widgets, sidebar navigation, global search, the administration switcher, and your credit balance."
+---
+
+After you log in, TRONVoice takes you to the **Dashboard** — a single overview of what needs your attention and how your business is performing. This page explains what you see and how the app is laid out, so you can find your way around quickly.
+
+## Layout overview
+
+Every screen in TRONVoice shares the same structure:
+
+<Columns cols={3}>
+  <Card title="Sidebar" icon="panel-left">
+    The dark navigation panel on the left. Groups every section of the app.
+  </Card>
+  <Card title="Top bar" icon="layout-panel-top">
+    The white bar at the top. Holds search, the administration switcher, the Nieuw button, and your profile menu.
+  </Card>
+  <Card title="Content area" icon="square">
+    The main panel where the dashboard and every other page is shown.
+  </Card>
+</Columns>
+
+On smaller screens the sidebar is hidden behind a menu button in the top-left corner.
+
+## The sidebar
+
+The sidebar groups the app into clear sections. Click any item to open it.
+
+| Section | Contents |
+|---|---|
+| **Overzicht** (Overview) | **Dashboard** and **Statistieken** (Statistics) |
+| **Relaties** (Relations) | **Klanten** (Clients), **Taken** (Tasks), and **Inbox** |
+| **Verkoop** (Sales) | **Offertes** (Quotes), **Facturen** (Invoices), **Abonnementen** (Subscriptions) |
+| **Catalogus** (Catalogue) | **Producten** (Products), stock, categories, and **Locaties** (Locations) |
+| **Financieel** (Financial) | **Transacties** (Transactions), **Bankverbindingen** (Bank connections), and trip registration |
+| **Instellingen** (Settings) | Company details, branding, integrations, import/export, and users |
+
+<Note>
+  The sidebar adapts to your account. Sections such as **Incasso** (direct debit) or **Urenregistratie** (time tracking) only appear when the relevant feature is enabled for your administration.
+</Note>
+
+At the bottom of the sidebar you'll find your **Credits** balance and a link to manage your administrations and subscription.
+
+## The credit balance
+
+TRONVoice works on credits — each invoice or quote you send costs a small amount. Your current balance sits at the bottom of the sidebar, in the **Credits** panel.
+
+The panel changes colour to warn you:
+
+| Indicator | Meaning |
+|---|---|
+| White / green | Your balance is healthy. |
+| Amber, **Bijna op** (Almost empty) | Your balance is running low — top up soon. |
+| Red, **Leeg** (Empty) | Your balance is empty. You cannot send invoices until you top up. |
+
+Click the **Credits** panel to top up or to enable auto top-up.
+
+<Tip>
+  Enable **auto top-up** so TRONVoice charges your payment method automatically when your balance drops below a threshold. You'll never be blocked from sending an invoice.
+</Tip>
+
+## Switching administrations
+
+If your account has more than one administration, an **administration switcher** appears in the top bar. It shows the name of the administration you are currently working in.
+
+<Steps>
+  <Step title="Open the switcher">
+    Click the administration name in the top bar.
+  </Step>
+  <Step title="Find an administration">
+    Type in the **Zoek administratie** (Search administration) field to filter the list by name or city.
+  </Step>
+  <Step title="Select one">
+    Click an administration to switch to it. The whole app — clients, invoices, quotes, settings, and search — now reflects that administration only.
+  </Step>
+</Steps>
+
+If you only have one administration, no switcher is shown — everything you do applies to that single set of books.
+
+## Global search
+
+The search field in the top bar searches your entire account at once. Press <kbd>⌘K</kbd> (Mac) or <kbd>Ctrl K</kbd> (Windows) from anywhere to jump straight to it.
+
+Start typing — after two characters, results appear instantly, grouped by type:
+
+- **Administraties** (Administrations)
+- **Klanten** (Clients)
+- **Facturen** (Invoices)
+- **Offertes** (Quotes)
+- **Producten** (Products)
+- **Locaties** (Locations)
+- **Abonnementen** (Subscriptions)
+
+Click any result to open it. Press <kbd>Esc</kbd> to close the results.
+
+<Info>
+  Search respects the administration switcher. When a specific administration is selected, search only looks within it. Administrations themselves are always searched account-wide.
+</Info>
+
+## Dashboard widgets
+
+The dashboard surfaces the things that need action and a snapshot of your numbers. Widgets only appear when they have something to show, so your dashboard stays uncluttered.
+
+### Action widgets
+
+These appear at the top when there's something to do.
+
+<AccordionGroup>
+  <Accordion title="Mijn taken (My tasks)" icon="list-checks">
+    Your open tasks, with their deadline and the client or invoice they relate to. Overdue tasks are flagged in red. Click a task to open it, or use **Nieuwe taak** to add one.
+  </Accordion>
+  <Accordion title="Conceptfacturen (Draft invoices)" icon="file-pen">
+    Invoices saved as drafts that are still waiting to be sent. Each card shows the client and amount. Click one to finish and send it.
+  </Accordion>
+</AccordionGroup>
+
+### Key metrics
+
+A row of four cards summarises your finances:
+
+| Card | What it shows |
+|---|---|
+| **Omzet** (Revenue this month) | Revenue for the current month, with a growth indicator versus last month. |
+| **Openstaand** (Outstanding) | Total value of sent invoices not yet paid. Click to view them. |
+| **Vervallen** (Overdue) | Total value of overdue invoices. Turns red when there are any. |
+| **Totaal** (Year total) | Total revenue for the current year and the number of invoices. |
+
+### Charts and overviews
+
+<CardGroup cols={2}>
+  <Card title="Omzet overzicht" icon="chart-column">
+    A bar chart of your revenue over the last 6 months. Hover or tap a bar to see the exact amount. Includes a quick stat for amounts paid this month.
+  </Card>
+  <Card title="Recente facturen" icon="receipt">
+    Your five most recent invoices, each with its status and amount. A colour-coded icon shows paid, sent, overdue, or credited at a glance.
+  </Card>
+  <Card title="Status overzicht" icon="chart-bar">
+    A breakdown of all invoices by status — concept, sent, overdue, and paid — with a total count.
+  </Card>
+  <Card title="Snelle acties" icon="zap">
+    Shortcut buttons for common tasks, such as creating a new invoice or managing clients.
+  </Card>
+</CardGroup>
+
+### Alert widgets
+
+These appear in the right-hand column only when relevant:
+
+- **Binnenkort vervallen** (Due soon) — sent invoices due within the next 7 days.
+- **Vervallen** (Overdue) — overdue invoices that need follow-up.
+- **Lage voorraad** (Low stock) — products at or below their minimum stock level.
+- **Top administraties** — your highest-earning administrations this year (multi-administration accounts only).
+
+<Tip>
+  An empty dashboard with no alert widgets is good news — it means nothing needs your attention right now.
+</Tip>
+
+## Quick add
+
+The blue **Nieuw** (New) button in the top bar is the fastest way to create something. It opens a menu to add a client, task, invoice, quote, subscription, or product from any page in the app.
+
+## Your profile menu
+
+Click your name or avatar in the top-right corner to open the profile menu. From here you can reach:
+
+- **Mijn profiel** (My profile) — your personal account and security settings.
+- **Account** — your organisation settings (if you have permission).
+- **TRONVoice facturen** — invoices for your own TRONVoice usage.
+- **Uitloggen** (Log out).

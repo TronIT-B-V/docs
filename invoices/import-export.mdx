@@ -1,0 +1,113 @@
+---
+title: "Import and export invoices"
+description: "Import historical invoices from another system into TRONVoice with a guided wizard, and export invoices to Excel or CSV for your accountant."
+---
+
+TRONVoice helps you move invoice data in and out of the platform. You can **import** historical invoices when migrating from another system, and **export** your invoices to Excel or CSV so your accountant can process them.
+
+## Import historical invoices
+
+When you switch to TRONVoice from another invoicing tool, you can import your past invoices as **historical records**. Historical invoices keep your overview and statistics complete without going through the normal draft-to-sent flow.
+
+<Note>
+Historical invoices are **read-only**. They do not consume credits, do not send emails, and cannot be edited after import. They exist purely as a record of invoices issued before you started using TRONVoice.
+</Note>
+
+### Before you start
+
+Prepare an **Excel (.xlsx, .xls)** or **CSV** file with one row per invoice — or one row per invoice line if your export includes line detail. The maximum file size is **10 MB**. TRONVoice can read columns from any system; you map them to TRONVoice fields during the import.
+
+The two fields that must be present are:
+- **Client name** (**Klantnaam**)
+- **Total excl. VAT** (**Totaal excl. BTW**)
+
+Other useful columns include invoice number, invoice date, due date, VAT amount, total incl. VAT, payment status, payment date, reference, and client contact details.
+
+### The import wizard
+
+Open **Invoices → Import historical invoices**. The wizard walks you through six steps.
+
+<Steps>
+  <Step title="Upload">
+    Select your Excel or CSV file and enter the **source system** (**bronsysteem**) — the name of the tool you are migrating from. This is stored with each imported invoice for reference.
+  </Step>
+  <Step title="Map columns">
+    TRONVoice reads the column headers and suggests a matching TRONVoice field for each one. Review the suggestions, adjust any that are wrong, and set unused columns to **-- Niet importeren --** (Do not import). Sample values are shown to help you confirm each mapping.
+  </Step>
+  <Step title="Preview">
+    Check a preview of the rows as TRONVoice interpreted them, so you can catch mapping mistakes before continuing.
+  </Step>
+  <Step title="Match clients">
+    TRONVoice matches each row to an existing client by name. It shows how many rows matched and how many did not. For unmatched rows, choose to either **skip** them or **create** new clients automatically.
+  </Step>
+  <Step title="Select rows">
+    All importable rows are selected by default. Tick or untick individual rows, or use **Select all** / **Deselect all**, to choose exactly which invoices to import.
+  </Step>
+  <Step title="Run the import">
+    Start the import. It runs in the background, and the wizard shows live progress — how many invoices were processed, imported, and skipped, plus any errors.
+  </Step>
+</Steps>
+
+<Tip>
+If your file has one row per invoice line, TRONVoice detects the multi-line layout. In that case the column mapping must also include an invoice grouping column (**Bron factuur ID** or **Factuurnummer**) and a line description, so lines are grouped into the correct invoices.
+</Tip>
+
+<Warning>
+Importing creates real invoice records. Use the **Preview** and **Select rows** steps to verify the data first — there is no bulk undo for an import.
+</Warning>
+
+## Export invoices for your accountant
+
+You can export your invoices to a spreadsheet for bookkeeping or to hand to your accountant.
+
+<Steps>
+  <Step title="Open the export page">
+    Go to **Invoices → Export**. Make sure the correct administration is selected first — exporting is per administration.
+  </Step>
+  <Step title="Set the period">
+    Choose a **start date** and **end date**. Invoices are selected by invoice date. The period can be at most **3 years**; for longer histories, export in several passes.
+  </Step>
+  <Step title="Choose a status filter">
+    Pick which invoices to include:
+
+    | Option | Includes |
+    |---|---|
+    | **All** | Sent, paid, and overdue invoices |
+    | **Sent only** | Only invoices with the Sent status |
+    | **Paid only** | Only paid invoices |
+    | **Overdue only** | Only overdue invoices |
+  </Step>
+  <Step title="Choose the export type">
+    Select what each row represents:
+    - **Invoices** — one row per invoice, with VAT split into per-rate columns.
+    - **Invoice lines** — one row per invoice line, for detailed per-line analysis.
+  </Step>
+  <Step title="Choose the format and download">
+    Pick **Excel (.xlsx)** or **CSV** and download the file.
+  </Step>
+</Steps>
+
+<Note>
+Draft (**concept**) invoices are never included in an export — they have no fiscal meaning. The export always covers sent, paid, and overdue invoices within your selected period.
+</Note>
+
+### What the export contains
+
+The **Invoices** export has one row per invoice with these columns:
+
+| Column | Description |
+|---|---|
+| Invoice number, dates | Invoice number, invoice date, due date |
+| Client | Client name, KvK number, VAT number, reference |
+| Amounts | Subtotal excl. VAT, VAT per rate (21%, 9%, 0%, other) |
+| VAT detail | Reverse charge base, VAT-exempt base, total VAT |
+| Total | Total incl. VAT, currency |
+| Status | Status, payment date, whether it is a credit invoice |
+
+The **Invoice lines** export expands each invoice into its individual line items, so your accountant can analyse descriptions, quantities, prices, and per-line VAT. Note-only lines are excluded.
+
+## What's next
+
+- [Create an invoice](/invoices/create)
+- [E-invoicing and PDF export](/invoices/e-invoicing)
+- [Invoices overview](/invoices/overview)

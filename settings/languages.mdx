@@ -1,0 +1,102 @@
+---
+title: "Languages: multilingual invoicing and date formats"
+description: "Produce invoices, quotes, and emails in Dutch, English, German, French, or Spanish, and choose the date format that fits each market."
+---
+
+TRONVoice can produce your invoices, credit notes, quotes, and outgoing emails in five languages — Dutch, English, German, French, and Spanish. Each client can receive documents in their own language, while you keep working in your own.
+
+You set a **default document language** and a **date format** per administration, and you can override the language **per client**. When you send a document, TRONVoice automatically picks the right language for that client.
+
+## Supported languages
+
+TRONVoice supports the following five languages for invoice and quote PDFs and for outgoing emails:
+
+| Code | Language |
+|---|---|
+| `nl` | Nederlands |
+| `en` | English |
+| `de` | Deutsch |
+| `fr` | Français |
+| `es` | Español |
+
+## Set the administration default language
+
+The default language is used for every client who has no preferred language of their own. New administrations default to **Nederlands**.
+
+<Steps>
+  <Step title="Open administration settings">
+    Go to **Settings → Administration → Edit** for the administration you want to configure.
+  </Step>
+  <Step title="Choose the default language">
+    Select a language under **Standaardtaal** (default language). This becomes the fallback language for all documents in this administration.
+  </Step>
+  <Step title="Save">
+    Click **Save**. The change applies to documents you create from this point onward.
+  </Step>
+</Steps>
+
+## Set a preferred language per client
+
+You can give an individual client a preferred language. **The client's language always overrides the administration default**, so each client receives documents in their own language without any extra steps.
+
+<Steps>
+  <Step title="Open the client">
+    Go to **Clients**, open the client you want to configure, and click **Edit**.
+  </Step>
+  <Step title="Choose the client language">
+    Select a language under **Taal** (language). Leave it empty to let the client follow the administration's default language.
+  </Step>
+  <Step title="Save">
+    Click **Save**. All future invoices, quotes, and emails for this client use the selected language.
+  </Step>
+</Steps>
+
+<Info>
+  TRONVoice resolves the language for a document in this order:
+
+  1. The client's preferred language, if one is set.
+  2. The administration's default language.
+  3. Dutch (`nl`), as the final fallback.
+</Info>
+
+## How the language affects documents
+
+The resolved language is applied across the whole document, not just the body text.
+
+<CardGroup cols={2}>
+  <Card title="Invoice and quote PDFs" icon="file-text">
+    Field labels, headings, payment terms, and VAT notices on the PDF are rendered in the client's language. Long-format dates use localised month names.
+  </Card>
+  <Card title="Outgoing emails" icon="mail">
+    The email that accompanies the document uses the matching email template translation for that language.
+  </Card>
+</CardGroup>
+
+### Emails use the matching template translation
+
+Email templates are stored per language. When TRONVoice sends an invoice, quote, reminder, or other notification, it loads the template in the client's resolved language. If no custom template exists for that language, the built-in default template for that language is used.
+
+<Tip>
+  You only need to customise the email templates for the languages your clients actually use. See [Email templates](/settings/email-templates) for how to edit the subject and body per language.
+</Tip>
+
+## Date formats
+
+The date format controls how dates such as the invoice date and due date are printed on PDFs. It is set per administration under **Settings → Administration → Edit** and defaults to `DD-MM-JJJJ`.
+
+| Format | Example |
+|---|---|
+| `DD-MM-JJJJ` | 15-01-2026 |
+| `DD/MM/JJJJ` | 15/01/2026 |
+| `DD.MM.JJJJ` | 15.01.2026 |
+| `MM/DD/JJJJ` | 01/15/2026 |
+| `JJJJ-MM-DD` | 2026-01-15 |
+| `DD Maand JJJJ` | 15 januari 2026 |
+
+<Note>
+  The long **DD Maand JJJJ** format writes the month name in full. The month name is automatically translated into the document's language — for example `15 januari 2026` in Dutch becomes `15 January 2026` in English.
+</Note>
+
+<Warning>
+  The date format applies to the whole administration. It is not set per client, so all clients in the same administration share the same date format. Use a per-client language if you only need to change the document language.
+</Warning>

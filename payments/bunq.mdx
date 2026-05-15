@@ -1,0 +1,91 @@
+---
+title: "Accept payments with bunq.me"
+description: "Add a free bunq.me payment link to your invoices so clients pay via iDEAL with no transaction fees and the money lands straight in your bunq account."
+---
+
+bunq.me payment links give your clients a fast way to pay an invoice via iDEAL — without any transaction fees. The link points directly to your personal bunq.me page, so the money arrives straight in your bunq account. There is nothing to set up beyond entering your bunq.me username.
+
+<Note>
+  bunq.me is configured **per administration** on the **Integraties** (Integrations) screen, under the **Betalingen** (Payments) tab. If you have multiple administrations, enable it separately for each one.
+</Note>
+
+## What is bunq.me
+
+bunq.me is a free payment-request feature from the Dutch bank bunq. Every bunq account comes with a personal link in the form `bunq.me/your-name`. When TRONVoice generates an invoice, it builds a bunq.me link with the invoice total and invoice number already filled in. Your client opens the link, pays via iDEAL, and the payment goes directly to your bunq account.
+
+Because the payment runs through your own bunq.me page, **bunq does not charge transaction fees** for bunq.me payments — unlike most payment service providers.
+
+## Enable bunq.me
+
+<Steps>
+  <Step title="Open the Integraties screen">
+    Go to **Settings → Integrations** and select the administration you want to configure. Open the **Betalingen** (Payments) tab.
+  </Step>
+  <Step title="Open the bunq card">
+    Click the **bunq** card. If another payment provider is already active for this administration, you see a warning — only one payment provider can be active at a time (see [bunq.me vs Mollie](#bunqme-vs-mollie)).
+  </Step>
+  <Step title="Enter your bunq.me username">
+    Type the username from your bunq.me link in the **bunq.me gebruikersnaam** (bunq.me username) field. This is the part after `bunq.me/` — for example, in `bunq.me/yourcompany` the username is `yourcompany`. The username may contain letters, numbers, dashes, and underscores.
+  </Step>
+  <Step title="Activate">
+    Click **Activeren** (Activate). bunq.me is now the payment provider for this administration.
+  </Step>
+</Steps>
+
+<Tip>
+  After activating, the bunq card shows a **test betaallink** (test payment link) for €100,00. Open it to confirm your username is correct and your bunq.me page loads as expected.
+</Tip>
+
+## How the payment link appears
+
+Once bunq.me is enabled, every **sent** invoice for that administration gets a bunq.me payment link automatically. The link encodes:
+
+- **Your bunq.me username** — so the payment goes to your account.
+- **The invoice total** — the full amount due, including VAT.
+- **The invoice number** — used as the payment description, so you can match the incoming payment to the invoice.
+
+The link is reachable in two places:
+
+- **In the invoice email** — when you send an invoice, the email includes a button to view and pay the invoice online.
+- **On the public invoice page** — the client opens the invoice in their browser and clicks the bunq.me payment button to pay directly via iDEAL.
+
+A client can only pay an invoice online while it is in the **Sent** status. Draft invoices, credit invoices, and invoices with a zero or negative total do not show a payment button.
+
+## bunq.me vs Mollie
+
+An administration uses **either** Mollie **or** bunq.me as its payment provider — not both. When you activate one, the other is switched off automatically. The two options behave differently:
+
+| | bunq.me | Mollie |
+| --- | --- | --- |
+| Setup | Enter your bunq.me username | Connect a Mollie account |
+| Transaction fees | None | Per Mollie's pricing |
+| Payment methods | iDEAL | iDEAL, credit card, Bancontact, and more |
+| Invoice status update | Manual — see below | Automatic via webhook |
+
+The key difference is status tracking. [Mollie](/payments/mollie) notifies TRONVoice through a webhook and marks the invoice **Paid** automatically within seconds. A bunq.me link is a plain payment link with **no automatic status update** — TRONVoice has no way to know when a bunq.me payment is completed.
+
+<Warning>
+  When a client pays via a bunq.me link, the invoice stays **Sent** until you reconcile it. Check your bunq account for the incoming payment, then mark the invoice as paid in TRONVoice — either manually or through bank reconciliation.
+</Warning>
+
+Because the invoice number is included as the payment description, an incoming bunq.me payment is easy to match. If your administration also has a bank connection, the payment can be matched automatically during reconciliation. See [Reconcile payments](/payments/reconciliation) for how to mark invoices as paid.
+
+## Change your username or disconnect
+
+To update the username, open the **bunq** card, edit the **bunq.me gebruikersnaam** field, and click **Opslaan** (Save).
+
+To turn the integration off, open the card and click **Koppeling verwijderen** (Remove connection). The username is cleared and new invoices no longer include a bunq.me link. Invoices already sent are not affected.
+
+## Troubleshooting
+
+**The bunq.me link does not appear on an invoice**
+
+Check that the invoice has the **Sent** status and a positive total, and that bunq.me is activated for that administration. Draft and credit invoices never show a payment link.
+
+**A client paid but the invoice still shows as Sent**
+
+This is expected. bunq.me links do not report payment status back to TRONVoice. Confirm the payment in your bunq account and mark the invoice as paid — see [Reconcile payments](/payments/reconciliation).
+
+**The payment page shows the wrong amount or name**
+
+The amount comes from the invoice total and the name from your saved bunq.me username. Open the **bunq** card and verify the username matches your bunq.me link exactly.

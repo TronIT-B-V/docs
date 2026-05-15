@@ -1,0 +1,66 @@
+---
+title: "Trip and hours registration"
+description: "An overview of TRONVoice registration tools: log business kilometres for your mileage administration, manage vehicles, save favourite routes, and register subcontractor hours."
+---
+
+Alongside invoicing, TRONVoice includes a set of registration tools that help you keep accurate records for the Dutch tax authorities. Use them to log the kilometres you drive, manage your vehicles, and — when subcontractors are enabled — register worked hours.
+
+You can find these features under **Rittenregistratie** (Trip registration) in the sidebar.
+
+## What trip registration is for
+
+The Dutch tax authorities require a complete and verifiable **kilometeradministratie** (mileage administration) when you use a vehicle for both business and private travel. For company cars, an accurate trip log is what lets you avoid or substantiate the *bijtelling* (taxable benefit). For private cars used for business, a trip log substantiates the €0.23 per kilometre allowance you can declare.
+
+TRONVoice's trip registration keeps a per-trip record of the date, route, distance, and whether each trip was business (**zakelijk**) or private (**privé**). You can export the full log at any time as a spreadsheet for your accountant or for your tax records.
+
+## The building blocks
+
+<CardGroup cols={3}>
+  <Card title="Vehicles" icon="car" href="/registration/vehicles">
+    Register each vehicle you drive. A built-in RDW lookup fills in the make, model, and type from just the license plate.
+  </Card>
+  <Card title="Trips" icon="route" href="/registration/trips">
+    Log each journey with its route and distance, classify it as business or private, and export the log for tax.
+  </Card>
+  <Card title="Favourite routes" icon="star" href="/registration/trips#favourite-routes">
+    Save routes you drive often so you can register a trip in one click instead of retyping addresses.
+  </Card>
+</CardGroup>
+
+### Vehicles (Voertuigen)
+
+Every trip is linked to a **voertuig** (vehicle). Before you can log trips, register at least one vehicle. TRONVoice looks up the vehicle's details from the **RDW** (the Dutch vehicle authority) using its **kenteken** (license plate), so you only need to type the plate.
+
+A vehicle is marked as either **zakelijk** (business) or **privé** (private). This determines how trips for that vehicle are logged — business vehicles track odometer readings, while private vehicles record distance directly. See [Managing vehicles](/registration/vehicles).
+
+### Trips (Ritten)
+
+A **rit** (trip) is a single journey from a departure address to an arrival address on a given date. Each trip records the distance driven and is classified as business or private. You can also link a trip to a client and add a description of its purpose. See [Logging trips](/registration/trips).
+
+### Favourite routes (Favoriete routes)
+
+If you regularly drive the same journey, save it as a **favoriete route** (favourite route). A favourite route stores the departure and arrival addresses, distance, trip type, and optionally a client. From then on you can create a fully pre-filled trip from that route with a single click. See [Favourite routes](/registration/trips#favourite-routes).
+
+## What hours registration is for
+
+**Urenregistratie** (Hours registration) is a separate tool for businesses that work with subcontractors. It lets you log the hours your subcontractors worked each week in a weekly grid, approve them, and turn approved hours into invoices automatically.
+
+<Note>
+  Hours registration is only available when **subcontractors** (onderaannemers) are enabled for your organisation. If you do not see a **Uren** (Hours) item in the navigation, this feature is not active for your account.
+</Note>
+
+See [Hours registration](/registration/hours) for the full workflow.
+
+## Getting started
+
+<Steps>
+  <Step title="Add your vehicles">
+    Register each car, van, or motorcycle you use. The [RDW lookup](/registration/vehicles#rdw-license-plate-lookup) does most of the typing for you.
+  </Step>
+  <Step title="Log your trips">
+    Record each journey as you drive it, or in batches. [Save favourite routes](/registration/trips#favourite-routes) for journeys you repeat.
+  </Step>
+  <Step title="Export for your accountant">
+    At the end of a period, [export the trip log](/registration/trips#exporting-your-trip-log) as a spreadsheet for your records.
+  </Step>
+</Steps>

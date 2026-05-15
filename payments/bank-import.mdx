@@ -1,0 +1,100 @@
+---
+title: "Import bank statements with MT940 files"
+description: "Manually upload MT940 bank statement files to import transactions into TRONVoice when you do not use an automatic Ponto bank connection."
+---
+
+If you don't use an automatic [bank connection](/payments/bank-connections), you can still bring your transactions into TRONVoice by importing **MT940** bank statement files. MT940 is the standard statement export format supported by virtually all Dutch banks.
+
+Once imported, transactions behave exactly like those from a live connection — TRONVoice auto-matches them to invoices and you can reconcile the rest manually. See [Reconcile bank transactions](/payments/reconciliation) for how matching works.
+
+<Tip>
+  An automatic Ponto connection keeps your transactions up to date without any manual steps. Use MT940 import if your bank is not supported by Ponto, or if you prefer not to grant a live connection.
+</Tip>
+
+---
+
+## Export an MT940 file from your bank
+
+Log in to your bank's online banking portal and export a statement in **MT940** format. The exact menu wording differs per bank, but it is usually found under statements, downloads, or exports. Most Dutch banks — ING, Rabobank, ABN AMRO, SNS, and others — offer MT940 export.
+
+<Note>
+  TRONVoice also accepts MT942 and SWIFT-structured statement files. The format is detected automatically when you upload — you do not need to choose it.
+</Note>
+
+---
+
+## Import the file
+
+<Steps>
+  <Step title="Go to the import page">
+    Navigate to **Payments → Bank transactions** and click **Import** (**Importeren**).
+  </Step>
+  <Step title="Select the administration">
+    Choose the **administratie** the transactions belong to. If you have only one administration, it is selected for you.
+  </Step>
+  <Step title="Upload the MT940 file">
+    Select your MT940 file. The maximum file size is **10 MB**.
+  </Step>
+  <Step title="Start the import">
+    Click **Import**. TRONVoice parses the file, imports the transactions, and immediately runs auto-matching.
+  </Step>
+  <Step title="Review the result">
+    A summary tells you how many transactions were imported, how many were automatically matched, and how many still need matching. Any parsing errors are reported in the same message.
+  </Step>
+</Steps>
+
+After import you land on the **Bank transactions** screen, filtered to the administration you imported into.
+
+---
+
+## What gets imported
+
+For each transaction in the file, TRONVoice reads and stores:
+
+- **Transaction date** and value date
+- **Amount** and **type** — credit (incoming) or debit (outgoing)
+- **Counterparty** account (IBAN) and counterparty name
+- **Description** and **payment reference** (betalingskenmerk), extracted from the statement's structured detail fields
+
+TRONVoice also tries to find an invoice number inside the description so the transaction can be matched automatically.
+
+### Duplicate protection
+
+Each import is grouped into an **import batch**. Before saving a transaction, TRONVoice checks for an existing transaction with the same date, amount, type, and bank reference. Matching transactions are skipped, so importing overlapping statement periods does not create duplicates.
+
+<Note>
+  After importing, TRONVoice runs auto-matching on the new credit transactions. Incoming payments that reference an invoice number, payment reference, or exact client name are matched and the invoice is marked as paid. See [Reconcile bank transactions](/payments/reconciliation) for the full matching logic.
+</Note>
+
+---
+
+## Manage imported batches
+
+The import page lists your **recent imports** for the selected administration — the five most recent import batches, each showing when it ran and how many transactions it contained.
+
+### Delete an import batch
+
+If you imported the wrong file or the wrong period, you can delete an entire import batch. This removes every transaction from that import in one action. Invoices that were marked as paid by matched transactions are not changed.
+
+<Warning>
+  Deleting an import batch permanently removes all of its transactions. This cannot be undone. To remove only a few transactions, delete them individually from the **Bank transactions** screen instead.
+</Warning>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="No transactions were found in the file">
+    The file may not be a valid MT940 statement, or it may be empty. Re-export the statement from your bank and confirm you selected MT940 (not PDF, CSV, or CAMT) as the export format.
+  </Accordion>
+  <Accordion title="Some transactions were skipped as duplicates">
+    This is expected when the statement period overlaps with an earlier import. Skipped transactions already exist in TRONVoice, so nothing is lost.
+  </Accordion>
+  <Accordion title="A transaction imported but has no counterparty or reference">
+    Banks structure the description field differently, and some details cannot always be extracted. The transaction is still imported with its date and amount — you can match it manually.
+  </Accordion>
+  <Accordion title="The file is larger than 10 MB">
+    Export a shorter date range from your bank and import the statements one period at a time. Duplicate protection prevents overlap from causing problems.
+  </Accordion>
+</AccordionGroup>

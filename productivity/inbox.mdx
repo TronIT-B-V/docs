@@ -1,0 +1,99 @@
+---
+title: "The Inbox: receive client email in TRONVoice"
+description: "Receive replies and inbound email at your administration's email address, view messages and attachments, and turn them into dossier files or invoices."
+---
+
+The **Inbox** collects inbound email sent to your administration's email address. When a client replies to an invoice email — or sends anything to your TRONVoice address — the message and its attachments arrive here, so all correspondence stays alongside your invoices and clients.
+
+## How the inbox receives email
+
+Each administration has its own inbound email address. Email sent to that address is delivered to TRONVoice through the Lettermint inbound webhook, which parses the message and stores it as an inbox message together with any attachments.
+
+Inbound email works hand in hand with the custom email domain integration: when you send invoices from your own domain, client replies are routed straight back into this inbox. See [Send invoices from your own email domain](/integrations/email-domain) to set up a custom sender address.
+
+<Note>
+  The inbox address is per administration. If you have multiple administrations, each one has its own address and its own inbox. Switch administrations to see the messages for each.
+</Note>
+
+<Info>
+  When a new message arrives, TRONVoice notifies the users in your organisation who have inbox email notifications enabled in their notification preferences.
+</Info>
+
+## Viewing messages
+
+Go to **Inbox** in the main navigation to see all messages for the current administration, newest first. Each row shows the sender, subject, a short preview of the message, the time it was received, and an indicator if it has attachments.
+
+Click a message to open it. The full view shows:
+
+- The sender name and email address.
+- The subject and received date.
+- The message body, rendered as HTML where available (inline images are displayed in place) or as plain text.
+- A list of attachments.
+
+Opening an unread message marks it as read automatically.
+
+## Read and unread
+
+Messages are either **unread** (Ongelezen) or **read** (Gelezen). Use the tabs at the top of the inbox to filter by status — the unread tab shows a counter of how many messages still need attention.
+
+From an open message you can:
+
+- **Mark as read** (Markeer als gelezen)
+- **Mark as unread** (Markeer als ongelezen) — useful to flag a message you want to come back to.
+
+## Attachments
+
+Any files attached to an inbound email are stored with the message. TRONVoice distinguishes between:
+
+- **Real attachments** — files the sender attached, such as PDFs or spreadsheets.
+- **Inline images** — images embedded in the message body (for example a logo in an email signature). These are shown within the message, not listed as separate attachments.
+
+For each attachment you can:
+
+- **View** it inline — opens the file in your browser.
+- **Download** it to your computer.
+
+## Acting on a message
+
+An open message includes quick actions to turn correspondence into useful records.
+
+<CardGroup cols={2}>
+  <Card title="Save to dossier" icon="folder">
+    Copy one or more attachments into the dossier of a client or an administration. You choose the target, a category (default: correspondence), an optional description, and notes. The description and notes are pre-filled from the email subject and sender so you can save in a few clicks.
+  </Card>
+  <Card title="Create an invoice" icon="file-plus">
+    Start a new invoice from the message. TRONVoice opens the invoice editor with the administration — and optionally the client — pre-selected. You can choose to carry the message's attachments straight onto the new invoice.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Saving an attachment to a dossier copies the file — the original stays in the inbox. This lets you keep the email thread intact while filing the document where it belongs.
+</Tip>
+
+## Deleting messages
+
+You can delete a message you no longer need from its detail view. Deleting a message also removes its stored attachments.
+
+<Warning>
+  Deleting an inbox message is permanent. If a message contains an attachment you want to keep, save it to a dossier first.
+</Warning>
+
+## Bulk actions
+
+When you have several messages to process at once, TRONVoice supports bulk operations:
+
+- **Mark multiple as read** — clears a batch of unread messages in one step.
+- **Delete multiple** — removes several messages at once.
+
+Bulk actions only apply to messages within your organisation, and each message is still checked against your access rights before it is changed.
+
+## Finding messages
+
+Use the search box above the list to find a message by:
+
+- Subject
+- Sender name
+- Sender email address
+- Message text
+
+Combine search with the read/unread tabs to narrow down quickly.

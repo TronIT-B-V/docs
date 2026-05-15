@@ -1,0 +1,99 @@
+---
+title: "E-invoicing and PDF export"
+description: "Export TRONVoice invoices as UBL e-invoices, download proforma PDFs for drafts, and understand when a Dutch business needs structured e-facturatie."
+---
+
+TRONVoice can produce an invoice in three formats: a standard **PDF**, a **proforma PDF** for drafts, and a structured **UBL e-invoice**. This page explains each format and when to use it.
+
+## What is e-invoicing (e-facturatie)?
+
+An **e-invoice** (e-factuur) is an invoice delivered as structured, machine-readable data rather than as a document a person reads. TRONVoice generates e-invoices in **UBL 2.1** — an XML format that accounting software can import automatically, without manual data entry or scanning.
+
+TRONVoice produces UBL using the **Peppol BIS Billing 3.0** profile, the European standard for cross-border electronic invoicing. The XML includes the sender's and recipient's VAT numbers as Peppol endpoint identifiers (NL VAT scheme).
+
+<Info>
+**When does a Dutch business need UBL?** Invoices to the Dutch central government must be delivered electronically — typically as UBL through the Peppol network or a government portal. Many larger organisations and accounting packages also prefer UBL because it imports cleanly. For invoices to ordinary private clients, a PDF is usually enough.
+</Info>
+
+## Download a standard PDF
+
+Every invoice can be downloaded as a PDF from the invoice detail page or the invoice list.
+
+- The PDF reflects the invoice exactly as your client sees it, including your logo, VAT breakdown, and payment details.
+- Once an invoice is sent, the PDF is stored and reused, so it always matches what was sent.
+- If the invoice has the **merge attachments** option enabled, the PDF download combines the invoice and its PDF attachments into one document.
+
+## Download a proforma PDF
+
+A **proforma PDF** is a preview of a draft invoice. Use it when you want to show a client what an invoice will look like before it is officially sent.
+
+<Steps>
+  <Step title="Open a draft invoice">
+    Go to **Invoices** and open the draft you want to preview.
+  </Step>
+  <Step title="Download the proforma">
+    Click **Proforma PDF**. TRONVoice generates a PDF marked as a proforma.
+  </Step>
+</Steps>
+
+<Note>
+A proforma PDF is only available for **draft** (**concept**) invoices. Once an invoice is sent, use the standard PDF instead. A proforma is not a valid invoice for VAT or bookkeeping purposes — it carries the temporary `CONCEPT-XXXXX` number.
+</Note>
+
+## Export a UBL e-invoice
+
+When UBL export is available for your administration, a **UBL** button appears on the invoice detail page.
+
+<Steps>
+  <Step title="Open the invoice">
+    Go to **Invoices** and open the invoice you want to export.
+  </Step>
+  <Step title="Click UBL">
+    Click **UBL**. TRONVoice generates a UBL 2.1 XML file and downloads it.
+  </Step>
+  <Step title="Deliver the file">
+    Send the XML to your client or import it into the accounting package — through your usual channel or the Peppol network.
+  </Step>
+</Steps>
+
+The UBL file is named after the invoice (for example, `Factuur-F-2025-00001.xml`). Once generated, it is stored and reused on later downloads so the structured data stays consistent with the invoice.
+
+<Tip>
+Credit notes are exported as UBL too. TRONVoice automatically uses the UBL **CreditNote** document type for credit invoices, so accounting software recognises them as corrections rather than new charges.
+</Tip>
+
+## What UBL includes
+
+The generated UBL XML contains the full structured invoice:
+
+| Section | Contents |
+|---|---|
+| **Parties** | Your company and the client, each with name, address, KvK number, and VAT number. |
+| **Invoice details** | Invoice number, invoice date, and due date. |
+| **Line items** | Each line with description, quantity, unit price, and VAT rate. |
+| **Totals** | Subtotal, VAT amounts per rate, and the invoice total. |
+| **Profile** | The Peppol BIS Billing 3.0 profile identifier and VAT-based endpoint IDs. |
+
+<Warning>
+If you edit a sent invoice, TRONVoice clears the stored PDF and UBL files so they regenerate with the updated data the next time they are downloaded. Always re-download and re-deliver the UBL after editing a sent invoice.
+</Warning>
+
+## Choosing a format
+
+<CardGroup cols={3}>
+  <Card title="Standard PDF" icon="file-text">
+    For sent invoices to most private clients. Human-readable and ready to email.
+  </Card>
+  <Card title="Proforma PDF" icon="file-clock">
+    For previewing a draft with a client before it is officially issued.
+  </Card>
+  <Card title="UBL e-invoice" icon="file-code">
+    For government clients, Peppol delivery, or clients who import invoices into accounting software.
+  </Card>
+</CardGroup>
+
+## What's next
+
+- [Create an invoice](/invoices/create)
+- [Import and export invoices](/invoices/import-export)
+- [Track invoice payments](/invoices/payment-tracking)

@@ -1,0 +1,125 @@
+---
+title: "Inventory and stock management"
+description: "Track stock levels per product, organise stock across locations, adjust quantities, transfer stock between locations, and review a complete mutation history."
+---
+
+For products you sell as physical goods, TRONVoice can track stock. Once stock tracking is enabled on a product, every change in its quantity is recorded as a **voorraadmutatie** (stock mutation) — so you always have a complete, auditable history of how the level reached its current value.
+
+## Enabling stock tracking
+
+Stock tracking is set per product. On the product form, turn on **Track inventory** and set:
+
+- **Current stock** — the starting quantity.
+- **Minimum stock** — a threshold that triggers a low-stock warning.
+- **Stock location** — the location where this product is stored.
+- **Behaviour at zero stock** — choose *warn* (allow but show a warning) or *block* (prevent adding the product to an invoice once stock reaches zero).
+
+Stock tracking can be turned on or off at any time. Disabling it stops future tracking but keeps the existing mutation history.
+
+## The stock overview
+
+Go to **Voorraad** (Inventory) to open the stock overview. It lists every product with stock tracking enabled, showing the current level, location, and stock status.
+
+Use the controls to narrow the list:
+
+- **Search** by product name or article number.
+- **Filter by location** to see what is stored where.
+- **Filter by stock status** to surface products that are low or out of stock.
+
+From the overview you can adjust a product's stock or start a transfer without leaving the page.
+
+## Stock locations
+
+Stock locations (**Voorraadlocaties**) represent the physical places where you keep stock — a warehouse, a shop, or a van. They are shared across your whole organisation.
+
+Manage them under **Voorraadlocaties** (Stock locations):
+
+<Steps>
+  <Step title="Create a location">
+    Click **New location**, enter a **name** (required) and an optional **description**, and save. Location names must be unique within your organisation.
+  </Step>
+  <Step title="Assign products">
+    Set a product's **stock location** on the product form. Each stock-tracked product belongs to one location.
+  </Step>
+  <Step title="Deactivate when no longer used">
+    Deactivating a location hides it from selectors but keeps existing data intact.
+  </Step>
+</Steps>
+
+<Warning>
+  A stock location can only be deleted when no products are assigned to it. If products are still linked, TRONVoice blocks the deletion and tells you how many.
+</Warning>
+
+## How stock changes
+
+Every change to a product's stock is recorded as a **voorraadmutatie**. Each mutation stores the quantity, the stock level before and after, the type of change, an optional reason, and — where relevant — the user or invoice involved. Mutation types are:
+
+| Type | When it happens | Effect |
+|---|---|---|
+| Factuur | A product is invoiced | Stock decreases |
+| Creditnota | A credit note is issued | Stock increases |
+| Factuurwijziging | An invoice line quantity changes | Stock adjusts to the difference |
+| Beginvoorraad | Opening stock is set when tracking starts | Sets the initial level |
+| Handmatige aanpassing | You adjust stock manually | Increases or decreases |
+| Correctie | A correction entry | Increases or decreases |
+| Transfer (uit) | Stock leaves a location in a transfer | Stock decreases |
+| Transfer (in) | Stock arrives at a location in a transfer | Stock increases |
+
+## Adjusting stock manually
+
+When you receive a delivery, write off damaged goods, or correct a count, adjust stock directly from the product or the stock overview.
+
+<Steps>
+  <Step title="Open the adjustment dialog">
+    On a stock-tracked product, choose to adjust the stock.
+  </Step>
+  <Step title="Choose add or remove">
+    Select **Toevoegen** (Add) or **Verwijderen** (Remove).
+  </Step>
+  <Step title="Enter the quantity and reason">
+    Enter the quantity and a reason (minimum 3 characters). You can pick a preset reason or type your own:
+
+    | Adding | Removing |
+    |---|---|
+    | Purchase / delivery received | Sale / issue |
+    | Return from client | Damaged / unusable |
+    | Correction after count | Expired |
+    | | Correction after count |
+  </Step>
+  <Step title="Confirm">
+    The dialog previews the resulting stock level. Confirm to record the mutation.
+  </Step>
+</Steps>
+
+<Note>
+  A reason is always required for a manual adjustment. It is stored on the mutation so the history stays meaningful.
+</Note>
+
+## Transferring stock between locations
+
+To move stock from one location to another, use a stock transfer. A transfer records two linked mutations: a *Transfer (uit)* at the source and a *Transfer (in)* at the destination.
+
+<Steps>
+  <Step title="Open the transfer dialog">
+    Start a transfer from the stock overview or from a product.
+  </Step>
+  <Step title="Choose source, destination, and quantity">
+    Select the **source product**, the **destination location**, and the **quantity** to move. Add an optional note. The dialog previews the source product's stock after the transfer.
+  </Step>
+  <Step title="Run the transfer">
+    Confirm. Stock decreases at the source and increases at the destination.
+  </Step>
+</Steps>
+
+At the destination, TRONVoice finds a matching product (by article number, then by name) and adds the quantity to it. If no match exists, a new product is created at the destination location with the same details, so the destination always has something to receive the stock.
+
+<Tip>
+  Only products with stock tracking, a location, and a positive stock level can be used as a transfer source.
+</Tip>
+
+## Viewing a product's mutation history
+
+Every mutation is kept permanently. To review the full history of a product, open the product and view its **stock mutations**. The history is paginated and shows, for each entry, the date, the type, the quantity, the level before and after, the reason, and the linked invoice or user where applicable.
+
+This gives you a complete audit trail — from opening stock through every sale, return, adjustment, and transfer.
+</content>

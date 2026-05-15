@@ -1,0 +1,109 @@
+---
+title: "Create a recurring invoice"
+description: "Set up a subscription so TRONVoice generates invoices for a client automatically on a fixed schedule."
+---
+
+A subscription is a recurring invoice template tied to a client. You define the invoice lines and a billing schedule once, and TRONVoice generates a new invoice every time the schedule comes due.
+
+## Create a subscription
+
+Go to **Subscriptions** in the main navigation and click **New subscription**. You can also start one from a client record, which pre-selects the client and administration.
+
+<Steps>
+  <Step title="Select the administration and client">
+    Choose the **administration** the subscription belongs to, then the **client** (**klant**). Only active clients in that administration are listed.
+
+    When you pick a client, TRONVoice applies their VAT situation automatically — **reversed VAT** (**BTW verlegd**) for EU clients, **VAT exempt** (**BTW vrijgesteld**) for non-EU clients, or the client's default VAT percentage otherwise.
+
+    <Tip>
+      If your organisation has a single administration, it's selected for you.
+    </Tip>
+  </Step>
+
+  <Step title="Set the basic details">
+    | Field | Notes |
+    |---|---|
+    | **Name** (**Naam**) | Internal name for the subscription, e.g. `Monthly hosting`. Required. |
+    | **Reference** (**Referentie**) | Optional reference shown on generated invoices. |
+    | **Billing period label** (**Facturatie periode**) | Optional free-text label such as `December 2024`. |
+    | **Notes** (**Notities**) | Optional internal notes. |
+  </Step>
+
+  <Step title="Choose the billing interval">
+    The interval has two parts: an **interval type** and an **interval value**. The value multiplies the type — set the value to `2` with type **Week** for an invoice every two weeks.
+
+    | Interval type | One invoice every… |
+    |---|---|
+    | **Day** (**Dag**) | day |
+    | **Week** | week |
+    | **Month** (**Maand**) | month |
+    | **Quarter** (**Kwartaal**) | three months |
+    | **Year** (**Jaar**) | year |
+    | **2 years** (**2 Jaar**) | two years |
+
+    The interval value can be any whole number from 1 to 99.
+  </Step>
+
+  <Step title="Set the dates">
+    | Field | Notes |
+    |---|---|
+    | **Start date** (**Startdatum**) | When the subscription begins. Defaults to today. |
+    | **First invoice date** (**Volgende factuurdatum**) | The date the first invoice is generated. Defaults to today. |
+    | **End date** (**Einddatum**) | Optional. Leave empty for an open-ended subscription. Must be after the start date. |
+  </Step>
+
+  <Step title="Add invoice lines">
+    Add one or more lines that will appear on every generated invoice. Each line can be entered manually or filled from a product in your catalogue. For each line you can set:
+
+    - **Description** (**Omschrijving**)
+    - **Quantity and unit** (**Aantal** / **Eenheid**)
+    - **Unit price** (**Eenheidsprijs**)
+    - **VAT rate** (**BTW**) — per line: a percentage, **reversed**, or **exempt**
+    - **Discount** (**Korting**) — a percentage off that line
+    - **Location group** (**Locatiegroep**) — to group lines under a header
+
+    You can also add **note lines** (**notitieregels**) — text-only lines with no price. Lines can be reordered by dragging.
+
+    <Note>
+      Line descriptions support date variables. When an invoice is generated, placeholders are replaced with the current period — handy for descriptions like "Hosting [maand] [jaar]".
+    </Note>
+  </Step>
+
+  <Step title="Set an overall discount (optional)">
+    Enter a **discount percentage** (**Korting percentage**) to apply to the subtotal of every generated invoice, on top of any per-line discounts.
+  </Step>
+
+  <Step title="Configure sending options">
+    | Option | Description |
+    |---|---|
+    | **Active** (**Actief**) | Inactive subscriptions never generate invoices. On by default. |
+    | **Auto-send** (**Auto verzenden**) | Email the generated invoice automatically. Off by default. |
+    | **Send to administration** (**Verzend naar admin**) | Send a copy to your own administration email. |
+    | **Send to client** (**Verzend naar klant**) | Send the invoice to the client's email address. |
+
+    If auto-send is off, generated invoices are saved as drafts for you to review and send manually.
+  </Step>
+
+  <Step title="Save the subscription">
+    Click **Save**. The subscription opens its detail page and will generate its first invoice on the first invoice date you set.
+  </Step>
+</Steps>
+
+## How invoices get generated
+
+When a subscription's **first invoice date** is today or in the past, the subscription is **due**. Generating an invoice — automatically, manually, or in bulk — does the following:
+
+1. Creates an invoice in the subscription's administration for its client, copying all subscription lines and replacing any date variables in the descriptions.
+2. Sets the invoice date to today and the due date from the administration's payment term.
+3. Advances the subscription's **next invoice date** by one interval, so the following period is queued automatically.
+
+Whether the invoice is sent or saved as a draft depends on **Auto-send**:
+
+- **Auto-send on** — if your account has sufficient credits, the invoice gets a real invoice number, is emailed to the recipients you selected, and credits are deducted.
+- **Auto-send off** — the invoice is created as a **draft** with a concept number for you to send yourself.
+
+<Note>
+If today is a day excluded from invoicing for the client, auto-send is skipped and the invoice is created as a draft instead. The same happens if your account is short on credits.
+</Note>
+
+See [Managing recurring invoices](/subscriptions/managing) for generating invoices on demand, pausing, and bulk actions.

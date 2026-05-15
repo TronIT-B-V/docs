@@ -1,0 +1,119 @@
+---
+title: "Locations"
+description: "Create reusable locations and assign them to invoice, quote, and recurring-invoice lines so work is grouped per job site or branch — on screen and on the invoice PDF."
+---
+
+**Locaties** (Locations) are reusable places you define once and then reuse across your invoicing. Assign a location to individual invoice lines, quote lines, and recurring-invoice lines so the work is grouped per location — for example per job site, per branch, or per project address.
+
+Locations are managed at organisation level: a location you create is available to **every administration** in your organisation.
+
+## What a location is for
+
+A location lets you split a single invoice into sections. Each line you add can be tagged with a location, and TRONVoice then groups the lines under that location — both while you build the document and on the finished invoice PDF.
+
+This is useful when one invoice covers work at several places, such as:
+
+- A contractor billing for hours across multiple job sites.
+- A service company invoicing per client branch.
+- Any project where costs need to be readable per address.
+
+Locations can also be linked to **Taken** (Tasks), so a follow-up action stays attached to the right place.
+
+<Note>
+  A location is a label for grouping. It does not change prices, VAT, or totals — it only organises how lines are presented.
+</Note>
+
+## Creating a location
+
+<Steps>
+  <Step title="Open the locations list">
+    Go to **Locaties** (Locations) in the navigation and click **Nieuwe locatie** (New location).
+  </Step>
+  <Step title="Fill in the location details">
+    | Field | Notes |
+    |---|---|
+    | **Naam** (Name) | Required. This is the name shown when you select a location while building an invoice or quote. Must be unique within your organisation. |
+    | **Adres** (Address) | Optional street and number. |
+    | **Postcode** (Postcode) | Optional. |
+    | **Plaats** (City) | Optional. |
+    | **Notities** (Notes) | Optional internal notes about the location. Not shown on invoices. |
+    | **Locatie is actief** (Location is active) | On by default. Inactive locations are hidden from the location selector. |
+  </Step>
+  <Step title="Save">
+    Click **Locatie aanmaken** (Create location). The location is immediately available across all administrations.
+  </Step>
+</Steps>
+
+<Tip>
+  Choose a short, recognisable name — for example a city, site name, or branch ("Den Haag", "Amsterdam Centrum", "Project Stationsplein"). The name is what appears in the selector and as the heading on the invoice PDF.
+</Tip>
+
+## Editing and deactivating
+
+Open any location from the **Locaties** list to edit its details. The same fields apply as when creating.
+
+To take a location out of use without deleting it, clear the **Locatie is actief** checkbox. A deactivated location:
+
+- No longer appears as a suggestion in the location selector.
+- Stays intact on invoices and quotes that already use it.
+
+Reactivate it at any time by turning the checkbox back on.
+
+You can also delete a location from the list. Deleting a location removes the reusable record only — it does not change any invoice or quote that already references the location name.
+
+## The locations list
+
+The **Locaties** list shows every location in your organisation. You can:
+
+- **Search** by name, address, or city.
+- **Filter** by status — active or inactive.
+- See a **usage** column showing how often each location has been used.
+
+<Note>
+  The usage counter helps you spot which locations are actually in use. The most-used active locations appear first in the location selector when you build an invoice.
+</Note>
+
+## Picking a location on an invoice or quote
+
+When you add a line to an invoice, quote, or recurring invoice, you can group that line under a location.
+
+<Steps>
+  <Step title="Open the location field on a line">
+    On the line editor, use the **location** field. Start typing to see suggestions.
+  </Step>
+  <Step title="Pick a suggestion or type a name">
+    Suggestions are drawn from two sources, with your saved locations listed first:
+
+    - **Saved locations** — active locations from the **Locaties** list, ordered by how often they have been used.
+    - **Previously used locations** — location names already used on earlier invoice lines, even if they were never saved as a location record.
+
+    Pick a suggestion, or type any name to use it directly.
+  </Step>
+  <Step title="Repeat for other lines">
+    Assign the same location to every line that belongs to it. Lines that share a location are grouped together.
+  </Step>
+</Steps>
+
+<Tip>
+  You do not have to create a location record first — typing a new name on a line works too. Saving it as a **Locatie** is what makes it reappear as a reliable suggestion next time, and lets you keep its address and notes.
+</Tip>
+
+Leave the location field empty on lines that do not belong to a specific location. Ungrouped lines are shown together, separate from any located groups.
+
+## How locations appear on the invoice PDF
+
+On the invoice PDF, lines are listed in their normal order. Whenever the location changes from one line to the next, TRONVoice inserts a **location heading row** above the lines for that location.
+
+This means:
+
+- Lines tagged with the same location appear under a shared heading.
+- Lines without a location are listed without a heading.
+- To get a clean grouped layout, keep lines for the same location together in the line order.
+
+<Warning>
+  Grouping on the PDF follows the line order. If lines for the same location are scattered through the invoice, the location heading will repeat each time the location changes. Reorder the lines so each location's lines sit together.
+</Warning>
+
+## Locations and tasks
+
+A task in **Taken** (Tasks) can be linked to a location. Use the **Locatie** type filter in the tasks list to see all tasks attached to locations, keeping site-related follow-ups grouped with the place they concern.
