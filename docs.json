@@ -33,6 +33,7 @@
               "introduction",
               "quickstart",
               "account-setup",
+              "logging-in",
               "dashboard"
             ]
           },
@@ -130,6 +131,7 @@
               "settings/languages",
               "settings/users-and-roles",
               "settings/profile-security",
+              "settings/notifications",
               "settings/credits",
               "settings/account-billing"
             ]

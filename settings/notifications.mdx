@@ -1,0 +1,112 @@
+---
+title: "Notifications and alerts"
+description: "A reference of the automatic emails TRONVoice sends you about credits, payments, inventory, your inbox, tasks, and your team, plus the one preference you can control."
+---
+
+TRONVoice keeps you informed by email when something needs your attention — credits running low, a direct debit failing, a task landing on your plate. This page lists every automatic email and explains what triggers it, so you know what to expect in your inbox.
+
+Most notifications go to the **account owner** (Eigenaar). Task emails go to the team member involved. Only one notification can be switched off — see [Your notification preference](#your-notification-preference) at the end.
+
+## Account and credits
+
+<AccordionGroup>
+  <Accordion title="Credits running low" icon="battery-low">
+    Sent to owners when your credit balance drops to roughly **20% or less** of what you've topped up (and is still above zero). TRONVoice waits at least **7 days** between these reminders, so you won't be emailed repeatedly. The email shows your current balance and an estimate of how many invoices you can still send.
+  </Accordion>
+  <Accordion title="Top-up confirmed" icon="circle-check">
+    Sent to owners after a credit top-up is processed successfully. If the top-up was triggered automatically by your auto top-up settings, the email is titled **Automatische opwaardering succesvol** (Automatic top-up successful); a manual top-up is titled **Opwaardering succesvol** (Top-up successful). Both show the amount, the platform invoice number, and your new balance.
+  </Accordion>
+</AccordionGroup>
+
+See [Credits](/settings/credits) for how top-ups and auto top-up work.
+
+## Inventory
+
+<AccordionGroup>
+  <Accordion title="Low stock warning" icon="package">
+    Sent to owners when one or more products with stock tracking enabled run out or fall to or below their minimum stock level. The check runs automatically; TRONVoice waits between warnings so you aren't emailed about the same products every day.
+  </Accordion>
+</AccordionGroup>
+
+## Payments and direct debit
+
+These cover SEPA direct debit (incasso) and recurring payments.
+
+<AccordionGroup>
+  <Accordion title="SEPA batch submitted" icon="send">
+    Sent when a direct debit batch is submitted to the bank. The email lists the batch reference, the number of invoices, the total amount, and the execution date.
+  </Accordion>
+  <Accordion title="Direct debit failed" icon="circle-x">
+    Sent when an automatic direct debit collection fails for an invoice. It names the invoice, client, and amount, gives the failure reason, and notes the action TRONVoice has taken.
+  </Accordion>
+  <Accordion title="Direct debit chargeback" icon="undo-2">
+    Sent when a previously collected amount is reversed (a chargeback). The invoice is moved back to the **verzonden** (sent) status so you can arrange payment with the client again.
+  </Accordion>
+  <Accordion title="Mandate revoked" icon="file-x">
+    Sent when a client's SEPA mandate is withdrawn. The email shows the client, the masked IBAN, the mandate reference, and the reason, so you can update your direct debit settings.
+  </Accordion>
+  <Accordion title="Subscription payment failed" icon="triangle-alert">
+    Sent when a recurring subscription payment fails — for example, the monthly charge for extra administrations. It shows the organisation, amount, and payment status. Mollie retries the payment automatically; if it keeps failing, action is needed.
+  </Accordion>
+</AccordionGroup>
+
+## Email domain
+
+<AccordionGroup>
+  <Accordion title="Custom domain verified" icon="globe">
+    Sent when a custom email domain you added for an administration passes DNS verification. After this, invoices and quotes are sent from your own domain.
+  </Accordion>
+</AccordionGroup>
+
+## Inbox
+
+<AccordionGroup>
+  <Accordion title="New inbound email received" icon="inbox">
+    Sent when a new message arrives in an administration's TRONVoice inbox. The email shows the sender, subject, a short preview, and whether there are attachments. This is the **only notification you can switch off** — see below.
+  </Accordion>
+</AccordionGroup>
+
+## Tasks
+
+These emails go to the team member involved with the task, not only the owner.
+
+<AccordionGroup>
+  <Accordion title="Task assigned to you" icon="clipboard-check">
+    Sent to a team member when a task is assigned to them.
+  </Accordion>
+  <Accordion title="Task deadline reminder" icon="clock">
+    Sent to the assigned team member when a task is approaching its deadline.
+  </Accordion>
+</AccordionGroup>
+
+## Team
+
+<AccordionGroup>
+  <Accordion title="Team invitation" icon="user-plus">
+    Sent to a person when they are invited to join an organisation, with a personal link to activate their account. See [Users and roles](/settings/users-and-roles).
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Your notification preference
+
+Almost every notification above is always sent — they cover money, security, and operations, so they can't be turned off. There is one exception you control.
+
+On your profile page, in the **Notificaties** (Notifications) section, you'll find:
+
+| Setting | What it does |
+|---|---|
+| **Inbox e-mailnotificaties** (Inbox email notifications) | Controls the *new inbound email received* notification. When on, you get an email each time a message arrives in your inbox. When off, no email is sent. |
+
+Use the toggle and click **Opslaan** (Save) to apply the change.
+
+<Tip>
+  Turning **Inbox e-mailnotificaties** off only stops the email. New inbox messages still appear in the app, with an unread count next to **Inbox** in the sidebar.
+</Tip>
+
+<Note>
+  All other notifications on this page — credits, top-ups, low stock, direct debit, domain verification, tasks, and team invitations — are always sent and have no off switch.
+</Note>
+
+To open the Notificaties section, see [Profile and security](/settings/profile-security).
