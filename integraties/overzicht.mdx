@@ -56,13 +56,19 @@ Je kunt **één** boekhoudpakket per administratie koppelen.
   <Card title="Minox" icon="calculator" href="/integraties/minox">
     Koppel het boekhoudpakket Minox via OAuth, synchroniseer facturen en importeer je klanten in TRONVoice.
   </Card>
+  <Card title="Jortt" icon="receipt" href="/integraties/jortt">
+    Boek verkoopfacturen en inkoopfacturen automatisch in Jortt, met de pdf als bon, en houd betalingen in beide systemen gelijk.
+  </Card>
+  <Card title="e-Boekhouden" icon="book" href="/integraties/e-boekhouden">
+    Boek verkoopfacturen, inkoopfacturen en relaties automatisch in e-Boekhouden en importeer je relaties als klanten.
+  </Card>
   <Card title="SnelStart, binnenkort" icon="clock">
     Een SnelStart-boekhoudintegratie staat op de roadmap. Die is nog niet beschikbaar.
   </Card>
 </CardGroup>
 
 <Warning>
-  Exact Online en Minox kunnen niet tegelijk actief zijn voor dezelfde administratie. Verbreek de bestaande boekhoudintegratie voordat je een andere activeert.
+  Per administratie kan maar één boekhoudkoppeling tegelijk actief zijn: Exact Online, Minox, Jortt of e-Boekhouden. Verbreek de bestaande boekhoudintegratie voordat je een andere activeert.
 </Warning>
 
 Zodra een boekhoudintegratie actief is, worden facturen die de status **Verzonden** bereiken automatisch geëxporteerd, en stromen betaalstatussen terug in TRONVoice. Je kunt ook je bestaande klanten uit het boekhoudpakket importeren, zodat beide systemen op elkaar afgestemd blijven.
@@ -102,7 +108,7 @@ Elke integratie verschijnt als een kaart op de bijbehorende tab. De kaart toont 
     Klik op de kaart van de dienst die je wilt instellen.
   </Step>
   <Step title="Koppel of configureer">
-    Afhankelijk van de integratie start je een beveiligde verbinding (OAuth, voor Exact Online, Minox en Ponto), voer je verbindingsgegevens in (voor SharePoint) of vul je een instelling in (voor bunq.me).
+    Afhankelijk van de integratie start je een beveiligde verbinding (OAuth, voor Exact Online, Minox en Ponto), vul je API-gegevens in (voor Jortt en e-Boekhouden), voer je verbindingsgegevens in (voor SharePoint) of vul je een instelling in (voor bunq.me).
   </Step>
   <Step title="Opslaan">
     Zodra je hebt opgeslagen, draait de integratie automatisch op de achtergrond voor die administratie.

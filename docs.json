@@ -118,6 +118,8 @@
               "integraties/overzicht",
               "integraties/exact-online",
               "integraties/minox",
+              "integraties/jortt",
+              "integraties/e-boekhouden",
               "integraties/sharepoint",
               "integraties/eigen-emaildomein"
             ]
