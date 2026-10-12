@@ -15,82 +15,113 @@ Jij bepaalt welke acties TRONVoice in e-Boekhouden mag uitvoeren. Alleen wat je 
 
 | In TRONVoice | In e-Boekhouden |
 | --- | --- |
-| Klant | Relatie (bedrijf), aangemaakt bij de eerste boeking |
-| Leverancier (crediteur) | Relatie (bedrijf), aangemaakt bij de eerste boeking |
+| Klant | Relatie (bedrijf), aangemaakt bij de eerste boeking of met **Relaties bijwerken** |
+| Leverancier (crediteur) | Relatie (bedrijf), aangemaakt bij de eerste geboekte inkoopfactuur |
 | Verkoopfactuur (verzonden of betaald) | Boeking **Factuur verstuurd** op de debiteurenrekening, met één regel per btw-tarief op je omzetrekening |
 | Creditfactuur | Boeking **Factuur verstuurd** met negatieve bedragen |
-| Inkoopfactuur (geboekt) | Boeking **Factuur ontvangen** op de crediteurenrekening, met de btw-regels op je kostenrekening |
+| Inkoopfactuur (geboekt) | Boeking **Factuur ontvangen** op de crediteurenrekening, met één regel per btw-regel op je kostenrekening |
 | Betaling in TRONVoice | Boeking **Factuurbetaling ontvangen** of **Factuurbetaling verstuurd** op je bankrekening (als je dat aanzet) |
 | Betaling in e-Boekhouden | Factuur op **Betaald** in TRONVoice (als je dat aanzet) |
 
-TRONVoice gebruikt het factuurnummer uit TRONVoice ook als factuurnummer in e-Boekhouden. Bij een inkoopfactuur is dat het factuurnummer van je leverancier.
+TRONVoice gebruikt het factuurnummer uit TRONVoice ook als factuurnummer in e-Boekhouden. Bij een inkoopfactuur is dat het factuurnummer van je leverancier. Heeft een inkoopfactuur geen factuurnummer, dan maakt TRONVoice een eigen nummer dat begint met `TV-`.
 
-## Wat de koppeling niet kan
+## Bekende beperkingen
 
 e-Boekhouden staat een paar dingen niet toe via een koppeling. Houd daar rekening mee:
 
-- **Geen pdf als bijlage.** e-Boekhouden heeft geen mogelijkheid om documenten via de koppeling te uploaden. De factuur-pdf of het originele inkoopdocument staat dus niet bij de boeking. Je vindt het document altijd in TRONVoice.
-- **Boekingen kunnen niet worden aangepast.** Een boeking in e-Boekhouden kan via de koppeling niet worden gewijzigd of verwijderd. Wijzig je een geboekt document in TRONVoice, dan pas je de boeking in e-Boekhouden zelf aan. Of je maakt een creditfactuur.
-- **Geregistreerde betalingen kunnen niet worden teruggedraaid.** Heeft TRONVoice een betaling in e-Boekhouden geboekt en wordt de factuur daarna weer onbetaald, dan verwijder je die betaling in e-Boekhouden zelf.
+- **Geen pdf als bijlage.** e-Boekhouden kent via de koppeling geen bijlagen. De factuur-pdf of het originele inkoopdocument staat dus niet bij de boeking. Je vindt het document altijd in TRONVoice.
+- **Boekingen kunnen niet worden aangepast of verwijderd.** Een boeking in e-Boekhouden kan via de koppeling niet worden gewijzigd of verwijderd. Wijzig je een geboekt document in TRONVoice, dan krijg je een waarschuwing bij het document. Je past de boeking dan in e-Boekhouden zelf aan. Zie [Een document gewijzigd na het boeken](#een-document-gewijzigd-na-het-boeken).
+- **Een verwijderde boeking ziet TRONVoice pas later.** Verwijder je een boeking in e-Boekhouden, dan merkt TRONVoice dat pas als het dat document weer in e-Boekhouden opzoekt. Dat gebeurt bij het ophalen of registreren van een betaling. Van een document dat al betaald en verwerkt is, merkt TRONVoice het niet.
+- **Geregistreerde betalingen kunnen niet worden teruggedraaid.** Heeft TRONVoice een betaling in e-Boekhouden geboekt en wordt de factuur daarna weer onbetaald, dan meldt TRONVoice bij de factuur dat de betaling nog in e-Boekhouden staat. Verwijder die betaling in e-Boekhouden zelf als hij niet klopt.
+- **Gecrediteerde facturen verreken je zelf.** Een creditfactuur is in e-Boekhouden een aparte factuur. De betaling van een (deels) gecrediteerde factuur en de verrekening met de creditfactuur boek je in e-Boekhouden zelf.
+- **Geen onderscheid tussen klanten en leveranciers.** e-Boekhouden kent alleen relaties. Importeer je relaties als klanten, dan worden ook je leveranciers klant in TRONVoice. Alleen relaties die al aan een leverancier in TRONVoice gekoppeld zijn, worden overgeslagen.
 
 ## Een API-token aanmaken in e-Boekhouden
 
 TRONVoice verbindt met een API-token uit je e-Boekhouden-administratie.
 
 <Steps>
-  <Step title="Open de instellingen voor API-tokens">
-    Log in bij e-Boekhouden en ga naar de instellingen voor API-tokens. Je vindt die onder **Beheer › Inrichting › Instellingen › API/SOAP**.
+  <Step title="Log in bij e-Boekhouden">
+    Log in bij e-Boekhouden met een gebruiker die boekingen en relaties mag aanmaken.
   </Step>
-  <Step title="Maak een token aan">
-    Maak daar een API-token aan.
+  <Step title="Maak een API-token aan">
+    Ga naar **Beheer › Inrichting › Instellingen › API/SOAP** en maak daar een API-token aan.
   </Step>
-  <Step title="Kopieer de token">
-    Kopieer de token. Je plakt hem zo in TRONVoice.
+  <Step title="Kopieer het token">
+    Kopieer het hele token. Je plakt het zo in TRONVoice.
   </Step>
 </Steps>
 
 <Tip>
-  De token werkt met de rechten van de e-Boekhouden-gebruiker die hem aanmaakt. Die gebruiker moet boekingen en relaties mogen aanmaken.
+  Het token werkt met de rechten van de e-Boekhouden-gebruiker die het aanmaakt. Die gebruiker moet boekingen en relaties mogen aanmaken.
 </Tip>
 
 ## Verbinding maken
 
 <Steps>
   <Step title="Open de e-Boekhouden-kaart">
-    Ga naar **Instellingen → Integraties**, kies de administratie en open de tab **Boekhouding**. Klik op de kaart **e-Boekhouden**.
+    Ga naar **Instellingen → Integraties**, kies de administratie en open de tab **Boekhouding**. Klik op de kaart **e-Boekhouden** (**Facturen en inkoop boeken in e-Boekhouden**).
   </Step>
-  <Step title="Plak de API-token">
-    Plak de token in het veld **API-token** en klik op **Verbinden**. TRONVoice controleert de token en haalt je grootboekrekeningen op.
+  <Step title="Plak het API-token">
+    Plak het token bij **Verbinden met je API-token** in het veld **API-token** en klik op **Verbinden**. TRONVoice controleert het token en haalt je grootboekrekeningen op.
   </Step>
   <Step title="Controleer de instellingen">
     TRONVoice kiest alvast logische grootboekrekeningen voor je. Controleer ze, pas aan waar nodig en klik op **Opslaan**.
   </Step>
 </Steps>
 
+Je kunt vijf keer per tien minuten proberen te verbinden. Daarna zie je "Te veel pogingen" en probeer je het later opnieuw.
+
+<Warning>
+  Is dezelfde e-Boekhouden-administratie ook gekoppeld aan een andere administratie in TRONVoice, dan krijg je bij het verbinden een waarschuwing. Gebruik dan per administratie een eigen nummerreeks, zodat factuurnummers in e-Boekhouden niet botsen.
+</Warning>
+
+### Status op de kaart
+
+Op de e-Boekhouden-kaart zie je de status van de koppeling:
+
+- **Sync actief**: TRONVoice boekt verkoopfacturen, inkoopfacturen of allebei.
+- **Verbonden**: de koppeling werkt, maar boeken staat uit.
+- **Configuratie vereist**: er ontbreekt nog een grootboekrekening voor een actie die aanstaat. Ga met de muis over het label om te zien welke.
+- **Verbinding verlopen** (op mobiel **Verlopen**): e-Boekhouden accepteert het API-token niet meer. Zie [De verbinding is verlopen](#de-verbinding-is-verlopen).
+- **Niet actief**: er is nog geen koppeling.
+
 ## Instellen wat TRONVoice mag doen
 
-Onder **Wat mag TRONVoice in e-Boekhouden doen?** zet je de acties aan of uit.
+Onder **Wat mag TRONVoice in e-Boekhouden doen?** zet je de acties aan of uit. Na het verbinden staan alle acties aan, behalve **Betalingen registreren in e-Boekhouden**.
 
 <AccordionGroup>
   <Accordion title="Verkoopfacturen boeken">
-    Zodra je een factuur verstuurt, boekt TRONVoice hem in e-Boekhouden. Elke btw-groep van de factuur wordt een eigen regel, na een eventuele factuurkorting. Het totaal in e-Boekhouden is altijd gelijk aan het totaal in TRONVoice. Is er door afronding een klein verschil, dan voegt TRONVoice een regel **Afrondingsverschil** toe.
+    Zodra je een factuur verstuurt, boekt TRONVoice hem in e-Boekhouden op de factuurdatum. Elke btw-groep van de factuur wordt een eigen regel, na een eventuele factuurkorting. Btw verlegd, ICP en export komen in de juiste btw-rubriek.
+
+    Het totaal in e-Boekhouden is altijd gelijk aan het totaal in TRONVoice. Wijkt de btw van een groep van 21% of 9% een cent af van wat e-Boekhouden zelf berekent, dan voegt TRONVoice een regel van €0,00 toe met btw-code `AFW_VERK` en alleen dat btw-verschil. Zo blijft de omzet in de juiste rubriek en klopt de btw met je factuur. Blijft er daarna nog een klein verschil over, dan voegt TRONVoice een regel **Afrondingsverschil** toe.
   </Accordion>
   <Accordion title="Inkoopfacturen boeken">
-    Zodra je een inkoopfactuur in TRONVoice boekt, boekt TRONVoice hem in e-Boekhouden bij de leverancier. Een inkoopfactuur heeft daarvoor een leverancier nodig. Wijkt de btw op de factuur van je leverancier af van wat e-Boekhouden zou berekenen, dan boekt TRONVoice het btw-bedrag van de factuur. Dat is het bedrag dat je mag aftrekken.
+    Zodra je een inkoopfactuur in TRONVoice boekt, boekt TRONVoice hem in e-Boekhouden bij de leverancier. Een inkoopfactuur heeft daarvoor een leverancier en een factuurdatum nodig.
+
+    Wijkt de btw op de factuur van je leverancier af van wat e-Boekhouden zou berekenen, dan boekt TRONVoice het btw-bedrag van de factuur. Dat is het bedrag dat je mag aftrekken.
+
+    Rekent een leverancier uit het buitenland buitenlandse btw, dan is die btw in Nederland niet aftrekbaar. TRONVoice boekt die regel met btw-code `GEEN` en telt de btw op bij de kosten.
   </Accordion>
   <Accordion title="Relaties bijwerken">
-    Pas je de gegevens van een klant of leverancier in TRONVoice aan, dan werkt TRONVoice de relatie in e-Boekhouden ook bij. Denk aan adres, e-mailadres, btw-nummer en IBAN.
+    Pas je de gegevens van een klant of leverancier in TRONVoice aan, dan werkt TRONVoice de relatie in e-Boekhouden ook bij. Denk aan adres, e-mailadres, btw-nummer en IBAN. Wat je in e-Boekhouden zelf bij de relatie hebt ingevuld, blijft staan.
+
+    Is een bedrijf zowel klant als leverancier, dan delen ze één relatie. TRONVoice werkt die relatie dan bij met de gegevens van de klant.
   </Accordion>
   <Accordion title="Betalingen ophalen uit e-Boekhouden">
     TRONVoice kijkt elk uur welke geboekte facturen in e-Boekhouden niet meer openstaan, bijvoorbeeld door je bankkoppeling daar. Is een factuur daar volledig betaald, dan zet TRONVoice hem op **Betaald**. Een deels betaalde factuur blijft openstaan.
+
+    Een factuur die volledig is verrekend met een creditfactuur, zet TRONVoice niet op betaald. Die is in e-Boekhouden ook niet meer open, maar hij is niet betaald. Creditfacturen zelf controleert TRONVoice ook niet.
   </Accordion>
   <Accordion title="Betalingen registreren in e-Boekhouden">
-    Wordt een geboekte factuur in TRONVoice betaald, dan boekt TRONVoice de betaling op je bankrekening in e-Boekhouden. Kies daarvoor de **Bankrekening (betalingen registreren)** bij de grootboekrekeningen.
+    Wordt een geboekte factuur in TRONVoice betaald (via de bank of handmatig), dan boekt TRONVoice de betaling op je bankrekening in e-Boekhouden. Kies daarvoor de **Bankrekening (betalingen registreren)** bij de grootboekrekeningen. TRONVoice boekt het bedrag dat in e-Boekhouden nog openstaat. Staat de factuur daar al als betaald, dan boekt TRONVoice geen tweede betaling.
 
-    Betalingen via iDEAL (Mollie), bunq of incasso komen als verzamelde uitbetaling binnen. Die registreert TRONVoice niet, die verwerk je in e-Boekhouden zelf.
+    Betalingen via iDEAL (Mollie), bunq of incasso komen als verzamelde uitbetaling binnen. Die registreert TRONVoice niet, die verwerk je in e-Boekhouden zelf. Ook de betaling van een (deels) gecrediteerde factuur boek je zelf. TRONVoice meldt dat bij de factuur.
+
+    Lukt het registreren niet, dan zie je bij het document een melding die begint met **Betaling:**. TRONVoice probeert het daarna nog een paar keer opnieuw, met steeds langere tussenpozen. Het registreert alleen betalingen van de laatste 60 dagen.
 
     <Warning>
-      Zet dit alleen aan als je je bank **niet** ook in e-Boekhouden verwerkt (met een bankkoppeling of bankimport in e-Boekhouden). Anders wordt dezelfde betaling twee keer geboekt.
+      Zet dit alleen aan als je je bankafschriften **niet** ook in e-Boekhouden verwerkt (met een bankkoppeling of import in e-Boekhouden). Anders staat elke betaling er twee keer in.
     </Warning>
   </Accordion>
 </AccordionGroup>
@@ -99,30 +130,32 @@ Onder **Wat mag TRONVoice in e-Boekhouden doen?** zet je de acties aan of uit.
 
 TRONVoice haalt de grootboekrekeningen rechtstreeks uit je e-Boekhouden-administratie. Bij **Grootboekrekeningen in e-Boekhouden** kies je per soort uit de rekeningen van de juiste categorie. Je ziet alleen de rekeningen voor de acties die je hebt aangezet.
 
-- **Debiteurenrekening (verkoopfacturen)**, voor je verkoopfacturen.
-- **Omzetrekening (verkoopfacturen)**, waarop de regels van je verkoopfacturen komen.
-- **Crediteurenrekening (inkoopfacturen)**, voor je inkoopfacturen.
-- **Standaard kostenrekening (inkoopfacturen)**, waarop de regels van je inkoopfacturen komen.
+- **Debiteurenrekening (verkoopfacturen)**, een rekening van de categorie Debiteuren.
+- **Omzetrekening (verkoopfacturen)**, een winst-en-verliesrekening waarop de regels van je verkoopfacturen komen.
+- **Crediteurenrekening (inkoopfacturen)**, een rekening van de categorie Crediteuren.
+- **Standaard kostenrekening (inkoopfacturen)**, waarop de regels van je inkoopfacturen komen. Je kiest uit winst-en-verliesrekeningen (**Winst & verlies**) en balansrekeningen (**Balans**), bijvoorbeeld voor inventaris of vooruitbetaalde kosten.
 - **Bankrekening (betalingen registreren)**, alleen nodig als je betalingen registreert.
-- **Kostenplaats (optioneel)**, die TRONVoice op elke omzetregel zet. Dit veld zie je alleen als je kostenplaatsen in e-Boekhouden hebt.
+- **Kostenplaats (optioneel)**, die TRONVoice op elke boekingsregel zet. Dit veld zie je alleen als je kostenplaatsen in e-Boekhouden hebt.
 - **Kostenrekening per kostencategorie (optioneel)**. Koppel een kostencategorie uit TRONVoice aan een eigen kostenrekening. Categorieën zonder eigen rekening gaan naar de standaard kostenrekening.
+
+TRONVoice kiest bij het verbinden alvast standaardrekeningen uit het Nederlandse rekeningschema, zoals 1300 voor debiteuren, 1600 voor crediteuren, een omzetrekening uit de 8000-reeks en een kostenrekening uit de 4000-reeks.
 
 Bij **Verkopen met btw verlegd binnen de EU zijn** kies je **Diensten** of **Goederen**. Dat bepaalt de btw-code, en daarmee de rubriek in je btw-aangifte en ICP-opgaaf.
 
-Met **Boeken vanaf factuurdatum** kies je vanaf welke factuurdatum TRONVoice boekt. Documenten met een eerdere factuurdatum worden niet automatisch geboekt. Zo voorkom je dubbele boekingen van wat al in e-Boekhouden staat.
+Met **Boeken vanaf factuurdatum** kies je vanaf welke factuurdatum TRONVoice boekt. Bij het eerste verbinden staat die op vandaag. Documenten met een eerdere factuurdatum worden niet automatisch geboekt. Zo voorkom je dubbele boekingen van wat al in e-Boekhouden staat.
 
-Klik op **Opslaan** om je instellingen te bewaren.
+Klik op **Opslaan** om je instellingen te bewaren. Een gewijzigde grootboekrekening of btw-instelling geldt voor nieuwe boekingen. Boekingen die al in e-Boekhouden staan, blijven zoals ze zijn.
 
 ## Btw-codes
 
-TRONVoice kiest voor elke regel de btw-code van e-Boekhouden. Dat hangt af van het btw-tarief en het land van je klant of leverancier. Zonder land gaat TRONVoice uit van Nederland.
+TRONVoice kiest voor elke regel de btw-code van e-Boekhouden. Dat hangt af van het btw-tarief en het land van je klant of leverancier. Zonder land gaat TRONVoice uit van Nederland. Staat bij een leverancier Nederland (of niets) als land, maar heeft hij een buitenlands btw-nummer, dan gebruikt TRONVoice het land van dat btw-nummer.
 
 ### Verkoopfacturen
 
 | Btw-soort in TRONVoice | Btw-code in e-Boekhouden |
 | --- | --- |
-| 21% | `HOOG_VERK_21` |
-| 9% | `LAAG_VERK_9` |
+| 21% | `HOOG_VERK_21` (met een `AFW_VERK`-regel voor een eventueel centverschil) |
+| 9% | `LAAG_VERK_9` (met een `AFW_VERK`-regel voor een eventueel centverschil) |
 | Ander tarief | `AFW_VERK` (met het btw-bedrag van de factuur) |
 | 0%, klant in Nederland | `GEEN` |
 | Btw vrijgesteld | `GEEN` |
@@ -140,37 +173,59 @@ TRONVoice kiest voor elke regel de btw-code van e-Boekhouden. Dat hangt af van h
 | 21% of 9% met afwijkend btw-bedrag | `AFW` (met het btw-bedrag van de factuur) |
 | Ander tarief | `AFW` (met het btw-bedrag van de factuur) |
 | 0% | `GEEN` |
+| Buitenlandse btw (leverancier buiten Nederland) | `GEEN`, de btw telt mee als kosten |
 | Btw verlegd, leverancier in Nederland | `VERL_INK` (bij 9%: `VERL_INK_L9`) |
 | Btw verlegd, leverancier in de EU | `BI_EU_INK` |
 | Btw verlegd, leverancier buiten de EU | `BU_EU_INK` |
 
+Een buitenlandse leverancier met een Nederlands btw-nummer die 21% of 9% rekent, rekent Nederlandse btw. Die regels krijgen gewoon `HOOG_INK_21` of `LAAG_INK_9`.
+
 ## Relaties
 
-Bij de eerste boeking voor een klant of leverancier zoekt TRONVoice eerst of de relatie al in e-Boekhouden staat. Een relatie met precies dezelfde naam (en hetzelfde btw- of KvK-nummer als beide er een hebben) wordt gekoppeld. Staat de relatie er nog niet, dan maakt TRONVoice hem aan. Heeft een klant afwijkende factuurgegevens, dan gebruikt TRONVoice die.
+Bij de eerste boeking voor een klant of leverancier zoekt TRONVoice eerst of de relatie al in e-Boekhouden staat. Een relatie met precies dezelfde naam wordt gekoppeld, als het btw-nummer, KvK-nummer en de postcode niet tegenstrijdig zijn. Passen er meerdere relaties, dan kiest TRONVoice de relatie met hetzelfde btw- of KvK-nummer, of anders met dezelfde postcode of hetzelfde e-mailadres. Is dan nog niet duidelijk welke relatie het is, dan maakt TRONVoice een nieuwe relatie aan. Heeft een klant afwijkende factuurgegevens, dan gebruikt TRONVoice die.
 
-Wil je al je klanten en leveranciers in één keer in e-Boekhouden zetten of bijwerken, klik dan onder **Relaties** op **Relaties bijwerken**. Dat gebeurt op de achtergrond.
+Klik onder **Relaties** op **Relaties bijwerken** om al je klanten in één keer in e-Boekhouden te zetten en gekoppelde relaties bij te werken. Leveranciers die al gekoppeld zijn, worden ook bijgewerkt. Een nieuwe leverancier komt pas in e-Boekhouden bij zijn eerste geboekte inkoopfactuur, zo raakt e-Boekhouden niet vol met leveranciers die je niet gebruikt. Het bijwerken loopt op de achtergrond. In de kaart zie je hoeveel relaties zijn aangemaakt, bijgewerkt en overgeslagen.
 
 ### Relaties importeren als klanten
 
-Staan je klanten al in e-Boekhouden, dan kun je ze in één keer als klant in TRONVoice zetten. Klik onder **Relaties** op **Relaties importeren** en daarna op **Ja, importeren**. De import loopt op de achtergrond.
+Staan je klanten al in e-Boekhouden, dan kun je ze in één keer als klant in TRONVoice zetten. Klik onder **Relaties** op **Relaties importeren** en daarna op **Ja, importeren**. De import loopt op de achtergrond. Er kan maar één import tegelijk lopen.
 
-Relaties die nog niet in TRONVoice staan, worden als klant aangemaakt. Bestaande klanten met hetzelfde KvK-nummer, btw-nummer of dezelfde naam worden gekoppeld in plaats van dubbel aangemaakt. Open de e-Boekhouden-kaart straks opnieuw. Je ziet dan hoeveel klanten zijn aangemaakt, gekoppeld en overgeslagen.
+- Relaties die nog niet in TRONVoice staan, worden als klant aangemaakt.
+- Een bestaande klant met dezelfde naam (en geen afwijkend KvK- of btw-nummer), of als enige met hetzelfde btw- of KvK-nummer, wordt gekoppeld in plaats van dubbel aangemaakt.
+- Inactieve relaties, relaties die al aan een klant of leverancier gekoppeld zijn en dubbele relaties van een klant die er al is, worden overgeslagen.
+
+<Warning>
+  e-Boekhouden maakt geen onderscheid tussen klanten en leveranciers. Ook je leveranciers worden als klant aangemaakt, tenzij ze al aan een leverancier in TRONVoice gekoppeld zijn.
+</Warning>
+
+Open de e-Boekhouden-kaart straks opnieuw. Je ziet dan hoeveel klanten zijn aangemaakt, gekoppeld aan een bestaande klant en overgeslagen.
 
 ## Bestaande documenten boeken
 
-Wil je documenten van vóór het verbinden ook in e-Boekhouden, zet dan eerst de startdatum terug en sla op. Klik daarna op **Bestaande boeken** onder **Bestaande documenten boeken**.
+Wil je documenten van vóór het verbinden ook in e-Boekhouden, zet dan eerst de startdatum terug en klik op **Opslaan**. Klik daarna op **Bestaande boeken** onder **Bestaande documenten boeken**. Heb je nog niet opgeslagen, dan vraagt TRONVoice je dat eerst te doen.
 
 TRONVoice laat zien hoeveel verzonden facturen en geboekte inkoopfacturen vanaf de startdatum nog niet in e-Boekhouden staan. Klik op **Ja, boeken** om ze op de achtergrond te boeken, de oudste eerst.
 
 <Warning>
-  Controleer eerst of deze documenten nog niet met de hand in e-Boekhouden staan. Vindt TRONVoice in e-Boekhouden al een boeking met hetzelfde factuurnummer bij dezelfde relatie, dan koppelt het die in plaats van opnieuw te boeken.
+  Controleer eerst of deze documenten nog niet met de hand in e-Boekhouden staan. Vindt TRONVoice in e-Boekhouden al een boeking met hetzelfde factuurnummer bij dezelfde relatie, dan neemt het die over in plaats van opnieuw te boeken. Heeft die boeking een ander bedrag of een andere btw-code, dan meldt TRONVoice dat bij het document. Controleer de boeking in e-Boekhouden en klik daarna bij het document op **Boeking gecontroleerd**.
 </Warning>
+
+Een boeking die je in e-Boekhouden hebt verwijderd, boekt **Bestaande boeken** niet opnieuw.
 
 ## Status per document
 
-Op een factuur en op een inkoopfactuur zie je een blok **e-Boekhouden** met de status. Is het document geboekt, dan zie je het boekingsnummer (mutatienummer) en wanneer het is geboekt. Is het nog niet geboekt, dan zie je waarom. Bijvoorbeeld omdat de koppeling wacht of omdat e-Boekhouden een fout gaf.
+Op een factuur en op een inkoopfactuur zie je een blok **e-Boekhouden** met de status:
 
-Met **Nu boeken in e-Boekhouden** boek je een document meteen. TRONVoice probeert mislukte boekingen ook elk uur automatisch opnieuw.
+- **Geboekt in e-Boekhouden**, met het **Boekingsnummer**, het **Factuurnummer in e-Boekhouden** en **Geboekt op**. Staat de betaling ook in e-Boekhouden, dan zie je **Betaling verwerkt**.
+- **Wordt geboekt**, TRONVoice is ermee bezig.
+- **Nog niet geboekt**, met de reden als het document niet geboekt kan worden.
+- **Wacht op de koppeling**, de verbinding is verlopen of nog niet compleet. TRONVoice boekt het document zodra de koppeling werkt.
+- **Boeken mislukt**, met de foutmelding van e-Boekhouden.
+- **Verwijderd in e-Boekhouden**, de boeking bestaat daar niet meer.
+
+Met **Nu boeken in e-Boekhouden** boek je een document meteen. Na een mislukte poging heet de knop **Opnieuw proberen**. Een document dat al geboekt is, kun je niet opnieuw boeken.
+
+TRONVoice probeert mislukte boekingen ook automatisch opnieuw, met steeds langere tussenpozen (na 1, 2, 4 uur enzovoort), maximaal acht keer. Lukt het dan nog niet, dan staat bovenaan de e-Boekhouden-kaart dat het document je aandacht nodig heeft. Open het document voor de reden en kies daar **Nu boeken in e-Boekhouden**.
 
 ### Welke documenten niet worden geboekt
 
@@ -178,6 +233,9 @@ Met **Nu boeken in e-Boekhouden** boek je een document meteen. TRONVoice probeer
 - Geïmporteerde (historische) facturen.
 - Facturen in een andere valuta dan euro.
 - Onderaannemersfacturen.
+- Facturen zonder klant.
+- Creditfacturen bij een factuur die niet in e-Boekhouden wordt geboekt.
+- Documenten met een factuurnummer van meer dan 50 tekens.
 - Inkoopfacturen die nog niet zijn geboekt, geen factuurdatum hebben of geen leverancier hebben.
 - Documenten met een factuurdatum vóór de startdatum.
 
@@ -187,31 +245,59 @@ Met **Nu boeken in e-Boekhouden** boek je een document meteen. TRONVoice probeer
 
 ### Een document gewijzigd na het boeken
 
-Wijzig je bedragen, regels, datum, nummer of klant van een geboekt document, dan meldt TRONVoice bij het document: "Het document is na het boeken gewijzigd." Een boeking in e-Boekhouden kan via de koppeling niet worden aangepast. Pas de boeking in e-Boekhouden zelf aan, of maak een creditfactuur. Draai je de wijziging terug, dan verdwijnt de melding.
+Wijzig je bedragen, btw, regels, datum, nummer of klant of leverancier van een geboekt document, dan meldt TRONVoice bij het document: "Het document is na het boeken gewijzigd." Bij een inkoopfactuur telt ook een andere kostencategorie met een eigen kostenrekening mee. Een boeking in e-Boekhouden kan via de koppeling niet worden aangepast.
 
-Alleen relatiegegevens gewijzigd, zoals een adres? Dan werkt TRONVoice de relatie gewoon bij (als **Relaties bijwerken** aanstaat).
+Zo los je het op:
+
+1. Pas de boeking in e-Boekhouden zelf aan, of maak een creditfactuur.
+2. Klik bij het document op **Boeking gecorrigeerd**. TRONVoice neemt het document zoals het nu is dan over als geboekt.
+
+Draai je de wijziging in TRONVoice terug, dan verdwijnt de melding ook.
+
+Alleen relatiegegevens gewijzigd, zoals een adres? Dan werkt TRONVoice de relatie gewoon bij (als **Relaties bijwerken** aanstaat). Wijzig je het land of btw-nummer van een leverancier, dan controleert TRONVoice zijn geboekte inkoopfacturen opnieuw, omdat de btw-code daarvan afhangt.
+
+### Mogelijk dubbele inkoopfactuur
+
+Staat in e-Boekhouden al een inkoopboeking met hetzelfde factuurnummer, dezelfde datum en hetzelfde bedrag, maar bij een andere relatie? Dan is die factuur waarschijnlijk al met de hand geboekt onder een andere leveranciersnaam. TRONVoice boekt hem dan niet nog een keer en meldt bij de inkoopfactuur: "Er staat al een inkoopboeking met factuurnummer ...".
+
+- Hoort die boeking bij deze factuur, zet hem dan in e-Boekhouden op de juiste relatie.
+- Is het een andere factuur, klik dan op **Toch boeken (andere factuur)**.
 
 ## Synchronisatie
 
-TRONVoice synchroniseert elk uur met e-Boekhouden. Het haalt betalingen op, registreert betalingen en probeert mislukte boekingen opnieuw. Wil je niet wachten, klik dan op **Nu synchroniseren** in de e-Boekhouden-kaart. Met **Test verbinding** controleer je of de token nog werkt.
+TRONVoice synchroniseert elk uur tussen 6:00 en 22:00 uur met e-Boekhouden. Het haalt betalingen op, registreert betalingen en probeert mislukte boekingen opnieuw. Wil je niet wachten, klik dan op **Nu synchroniseren** in de e-Boekhouden-kaart. Dat kan één keer per vijf minuten.
 
-Bovenaan de kaart zie je hoeveel documenten niet (of nog niet) in e-Boekhouden konden worden geboekt, met de laatste fout.
+Met **Test verbinding** controleer je of het token nog werkt en of het nog bij dezelfde e-Boekhouden-administratie hoort.
+
+Bovenaan de kaart zie je hoeveel documenten nog niet in e-Boekhouden konden worden geboekt en hoeveel je aandacht nodig hebben, met de laatste fout.
 
 ## Koppeling verwijderen
 
 Klik in de e-Boekhouden-kaart op **Koppeling verwijderen** en bevestig met **Ja, verwijderen**. TRONVoice boekt dan niets meer in e-Boekhouden. Boekingen en relaties die al in e-Boekhouden staan, blijven bestaan.
 
+Verbind je later opnieuw met dezelfde e-Boekhouden-administratie, dan weet TRONVoice nog welke documenten daar al geboekt zijn. Die worden niet dubbel geboekt.
+
 ## Problemen oplossen
 
 ### De verbinding is verlopen
 
-Is de API-token in e-Boekhouden verwijderd of verlopen, dan meldt de kaart dat de verbinding met e-Boekhouden is verlopen. Maak in e-Boekhouden een nieuw API-token aan, plak het in de kaart en klik op **Verbinden**. Je instellingen blijven bewaard. Documenten die je in de tussentijd verstuurt of boekt, wachten op de koppeling. TRONVoice boekt ze zodra de koppeling weer werkt.
+Is het API-token in e-Boekhouden verwijderd of verlopen, dan staat op de kaart **Verbinding verlopen** en meldt de kaart: "De verbinding met e-Boekhouden is verlopen." Maak in e-Boekhouden een nieuw API-token aan, plak het in de kaart en klik op **Verbinden**. Je instellingen blijven bewaard.
 
-Wil je de token vervangen terwijl de koppeling nog werkt, klik dan op **Nieuw token** naast **Verbonden met e-Boekhouden**.
+Documenten die je in de tussentijd verstuurt of boekt, krijgen de status **Wacht op de koppeling**. TRONVoice boekt ze zodra de koppeling weer werkt.
+
+Wil je het token vervangen terwijl de koppeling nog werkt, klik dan op **Nieuw token** naast **Verbonden met e-Boekhouden**.
 
 <Warning>
-  Gebruik voor een nieuwe token dezelfde e-Boekhouden-administratie. Hoort de token bij een andere administratie, dan kies je daarna opnieuw de grootboekrekeningen. Boekingen in de vorige administratie tellen dan niet meer mee.
+  Gebruik voor een nieuw token dezelfde e-Boekhouden-administratie. Hoort het token bij een andere administratie, dan kiest TRONVoice standaardrekeningen van die administratie en boekt het wachtende documenten daar meteen op. Controleer dan direct de grootboekrekeningen en de startdatum. Wat in de vorige administratie geboekt is, telt niet meer mee.
 </Warning>
+
+### "Te veel pogingen"
+
+Je hebt te vaak achter elkaar verbonden, de verbinding getest of gesynchroniseerd. De melding zegt na hoeveel minuten je het opnieuw kunt proberen.
+
+### De e-Boekhouden-administratie is niet beschikbaar
+
+Is je administratie in e-Boekhouden nog niet geactiveerd, geblokkeerd door een openstaande betaling of niet toegankelijk, dan kan TRONVoice niet boeken. Los dit op in e-Boekhouden. TRONVoice controleert bij elke synchronisatie of de administratie weer bruikbaar is en boekt de wachtende documenten dan alsnog.
 
 ### "De periode is in e-Boekhouden afgesloten"
 
@@ -219,7 +305,7 @@ Je boekhouder heeft de periode van de factuurdatum in e-Boekhouden afgesloten. H
 
 ### "Dit factuurnummer bestaat al in e-Boekhouden"
 
-In e-Boekhouden staat al een boeking met hetzelfde factuurnummer, maar bij een andere relatie. TRONVoice koppelt alleen een bestaande boeking als die bij dezelfde relatie hoort. Controleer in e-Boekhouden welke boeking dit is, en corrigeer de relatie of het factuurnummer.
+In e-Boekhouden staat al een boeking met hetzelfde factuurnummer, maar bij een andere relatie of boeking. TRONVoice neemt alleen een bestaande boeking over als die bij dezelfde relatie hoort, en boekt het niet nog een keer. Controleer in e-Boekhouden welke boeking dit is, en corrigeer de relatie of het factuurnummer.
 
 ### "Een gekozen grootboekrekening bestaat niet (meer) in e-Boekhouden"
 
@@ -227,8 +313,12 @@ Een rekening die je in de koppeling had gekozen, is in e-Boekhouden verwijderd o
 
 ### De gebruiker heeft geen rechten
 
-De API-token werkt met de rechten van de e-Boekhouden-gebruiker die hem heeft aangemaakt. Mag die gebruiker geen boekingen of relaties aanmaken, pas dan de rechten van de gebruiker in e-Boekhouden aan.
+Het API-token werkt met de rechten van de e-Boekhouden-gebruiker die het heeft aangemaakt. Mag die gebruiker geen boekingen of relaties aanmaken, pas dan de rechten van de gebruiker in e-Boekhouden aan.
 
 ### Een factuur is betaald in e-Boekhouden, maar niet in TRONVoice
 
-TRONVoice zet een factuur pas op **Betaald** als hij in e-Boekhouden volledig betaald is. Wacht tot de volgende synchronisatie, of klik op **Nu synchroniseren**. Is de boeking in e-Boekhouden verwijderd, dan meldt TRONVoice dat bij het document. TRONVoice boekt het document dan niet vanzelf opnieuw.
+TRONVoice zet een factuur pas op **Betaald** als hij in e-Boekhouden volledig betaald is. Wacht tot de volgende synchronisatie, of klik op **Nu synchroniseren**. Een factuur die volledig met een creditfactuur is verrekend, zet TRONVoice niet op betaald.
+
+### "De boeking bestaat niet meer in e-Boekhouden"
+
+De boeking is in e-Boekhouden verwijderd. Bij het document staat dan **Verwijderd in e-Boekhouden**. TRONVoice boekt het document niet vanzelf opnieuw, ook niet met **Bestaande boeken**. Moet het document toch in e-Boekhouden, klik dan bij het document op **Nu boeken in e-Boekhouden**.
