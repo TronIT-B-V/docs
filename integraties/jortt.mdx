@@ -1,0 +1,178 @@
+---
+title: "Jortt koppelen aan TRONVoice"
+description: "Boek je verkoopfacturen en inkoopfacturen automatisch in Jortt, met de pdf als bon, en houd betalingen in beide systemen gelijk."
+---
+
+Jortt is een online boekhoudpakket voor zzp'ers en kleine ondernemers. Met de Jortt-koppeling boekt TRONVoice je facturen automatisch in Jortt. Je verkoopfacturen komen als opbrengstboeking in Jortt, met de factuur-pdf als bon. Je inkoopfacturen worden een kostenboeking met het originele document erbij. Betalingen houdt TRONVoice in beide systemen gelijk.
+
+Jij bepaalt welke acties TRONVoice in Jortt mag uitvoeren. Alleen wat je aanzet gebeurt automatisch.
+
+<Note>
+  De Jortt-koppeling stel je **per administratie** in. Per administratie kan maar **één** boekhoudkoppeling tegelijk actief zijn: Exact Online, Minox, Jortt of e-Boekhouden. Is er al een andere boekhoudkoppeling actief, verwijder die dan eerst.
+</Note>
+
+## Wat er naar Jortt gaat
+
+| In TRONVoice | In Jortt |
+| --- | --- |
+| Verkoopfactuur (verzonden of betaald) | Opbrengstboeking op de factuurdatum, met de btw per tarief en de factuur-pdf als bon |
+| Verkoopfactuur met btw verlegd (ICP of binnenland) of export | Factuur in Jortt bij een klant met btw verlegd, zodat hij in de juiste btw-rubriek en de ICP-opgaaf komt |
+| Inkoopfactuur (geboekt) | Kostenboeking met het originele document als bon |
+| Betaling in TRONVoice | Gekoppelde banktransactie in Jortt (als je dat aanzet) |
+| Betaling in Jortt | Factuur op **Betaald** in TRONVoice (als je dat aanzet) |
+
+## Verbinding maken
+
+Je kunt op twee manieren verbinden. Zie je de knop **Verbinden met Jortt**, dan is inloggen bij Jortt de snelste weg. Anders gebruik je een eigen API-koppeling uit Jortt.
+
+### Optie 1: Verbinden met Jortt
+
+<Steps>
+  <Step title="Open de Jortt-kaart">
+    Ga naar **Instellingen → Integraties**, kies de administratie en open de tab **Boekhouding**. Klik op de kaart **Jortt**.
+  </Step>
+  <Step title="Log in bij Jortt">
+    Klik op **Verbinden met Jortt**. Je logt in bij Jortt en geeft daar toestemming. Daarna kom je vanzelf terug in TRONVoice.
+  </Step>
+</Steps>
+
+### Optie 2: Met een eigen API-koppeling
+
+<Steps>
+  <Step title="Maak een API-koppeling aan in Jortt">
+    Ga in Jortt naar **Instellingen › API-koppelingen** en maak een nieuwe API-koppeling aan. In de Jortt-kaart in TRONVoice staat een directe link naar die pagina.
+  </Step>
+  <Step title="Vink de rechten aan">
+    Vink in Jortt deze rechten (scopes) aan:
+
+    - Administratie gegevens en instellingen bekijken
+    - Boekingen bekijken
+    - Boekingen aanmaken en wijzigen
+    - Bonnen uploaden naar de Inbox
+    - Bonnen bekijken
+    - Klanten bekijken
+    - Klanten aanmaken, wijzigen en verwijderen
+    - Facturen bekijken
+    - Facturen aanmaken en versturen
+    - Geregistreerde betalingen bekijken
+    - Betalingen registreren en ongedaan maken
+    - Bankrekeningen en transacties bekijken
+
+    Wil je de pdf ook meesturen met facturen in Jortt (btw verlegd en export), vink dan ook **Administratie gegevens en instellingen wijzigen** aan. TRONVoice gebruikt alleen de rechten voor de acties die je aanzet.
+  </Step>
+  <Step title="Vul de gegevens in TRONVoice in">
+    Open in TRONVoice de kaart **Jortt** onder **Instellingen → Integraties → Boekhouding**. Vul de **Client ID** en het **Client secret** van je API-koppeling in en klik op **Verbinden**.
+  </Step>
+</Steps>
+
+### De Jortt-administratie kiezen
+
+Heeft de koppeling toegang tot meer dan één administratie in Jortt, dan vraagt TRONVoice waarin het mag boeken. Kies de administratie bij **Kies de Jortt-administratie** en klik op **Kiezen**.
+
+Wil je later een andere Jortt-administratie gebruiken, klik dan op **Wijzigen** naast **Verbonden met Jortt**. Kies daarna opnieuw je grootboekrekeningen.
+
+## Instellen wat TRONVoice mag doen
+
+Onder **Wat mag TRONVoice in Jortt doen?** zet je de acties aan of uit.
+
+<AccordionGroup>
+  <Accordion title="Verkoopfacturen boeken">
+    Bij het verzenden komt de factuur-pdf als bon in Jortt, met een opbrengstboeking op de factuurdatum. Facturen met btw verlegd (ICP of binnenland) of export worden een factuur in Jortt bij een klant met btw verlegd. Zo zet Jortt ze in de juiste rubriek van de btw-aangifte en in de ICP-opgaaf.
+
+    Met **PDF meesturen met facturen in Jortt** hangt TRONVoice de pdf ook aan zo'n factuur in Jortt. Jortt staat dat alleen toe met het recht **Administratie gegevens en instellingen wijzigen**.
+  </Accordion>
+  <Accordion title="Inkoopfacturen boeken">
+    Zodra je een inkoopfactuur in TRONVoice boekt, gaat het originele document als bon naar Jortt, met een kostenboeking.
+  </Accordion>
+  <Accordion title="Betalingen ophalen uit Jortt">
+    Koppelt de bankkoppeling in Jortt een betaling aan de boeking, dan zet TRONVoice de factuur op **Betaald**.
+  </Accordion>
+  <Accordion title="Betalingen registreren in Jortt">
+    Is een factuur in TRONVoice betaald (via de bank of handmatig), dan koppelt TRONVoice in Jortt de banktransactie van hetzelfde bedrag van die klant of leverancier aan de boeking. Wordt de factuur in TRONVoice weer onbetaald, dan maakt TRONVoice die registratie in Jortt ongedaan.
+
+    Betalingen via iDEAL (Mollie), bunq of incasso komen als verzamelde uitbetaling binnen. Die koppel je in Jortt zelf.
+  </Accordion>
+  <Accordion title="Boekingen direct goedkeuren">
+    Staat dit aan, dan tellen boekingen meteen mee in Jortt. Staat het uit, dan staan ze in Jortt als concept klaar om te controleren.
+  </Accordion>
+</AccordionGroup>
+
+Onder de schakelaars zie je welke rechten de API-koppeling in Jortt nodig heeft voor de acties die je hebt aangezet.
+
+## Grootboekrekeningen en startdatum
+
+TRONVoice haalt de grootboekrekeningen rechtstreeks uit je Jortt-administratie. Stel bij **Grootboekrekeningen in Jortt** in:
+
+- **Omzetrekening (verkoopfacturen)**, waarop je verkoopfacturen worden geboekt.
+- **Standaard kostenrekening (inkoopfacturen)**, waarop je inkoopfacturen worden geboekt.
+- **Omzetrekening voor facturen in Jortt (btw verlegd / export)**, optioneel. Laat je deze op **Standaard van Jortt** staan, dan kiest Jortt zelf.
+- **Kostenrekening per kostencategorie (optioneel)**. Koppel een kostencategorie uit TRONVoice aan een eigen kostenrekening. Categorieën zonder eigen rekening gaan naar de standaard kostenrekening.
+
+Met **Boeken vanaf factuurdatum** kies je vanaf welke datum TRONVoice boekt. Bij het verbinden staat die op vandaag. Documenten met een eerdere factuurdatum worden niet automatisch geboekt. Zo voorkom je dubbele boekingen van wat al in Jortt staat.
+
+Klik op **Opslaan** om je instellingen te bewaren.
+
+## Bestaande documenten boeken
+
+Wil je documenten van vóór het verbinden ook in Jortt, zet dan eerst de startdatum terug en sla op. Klik daarna op **Bestaande boeken** onder **Bestaande documenten boeken**.
+
+TRONVoice laat zien hoeveel verzonden facturen en geboekte inkoopfacturen vanaf de startdatum nog niet in Jortt staan. Klik op **Ja, boeken** om ze op de achtergrond te boeken, de oudste eerst.
+
+<Warning>
+  Controleer eerst of deze documenten nog niet met de hand in Jortt staan. Anders ontstaan dubbele boekingen.
+</Warning>
+
+## Status per document
+
+Op een factuur en op een inkoopfactuur zie je een blok **Jortt** met de status:
+
+- **Geboekt in Jortt**, met het boekingsnummer en of het document als bon is gekoppeld.
+- **Factuur in Jortt**, voor btw verlegd en export, met het factuurnummer in Jortt.
+- **Betaling gekoppeld**, als de betaling in Jortt aan de boeking hangt.
+- **Wordt geboekt**, TRONVoice is ermee bezig.
+- **Nog niet geboekt**, met de reden als het document niet geboekt kan worden.
+- **Wacht op de koppeling**, de verbinding is verlopen of nog niet compleet.
+- **Boeken mislukt**, met de foutmelding van Jortt.
+
+Met **Nu boeken in Jortt** boek je een document meteen. Na een mislukte poging heet de knop **Opnieuw proberen**. Is een geboekt document daarna gewijzigd, dan werk je de boeking bij met **Boeking bijwerken**. TRONVoice werkt boekingen ook vanzelf bij als bedragen, regels, datum, nummer of klant veranderen.
+
+### Welke documenten niet worden geboekt
+
+- Conceptfacturen. Alleen verzonden of betaalde facturen gaan naar Jortt.
+- Geïmporteerde (historische) facturen.
+- Facturen in een andere valuta dan euro.
+- Onderaannemersfacturen.
+- Inkoopfacturen die nog niet zijn geboekt of geen factuurdatum hebben.
+- Documenten met een factuurdatum vóór de startdatum.
+
+<Note>
+  Een factuur die in Jortt is geboekt, kan niet meer terug naar concept. Wil je hem corrigeren, maak dan een [creditfactuur](/facturen/creditfacturen).
+</Note>
+
+## Synchronisatie van betalingen
+
+TRONVoice synchroniseert elk uur met Jortt. Het haalt betalingen op, registreert betalingen en probeert mislukte boekingen opnieuw. Wil je niet wachten, klik dan op **Betalingen nu ophalen** in de Jortt-kaart.
+
+## Koppeling verwijderen
+
+Klik in de Jortt-kaart op **Koppeling verwijderen** en bevestig met **Ja, verwijderen**. TRONVoice boekt dan niets meer in Jortt. Boekingen die al in Jortt staan, blijven bestaan.
+
+## Problemen oplossen
+
+### "De verbinding met Jortt is verlopen"
+
+Jortt accepteert de gegevens van de koppeling niet meer, bijvoorbeeld omdat de API-koppeling in Jortt is verwijderd. Op de kaart staat dan **Verbinding verlopen**. Verbind opnieuw, je instellingen blijven bewaard.
+
+Documenten die je in de tussentijd verstuurt of boekt, krijgen de status **Wacht op de koppeling**. TRONVoice boekt ze zodra de koppeling weer werkt.
+
+### Er ontbreken rechten
+
+Heb je een actie aangezet waarvoor de API-koppeling geen recht heeft, dan meldt TRONVoice welke rechten nodig zijn. Vink die rechten aan bij de API-koppeling in Jortt en sla in TRONVoice opnieuw op.
+
+### Een document kon niet worden geboekt
+
+Bovenaan de Jortt-kaart zie je hoeveel documenten niet (of nog niet) in Jortt konden worden geboekt, met de laatste fout. De reden staat ook bij het document zelf. TRONVoice probeert het automatisch opnieuw. Los je de oorzaak op, klik dan op **Opnieuw proberen** bij het document.
+
+### Controleer de verbinding
+
+Klik in de Jortt-kaart op **Test verbinding**. TRONVoice laat zien of de verbinding werkt en hoeveel Jortt-administraties beschikbaar zijn.
