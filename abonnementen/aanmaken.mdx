@@ -25,7 +25,7 @@ Ga naar **Abonnementen** in de hoofdnavigatie en klik op **Nieuw abonnement**. J
     |---|---|
     | **Naam** | Interne naam voor het abonnement, bijvoorbeeld `Maandelijkse hosting`. Verplicht. |
     | **Referentie** | Optionele referentie die op de gegenereerde facturen staat. |
-    | **Facturatie periode** | Optioneel vrij tekstlabel, zoals `December 2024`. |
+    | **Facturatieperiode tekst** | Optioneel vrij tekstlabel voor jezelf, zoals `December 2024`. Dit label komt niet op de factuur. |
     | **Notities** | Optionele interne notities. |
   </Step>
 
@@ -65,7 +65,7 @@ Ga naar **Abonnementen** in de hoofdnavigatie en klik op **Nieuw abonnement**. J
     Je kunt ook **notitieregels** toevoegen: tekstregels zonder prijs. Regels kun je verslepen om de volgorde te wijzigen.
 
     <Note>
-      Regelomschrijvingen ondersteunen datumvariabelen. Bij het genereren van een factuur worden plaatshouders vervangen door de huidige periode, handig voor omschrijvingen zoals "Hosting [maand] [jaar]".
+      Regelomschrijvingen ondersteunen datumvariabelen zoals `%THIS_MONTH_LONG%` en `%THIS_YEAR%`. Bij het genereren van een factuur vervangt TRONVoice ze op basis van de factuurdatum, dus de dag waarop de factuur wordt aangemaakt. "Hosting %THIS_MONTH_LONG% %THIS_YEAR%" wordt zo bijvoorbeeld "Hosting oktober 2026". Maandnamen volgen de taal van de klant: een Engelse klant krijgt "Hosting October 2026". Met de knop **Variabelen** (het **i**-icoon) bij de omschrijving voeg je een variabele met één klik in. Alle variabelen vind je bij [Variabelen in omschrijvingen](/facturen/aanmaken#variabelen-in-omschrijvingen).
     </Note>
   </Step>
 
@@ -77,9 +77,9 @@ Ga naar **Abonnementen** in de hoofdnavigatie en klik op **Nieuw abonnement**. J
     | Optie | Beschrijving |
     |---|---|
     | **Actief** | Inactieve abonnementen maken nooit facturen aan. Standaard aan. |
-    | **Auto verzenden** | Mail de gegenereerde factuur automatisch. Standaard uit. |
-    | **Verzend naar admin** | Stuur een kopie naar het e-mailadres van je eigen administratie. |
-    | **Verzend naar klant** | Stuur de factuur naar het e-mailadres van de klant. |
+    | **Automatisch verzenden** | Mail de gegenereerde factuur automatisch. Standaard uit. |
+    | **Naar admin** | Stuur een kopie naar het e-mailadres van je eigen administratie. Zie je alleen als **Automatisch verzenden** aan staat. |
+    | **Naar klant** | Stuur de factuur naar het e-mailadres van de klant. Zie je alleen als **Automatisch verzenden** aan staat. |
 
     Staat automatisch verzenden uit, dan worden gegenereerde facturen als concept opgeslagen, zodat je ze kunt controleren en handmatig versturen.
   </Step>
@@ -97,10 +97,12 @@ Wanneer de **eerste factuurdatum** van een abonnement vandaag of in het verleden
 2. Zet de factuurdatum op vandaag en de vervaldatum op basis van de betaaltermijn van de administratie.
 3. Schuift de **volgende factuurdatum** van het abonnement één interval op, zodat de volgende periode automatisch klaarstaat.
 
-Of de factuur wordt verstuurd of als concept wordt opgeslagen, hangt af van **Auto verzenden**:
+Een abonnement vult de [periode van de factuur](/facturen/aanmaken#de-periode-van-een-factuur) niet automatisch in. Wil je een periode op de factuur, vul die dan zelf in op de gegenereerde conceptfactuur. Laat daarvoor **Automatisch verzenden** uit staan. Anders wordt de factuur meteen zonder periode verstuurd.
 
-- **Auto verzenden aan**: als je account voldoende credits heeft, krijgt de factuur een echt factuurnummer, wordt die gemaild naar de gekozen ontvangers en worden er credits afgeschreven.
-- **Auto verzenden uit**: de factuur wordt aangemaakt als **concept** met een conceptnummer, zodat je hem zelf verstuurt.
+Of de factuur wordt verstuurd of als concept wordt opgeslagen, hangt af van **Automatisch verzenden**:
+
+- **Automatisch verzenden** aan: als je account voldoende credits heeft, krijgt de factuur een echt factuurnummer, wordt die gemaild naar de gekozen ontvangers en worden er credits afgeschreven.
+- **Automatisch verzenden** uit: de factuur wordt aangemaakt als **concept** met een conceptnummer, zodat je hem zelf verstuurt.
 
 <Note>
 Is vandaag een dag die voor de klant is uitgesloten van facturatie, dan wordt automatisch verzenden overgeslagen en wordt de factuur in plaats daarvan als concept aangemaakt. Hetzelfde gebeurt als je account te weinig credits heeft.

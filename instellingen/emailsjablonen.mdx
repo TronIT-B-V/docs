@@ -87,10 +87,23 @@ Voeg variabelen in het onderwerp of de tekst in met de notatie `{variabele}`. TR
 
 ### Sjabloonspecifieke variabelen
 
+<Note>
+  De variabele `{periode}` toont de periode die je op de factuur hebt ingevuld, in de taal van de klant. De datums volgen de [datumnotatie](/instellingen/talen#datumnotaties) van je administratie. Heb je alleen een begin- of einddatum ingevuld, dan staat er voor een Nederlandse klant bijvoorbeeld `vanaf 01-10-2026` of `t/m 31-10-2026`. Lees bij [De periode van een factuur](/facturen/aanmaken#de-periode-van-een-factuur) hoe je een periode invult.
+</Note>
+
+<Accordion title="Factuur naar klant">
+
+| Variabele | Omschrijving |
+|---|---|
+| `{periode}` | De periode van de factuur in de taal van de klant, bijvoorbeeld `01-10-2026 t/m 31-10-2026`. Leeg als de factuur geen periode heeft. |
+
+</Accordion>
+
 <Accordion title="Betalingsherinnering">
 
 | Variabele | Omschrijving |
 |---|---|
+| `{periode}` | De periode van de factuur in de taal van de klant, bijvoorbeeld `01-10-2026 t/m 31-10-2026`. Leeg als de factuur geen periode heeft. |
 | `{dagen_verlopen}` | Aantal dagen dat de factuur is verlopen |
 | `{openstaand_bedrag}` | Openstaand bedrag |
 | `{herinnering_stap}` | Nummer van de herinneringsstap (1, 2, 3, enzovoort) |

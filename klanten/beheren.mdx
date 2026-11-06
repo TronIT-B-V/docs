@@ -139,9 +139,42 @@ De meeste klanten nemen hun instellingen over van de administratie, maar je kunt
 - **Btw-verlegd / btw-vrijgesteld**: verlegde of vrijgestelde btw, meestal automatisch ingesteld op basis van het land.
 - **G-rekening-instellingen**: gebruikt je administratie een G-rekening? Dan kun je het percentage en het IBAN voor deze klant overschrijven.
 - **Uitgesloten factuurdagen**: dagen van de week waarop deze klant niet automatisch gefactureerd mag worden.
+- **PDF-sjabloon facturen** en **PDF-sjabloon offertes**: een andere pdf-opmaak voor deze klant. Lees meer in [Pdf-sjabloon per klant](#pdf-sjabloon-per-klant).
 
 <Note>
   Laat een overschrijving leeg om de standaardinstelling van de administratie te blijven gebruiken. Het klantformulier toont de overgenomen waarde als placeholder, zodat je altijd weet wat er geldt.
+</Note>
+
+## Pdf-sjabloon per klant
+
+Bij [Huisstijl](/instellingen/huisstijl#een-factuursjabloon-kiezen) kies je welk sjabloon je facturen en offertes gebruiken. Die keuze geldt voor al je klanten. Wil je dat één klant een andere opmaak krijgt? Dan kies je voor die klant een ander sjabloon.
+
+Een voorbeeld: je stuurt de meeste klanten facturen in het sjabloon **Modern**. Een grote opdrachtgever wil liever een traditionele, formele factuur. Geef die klant dan het sjabloon **Klassiek**. Je andere klanten merken er niets van.
+
+<Steps>
+  <Step title="Open het bewerkformulier">
+    Open de klant en klik op **Bewerken**. Ga naar het tabblad **Financieel**.
+  </Step>
+  <Step title="Kies de sjablonen">
+    Onder **Facturatie** vind je twee keuzelijsten: **PDF-sjabloon facturen** en **PDF-sjabloon offertes**. Je kiest ze los van elkaar. Zo kan een klant een eigen factuuropmaak krijgen, terwijl de offertes voor die klant de keuze van Huisstijl blijven volgen.
+  </Step>
+  <Step title="Opslaan">
+    Klik op **Opslaan**. Vanaf nu maakt TRONVoice de pdf's van facturen en offertes voor deze klant in het gekozen sjabloon.
+  </Step>
+</Steps>
+
+In elke keuzelijst heb je deze opties:
+
+| Optie | Wat er gebeurt |
+|---|---|
+| **Zoals ingesteld bij Huisstijl** | De klant volgt de keuze van Huisstijl. Tussen haakjes zie je welk sjabloon dat nu is. Dit is de standaard. |
+| **Standaard sjablonen** | Een van de tien standaardsjablonen, zoals **Standaard**, **Modern** of **Klassiek**. |
+| **Eigen ontwerpen** | Een pdf-ontwerp dat je zelf hebt gemaakt. Deze groep zie je alleen als je administratie eigen ontwerpen heeft. Lees meer in [Eigen pdf-ontwerpen](/instellingen/pdf-ontwerpen). |
+
+Je kunt de sjablonen ook meteen kiezen als je een nieuwe klant aanmaakt. Je vindt ze dan onder **Facturatie** in het formulier. Heb je meerdere administraties en kies je de administratie pas in het formulier zelf? Dan staan de keuzelijsten er nog niet. Stel ze na het opslaan in via **Bewerken**.
+
+<Note>
+  Verwijder je een eigen ontwerp dat bij klanten in gebruik is? Dan gaan die klanten automatisch terug naar **Zoals ingesteld bij Huisstijl**. De melding na het verwijderen vertelt je hoeveel klanten dat zijn.
 </Note>
 
 ## Een klant deactiveren, herstellen en heractiveren

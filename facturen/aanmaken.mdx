@@ -1,6 +1,6 @@
 ---
 title: "Een factuur aanmaken in TRONVoice"
-description: "Stapsgewijze handleiding om een factuur aan te maken in TRONVoice: kies een klant, voeg factuurregels toe, stel btw-opties in, pas kortingen toe en sla op."
+description: "Zo maak je een factuur in TRONVoice: kies een klant, voeg regels toe, stel btw-opties in, vul een periode in, gebruik datumvariabelen en sla op."
 ---
 
 Een factuur aanmaken in TRONVoice kost maar een paar stappen. Facturen beginnen als concept, dus je kunt rustig alle gegevens invullen voordat je verstuurt.
@@ -25,7 +25,9 @@ Een factuur aanmaken in TRONVoice kost maar een paar stappen. Facturen beginnen 
   </Step>
 
   <Step title="Stel de factuurdatum en betaaltermijn in">
-    De **Factuurdatum** staat standaard op vandaag. De **Betaaltermijn** (in dagen) bepaalt automatisch de vervaldatum. De standaard betaaltermijn komt uit je administratie-instellingen (meestal 30 dagen).
+    Je vult deze gegevens in het blok **Factuurgegevens** in. De **Factuurdatum** staat standaard op vandaag. De **Termijn (dagen)** bepaalt automatisch de vervaldatum. De standaard termijn komt van de klant. Heeft de klant geen eigen termijn, dan komt die uit je administratie-instellingen (meestal 30 dagen).
+
+    Wil je laten zien over welke periode de factuur gaat, vul dan de **Periode** in. Lees meer bij [De periode van een factuur](#de-periode-van-een-factuur).
 
     Je kunt ook een **Referentie** instellen, een vrij invulveld dat op de factuur verschijnt. Handig voor inkoopordernummers of projectcodes.
   </Step>
@@ -40,6 +42,8 @@ Een factuur aanmaken in TRONVoice kost maar een paar stappen. Facturen beginnen 
     - Groepeer de regel eventueel onder een **locatie** (handig bij projectfacturatie).
 
     Je kunt ook **notitieregels** toevoegen, regels met alleen tekst en zonder prijs. Handig voor opmerkingen of kopjes.
+
+    In een omschrijving kun je datumvariabelen gebruiken, zoals `%THIS_MONTH_LONG%`. Zie [Variabelen in omschrijvingen](#variabelen-in-omschrijvingen).
 
     Regels kun je verslepen om de volgorde te wijzigen, of omhoog en omlaag verplaatsen met de pijlknoppen.
 
@@ -65,7 +69,7 @@ Een factuur aanmaken in TRONVoice kost maar een paar stappen. Facturen beginnen 
   </Step>
 
   <Step title="Pas een korting toe (optioneel)">
-    Om een korting toe te passen op de hele factuur, vul je een **Kortingspercentage** in de factuurkop in. Deze korting wordt toegepast op het subtotaal voordat de btw wordt berekend.
+    Om een korting toe te passen op de hele factuur, vul je een percentage in bij **Korting (hele factuur)** in het blok **Factuurgegevens**. Deze korting wordt toegepast op het subtotaal voordat de btw wordt berekend.
 
     Voor kortingen op regelniveau vul je een percentage in het veld **Korting** op een afzonderlijke regel in.
   </Step>
@@ -82,6 +86,97 @@ Een factuur aanmaken in TRONVoice kost maar een paar stappen. Facturen beginnen 
     Er wordt een tijdelijk conceptnummer (`CONCEPT-XXXXX`) toegekend. Het permanente factuurnummer wordt pas toegekend wanneer de factuur wordt verstuurd.
   </Step>
 </Steps>
+
+## De periode van een factuur
+
+Met het veld **Periode** geef je aan over welke periode een factuur gaat, bijvoorbeeld de maand waarin je het werk hebt gedaan. Je hoeft die periode dus niet meer in een factuurregel te zetten. Het veld is optioneel.
+
+Je vindt **Periode** in het blok **Factuurgegevens**, zowel bij een nieuwe factuur als bij het bewerken van een factuur. Het veld heeft een begindatum en een einddatum. Boven de datumvelden staan snelknoppen:
+
+| Knop | Wat het doet |
+|---|---|
+| **Vorige maand** | Vult de hele maand vóór de maand van de factuurdatum in. |
+| **Deze maand** | Vult de hele maand van de factuurdatum in. |
+| **Wissen** | Maakt beide datums leeg. Deze knop zie je alleen als er een datum is ingevuld. |
+
+Staat de factuurdatum op 5 november 2026, dan geeft **Vorige maand** de periode 01-10-2026 t/m 31-10-2026.
+
+<Note>
+De einddatum mag niet vóór de begindatum liggen. Doe je dat toch, dan krijg je een melding en wordt de factuur niet opgeslagen.
+</Note>
+
+### Waar de periode verschijnt
+
+- Op de pdf staat de periode bij de factuurgegevens, zoals factuurnummer en factuurdatum. Dat geldt voor alle standaard pdf-sjablonen.
+- Is het veld leeg, dan staat er geen periode op de pdf.
+- De tekst volgt de taal van de klant. Voor een Nederlandse klant staat er "Periode 01-10-2026 t/m 31-10-2026", voor een Engelse klant "Period 01-10-2026 to 31-10-2026". De datums staan in de datumnotatie van je administratie.
+- Vul je alleen een begindatum in, dan staat er "vanaf 01-10-2026". Vul je alleen een einddatum in, dan staat er "t/m 31-10-2026".
+- Op de factuurpagina in TRONVoice zie je de periode bovenaan, bij de andere factuurgegevens.
+- In de UBL-factuur staat de periode ook, zodat het boekhoudpakket van je klant hem kan overnemen.
+
+Maak je een creditfactuur of dupliceer je een factuur, dan neemt TRONVoice de periode over. Offertes hebben geen periode.
+
+<Tip>
+Gebruik je een eigen pdf-ontwerp, voeg dan in het blok **Documentgegevens** de rij **Periode (factuur)** toe, of gebruik de variabele `[periode]`. Meer hierover lees je bij [Eigen pdf-ontwerpen](/instellingen/pdf-ontwerpen).
+</Tip>
+
+## Variabelen in omschrijvingen
+
+In de omschrijving van een factuurregel kun je datumvariabelen gebruiken. TRONVoice vervangt ze door de juiste maand, het kwartaal, de week of het jaar. Zo hoef je terugkerende omschrijvingen zoals "Hosting oktober 2026" niet elke keer aan te passen.
+
+### Beschikbare variabelen
+
+De voorbeelden gaan uit van de datum 15 oktober 2026 en een Nederlandse klant.
+
+| Variabele | Wordt | Voorbeeld |
+|---|---|---|
+| `%THIS_DAY%` | Dag van de maand | `15` |
+| `%THIS_MONTH%` | Deze maand als getal (01-12) | `10` |
+| `%THIS_MONTH_LONG%` | Deze maand als naam | `oktober` |
+| `%THIS_QUARTER%` | Dit kwartaal (1-4) | `4` |
+| `%THIS_WEEK%` | Deze week (weeknummer) | `42` |
+| `%THIS_YEAR%` | Dit jaar | `2026` |
+| `%PREV_MONTH%` | Vorige maand als getal (01-12) | `09` |
+| `%PREV_MONTH_LONG%` | Vorige maand als naam | `september` |
+| `%PREV_QUARTER%` | Vorig kwartaal (1-4) | `3` |
+| `%PREV_WEEK%` | Vorige week (weeknummer) | `41` |
+| `%PREV_YEAR%` | Vorig jaar | `2025` |
+| `%NEXT_MONTH%` | Volgende maand als getal (01-12) | `11` |
+| `%NEXT_MONTH_LONG%` | Volgende maand als naam | `november` |
+| `%NEXT_QUARTER%` | Volgend kwartaal (1-4) | `1` |
+| `%NEXT_WEEK%` | Volgende week (weeknummer) | `43` |
+| `%NEXT_YEAR%` | Volgend jaar | `2027` |
+
+Een kwartaal verder of terug loopt door over de jaargrens. In oktober is het volgende kwartaal dus kwartaal 1.
+
+### Van welke datum gaan de variabelen uit
+
+- Bij een **concept** gaan de variabelen uit van de datum van vandaag. Een concept laat dus altijd de actuele maand zien.
+- Bij een verstuurde factuur gaan ze uit van de **factuurdatum**. Bij het versturen krijgt een concept normaal de datum van die dag als factuurdatum. Daarna veranderen de variabelen niet meer.
+
+De variabelen blijven in je omschrijving staan. TRONVoice vult ze in op de pdf en in de UBL-factuur. Bij een factuur uit een abonnement vult TRONVoice ze al in bij het aanmaken van de factuur.
+
+### Maandnamen in de taal van de klant
+
+Namen van maanden volgen de taal van de klant: Nederlands, Engels, Duits, Frans of Spaans. De omschrijving "Hosting %THIS_MONTH_LONG% %THIS_YEAR%" wordt bijvoorbeeld:
+
+- "Hosting oktober 2026" voor een Nederlandse klant
+- "Hosting October 2026" voor een Engelse klant
+
+### Een variabele invoegen
+
+<Steps>
+  <Step title="Open de lijst met variabelen">
+    Klik bij de omschrijving van een regel op de knop **Variabelen**, het **i**-icoon. Je vindt het icoon onder de omschrijving, of naast het label **Omschrijving**. Er opent een lijst met de groepen **Huidige periode**, **Vorige periode** en **Volgende periode**.
+  </Step>
+  <Step title="Klik op een variabele">
+    De variabele komt in de omschrijving op de plek van je cursor. Stond de cursor nog niet in de omschrijving, dan komt de variabele aan het eind van de tekst.
+  </Step>
+</Steps>
+
+<Note>
+Vindt TRONVoice geen omschrijving om de variabele in te zetten, dan kopieert het de variabele naar je klembord. Plak hem dan zelf in de omschrijving.
+</Note>
 
 ## Formaat van het factuurnummer
 

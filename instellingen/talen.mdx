@@ -72,6 +72,14 @@ De bepaalde taal wordt toegepast op het hele document, niet alleen op de lopende
   </Card>
 </CardGroup>
 
+### Factuurperiode en datumvariabelen
+
+Ook de factuurperiode en de datumvariabelen volgen de taal van de klant:
+
+- **Factuurperiode**: de periode op de pdf en in de e-mailvariabele `{periode}` staat in de taal van de klant. In het Nederlands is dat `01-10-2026 t/m 31-10-2026`, in het Engels `01-10-2026 to 31-10-2026`. De datums zelf volgen de [datumnotatie](#datumnotaties) van je administratie.
+- **Variabelen in regelomschrijvingen**: variabelen met een maandnaam, zoals `%THIS_MONTH_LONG%`, schrijven de maand in de taal van de klant. Een Engelse klant ziet `October`, een Nederlandse klant `oktober`. Lees meer bij [Variabelen in omschrijvingen](/facturen/aanmaken#variabelen-in-omschrijvingen).
+- **Eigen pdf-ontwerpen**: maandvariabelen zoals `[maand]` en `[vorige_maand]` gebruiken ook de taal van de klant. Lees meer bij [Eigen pdf-ontwerpen](/instellingen/pdf-ontwerpen).
+
 ### E-mails gebruiken de bijbehorende sjabloonvertaling
 
 E-mailsjablonen worden per taal opgeslagen. Als TRONVoice een factuur, offerte, herinnering of andere melding verstuurt, laadt het het sjabloon in de bepaalde taal van de klant. Bestaat er voor die taal geen aangepast sjabloon, dan wordt het ingebouwde standaardsjabloon voor die taal gebruikt.
