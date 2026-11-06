@@ -130,6 +130,7 @@
             "pages": [
               "instellingen/administraties",
               "instellingen/huisstijl",
+              "instellingen/pdf-ontwerpen",
               "instellingen/emailsjablonen",
               "instellingen/talen",
               "instellingen/gebruikers-en-rollen",
