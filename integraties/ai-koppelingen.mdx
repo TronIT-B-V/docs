@@ -1,0 +1,121 @@
+---
+title: "AI-koppelingen"
+description: "Koppel een AI-assistent zoals Claude of ChatGPT aan een TRONVoice-administratie en stel vragen over je klanten, facturen en omzet, of laat concepten voor je klaarzetten."
+---
+
+Met een AI-koppeling geef je een AI-assistent toegang tot één TRONVoice-administratie. Dat kan Claude zijn, ChatGPT of een andere app die MCP met OAuth ondersteunt. Je stelt de assistent dan vragen over je klanten, facturen, offertes, producten, abonnementen en omzet. Als je dat toestaat, maakt de assistent ook conceptfacturen, conceptoffertes en klanten voor je aan. Je kunt hem zelfs facturen en offertes laten versturen.
+
+Je kiest bij het koppelen zelf welke administratie de app ziet en wat de app mag.
+
+<Note>
+  Een AI-koppeling geldt voor **één administratie**. Wil je een assistent voor meerdere administraties gebruiken, maak dan per administratie een aparte koppeling.
+</Note>
+
+## Wat je nodig hebt
+
+- Een AI-app die eigen MCP-koppelingen (connectors) met OAuth ondersteunt, zoals Claude of ChatGPT.
+- Tweestapsverificatie (2FA) op je TRONVoice-account. Zonder 2FA kun je geen koppeling maken.
+- Een gewoon gebruikersaccount. Een uploader-account (een account dat alleen documenten mag uploaden) kan geen AI-koppeling maken.
+- AI-koppelingen moeten aanstaan voor je organisatie. De eigenaar kan ze voor de hele organisatie uitzetten.
+
+Het adres van de TRONVoice MCP-server is:
+
+```text
+https://app.tronvoice.eu/mcp
+```
+
+## Koppelen in Claude
+
+<Steps>
+  <Step title="Voeg een eigen connector toe">
+    Open in Claude de instellingen en ga naar **Connectors**. Kies **Add custom connector**.
+  </Step>
+  <Step title="Plak het serveradres">
+    Plak `https://app.tronvoice.eu/mcp` als adres en klik op **Connect**.
+  </Step>
+  <Step title="Log in bij TRONVoice">
+    Claude stuurt je door naar TRONVoice. Log in met je eigen account.
+  </Step>
+  <Step title="Kies administratie en rechten">
+    Kies op het toestemmingsscherm de administratie en vink aan wat Claude mag. Klik op **Toegang geven**. Daarna kom je vanzelf terug in Claude.
+  </Step>
+</Steps>
+
+<Tip>
+  Gebruik je Claude met een Team- of Enterprise-abonnement, dan voegt een eigenaar van jullie Claude-organisatie de connector eerst toe in de organisatie-instellingen. Daarna kan iedereen in het team zelf koppelen met zijn eigen TRONVoice-account.
+</Tip>
+
+## Koppelen in ChatGPT
+
+ChatGPT past de namen van menu's regelmatig aan. De stappen hieronder zijn daarom algemeen gehouden. De precieze menunamen kunnen bij jou anders zijn.
+
+<Steps>
+  <Step title="Open de koppelingen in ChatGPT">
+    Ga in de instellingen van ChatGPT naar het onderdeel voor apps of connectors. Zet zo nodig de ontwikkelaarsmodus aan, zodat je een eigen MCP-server kunt toevoegen.
+  </Step>
+  <Step title="Voeg TRONVoice toe">
+    Maak een nieuwe connector aan, plak `https://app.tronvoice.eu/mcp` als adres en kies **OAuth** als manier van inloggen.
+  </Step>
+  <Step title="Log in en geef toestemming">
+    Log in bij TRONVoice, kies de administratie en de rechten en klik op **Toegang geven**.
+  </Step>
+</Steps>
+
+## Het toestemmingsscherm
+
+Voordat een AI-app toegang krijgt, zie je in TRONVoice een toestemmingsscherm. Daar bepaal je wat de app mag.
+
+### Welke app vraagt toegang
+
+Bovenaan zie je welke app toegang vraagt en naar welk adres TRONVoice je daarna terugstuurt. Bij een gecontroleerde app zie je ook door wie de app is uitgegeven.
+
+<Warning>
+  Zie je een waarschuwing dat de naam van de app niet is gecontroleerd, of dat de app op je eigen computer draait? Ga dan alleen door als je het adres herkent en je het koppelen zelf net hebt gestart. Klik anders op **Weigeren**.
+</Warning>
+
+### Administratie
+
+Kies bij **Administratie** welke administratie de app mag zien. De app ziet alleen de gegevens van die administratie.
+
+### Wat mag de app?
+
+| Recht | Wat de app ermee kan |
+| --- | --- |
+| **Gegevens bekijken** | Klanten, facturen, offertes, producten, abonnementen en omzetcijfers van de gekozen administratie lezen. Dit recht staat altijd aan. |
+| **Concepten en klanten aanmaken** | Klanten aanmaken en conceptfacturen en conceptoffertes aanmaken of wijzigen. Er wordt niets verstuurd. |
+| **Facturen en offertes versturen** | Facturen en offertes per e-mail naar je klanten versturen. Dit kost credits en is niet terug te draaien. |
+
+Geef alleen de rechten die je echt nodig hebt. Wil je alleen vragen stellen, laat de andere twee rechten dan uit.
+
+## Veilig werken met een AI-assistent
+
+- **De app handelt namens jou.** Alles wat de assistent doet, gebeurt met jouw account en binnen de rechten die je hebt gegeven.
+- **Controleer concepten.** Bekijk een conceptfactuur of conceptofferte in TRONVoice voordat je hem laat versturen.
+- **Versturen vraagt altijd om bevestiging.** De AI-app vraagt je eerst om toestemming voordat hij een factuur of offerte verstuurt.
+- **Je krijgt bij elke nieuwe koppeling een e-mail.** Zo zie je meteen als er een koppeling bijkomt die je niet herkent.
+- **Een koppeling verloopt na 90 dagen.** Daarna koppel je de app opnieuw.
+- **Wachtwoord wijzigen beëindigt alle koppelingen.** Wijzig je je wachtwoord, dan stoppen al je AI-koppelingen en koppel je ze opnieuw.
+
+## Koppelingen beheren
+
+Ga naar **Instellingen → AI-koppelingen**. Hier zie je:
+
+- welke AI-koppelingen je hebt;
+- wanneer elke koppeling voor het laatst is gebruikt;
+- welke acties de app onlangs heeft uitgevoerd.
+
+Herken je een koppeling niet, of gebruik je hem niet meer? Klik dan op **Intrekken**. De app heeft direct geen toegang meer.
+
+### Voor eigenaren
+
+Als eigenaar van de organisatie zie je op dezelfde pagina alle AI-koppelingen van iedereen in je organisatie. Daarnaast vind je hier de schakelaar waarmee je AI-koppelingen voor de hele organisatie toestaat of uitzet.
+
+## Voorbeeldvragen
+
+Een paar ideeën om mee te beginnen:
+
+- "Welke facturen staan nog open en zijn al over de vervaldatum?"
+- "Wat was mijn omzet per maand dit jaar?"
+- "Welke offertes van de afgelopen maand zijn nog niet geaccepteerd?"
+- "Maak een conceptfactuur voor Bakkerij De Vries met 4 uur advies à €95,00."
+- "Welke abonnementen worden volgende maand gefactureerd?"

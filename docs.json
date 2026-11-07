@@ -122,7 +122,8 @@
               "integraties/jortt",
               "integraties/e-boekhouden",
               "integraties/sharepoint",
-              "integraties/eigen-emaildomein"
+              "integraties/eigen-emaildomein",
+              "integraties/ai-koppelingen"
             ]
           },
           {
