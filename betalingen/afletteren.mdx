@@ -56,7 +56,18 @@ Transacties die het automatisch koppelen niet kon oplossen, blijven op het tabbl
   <Step title="Koppel meer indien nodig">
     Blijft er nog een niet-gekoppeld restbedrag over op de transactie, dan houdt TRONVoice het koppelscherm open zodat je nog een factuur kunt koppelen.
   </Step>
+  <Step title="Door naar de volgende">
+    Is de transactie volledig gekoppeld, dan opent TRONVoice meteen de volgende transactie die nog te verwerken is. Je hoeft niet terug naar de lijst.
+  </Step>
 </Steps>
+
+### Achter elkaar afletteren
+
+Na elke volledige koppeling, en na **Transactie negeren** op het koppelscherm, ga je direct door naar de eerstvolgende openstaande transactie. De volgorde is die van het tabblad **Te verwerken**: van nieuw naar oud. Ben je onderaan, dan begint TRONVoice weer bovenaan. Zo werk je een heel afschrift in één keer weg.
+
+- Wil je een transactie later doen? Klik bovenaan op **Overslaan**. Je ziet daar ook hoeveel transacties er nog te verwerken zijn.
+- Is alles verwerkt, dan kom je terug op het overzicht met de melding **Alle transacties zijn verwerkt.**
+- Je blijft binnen de administratie van de transactie die je open had.
 
 ### Eén transactie, meerdere facturen
 
@@ -83,7 +94,7 @@ Is een transactie aan de verkeerde factuur gekoppeld, automatisch of handmatig, 
 - **Eén factuur loskoppelen**: als een transactie aan meerdere facturen is gekoppeld, koppel je er maar één los. Het resterende bedrag komt weer beschikbaar om te koppelen.
 - **Volledig loskoppelen**: maak alle koppelingen in één keer ongedaan en zet de transactie terug naar de niet-gekoppelde staat.
 
-Als je een factuur loskoppelt, wordt de status betaald teruggedraaid, zodat de factuur weer als openstaand wordt getoond.
+Als je een factuur loskoppelt, wordt de status betaald teruggedraaid, zodat de factuur weer als openstaand wordt getoond. Dat geldt alleen als deze betaling de factuur op betaald had gezet. Heb je de factuur zelf op betaald gezet, of is hij via Mollie betaald, dan blijft hij betaald.
 
 ---
 
@@ -113,3 +124,17 @@ Zo blijven je factuurstatussen in lijn met wat je bankrekening daadwerkelijk hee
 <Tip>
   Vraag klanten om het factuurnummer in de omschrijving of het kenmerk van hun betaling te zetten. Dat is het sterkste koppelsignaal en zorgt dat TRONVoice de meeste betalingen automatisch kan afletteren.
 </Tip>
+
+---
+
+## Afletteren via de API
+
+Werk je met een eigen koppeling of script, dan kun je dit ook via de TRONVoice API doen. Geef je API-sleutel daarvoor het recht **Banktransacties lezen** en/of **Banktransacties schrijven** (onder **Instellingen → API-sleutels**). Je kunt dan:
+
+- banktransacties ophalen en filteren, bijvoorbeeld op status, datum of bedrag
+- een transactie aan een factuur koppelen of weer loskoppelen, ook met een deelbedrag
+- een transactie negeren of terugzetten
+- een factuur op betaald zetten zonder banktransactie, bijvoorbeeld bij een contante betaling (recht **Facturen schrijven**)
+
+De volledige beschrijving, met een knop om het direct uit te proberen, vind je in de API-documentatie op `/api/docs` in de app.
+
