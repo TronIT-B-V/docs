@@ -60,11 +60,21 @@ TRONVoice probeert ook een factuurnummer in de omschrijving te vinden, zodat de 
 
 ### Bescherming tegen dubbele transacties
 
-Elke import wordt gegroepeerd in een **importbatch**. Voordat TRONVoice een transactie opslaat, controleert het of er al een transactie bestaat met dezelfde datum, hetzelfde bedrag, type en bankkenmerk. Overeenkomende transacties worden overgeslagen, zodat het importeren van overlappende afschriftperiodes geen dubbele transacties oplevert.
+Elke import wordt gegroepeerd in een **importbatch**. Voordat TRONVoice een transactie opslaat, controleert het of die al in de administratie staat: dezelfde datum, hetzelfde bedrag, dezelfde richting (binnenkomend of uitgaand) en dezelfde tegenrekening. Verschillen je eigen rekeningnummer, het bankkenmerk of het betalingskenmerk, dan gaat het om een andere betaling. Overeenkomende transacties worden overgeslagen, zodat het importeren van hetzelfde bestand of van overlappende afschriftperiodes geen dubbele transacties oplevert. De samenvatting na de import vertelt hoeveel transacties er al in stonden.
+
+TRONVoice telt per regel. Betaalt een klant op één dag twee keer hetzelfde bedrag, dan staan er twee gelijke regels in het afschrift. Die worden allebei geïmporteerd. Importeer je dat afschrift later nog een keer, dan worden ze allebei overgeslagen.
+
+De controle kijkt altijd in de administratie die je bij de import kiest, ook als je op dat moment een andere administratie open hebt.
 
 <Note>
   Na de import draait TRONVoice het automatisch koppelen op de nieuwe credittransacties. Binnenkomende betalingen die verwijzen naar een factuurnummer, een betalingskenmerk of een exacte klantnaam worden gekoppeld en de factuur wordt op betaald gezet. Zie [Banktransacties afletteren](/betalingen/afletteren) voor de volledige koppellogica.
 </Note>
+
+---
+
+## Importeren via de API
+
+Je kunt een MT940-bestand ook via de TRONVoice API importeren, bijvoorbeeld vanuit een script dat je afschriften per administratie inleest. Je API-sleutel heeft daarvoor het recht **Banktransacties schrijven** nodig. Stuur het bestand naar `POST /bank-transactions/import`. Met `dry_run` zie je eerst wat er geïmporteerd en wat er als dubbel overgeslagen zou worden, zonder dat er iets wordt opgeslagen. De dubbele-transactiecontrole en het automatisch koppelen werken hetzelfde als bij een import in de app. Alle details staan in de API-documentatie op `/api/docs` in de app.
 
 ---
 
@@ -85,6 +95,9 @@ Heb je het verkeerde bestand of de verkeerde periode geïmporteerd? Dan kun je e
 ## Problemen oplossen
 
 <AccordionGroup>
+  <Accordion title="Er staan al dubbele transacties in TRONVoice">
+    Zijn er eerder transacties dubbel ingelezen, dan kun je die opsporen via de API: `GET /bank-transactions/duplicates` geeft per groep aan welke regels je houdt (gekoppelde en verwerkte regels eerst) en welke je kunt verwijderen. Regels uit één en hetzelfde bestand gelden nooit als dubbel. Een gekoppelde transactie kan pas weg als je hem eerst loskoppelt, zodat er geen factuur betaald blijft door een transactie die niet meer bestaat.
+  </Accordion>
   <Accordion title="Er zijn geen transacties in het bestand gevonden">
     Het bestand is misschien geen geldig MT940-afschrift, of het is leeg. Exporteer het afschrift opnieuw bij je bank en controleer of je MT940 hebt gekozen (en niet PDF, CSV of CAMT).
   </Accordion>
