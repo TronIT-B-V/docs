@@ -62,7 +62,9 @@ TRONVoice probeert ook een factuurnummer in de omschrijving te vinden, zodat de 
 
 Elke import wordt gegroepeerd in een **importbatch**. Voordat TRONVoice een transactie opslaat, controleert het of die al in de administratie staat: dezelfde datum, hetzelfde bedrag, dezelfde richting (binnenkomend of uitgaand) en dezelfde tegenrekening. Verschillen je eigen rekeningnummer, het bankkenmerk of het betalingskenmerk, dan gaat het om een andere betaling. Overeenkomende transacties worden overgeslagen, zodat het importeren van hetzelfde bestand of van overlappende afschriftperiodes geen dubbele transacties oplevert. De samenvatting na de import vertelt hoeveel transacties er al in stonden.
 
-TRONVoice telt per regel. Betaalt een klant op één dag twee keer hetzelfde bedrag, dan staan er twee gelijke regels in het afschrift. Die worden allebei geïmporteerd. Importeer je dat afschrift later nog een keer, dan worden ze allebei overgeslagen.
+TRONVoice telt per regel. Betaalt een klant op één dag twee keer hetzelfde bedrag, dan staan er twee gelijke regels in het afschrift. Die worden allebei geïmporteerd. Importeer je dat afschrift later nog een keer, dan worden ze allebei overgeslagen. Heeft een betaling geen kenmerk, dan kijkt TRONVoice ook naar de omschrijving: dezelfde klant die later op de dag nog eens hetzelfde bedrag overmaakt met een andere omschrijving, komt gewoon binnen.
+
+Een bestand mag maximaal 10.000 transacties bevatten. Exporteer bij een groter bestand per kortere periode.
 
 De controle kijkt altijd in de administratie die je bij de import kiest, ook als je op dat moment een andere administratie open hebt.
 
@@ -96,7 +98,7 @@ Heb je het verkeerde bestand of de verkeerde periode geïmporteerd? Dan kun je e
 
 <AccordionGroup>
   <Accordion title="Er staan al dubbele transacties in TRONVoice">
-    Zijn er eerder transacties dubbel ingelezen, dan kun je die opsporen via de API: `GET /bank-transactions/duplicates` geeft per groep aan welke regels je houdt (gekoppelde en verwerkte regels eerst) en welke je kunt verwijderen. Regels uit één en hetzelfde bestand gelden nooit als dubbel. Een gekoppelde transactie kan pas weg als je hem eerst loskoppelt, zodat er geen factuur betaald blijft door een transactie die niet meer bestaat.
+    Zijn er eerder transacties dubbel ingelezen, dan kun je die opsporen via de API: `GET /bank-transactions/duplicates` geeft per groep aan welke regels je houdt en welke je kunt verwijderen. Je houdt altijd alle regels van één import (bij voorkeur die met gekoppelde of verwerkte regels), zodat een echte betaling nooit als dubbel wordt aangemerkt. Regels uit één en hetzelfde bestand gelden nooit als dubbel. Je zoekt per periode van maximaal een jaar. Een gekoppelde transactie kan pas weg als je hem eerst loskoppelt, zodat er geen factuur betaald blijft door een transactie die niet meer bestaat.
   </Accordion>
   <Accordion title="Er zijn geen transacties in het bestand gevonden">
     Het bestand is misschien geen geldig MT940-afschrift, of het is leeg. Exporteer het afschrift opnieuw bij je bank en controleer of je MT940 hebt gekozen (en niet PDF, CSV of CAMT).
