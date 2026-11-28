@@ -1,6 +1,6 @@
 ---
 title: "Ritten vastleggen"
-description: "Leg zakelijke en privéritten vast in TRONVoice: registreer ritten, classificeer ze, hergebruik favoriete routes en exporteer je rittenadministratie."
+description: "Leg zakelijke en privéritten vast in TRONVoice: adressen via postcode, vaste adressen, favoriete routes, reiskosten factureren en je rittenadministratie exporteren."
 ---
 
 Een **rit** is een enkele verplaatsing op een bepaalde datum, van een vertrekadres naar een aankomstadres. Door je ritten vast te leggen bouw je de **kilometeradministratie** op die je nodig hebt om je zakelijke kilometers te onderbouwen bij de Belastingdienst.
@@ -23,7 +23,7 @@ Je beheert ritten onder **Rittenregistratie**.
   </Step>
 
   <Step title="Voer de route in">
-    Vul het **vertrekadres** en het **aankomstadres** in. Optioneel voeg je een **route-omschrijving** toe met extra details over de verplaatsing.
+    Vul het **vertrekadres** en het **aankomstadres** in. Het snelst gaat dat met postcode en huisnummer: TRONVoice vult straat en plaats dan zelf aan. Of tik op een [vast adres](#vaste-adressen), zoals **Thuis**. Optioneel voeg je een **route-omschrijving** toe met extra details over de verplaatsing.
   </Step>
 
   <Step title="Leg de afstand vast">
@@ -41,10 +41,59 @@ Je beheert ritten onder **Rittenregistratie**.
     Koppel de rit eventueel aan een **klant** en voeg een **doelomschrijving** toe, bijvoorbeeld de reden van het bezoek. Zo is je rittenadministratie makkelijker te verifiëren.
   </Step>
 
+  <Step title="Factureer de reiskosten (optioneel)">
+    Rijd je voor een klant, dan zet je **Reiskosten direct factureren** aan en vul je het **tarief per km** in. Bij het opslaan maakt TRONVoice meteen een conceptfactuur aan die klant. Zie [Reiskosten factureren](#reiskosten-factureren).
+  </Step>
+
   <Step title="Sla de rit op">
-    Klik op **Opslaan**. De rit wordt aan je registratie toegevoegd en bij zakelijke voertuigen wordt de kilometerstand van het voertuig bijgewerkt.
+    Klik op **Rit registreren**. De rit wordt aan je registratie toegevoegd en bij zakelijke voertuigen wordt de kilometerstand van het voertuig bijgewerkt.
   </Step>
 </Steps>
+
+## Adres aanvullen met postcode en huisnummer
+
+Bij elk adresveld staan twee kleine velden: **Postcode** en **Nr.** Vul ze in, en TRONVoice zoekt het adres op in de officiële adressenlijst van het Kadaster (BAG). Straat, huisnummer, postcode en plaats komen dan in het adresveld te staan, bijvoorbeeld `Dam 5C, 1012 JS Amsterdam`.
+
+- Een huisletter of toevoeging typ je gewoon achter het nummer: `5c` of `7-2`.
+- Kent het Kadaster het huisnummer niet precies, dan vult TRONVoice wel de straat en plaats in. Controleer het nummer dan even.
+- Het adresveld blijft altijd vrij te typen. Voor een adres in het buitenland, of als het opzoeken even niet lukt, typ je het adres zelf.
+
+Dit werkt ook bij [favoriete routes](#favoriete-routes) en [vaste adressen](#vaste-adressen).
+
+## Vaste adressen
+
+Vertrek je vaak vanaf dezelfde plek, zoals thuis of je kantoor? Sla dat adres dan op als **vast adres**. Je vaste adressen staan als knoppen boven het vertrek- en aankomstadres. Eén tik vult het adres in.
+
+Je kunt een vast adres op twee manieren opslaan:
+
+- **Vanuit het rittenformulier**: vul een adres in, klik op **Bewaar als vast adres**, geef het een naam (bijvoorbeeld **Thuis**) en klik op **Opslaan**. Het adres staat meteen als knop bij beide adresvelden.
+- **Direct**: ga naar **Rittenregistratie → Vaste adressen** en klik op **Nieuw adres**.
+
+Onder **Rittenregistratie → Vaste adressen** pas je adressen ook aan of verwijder je ze. Ritten waarin een verwijderd adres staat, blijven gewoon bewaard.
+
+<Tip>
+  Je meest gebruikte vaste adressen staan vooraan. TRONVoice telt hoe vaak een vast adres in een opgeslagen rit voorkomt.
+</Tip>
+
+## Reiskosten factureren
+
+Breng je reiskosten in rekening bij een klant? TRONVoice maakt van je zakelijke ritten een conceptfactuur. Elke rit wordt een factuurregel: de zakelijke kilometers maal je **tarief per km**. Een privé-omweg telt dus niet mee. De btw volgt de instellingen van de klant (bijvoorbeeld btw verlegd).
+
+Dit kan op drie plekken:
+
+- **Bij een nieuwe rit**: kies een klant en zet **Reiskosten direct factureren** aan.
+- **Op de pagina van een rit**: gebruik de kaart **Reiskosten factureren**.
+- **Voor meerdere ritten tegelijk**: filter de rittenlijst op een klant (en eventueel een periode). Er verschijnt een balk met het aantal ritten en kilometers dat nog niet gefactureerd is. Klik op **Factureren** om ze samen op één factuur te zetten.
+
+Je komt daarna op de conceptfactuur uit. Controleer die en verstuur hem zoals elke andere factuur.
+
+<Note>
+  Een rit wordt maar één keer gefactureerd. In de rittenlijst staat dan het label **Gefactureerd**, en op de pagina van de rit vind je een link naar de factuur. Verwijder je de conceptfactuur, dan kun je de rit opnieuw factureren.
+</Note>
+
+<Tip>
+  TRONVoice onthoudt het tarief per km dat je het laatst gebruikte. De eerste keer staat er €0,23.
+</Tip>
 
 ## Zakelijke versus privéritten
 
